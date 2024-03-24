@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "任务-源1",
+      "appliesTo": "源1.c",
+      "type": "launch"
+    }
+  ]
+}
