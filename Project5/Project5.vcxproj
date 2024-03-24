@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="源.cpp" />
+    <ClCompile Include="源1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="标头.h" />
