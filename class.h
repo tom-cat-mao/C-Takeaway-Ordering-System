@@ -94,6 +94,9 @@ typedef struct User
 
     //订单号
     struct order* head = NULL;
+
+    struct User *next = NULL;
+    
 };
 
 #endif
