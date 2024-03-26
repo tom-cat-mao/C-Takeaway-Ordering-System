@@ -1,6 +1,22 @@
 #ifndef CLASSIFICATION_H
 #define CLASSIFICATION_H
 
+//菜单结构体
+typedef struct recipe
+{
+    char name[100];          //菜品名称
+    int price;               //菜品价格
+    struct recipe* next;
+} Recipe;
+
+//订单结构体
+typedef struct order
+{
+    char name[100];          
+    int price;               
+    struct order* next;
+} Order;
+
 // 商家结构体
 typedef struct 
 {
@@ -8,19 +24,8 @@ typedef struct
     char address[100];
     char phone[20];
 
-    typedef struct recipe
-    {
-        char name[100];
-        int price;
-        struct recipe *next;
-    } Recipe;
-
-    typedef struct order
-    {
-        char name[100];
-        int price;
-        struct order *next;
-    } Order;
+    struct Recipe* head;
+    struct Order* head;
 
     struct Merchant *next;
 
