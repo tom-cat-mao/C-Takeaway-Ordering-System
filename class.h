@@ -72,8 +72,8 @@ typedef struct Merchant
 // 外卖员结构体
 typedef struct DeliveryPerson
 {
-    //订单号
-    char order_id[100];
+    struct order* o_head = NULL;//订单链表
+    
     
     enum {FREE, BUSY} state;//状态
     char name[100];
@@ -93,8 +93,7 @@ typedef struct User
     char phone[20];
 
     //订单号
-    struct order* next = NULL;
-
+    struct order* head = NULL;
 };
 
 #endif
