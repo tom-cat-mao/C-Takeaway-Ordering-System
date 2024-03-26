@@ -7,7 +7,7 @@ typedef struct recipe
     char name[100];          //菜品名称
     int price;               //菜品价格
     struct recipe* next;
-} Recipe;
+};
 
 //订单结构体
 typedef struct order
@@ -15,7 +15,7 @@ typedef struct order
     char name[100];          
     int price;               
     struct order* next;
-} Order;
+};
 
 // 商家结构体
 typedef struct 
@@ -24,8 +24,8 @@ typedef struct
     char address[100];
     char phone[20];
 
-    struct Recipe* head;
-    struct Order* head;
+    struct recipe* r_head;
+    struct order* o_head;
 
     struct Merchant *next;
 
