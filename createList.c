@@ -3,7 +3,7 @@
 #include<string.h>
 
 //创建菜品列表
-void creatList_recipe(recipe** head, char* n, int p, int num)
+void creatList_recipe(recipe** head, char* n, float p, int num)
 {
     recipe* newNode = (recipe*)malloc(sizeof(recipe));
     if (!newNode)

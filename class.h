@@ -8,7 +8,7 @@
 typedef struct recipe
 {
     char name[100];          //菜品名称
-    int price;               //菜品价格
+    float price;               //菜品价格
     int num;                 //菜品数量
 
     struct recipe* next;
@@ -53,7 +53,7 @@ typedef struct order
     // 订单的菜品
     struct recipe* r_head;
 
-    int sum_price;
+    float sum_price;
 
     struct order* next;
 }order;
@@ -108,7 +108,7 @@ typedef struct User
 //创建链表
 
 //创建菜品列表
-void creatList_recipe(recipe** head, char* n, int p, int num);
+void creatList_recipe(recipe** head, char* n, float p, int num);
 //创建菜品类列表
 void creatList_r_classify(r_classify** head, char* n);
 //创建订单列表
@@ -120,4 +120,20 @@ void creatList_merchant(Merchant** head, char* n, char* p, char* a, char* pn);
 void creatList_user(User** head, char* n, char* p, char* a, char* pn);
 // 创建外卖员列表
 void creatList_deliveryperson(DeliveryPerson** head, char* n, char* p, char* pn);
+
+//打印链表
+
+//打印菜单中的菜品
+void printList_recipe_1(recipe* head);
+//打印订单中菜品
+void printList_recipe_2(recipe* head);
+//打印菜品分类
+void printList_r_classify(r_classify* head);
+// 打印订单
+void print_order_list(order* head);
+//打印商家列表
+void printList_merchant(Merchant* head);
+
+//求单个订单的折后价
+void sumPrice(order* head, recipe* head_r, float discount);
 #endif
