@@ -8,7 +8,7 @@ void printList_recipe_1(recipe* head)
     printf("Recipe List:\n");
     while (head != NULL)
     {
-        printf("Name: %s\tPrice: %f\n", head->name, head->price);
+        printf("Name: %s\tPrice: %.2f\n", head->name, head->price);
         head = head->next;
     }
 }
@@ -19,7 +19,7 @@ void printList_recipe_2(recipe* head)
     printf("Recipe List:\n");
     while (head != NULL)
     {
-        printf("Name: %s\tPrice: %f\tQuantity: %d\n", head->name, head->price, head->num);
+        printf("Name: %s\tPrice: %.2f\tQuantity: %d\n", head->name, head->price, head->num);
         head = head->next;
     }
 }
@@ -47,7 +47,7 @@ void print_order_list(order* head)
         printf("User: %s\tAddress: %s\tPhone: %s\n", head->u_name, head->u_address, head->u_phone);
         printf("Delivery Person: %s\tPhone: %s\n", head->d_name, head->d_phone);
         printList_recipe_2(head->r_head); // 打印订单中的菜品列表
-        printf("Total Price: %f\n", head->sum_price);
+        printf("Total Price: %.2f\n", head->sum_price);
         switch (head->state) {
         case WAY:
             printf("Order State: Waiting\n");
