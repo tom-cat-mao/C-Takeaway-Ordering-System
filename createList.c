@@ -99,7 +99,7 @@ void creatList_r_classify(r_classify** head, char* n)
             printf("请输入菜品价格：");
             scanf("%f", price);
             printf("\n");
-            creatList_recipe_2(newNode->r_head, name, price);
+            creatList_recipe_2(&newNode->r_head, name, price);
         }
         newNode->total_number = i + 1;
     }
