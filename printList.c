@@ -31,7 +31,14 @@ void printList_r_classify(r_classify* head)
     while (head != NULL)
     {
         printf("%s\n", head->name);
-        printList_recipe_1(head->r_head);
+        if (head->r_head == NULL)
+        {
+            printf("该菜品类还未添加菜品\n");
+        }
+        else
+        {
+            printList_recipe_1(head->r_head);
+        }
         head = head->next;
     }
 }

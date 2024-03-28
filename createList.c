@@ -5,11 +5,14 @@
 //创建订单菜品列表
 void creatList_recipe_1(recipe** head, char* n, float p, int num)
 {
-    recipe* newNode = (recipe*)malloc(sizeof(recipe));
+    recipe* newNode = (recipe*)malloc(sizeof(recipe));   //申请新节点空间
+
+    //检查节点是否申请成功
     if (!newNode)
     {
         return;
     }
+
     strcpy(newNode->name, n);
     newNode->price = p;
     newNode->num = num;
@@ -33,11 +36,14 @@ void creatList_recipe_1(recipe** head, char* n, float p, int num)
 //创建菜单里的菜品列表
 void creatList_recipe_2(recipe** head, char* n, float p)
 {
-    recipe* newNode = (recipe*)malloc(sizeof(recipe));
+    recipe* newNode = (recipe*)malloc(sizeof(recipe));   //申请新节点空间
+
+    //检查节点是否申请成功
     if (!newNode)
     {
         return;
     }
+
     strcpy(newNode->name, n);
     newNode->price = p;
     newNode->next = NULL;
@@ -60,39 +66,44 @@ void creatList_recipe_2(recipe** head, char* n, float p)
 //创建菜品类列表
 void creatList_r_classify(r_classify** head, char* n)
 {
-    r_classify* newNode = (r_classify*)malloc(sizeof(r_classify));
+    r_classify* newNode = (r_classify*)malloc(sizeof(r_classify));//申请节点空间
+
+    //检查节点是否申请成功
     if (!newNode)
     {
         return;
     }
-    strcpy(newNode->name, n);
-    newNode->next = NULL;
 
-    if (*head == NULL)
+    strcpy(newNode->name, n);
+    newNode->r_head = NULL;
+
+    //是否添加菜品
+    printf("1.添加菜品\t2.稍后添加\n");
+    int flag = 0;//标志数
+    scanf("%d", &flag);
+    //添加菜品
+    if (flag == 1)
     {
-        *head = newNode;
-    }
-    else
-    {
-        r_classify* current = *head;
-        while (current->next != NULL)
+        int i;
+        for (i = 0;; i++)
         {
-            current = current->next;
+            char name[100];
+            float price;
+            printf("请输入菜品名称：");
+            scanf("%s", name);
+            if (name[0] == 0)
+            {
+                break;
+            }
+            printf("\n");
+            printf("请输入菜品价格：");
+            scanf("%f", price);
+            printf("\n");
+            creatList_recipe_2(newNode->r_head, name, price);
         }
-        current->next = newNode;
+        newNode->total_number = i + 1;
     }
-}
 
-
-//创建菜品类列表
-void creatList_r_classify(r_classify** head, char* n)
-{
-    r_classify* newNode = (r_classify*)malloc(sizeof(r_classify));
-    if (!newNode)
-    {
-        return;
-    }
-    strcpy(newNode->name, n);
     newNode->next = NULL;
 
     if (*head == NULL)
@@ -114,11 +125,14 @@ void creatList_r_classify(r_classify** head, char* n)
 void creatList_order(order** head, char* o_id, char* merchant_name, char* merchant_address, char* merchant_phone,
     char* deliver_name, char* deliver_phone, char* user_name, char* user_adderss, char* user_phone)
 {
-    order* newNode = (order*)malloc(sizeof(order));
+    order* newNode = (order*)malloc(sizeof(order));//申请节点空间
+
+    //检查节点是否申请成功
     if (!newNode)
     {
         return;
     }
+
     strcpy(newNode->order_id, o_id);
     strcpy(newNode->m_name, merchant_name);
     strcpy(newNode->m_address, merchant_address);
@@ -148,11 +162,14 @@ void creatList_order(order** head, char* o_id, char* merchant_name, char* mercha
 //创建商家链表
 void creatList_merchant(Merchant** head, char* n, char* p, char* a, char* pn)
 {
-    Merchant* newNode = (Merchant*)malloc(sizeof(Merchant));
+    Merchant* newNode = (Merchant*)malloc(sizeof(Merchant));//申请节点空间
+
+    //检查节点是否申请成功
     if (!newNode)
     {
         return;
     }
+
     strcpy(newNode->name, n);
     strcpy(newNode->password, p);
     strcpy(newNode->address, a);
@@ -177,11 +194,14 @@ void creatList_merchant(Merchant** head, char* n, char* p, char* a, char* pn)
 //创建用户链表
 void creatList_user(User** head, char* n, char* p, char* a, char* pn)
 {
-    User* newNode = (User*)malloc(sizeof(User));
+    User* newNode = (User*)malloc(sizeof(User));//申请节点空间
+
+    //检查节点是否申请成功
     if (!newNode)
     {
         return;
     }
+
     strcpy(newNode->name, n);
     strcpy(newNode->password, p);
     strcpy(newNode->address, a);
@@ -206,11 +226,14 @@ void creatList_user(User** head, char* n, char* p, char* a, char* pn)
 //创建外卖员列表
 void creatList_deliveryperson(DeliveryPerson** head, char* n, char* p, char* pn)
 {
-    DeliveryPerson* newNode = (DeliveryPerson*)malloc(sizeof(DeliveryPerson));
+    DeliveryPerson* newNode = (DeliveryPerson*)malloc(sizeof(DeliveryPerson));//申请节点空间
+
+    //检查节点是否申请成功
     if (!newNode)
     {
         return;
     }
+
     strcpy(newNode->name, n);
     strcpy(newNode->password, p);
     strcpy(newNode->phone, pn);

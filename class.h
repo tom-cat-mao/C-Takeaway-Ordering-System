@@ -17,6 +17,7 @@ typedef struct recipe
 typedef struct r_classify
 {
     char name[100];                 //菜品分类名称
+    int total_number;        //记录菜品的总数量
     struct recipe* r_head;   //菜品链表
 
     struct r_classify* next;
