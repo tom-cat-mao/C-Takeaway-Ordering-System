@@ -107,8 +107,10 @@ typedef struct User
 
 //创建链表
 
-//创建菜品列表
-void creatList_recipe(recipe** head, char* n, float p, int num);
+//创建订单菜品列表
+void creatList_recipe_1(recipe** head, char* n, float p, int num);
+//创建菜单里的菜品列表
+void creatList_recipe_2(recipe** head, char* n, float p);
 //创建菜品类列表
 void creatList_r_classify(r_classify** head, char* n);
 //创建订单列表

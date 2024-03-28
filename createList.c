@@ -2,8 +2,8 @@
 #include"class.h"
 #include<string.h>
 
-//创建菜品列表
-void creatList_recipe(recipe** head, char* n, float p, int num)
+//创建订单菜品列表
+void creatList_recipe_1(recipe** head, char* n, float p, int num)
 {
     recipe* newNode = (recipe*)malloc(sizeof(recipe));
     if (!newNode)
@@ -29,6 +29,60 @@ void creatList_recipe(recipe** head, char* n, float p, int num)
         current->next = newNode;
     }
 }
+
+//创建菜单里的菜品列表
+void creatList_recipe_2(recipe** head, char* n, float p)
+{
+    recipe* newNode = (recipe*)malloc(sizeof(recipe));
+    if (!newNode)
+    {
+        return;
+    }
+    strcpy(newNode->name, n);
+    newNode->price = p;
+    newNode->next = NULL;
+
+    if (*head == NULL)
+    {
+        *head = newNode;
+    }
+    else
+    {
+        recipe* current = *head;
+        while (current->next != NULL)
+        {
+            current = current->next;
+        }
+        current->next = newNode;
+    }
+}
+
+//创建菜品类列表
+void creatList_r_classify(r_classify** head, char* n)
+{
+    r_classify* newNode = (r_classify*)malloc(sizeof(r_classify));
+    if (!newNode)
+    {
+        return;
+    }
+    strcpy(newNode->name, n);
+    newNode->next = NULL;
+
+    if (*head == NULL)
+    {
+        *head = newNode;
+    }
+    else
+    {
+        r_classify* current = *head;
+        while (current->next != NULL)
+        {
+            current = current->next;
+        }
+        current->next = newNode;
+    }
+}
+
 
 //创建菜品类列表
 void creatList_r_classify(r_classify** head, char* n)
