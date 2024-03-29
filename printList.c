@@ -48,6 +48,8 @@ void print_order_list(order* head)
     printf("Order List:\n");
     while (head != NULL)
     {
+        printf("%d-%02d-%02d %02d:%02d:%02d\n", head->localTime->tm_year + 1900, head->localTime->tm_mon + 1, head->localTime->tm_mday,
+            head->localTime->tm_hour, head->localTime->tm_min, head->localTime->tm_sec);
         printf("Order ID: %s\n", head->order_id);
         printf("Merchant: %s\tAddress: %s\tPhone: %s\n", head->m_name, head->m_address, head->m_phone);
         printf("User: %s\tAddress: %s\tPhone: %s\n", head->u_name, head->u_address, head->u_phone);

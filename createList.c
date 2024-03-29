@@ -95,7 +95,7 @@ r_classify* creatList_r_classify(char* n)
 }
 
 //创建订单列表
-order* creatList_order(char* o_id, char* merchant_name, char* merchant_address, char* merchant_phone,
+order* creatList_order(char* merchant_name, char* merchant_address, char* merchant_phone,
     char* deliver_name, char* deliver_phone, char* user_name, char* user_adderss, char* user_phone)
 {
     order* newNode = (order*)malloc(sizeof(order));//申请节点空间
@@ -107,7 +107,6 @@ order* creatList_order(char* o_id, char* merchant_name, char* merchant_address, 
     }
 
     // initit order information
-    strcpy(newNode->order_id, o_id);
     strcpy(newNode->m_name, merchant_name);
     strcpy(newNode->m_address, merchant_address);
     strcpy(newNode->m_phone, merchant_phone);
@@ -116,6 +115,14 @@ order* creatList_order(char* o_id, char* merchant_name, char* merchant_address, 
     strcpy(newNode->u_phone, user_phone);
     strcpy(newNode->d_name, deliver_name);
     strcpy(newNode->d_phone, deliver_phone);
+    set_time(newNode->localTime);
+    strftime(newNode->order_id, sizeof(newNode->order_id), "%Y%m%d %H%M%S", newNode->localTime);
+    for (int i = 7; i < 11; i++)
+    {
+        int j = strlen(newNode->order_id);
+        newNode->order_id[j] = newNode->u_phone[i];
+        j++;
+    }
     newNode->next = NULL;
 
     return newNode;

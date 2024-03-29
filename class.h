@@ -33,6 +33,9 @@ typedef struct order
     // 订单号
     char order_id[100];
 
+    //订单创建时间
+    struct tm* localTime;
+
     // 商家，配送员，顾客的名字
     char m_name[100];
     char d_name[100];
@@ -54,6 +57,11 @@ typedef struct order
 
     // 订单状态
     enum { WAY, DILLVERING, FINISH } state;
+
+    //预计到店时间
+    struct tm* arrive_time;
+    //预计送达时间
+    struct tm* send_time;
 
     // 订单的菜品
     struct recipe* r_head;
@@ -123,7 +131,7 @@ recipe* creatList_recipe_2(char* n, float p);
 //创建菜品类列表
 r_classify* creatList_r_classify(char* n);
 //创建订单列表
-order* creatList_order(char* o_id, char* merchant_name, char* merchant_address, char* merchant_phone,
+order* creatList_order(char* merchant_name, char* merchant_address, char* merchant_phone,
     char* deliver_name, char* deliver_phone, char* user_name, char* user_adderss, char* user_phone);
 //创建商家链表
 Merchant* creatList_merchant(char* n, char* p, char* a, char* pn);
@@ -151,4 +159,15 @@ void sumPrice(order* head, recipe* head_r, float discount);
 
 bool delete_order(order** head, char* order_id);
 
+//设置时间
+void set_time(struct tm* localTime);
+
+//修改密码
+
+//更改商户密码
+void merchant_change_p(Merchant* head);
+//更改用户密码
+void user_change_p(User* head);
+//更改外卖员密码
+void deliveryPerson_change_p(DeliveryPerson* head);
 #endif
