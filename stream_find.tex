@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning}
+
+\begin{document}
+
+\begin{tikzpicture}[node distance=2cm, overlay]
+    \begin{scope}[xshift=5cm]
+    % 定义流程图节点样式
+    \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=red!30]
+    \tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+    \tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+    \tikzstyle{arrow} = [thick,->,>=stealth]
+
+    % 绘制流程图节点
+    \node [startstop] (start) {r\_classify};
+    \node [process, below of=start] (pro1) {the specified class};
+    \node [decision, below of=pro1, yshift=-2cm] (dec1) {whether merchant};
+    \node [decision, right of=dec1, xshift=2cm] (dec2) {whether modify};
+    \node [process, below right=2cm and 3cm of dec2] (extra) {whether successful};
+    \node [process, below of=dec1, yshift=-2cm] (pro2) {list the recipes in the class};
+    \node [process, below of=pro2] (pro3) {the specified recipe};
+    \node [decision, below of=pro3, yshift=-2cm] (dec3) {user or merchant};
+    \node [process, left of=dec3, xshift=-3.5cm] (pro3a) {set the number of the recipe};
+    \node [process, right of=dec3, xshift=3.5cm] (pro3b) {modify the recipe};
+    \node [startstop, below of=pro3a] (stopa) {create a new order};
+    \node [startstop, below of=pro3b] (stopb) {whether the process is successful};
+    
+    % 绘制流程图箭头连接
+    \draw [arrow] (start) -- node[anchor=east] {find with tree} node[anchor=west] {user input the name} (pro1);
+    \draw [arrow] (pro1) -- (dec1);
+    \draw [arrow] (dec1) -- node[anchor=south] {Yes} (dec2);
+    \draw [arrow] (dec2) -| node[anchor=south] {input the modify} (extra);
+    \draw [arrow] (dec2) |- node[anchor=north] {No} (pro2);
+    \draw [arrow] (dec1) -- node[anchor=east] {No} (pro2);
+    \draw [arrow] (pro2) -- (pro3);
+    \draw [arrow] (pro2) -- node[anchor=east] {find with tree} node[anchor=west] {user input the name} (pro3);
+    \draw [arrow] (pro3) -- (dec3);
+    \draw [arrow] (dec3) -- node[anchor=south] {User} (pro3a);
+    \draw [arrow] (dec3) -- node[anchor=south] {Merchant} (pro3b);
+    \draw [arrow] (pro3a) -- (stopa);
+    \draw [arrow] (pro3b) -- (stopb);
+    \end{scope}
+\end{tikzpicture}
+
+\end{document}
