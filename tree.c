@@ -9,8 +9,13 @@ typedef struct Node {
 } Node;
 
 // 创建新的树节点
-Node* createNode(int data) {
+Node* createNode(int data)
+{
     Node* newNode = (Node*)malloc(sizeof(Node));
+    if (newNode == NULL)
+    {
+        return NULL;
+    }
     newNode->data = data;
     newNode->left = NULL;
     newNode->right = NULL;
@@ -18,18 +23,19 @@ Node* createNode(int data) {
 }
 
 // 向树中插入节点
-Node* insert(Node* root, int data) {
-    if (root == NULL) {
-        return createNode(data);
+void insert(Node** root, int data) {
+    if (*root == NULL) {
+        *root = createNode(data);
+        return;
     }
-    
-    if (data < root->data) {
-        root->left = insert(root->left, data);
-    } else if (data > root->data) {
-        root->right = insert(root->right, data);
+
+    if (data < (*root)->data) {
+        insert(&((*root)->left), data);
     }
-    
-    return root;
+    else if (data > (*root)->data) {
+        insert(&((*root)->right), data);
+    }
+
 }
 
 // 在树中查找节点
@@ -37,49 +43,56 @@ Node* search(Node* root, int data) {
     if (root == NULL || root->data == data) {
         return root;
     }
-    
+
     if (data < root->data) {
         return search(root->left, data);
-    } else {
+    }
+    else {
         return search(root->right, data);
     }
 }
 
 // 在树中删除节点
-Node* deleteNode(Node* root, int data) {
-    if (root == NULL) {
-        return root;
+void deleteNode(Node** root, int data) {
+    if (*root == NULL) {
+        return;
     }
-    
-    if (data < root->data) {
-        root->left = deleteNode(root->left, data);
-    } else if (data > root->data) {
-        root->right = deleteNode(root->right, data);
-    } else {
-        // 找到需要删除的节点
-        
+
+    if (data < (*root)->data) {
+        deleteNode(&((*root)->left), data);
+    }
+    else if (data > (*root)->data) {
+        deleteNode(&((*root)->right), data);
+    }
+    else // 找到需要删除的节点
+    {
+        Node* temp;
         // 没有子节点或只有一个子节点的情况
-        if (root->left == NULL) {
-            Node* temp = root->right;
-            free(root);
-            return temp;
-        } else if (root->right == NULL) {
-            Node* temp = root->left;
-            free(root);
-            return temp;
+        if ((*root)->left == NULL) {
+            temp = *root;
+            *root = (*root)->right;
+            free(temp);
         }
-        
-        // 有两个子节点的情况，找到右子树中最小的节点替代当前节点
-        Node* minValueNode = root->right;
-        while (minValueNode->left != NULL) {
-            minValueNode = minValueNode->left;
+        else if ((*root)->right == NULL) {
+            temp = *root;
+            *root = (*root)->left;
+            free(temp);
         }
-        
-        root->data = minValueNode->data;
-        root->right = deleteNode(root->right, minValueNode->data);
+        else
+        {
+            // 有两个子节点的情况，找到右子树中最小的节点替代当前节点
+            Node* minValueNode = (*root)->right;
+            while (minValueNode->left != NULL) {
+                minValueNode = minValueNode->left;
+            }
+
+            (*root)->data = minValueNode->data;
+            deleteNode(&((*root)->right), minValueNode->data);
+        }
+
+
     }
-    
-    return root;
+
 }
 
 // 中序遍历树
@@ -93,32 +106,33 @@ void inorderTraversal(Node* root) {
 
 int main() {
     Node* root = NULL;
-    
+
     // 向树中插入节点
-    root = insert(root, 5);
-    root = insert(root, 3);
-    root = insert(root, 8);
-    root = insert(root, 1);
-    root = insert(root, 6);
-    
+    insert(&root, 5);
+    insert(&root, 3);
+    insert(&root, 8);
+    insert(&root, 1);
+    insert(&root, 6);
+
     printf("中序遍历树：");
     inorderTraversal(root);
     printf("\n");
-    
+
     // 在树中查找节点
     Node* node = search(root, 6);
     if (node != NULL) {
         printf("找到节点：%d\n", node->data);
-    } else {
+    }
+    else {
         printf("未找到节点\n");
     }
-    
+
     // 在树中删除节点
-    root = deleteNode(root, 3);
-    
+    deleteNode(&root, 3);
+
     printf("删除节点后的中序遍历树：");
     inorderTraversal(root);
     printf("\n");
-    
+
     return 0;
 }
