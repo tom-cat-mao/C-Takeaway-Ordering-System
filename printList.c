@@ -1,6 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include"class.h"
-#include<string.h>
 
 //打印菜单中的菜品
 void printList_recipe_1(recipe* head)

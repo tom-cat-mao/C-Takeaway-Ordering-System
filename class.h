@@ -3,6 +3,8 @@
 #define CLASSIFICATION_H
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
 
 //菜单结构体
 typedef struct recipe
@@ -18,9 +20,11 @@ typedef struct r_classify
 {
     char name[100];                 //菜品分类名称
     int total_number;        //记录菜品的总数量
-    struct recipe* r_head;   //菜品链表
 
-    struct r_classify* next;
+    struct recipe* r_head;   //菜品链表
+    struct recipe* r_tail;   //菜品链表尾
+
+    struct r_classify* next; //下一个分类
 }r_classify;
 
 //订单结构体
@@ -53,6 +57,7 @@ typedef struct order
 
     // 订单的菜品
     struct recipe* r_head;
+    struct recipe* r_tail;
 
     float sum_price;
 
@@ -68,7 +73,10 @@ typedef struct Merchant
     char phone[20];
 
     struct order* o_head;//订单链表
+    struct order* o_tail;//订单链表尾
+
     struct r_classify* r_head;//菜品分类链表
+    struct r_classify* r_tail;//菜品分类链表尾
 
     struct Merchant* next;
 
@@ -109,20 +117,20 @@ typedef struct User
 //创建链表
 
 //创建订单菜品列表
-void creatList_recipe_1(recipe** head, char* n, float p, int num);
+recipe* creatList_recipe_1(char* n, float p, int num);
 //创建菜单里的菜品列表
-void creatList_recipe_2(recipe** head, char* n, float p);
+recipe* creatList_recipe_2(char* n, float p);
 //创建菜品类列表
-void creatList_r_classify(r_classify** head, char* n);
+r_classify* creatList_r_classify(char* n);
 //创建订单列表
-void creatList_order(order** head, char* o_id, char* merchant_name, char* merchant_address, char* merchant_phone,
+order* creatList_order(char* o_id, char* merchant_name, char* merchant_address, char* merchant_phone,
     char* deliver_name, char* deliver_phone, char* user_name, char* user_adderss, char* user_phone);
 //创建商家链表
-void creatList_merchant(Merchant** head, char* n, char* p, char* a, char* pn);
+Merchant* creatList_merchant(char* n, char* p, char* a, char* pn);
 //创建用户链表
-void creatList_user(User** head, char* n, char* p, char* a, char* pn);
+User* creatList_user(char* n, char* p, char* a, char* pn);
 // 创建外卖员列表
-void creatList_deliveryperson(DeliveryPerson** head, char* n, char* p, char* pn);
+DeliveryPerson* creatList_deliveryperson(char* n, char* p, char* pn);
 
 //打印链表
 
@@ -139,4 +147,8 @@ void printList_merchant(Merchant* head);
 
 //求单个订单的折后价
 void sumPrice(order* head, recipe* head_r, float discount);
+
+
+bool delete_order(order** head, char* order_id);
+
 #endif
