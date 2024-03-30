@@ -11,7 +11,7 @@ void discount_change(double* d, enum card c)
 
 
 //更改用户会员类型
-void card_class_change(User* head, int n)
+void card_class_change(User* head, int c)
 {
 	User* current = head;
 	char n[100] = { "\n" };
@@ -34,6 +34,6 @@ void card_class_change(User* head, int n)
 	}
 	else
 	{
-		current->card_class = n;
+		current->card_class = c;
 	}
 }
