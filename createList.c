@@ -117,11 +117,11 @@ order* creatList_order(char* merchant_name, char* merchant_address, char* mercha
     strcpy(newNode->d_phone, deliver_phone);
     set_time(newNode->localTime);
     strftime(newNode->order_id, sizeof(newNode->order_id), "%Y%m%d %H%M%S", newNode->localTime);
-    for (int i = 7; i < 11; i++)
+    for (int i = 7, j = strlen(newNode->order_id); i < 11; i++,j++)
     {
-        int j = strlen(newNode->order_id);
+        
         newNode->order_id[j] = newNode->u_phone[i];
-        j++;
+        
     }
     newNode->next = NULL;
 
