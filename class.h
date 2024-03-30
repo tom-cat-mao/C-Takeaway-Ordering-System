@@ -160,7 +160,7 @@ void print_order_list(order* head);
 void printList_merchant(Merchant* head);
 
 //求单个订单的折后价
-void sumPrice(order* head, recipe* head_r, float discount);
+void sumPrice(order* head, recipe* head_r, enum card c, int* d);
 
 
 bool delete_order(order** head, char* order_id);

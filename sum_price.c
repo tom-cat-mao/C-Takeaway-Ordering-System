@@ -2,7 +2,7 @@
 #include"class.h"
 
 //求单个订单的折后价
-void sumPrice(order* head, recipe* head_r, float discount)
+void sumPrice(order* head, recipe* head_r, enum card c, int* d)
 {
 	head->sum_price = 0;
 	while (head_r != NULL)
@@ -10,5 +10,5 @@ void sumPrice(order* head, recipe* head_r, float discount)
 		head->sum_price = head->sum_price + head_r->price;
 		head_r = head_r->next;
 	}
-	head->sum_price = head->sum_price * discount;
+	head->sum_price = head->sum_price * d[c];
 }
