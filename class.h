@@ -176,4 +176,19 @@ void deliveryPerson_change_p(DeliveryPerson* head);
 void discount_change(int* d, enum card c);
 //更改用户会员类型
 void card_class_change(User* head, int n);
+
+//密码存储
+
+//商户密码存储
+void m_writeIntoFile_p(char* n, char* p);
+//用户密码存储
+void u_writeIntoFile_p(char* n, char* p);
+//外卖员密码存储
+void d_writeIntoFile_p(char* n, char* p);
+//更改商家密码
+void m_updatePassword(char* n, char* new_p);
+//更改用户密码
+void u_updatePassword(char* n, char* new_p);
+//更改外卖员密码
+void d_updatePassword(char* n, char* new_p);
 #endif
