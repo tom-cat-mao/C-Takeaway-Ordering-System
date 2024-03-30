@@ -7,7 +7,7 @@
 #include <stdbool.h>
 #include<time.h>
 
-int discount[3] = { 0.9,0.85,0.75 };//不同卡对应的折扣
+double discount[3] = { 0.9,0.85,0.75 };//不同卡对应的折扣
 enum { SLIVER, GOLD, PLATINUM }card;//用户会员类型
 
 //菜单结构体
@@ -53,11 +53,6 @@ typedef struct order
     char m_phone[20];
     char d_phone[20];
     char u_phone[20];
-
-    //预计到店时间
-    int arrive_time;
-    //预计送达时间
-    int send_time;
 
     // 订单状态
     enum { WAY, DILLVERING, FINISH } state;

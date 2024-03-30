@@ -2,10 +2,10 @@
 #include "class.h"
 
 //更改会员折扣
-void discount_change(int* d, enum card c)
+void discount_change(double* d, enum card c)
 {
-	int n = 0;
-	scanf("%d", &n);
+	double n = 0;
+	scanf("%lf", &n);
 	d[c] = n;
 }
 
