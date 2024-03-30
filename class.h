@@ -7,6 +7,9 @@
 #include <stdbool.h>
 #include<time.h>
 
+int discount[3] = { 0.9,0.85,0.75 };//不同卡对应的折扣
+enum { SLIVER, GOLD, PLATINUM }card;//用户会员类型
+
 //菜单结构体
 typedef struct recipe
 {
@@ -115,6 +118,8 @@ typedef struct User
     char name[100];
     char address[100];
     char phone[20];
+    
+    int card_class//用户会员
 
     //订单号
     struct order* head;
@@ -171,4 +176,9 @@ void merchant_change_p(Merchant* head);
 void user_change_p(User* head);
 //更改外卖员密码
 void deliveryPerson_change_p(DeliveryPerson* head);
+
+//更改会员折扣
+void discount_change(int* d, enum card c);
+//更改用户会员类型
+void card_class_change(User* head, int n);
 #endif
