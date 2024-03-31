@@ -180,9 +180,7 @@ void discount_change(int* d, enum card c);
 void card_class_change(User* head, int n);
 
 // 登录以及修改密码
-bool compare_m(char* n);
-bool compare_u(char* n);
-bool compare_d(char* n);
+bool compare(char* n);
 void writeIntoFile_p(char * f_name ,char* n, char* p);
 void updatePassword(char * f_name ,char* n, char* new_p);
 
