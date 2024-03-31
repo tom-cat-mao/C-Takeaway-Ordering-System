@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// ²Ëµ¥Ê÷½Úµã
+// èœå•æ ‘èŠ‚ç‚¹
 typedef struct t_recipe
 {
     recipe* r_node;
@@ -13,7 +13,7 @@ typedef struct t_recipe
     struct t_recipe* left;
     struct t_recipe* right;
 } t_recipe;
-// ¶©µ¥Ê÷½Úµã
+// è®¢å•æ ‘èŠ‚ç‚¹
 typedef struct t_order
 {
     order* o_node;
@@ -21,7 +21,7 @@ typedef struct t_order
     struct t_order* left;
     struct t_order* right;
 }t_order;
-// ÉÌ¼ÒÊ÷½Úµã
+// å•†å®¶æ ‘èŠ‚ç‚¹
 typedef struct t_Merchant
 {
     Merchant* M_node;
@@ -30,30 +30,37 @@ typedef struct t_Merchant
     struct t_Merchant* right;
 }t_Merchant;
 
-//´´½¨Ê÷
-// ´´½¨ĞÂµÄ²Ëµ¥Ê÷½Úµã(ÒÑ¼ìÑé£©
+//åˆ›å»ºæ ‘
+// åˆ›å»ºæ–°çš„èœå•æ ‘èŠ‚ç‚¹(å·²æ£€éªŒï¼‰
 t_recipe* creatTree_recipe(recipe* example);
-// ´´½¨ĞÂµÄ¶©µ¥Ê÷½Úµã
+// åˆ›å»ºæ–°çš„è®¢å•æ ‘èŠ‚ç‚¹
 t_order* creatTree_order(order* example);
-// ´´½¨ĞÂµÄÉÌ¼ÒÊ÷½Úµã
+// åˆ›å»ºæ–°çš„å•†å®¶æ ‘èŠ‚ç‚¹
 t_Merchant* creatTree_Merchant(Merchant* example);
 
-//²åÈë½Úµã
-// ÒÔ²ËÆ·Ãû³ÆÎªÅĞ¶Ï±ê×¼Ïò²Ëµ¥Ê÷ÖĞ²åÈë½Úµã£¨ÒÑ¼ìÑé£©
+//æ’å…¥èŠ‚ç‚¹
+// ä»¥èœå“åç§°ä¸ºåˆ¤æ–­æ ‡å‡†å‘èœå•æ ‘ä¸­æ’å…¥èŠ‚ç‚¹ï¼ˆå·²æ£€éªŒï¼‰
 void insertTree_recipe_name(t_recipe** root, recipe* insert);
-// ÒÔ¶©µ¥µÄ¶©µ¥ºÅÎªÅĞ¶Ï±ê×¼Ïò¶©µ¥Ê÷ÖĞ²åÈë½Úµã
+// ä»¥è®¢å•çš„è®¢å•å·ä¸ºåˆ¤æ–­æ ‡å‡†å‘è®¢å•æ ‘ä¸­æ’å…¥èŠ‚ç‚¹
 void insertTree_order_id(t_order** root, order* insert);
-// ÒÔÉÌ¼ÒÃû³ÆÎªÅĞ¶Ï±ê×¼ÏòÉÌ¼ÒÊ÷ÖĞ²åÈë½Úµã
+// ä»¥å•†å®¶åç§°ä¸ºåˆ¤æ–­æ ‡å‡†å‘å•†å®¶æ ‘ä¸­æ’å…¥èŠ‚ç‚¹
 void insertTree_Merchant_name(t_Merchant** root, Merchant* insert);
 
-//É¾³ı½Úµã
-// ÒÔ²ËÆ·Ãû³ÆÎªÅĞ¶Ï±ê×¼´Ó²Ëµ¥Ê÷ÖĞÉ¾³ı½Úµã£¨ÒÑ¼ìÑé£©
+//åˆ é™¤èŠ‚ç‚¹
+// ä»¥èœå“åç§°ä¸ºåˆ¤æ–­æ ‡å‡†ä»èœå•æ ‘ä¸­åˆ é™¤èŠ‚ç‚¹ï¼ˆå·²æ£€éªŒï¼‰
 void delete_recipe_name(t_recipe** root, char* name);
-// ÒÔ¶©µ¥ºÅÎªÅĞ¶Ï±ê×¼´Ó¶©µ¥Ê÷ÖĞÉ¾³ı½Úµã
+// ä»¥è®¢å•å·ä¸ºåˆ¤æ–­æ ‡å‡†ä»è®¢å•æ ‘ä¸­åˆ é™¤èŠ‚ç‚¹
 void delete_order_id(t_order** root, char* order_id);
-// ÒÔÉÌ¼ÒÃû³ÆÎªÅĞ¶Ï±ê×¼´ÓÉÌ¼ÒÊ÷ÖĞÉ¾³ı½Úµã
+// ä»¥å•†å®¶åç§°ä¸ºåˆ¤æ–­æ ‡å‡†ä»å•†å®¶æ ‘ä¸­åˆ é™¤èŠ‚ç‚¹
 void delete_Merchant_name(t_Merchant** root, char* name);
 
+//ç²¾å‡†æŸ¥è¯¢èŠ‚ç‚¹
+//ä»¥èœå“åç§°ä¸ºåˆ¤æ–­æ ‡å‡†ä»èœå•æ ‘ä¸­æŸ¥æ‰¾èŠ‚ç‚¹,è¿”å›èœå“é“¾è¡¨ä¸­çš„èŠ‚ç‚¹
+recipe* search_recipe_name(t_recipe* root, const char* recipe_name);
+//ä»¥è®¢å•å·ä¸ºåˆ¤æ–­æ ‡å‡†ä»è®¢å•æ ‘ä¸­æŸ¥æ‰¾èŠ‚ç‚¹,è¿”å›è®¢å•é“¾è¡¨ä¸­çš„èŠ‚ç‚¹
+order* search_order_id(t_order* root, const char* order_id);
+// ä»¥å•†å®¶åç§°ä¸ºåˆ¤æ–­æ ‡å‡†ä»å•†å®¶æ ‘ä¸­æŸ¥æ‰¾èŠ‚ç‚¹,è¿”å›å•†å®¶é“¾è¡¨ä¸­çš„èŠ‚ç‚¹
+Merchant* search_Merchant_name(t_Merchant* root, const char* Merchant_name);
 
 
 
