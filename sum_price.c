@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include"class.h"
+#include "class.h"
 
 //求单个订单的折后价
 void sumPrice(order* head, recipe* head_r, enum card c, double* d)

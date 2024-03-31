@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include<time.h>
+#include <time.h>
 
 double discount[3] = { 0.9,0.85,0.75 };//不同卡对应的折扣
 enum { SLIVER, GOLD, PLATINUM }card;//用户会员类型
@@ -114,7 +114,7 @@ typedef struct User
     char address[100];
     char phone[20];
     
-    int card_class//用户会员
+    int card_class;//用户会员
 
     //订单号
     struct order* head;
@@ -191,4 +191,14 @@ void m_updatePassword(char* n, char* new_p);
 void u_updatePassword(char* n, char* new_p);
 //更改外卖员密码
 void d_updatePassword(char* n, char* new_p);
+
+// 登录以及修改密码
+bool compare_m(char* n);
+bool compare_u(char* n);
+bool compare_d(char* n);
+void writeIntoFile_p(char * f_name ,char* n, char* p);
+void updatePassword(char * f_name ,char* n, char* new_p);
+
+
+
 #endif
