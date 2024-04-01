@@ -6,7 +6,6 @@
 #include <string.h>
 #include <stdbool.h>
 #include <time.h>
-#include <time.h>
 
 double discount[3] = { 0.9,0.85,0.75 };//不同卡对应的折扣
 enum { SLIVER, GOLD, PLATINUM }card;//用户会员类型
@@ -116,7 +115,6 @@ typedef struct User
     char phone[20];
     
     int card_class;//用户会员
-    int card_class;//用户会员
 
     //订单号
     struct order* head;
@@ -165,8 +163,6 @@ bool delete_order(order** head, char* order_id);
 //设置时间
 void set_time(struct tm* localTime);
 
-//修改密码
-
 //更改商户密码
 void merchant_change_p(Merchant* head);
 //更改用户密码
@@ -183,7 +179,5 @@ void card_class_change(User* head, int n);
 bool compare(char* n);
 void writeIntoFile_p(char * f_name ,char* n, char* p);
 void updatePassword(char * f_name ,char* n, char* new_p);
-
-
 
 #endif
