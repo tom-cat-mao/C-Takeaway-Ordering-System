@@ -4,8 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
-// èœå•æ ‘èŠ‚ç‚¹
+// ²Ëµ¥Ê÷½Úµã
 typedef struct t_recipe
 {
     recipe* r_node;
@@ -13,7 +14,7 @@ typedef struct t_recipe
     struct t_recipe* left;
     struct t_recipe* right;
 } t_recipe;
-// è®¢å•æ ‘èŠ‚ç‚¹
+// ¶©µ¥Ê÷½Úµã
 typedef struct t_order
 {
     order* o_node;
@@ -21,7 +22,7 @@ typedef struct t_order
     struct t_order* left;
     struct t_order* right;
 }t_order;
-// å•†å®¶æ ‘èŠ‚ç‚¹
+// ÉÌ¼ÒÊ÷½Úµã
 typedef struct t_Merchant
 {
     Merchant* M_node;
@@ -30,38 +31,37 @@ typedef struct t_Merchant
     struct t_Merchant* right;
 }t_Merchant;
 
-//åˆ›å»ºæ ‘
-// åˆ›å»ºæ–°çš„èœå•æ ‘èŠ‚ç‚¹(å·²æ£€éªŒï¼‰
+//´´½¨Ê÷
+// ´´½¨ĞÂµÄ²Ëµ¥Ê÷½Úµã(ÒÑ¼ìÑé£©
 t_recipe* creatTree_recipe(recipe* example);
-// åˆ›å»ºæ–°çš„è®¢å•æ ‘èŠ‚ç‚¹
+// ´´½¨ĞÂµÄ¶©µ¥Ê÷½Úµã
 t_order* creatTree_order(order* example);
-// åˆ›å»ºæ–°çš„å•†å®¶æ ‘èŠ‚ç‚¹
+// ´´½¨ĞÂµÄÉÌ¼ÒÊ÷½Úµã
 t_Merchant* creatTree_Merchant(Merchant* example);
 
-//æ’å…¥èŠ‚ç‚¹
-// ä»¥èœå“åç§°ä¸ºåˆ¤æ–­æ ‡å‡†å‘èœå•æ ‘ä¸­æ’å…¥èŠ‚ç‚¹ï¼ˆå·²æ£€éªŒï¼‰
-void insertTree_recipe_name(t_recipe** root, recipe* insert);
-// ä»¥è®¢å•çš„è®¢å•å·ä¸ºåˆ¤æ–­æ ‡å‡†å‘è®¢å•æ ‘ä¸­æ’å…¥èŠ‚ç‚¹
-void insertTree_order_id(t_order** root, order* insert);
-// ä»¥å•†å®¶åç§°ä¸ºåˆ¤æ–­æ ‡å‡†å‘å•†å®¶æ ‘ä¸­æ’å…¥èŠ‚ç‚¹
-void insertTree_Merchant_name(t_Merchant** root, Merchant* insert);
+//²åÈë½Úµã
+// ÒÔ²ËÆ·Ãû³ÆÎªÅĞ¶Ï±ê×¼Ïò²Ëµ¥Ê÷ÖĞ²åÈë½Úµã£¨ÒÑ¼ìÑé£©
+bool insertTree_recipe_name(t_recipe** root, recipe* insert);
+// ÒÔ¶©µ¥µÄ¶©µ¥ºÅÎªÅĞ¶Ï±ê×¼Ïò¶©µ¥Ê÷ÖĞ²åÈë½Úµã
+bool insertTree_order_id(t_order** root, order* insert);
+// ÒÔÉÌ¼ÒÃû³ÆÎªÅĞ¶Ï±ê×¼ÏòÉÌ¼ÒÊ÷ÖĞ²åÈë½Úµã
+bool insertTree_Merchant_name(t_Merchant** root, Merchant* insert);
 
-//åˆ é™¤èŠ‚ç‚¹
-// ä»¥èœå“åç§°ä¸ºåˆ¤æ–­æ ‡å‡†ä»èœå•æ ‘ä¸­åˆ é™¤èŠ‚ç‚¹ï¼ˆå·²æ£€éªŒï¼‰
-void delete_recipe_name(t_recipe** root, char* name);
-// ä»¥è®¢å•å·ä¸ºåˆ¤æ–­æ ‡å‡†ä»è®¢å•æ ‘ä¸­åˆ é™¤èŠ‚ç‚¹
-void delete_order_id(t_order** root, char* order_id);
-// ä»¥å•†å®¶åç§°ä¸ºåˆ¤æ–­æ ‡å‡†ä»å•†å®¶æ ‘ä¸­åˆ é™¤èŠ‚ç‚¹
-void delete_Merchant_name(t_Merchant** root, char* name);
+//É¾³ı½Úµã
+// ÒÔ²ËÆ·Ãû³ÆÎªÅĞ¶Ï±ê×¼´Ó²Ëµ¥Ê÷ÖĞÉ¾³ı½Úµã£¨ÒÑ¼ìÑé£©
+bool delete_recipe_name(t_recipe** root, char* name);
+// ÒÔ¶©µ¥ºÅÎªÅĞ¶Ï±ê×¼´Ó¶©µ¥Ê÷ÖĞÉ¾³ı½Úµã
+bool delete_order_id(t_order** root, char* order_id);
+// ÒÔÉÌ¼ÒÃû³ÆÎªÅĞ¶Ï±ê×¼´ÓÉÌ¼ÒÊ÷ÖĞÉ¾³ı½Úµã
+bool delete_Merchant_name(t_Merchant** root, char* name);
 
-//ç²¾å‡†æŸ¥è¯¢èŠ‚ç‚¹
-//ä»¥èœå“åç§°ä¸ºåˆ¤æ–­æ ‡å‡†ä»èœå•æ ‘ä¸­æŸ¥æ‰¾èŠ‚ç‚¹,è¿”å›èœå“é“¾è¡¨ä¸­çš„èŠ‚ç‚¹
+//¾«×¼²éÑ¯½Úµã
+//ÒÔ²ËÆ·Ãû³ÆÎªÅĞ¶Ï±ê×¼´Ó²Ëµ¥Ê÷ÖĞ²éÕÒ½Úµã,·µ»Ø²ËÆ·Á´±íÖĞµÄ½Úµã
 recipe* search_recipe_name(t_recipe* root, const char* recipe_name);
-//ä»¥è®¢å•å·ä¸ºåˆ¤æ–­æ ‡å‡†ä»è®¢å•æ ‘ä¸­æŸ¥æ‰¾èŠ‚ç‚¹,è¿”å›è®¢å•é“¾è¡¨ä¸­çš„èŠ‚ç‚¹
+//ÒÔ¶©µ¥ºÅÎªÅĞ¶Ï±ê×¼´Ó¶©µ¥Ê÷ÖĞ²éÕÒ½Úµã,·µ»Ø¶©µ¥Á´±íÖĞµÄ½Úµã
 order* search_order_id(t_order* root, const char* order_id);
-// ä»¥å•†å®¶åç§°ä¸ºåˆ¤æ–­æ ‡å‡†ä»å•†å®¶æ ‘ä¸­æŸ¥æ‰¾èŠ‚ç‚¹,è¿”å›å•†å®¶é“¾è¡¨ä¸­çš„èŠ‚ç‚¹
+// ÒÔÉÌ¼ÒÃû³ÆÎªÅĞ¶Ï±ê×¼´ÓÉÌ¼ÒÊ÷ÖĞ²éÕÒ½Úµã,·µ»ØÉÌ¼ÒÁ´±íÖĞµÄ½Úµã
 Merchant* search_Merchant_name(t_Merchant* root, const char* Merchant_name);
-
 
 
 

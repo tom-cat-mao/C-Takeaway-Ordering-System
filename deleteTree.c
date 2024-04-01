@@ -3,11 +3,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <stdbool.h>
 // 以菜品名称为判断标准从菜单树中删除节点（已检验）
-void delete_recipe_name(t_recipe** root, char* name) {
+bool delete_recipe_name(t_recipe** root, char* name) {
     if (*root == NULL) {
-        return;
+        return FALSE;
     }
 
     if (strcmp(name, (*root)->r_node->name) < 0) {
@@ -44,9 +44,9 @@ void delete_recipe_name(t_recipe** root, char* name) {
     }
 }
 // 以订单号为判断标准从订单树中删除节点
-void delete_order_id(t_order** root, char* order_id) {
+bool delete_order_id(t_order** root, char* order_id) {
     if (*root == NULL) {
-        return;
+        return FALSE;
     }
 
     if (strcmp(order_id, (*root)->o_node->order_id) < 0) {
@@ -83,9 +83,9 @@ void delete_order_id(t_order** root, char* order_id) {
     }
 }
 // 以商家名称为判断标准从商家树中删除节点
-void delete_Merchant_name(t_Merchant** root, char* name) {
+bool delete_Merchant_name(t_Merchant** root, char* name) {
     if (*root == NULL) {
-        return;
+        return FALSE;
     }
 
     if (strcmp(name, (*root)->M_node->name) < 0) {

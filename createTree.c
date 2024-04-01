@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <stdbool.h>
 // 创建新的菜单树节点(已检验）
 t_recipe* creatTree_recipe(recipe* example)
 {
