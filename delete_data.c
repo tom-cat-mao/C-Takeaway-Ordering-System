@@ -1,7 +1,7 @@
 #include "class.h"
 
 // 删除订单
-void delete_order (order** head, char* order_id)
+bool delete_order (order** head, char* order_id)
 {
     if (order_id == NULL)
     {
