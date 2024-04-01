@@ -24,11 +24,13 @@ bool delete_recipe_name(t_recipe** root, char* name) {
             temp = *root;
             *root = (*root)->right;
             free(temp);
+            return TRUE;
         }
         else if ((*root)->right == NULL) {
             temp = *root;
             *root = (*root)->left;
             free(temp);
+            return TRUE;
         }
         else
         {
@@ -63,11 +65,13 @@ bool delete_order_id(t_order** root, char* order_id) {
             temp = *root;
             *root = (*root)->right;
             free(temp);
+            return TRUE;
         }
         else if ((*root)->right == NULL) {
             temp = *root;
             *root = (*root)->left;
             free(temp);
+            return TRUE;
         }
         else
         {
@@ -102,11 +106,13 @@ bool delete_Merchant_name(t_Merchant** root, char* name) {
             temp = *root;
             *root = (*root)->right;
             free(temp);
+            return TRUE;
         }
         else if ((*root)->right == NULL) {
             temp = *root;
             *root = (*root)->left;
             free(temp);
+            return TRUE;
         }
         else
         {
