@@ -1,4 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
+#include "class.h"
 #include "classTree.h"
 #include <stdio.h>
 #include <stdlib.h>

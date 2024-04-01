@@ -1,6 +1,7 @@
 #pragma once
 #ifndef CLASSTREE_H
 #define CLASSTREE_H
+#include "class.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
