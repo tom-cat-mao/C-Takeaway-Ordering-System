@@ -10,7 +10,7 @@
 bool insertTree_recipe_name(t_recipe** root, recipe* insert) {
     if (*root == NULL) {
         *root = creatTree_recipe(insert);
-        return TRUE;
+        return true;
     }
     // 递归寻找插入位置
     t_recipe* current = *root;
@@ -20,7 +20,7 @@ bool insertTree_recipe_name(t_recipe** root, recipe* insert) {
             if (current->left == NULL) {
                 // 当左子树为空时，创建新节点并将其插入左子树
                 current->left = creatTree_recipe(insert);
-                return TRUE;
+                return true;
             }
             else {
                 current = current->left;
@@ -31,7 +31,7 @@ bool insertTree_recipe_name(t_recipe** root, recipe* insert) {
             if (current->right == NULL) {
                 // 当右子树为空时，创建新节点并将其插入右子树
                 current->right = creatTree_recipe(insert);
-                return TRUE;
+                return true;
             }
             else {
                 current = current->right;
@@ -43,7 +43,7 @@ bool insertTree_recipe_name(t_recipe** root, recipe* insert) {
 bool insertTree_order_id(t_order** root, order* insert) {
     if (*root == NULL) {
         *root = creatTree_order(insert);
-        return TRUE;
+        return true;
     }
     // 递归寻找插入位置
     t_order* current = *root;
@@ -56,7 +56,7 @@ bool insertTree_order_id(t_order** root, order* insert) {
             {
                 // 当左子树为空时，创建新节点并将其插入左子树
                 current->left = creatTree_order(insert);
-                return TRUE;
+                return true;
             }
             else
             {
@@ -69,7 +69,7 @@ bool insertTree_order_id(t_order** root, order* insert) {
             if (current->right == NULL) {
                 // 当右子树为空时，创建新节点并将其插入右子树
                 current->right = creatTree_order(insert);
-                return TRUE;
+                return true;
             }
             else {
                 current = current->right;
@@ -81,7 +81,7 @@ bool insertTree_order_id(t_order** root, order* insert) {
 bool insertTree_Merchant_name(t_Merchant** root, Merchant* insert) {
     if (*root == NULL) {
         *root = creatTree_Merchant(insert);
-        return TRUE;
+        return true;
     }
     // 递归寻找插入位置
     t_Merchant* current = *root;
@@ -94,7 +94,7 @@ bool insertTree_Merchant_name(t_Merchant** root, Merchant* insert) {
             {
                 // 当左子树为空时，创建新节点并将其插入左子树
                 current->left = creatTree_Merchant(insert);
-                return TRUE;
+                return true;
             }
             else
             {
@@ -107,7 +107,7 @@ bool insertTree_Merchant_name(t_Merchant** root, Merchant* insert) {
             if (current->right == NULL) {
                 // 当右子树为空时，创建新节点并将其插入右子树
                 current->right = creatTree_Merchant(insert);
-                return TRUE;
+                return true;
             }
             else {
                 current = current->right;

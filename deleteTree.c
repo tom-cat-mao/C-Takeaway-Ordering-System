@@ -8,7 +8,7 @@
 // 以菜品名称为判断标准从菜单树中删除节点（已检验）
 bool delete_recipe_name(t_recipe** root, char* name) {
     if (*root == NULL) {
-        return FALSE;
+        return false;
     }
 
     if (strcmp(name, (*root)->r_node->name) < 0) {
@@ -25,13 +25,13 @@ bool delete_recipe_name(t_recipe** root, char* name) {
             temp = *root;
             *root = (*root)->right;
             free(temp);
-            return TRUE;
+            return true;
         }
         else if ((*root)->right == NULL) {
             temp = *root;
             *root = (*root)->left;
             free(temp);
-            return TRUE;
+            return true;
         }
         else
         {
@@ -49,7 +49,7 @@ bool delete_recipe_name(t_recipe** root, char* name) {
 // 以订单号为判断标准从订单树中删除节点
 bool delete_order_id(t_order** root, char* order_id) {
     if (*root == NULL) {
-        return FALSE;
+        return false;
     }
 
     if (strcmp(order_id, (*root)->o_node->order_id) < 0) {
@@ -66,13 +66,13 @@ bool delete_order_id(t_order** root, char* order_id) {
             temp = *root;
             *root = (*root)->right;
             free(temp);
-            return TRUE;
+            return true;
         }
         else if ((*root)->right == NULL) {
             temp = *root;
             *root = (*root)->left;
             free(temp);
-            return TRUE;
+            return true;
         }
         else
         {
@@ -90,7 +90,7 @@ bool delete_order_id(t_order** root, char* order_id) {
 // 以商家名称为判断标准从商家树中删除节点
 bool delete_Merchant_name(t_Merchant** root, char* name) {
     if (*root == NULL) {
-        return FALSE;
+        return false;
     }
 
     if (strcmp(name, (*root)->M_node->name) < 0) {
@@ -107,13 +107,13 @@ bool delete_Merchant_name(t_Merchant** root, char* name) {
             temp = *root;
             *root = (*root)->right;
             free(temp);
-            return TRUE;
+            return true;
         }
         else if ((*root)->right == NULL) {
             temp = *root;
             *root = (*root)->left;
             free(temp);
-            return TRUE;
+            return true;
         }
         else
         {
