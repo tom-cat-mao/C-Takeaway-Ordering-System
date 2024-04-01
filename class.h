@@ -182,6 +182,4 @@ bool compare(char* n);
 void writeIntoFile_p(char * f_name ,char* n, char* p);
 void updatePassword(char * f_name ,char* n, char* new_p);
 
-
-
 #endif
