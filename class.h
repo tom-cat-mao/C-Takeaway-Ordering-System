@@ -157,7 +157,7 @@ void print_order_list(order* head);
 void printList_merchant(Merchant* head);
 
 //求单个订单的折后价
-void sumPrice(order* head, recipe* head_r, enum card c, int* d);
+bool sumPrice(order* head, recipe* head_r, int c, int* d);
 
 // delete data
 bool delete_order(order* head, char* order_id);// delete an order
@@ -170,8 +170,6 @@ bool delete_deliveryperson (DeliveryPerson* head, char* d_name);// delete a deli
 //设置时间
 void set_time(struct tm* localTime);
 
-//修改密码
-
 //更改商户密码
 void merchant_change_p(Merchant* head);
 //更改用户密码
@@ -180,9 +178,9 @@ void user_change_p(User* head);
 void deliveryPerson_change_p(DeliveryPerson* head);
 
 //更改会员折扣
-void discount_change(int* d, enum card c);
+bool discount_change(double* d, int c);
 //更改用户会员类型
-void card_class_change(User* head, int n);
+bool card_class_change(User* head, int c);
 
 // 登录以及修改密码
 bool compare(char* n);

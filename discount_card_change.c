@@ -33,11 +33,11 @@ bool card_class_change(User* head, int c)
 	if (current == NULL)
 	{
 		printf("Congratulations ,you have become our sliver card user.\n");
-		current->card_class = 0;
+		current->c = 0;
 	}
 	else
 	{
-		current->card_class = c;
+		current->c = c;
 	}
 	return true;
 }
