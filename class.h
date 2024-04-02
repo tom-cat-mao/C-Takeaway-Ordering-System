@@ -159,8 +159,13 @@ void printList_merchant(Merchant* head);
 //求单个订单的折后价
 void sumPrice(order* head, recipe* head_r, enum card c, int* d);
 
-
-bool delete_order(order** head, char* order_id);
+// delete data
+bool delete_order(order* head, char* order_id);// delete an order
+bool delete_recipe (recipe* head, char* name);// delete a recipe
+bool delete_r_class(r_classify* head, char* name);// delete a recipe class
+bool delete_merchant (Merchant* head, char* m_name);// delete a merchant
+bool delete_user (User* head, char* u_name);// delete a user
+bool delete_deliveryperson (DeliveryPerson* head, char* d_name);// delete a delivery person
 
 //设置时间
 void set_time(struct tm* localTime);
