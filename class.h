@@ -1,4 +1,3 @@
-#pragma once
 #ifndef CLASSIFICATION_H
 #define CLASSIFICATION_H
 #include <stdio.h>
@@ -8,7 +7,9 @@
 #include <time.h>
 
 double discount[3] = { 0.9,0.85,0.75 };//不同卡对应的折扣
-enum { SLIVER, GOLD, PLATINUM }card;//用户会员类型
+enum card { SILVER, GOLD, PLATINUM };//用户会员类型
+enum state_o { WAY, DILLVERING, FINISH };//订单状态
+enum state_d { FREE, BUSY };//外卖员状态
 
 //菜单结构体
 typedef struct recipe
@@ -16,6 +17,7 @@ typedef struct recipe
     char name[100];          //菜品名称
     float price;               //菜品价格
     int num;                 //菜品数量
+    float sale_discount;     //菜品折扣
 
     struct recipe* next;
 }recipe;
@@ -55,7 +57,7 @@ typedef struct order
     char u_phone[20];
 
     // 订单状态
-    enum { WAY, DILLVERING, FINISH } state;
+    enum state_o s;
 
     //预计到店时间
     struct tm* arrive_time;
@@ -95,7 +97,7 @@ typedef struct DeliveryPerson
     struct order* o_head;//订单链表
 
 
-    enum { FREE, BUSY } state;//状态
+    enum state_d s;//状态
 
     char password[100];
     char name[100];
@@ -114,7 +116,7 @@ typedef struct User
     char address[100];
     char phone[20];
     
-    int card_class;//用户会员
+    enum card c;//用户会员
 
     //订单号
     struct order* head;
@@ -155,15 +157,18 @@ void print_order_list(order* head);
 void printList_merchant(Merchant* head);
 
 //求单个订单的折后价
-void sumPrice(order* head, recipe* head_r, enum card c, int* d);
+bool sumPrice(order* head, recipe* head_r, int c, int* d);
 
-
-bool delete_order(order** head, char* order_id);
+// delete data
+bool delete_order(order* head, char* order_id);// delete an order
+bool delete_recipe (recipe* head, char* name);// delete a recipe
+bool delete_r_class(r_classify* head, char* name);// delete a recipe class
+bool delete_merchant (Merchant* head, char* m_name);// delete a merchant
+bool delete_user (User* head, char* u_name);// delete a user
+bool delete_deliveryperson (DeliveryPerson* head, char* d_name);// delete a delivery person
 
 //设置时间
 void set_time(struct tm* localTime);
-
-//修改密码
 
 //更改商户密码
 void merchant_change_p(Merchant* head);
@@ -173,9 +178,9 @@ void user_change_p(User* head);
 void deliveryPerson_change_p(DeliveryPerson* head);
 
 //更改会员折扣
-void discount_change(int* d, enum card c);
+bool discount_change(double* d, int c);
 //更改用户会员类型
-void card_class_change(User* head, int n);
+bool card_class_change(User* head, int c);
 
 // 登录以及修改密码
 bool compare(char* n);
