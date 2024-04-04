@@ -1,0 +1,37 @@
+[
+{
+  "directory": "/mnt/d/Cproject/C-/build",
+  "command": "/usr/bin/gcc  -I/mnt/d/Cproject/C-/. -g -o CMakeFiles/printList.c.dir/searchTree.c.o -c /mnt/d/Cproject/C-/searchTree.c",
+  "file": "/mnt/d/Cproject/C-/searchTree.c"
+},
+{
+  "directory": "/mnt/d/Cproject/C-/build",
+  "command": "/usr/bin/gcc  -I/mnt/d/Cproject/C-/. -g -o CMakeFiles/printList.c.dir/createList.c.o -c /mnt/d/Cproject/C-/createList.c",
+  "file": "/mnt/d/Cproject/C-/createList.c"
+},
+{
+  "directory": "/mnt/d/Cproject/C-/build",
+  "command": "/usr/bin/gcc  -I/mnt/d/Cproject/C-/. -g -o CMakeFiles/printList.c.dir/createTree.c.o -c /mnt/d/Cproject/C-/createTree.c",
+  "file": "/mnt/d/Cproject/C-/createTree.c"
+},
+{
+  "directory": "/mnt/d/Cproject/C-/build",
+  "command": "/usr/bin/gcc  -I/mnt/d/Cproject/C-/. -g -o CMakeFiles/printList.c.dir/deleteTree.c.o -c /mnt/d/Cproject/C-/deleteTree.c",
+  "file": "/mnt/d/Cproject/C-/deleteTree.c"
+},
+{
+  "directory": "/mnt/d/Cproject/C-/build",
+  "command": "/usr/bin/gcc  -I/mnt/d/Cproject/C-/. -g -o CMakeFiles/printList.c.dir/delete_data.c.o -c /mnt/d/Cproject/C-/delete_data.c",
+  "file": "/mnt/d/Cproject/C-/delete_data.c"
+},
+{
+  "directory": "/mnt/d/Cproject/C-/build",
+  "command": "/usr/bin/gcc  -I/mnt/d/Cproject/C-/. -g -o CMakeFiles/printList.c.dir/discount_card_change.c.o -c /mnt/d/Cproject/C-/discount_card_change.c",
+  "file": "/mnt/d/Cproject/C-/discount_card_change.c"
+},
+{
+  "directory": "/mnt/d/Cproject/C-/build",
+  "command": "/usr/bin/gcc  -I/mnt/d/Cproject/C-/. -g -o CMakeFiles/printList.c.dir/insertTree.c.o -c /mnt/d/Cproject/C-/insertTree.c",
+  "file": "/mnt/d/Cproject/C-/insertTree.c"
+}
+]
