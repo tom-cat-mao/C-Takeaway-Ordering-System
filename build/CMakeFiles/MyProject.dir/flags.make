@@ -4,7 +4,7 @@
 # compile C with /usr/bin/gcc
 C_DEFINES = 
 
-C_INCLUDES = -I/mnt/d/Cproject/C-/.
+C_INCLUDES = 
 
 C_FLAGS = -g
 

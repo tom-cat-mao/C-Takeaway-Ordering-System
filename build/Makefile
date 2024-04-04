@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named printList.c
+# Target rules for targets named MyProject
 
 # Build rule for target.
-printList.c: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 printList.c
-.PHONY : printList.c
+MyProject: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MyProject
+.PHONY : MyProject
 
 # fast build rule for target.
-printList.c/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/build
-.PHONY : printList.c/fast
+MyProject/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/build
+.PHONY : MyProject/fast
 
 createList.o: createList.c.o
 .PHONY : createList.o
 
 # target to build an object file
 createList.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/createList.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/createList.c.o
 .PHONY : createList.c.o
 
 createList.i: createList.c.i
@@ -142,7 +142,7 @@ createList.i: createList.c.i
 
 # target to preprocess a source file
 createList.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/createList.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/createList.c.i
 .PHONY : createList.c.i
 
 createList.s: createList.c.s
@@ -150,7 +150,7 @@ createList.s: createList.c.s
 
 # target to generate assembly for a file
 createList.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/createList.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/createList.c.s
 .PHONY : createList.c.s
 
 createTree.o: createTree.c.o
@@ -158,7 +158,7 @@ createTree.o: createTree.c.o
 
 # target to build an object file
 createTree.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/createTree.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/createTree.c.o
 .PHONY : createTree.c.o
 
 createTree.i: createTree.c.i
@@ -166,7 +166,7 @@ createTree.i: createTree.c.i
 
 # target to preprocess a source file
 createTree.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/createTree.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/createTree.c.i
 .PHONY : createTree.c.i
 
 createTree.s: createTree.c.s
@@ -174,7 +174,7 @@ createTree.s: createTree.c.s
 
 # target to generate assembly for a file
 createTree.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/createTree.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/createTree.c.s
 .PHONY : createTree.c.s
 
 deleteTree.o: deleteTree.c.o
@@ -182,7 +182,7 @@ deleteTree.o: deleteTree.c.o
 
 # target to build an object file
 deleteTree.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/deleteTree.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/deleteTree.c.o
 .PHONY : deleteTree.c.o
 
 deleteTree.i: deleteTree.c.i
@@ -190,7 +190,7 @@ deleteTree.i: deleteTree.c.i
 
 # target to preprocess a source file
 deleteTree.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/deleteTree.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/deleteTree.c.i
 .PHONY : deleteTree.c.i
 
 deleteTree.s: deleteTree.c.s
@@ -198,7 +198,7 @@ deleteTree.s: deleteTree.c.s
 
 # target to generate assembly for a file
 deleteTree.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/deleteTree.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/deleteTree.c.s
 .PHONY : deleteTree.c.s
 
 delete_data.o: delete_data.c.o
@@ -206,7 +206,7 @@ delete_data.o: delete_data.c.o
 
 # target to build an object file
 delete_data.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/delete_data.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/delete_data.c.o
 .PHONY : delete_data.c.o
 
 delete_data.i: delete_data.c.i
@@ -214,7 +214,7 @@ delete_data.i: delete_data.c.i
 
 # target to preprocess a source file
 delete_data.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/delete_data.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/delete_data.c.i
 .PHONY : delete_data.c.i
 
 delete_data.s: delete_data.c.s
@@ -222,7 +222,7 @@ delete_data.s: delete_data.c.s
 
 # target to generate assembly for a file
 delete_data.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/delete_data.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/delete_data.c.s
 .PHONY : delete_data.c.s
 
 discount_card_change.o: discount_card_change.c.o
@@ -230,7 +230,7 @@ discount_card_change.o: discount_card_change.c.o
 
 # target to build an object file
 discount_card_change.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/discount_card_change.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/discount_card_change.c.o
 .PHONY : discount_card_change.c.o
 
 discount_card_change.i: discount_card_change.c.i
@@ -238,7 +238,7 @@ discount_card_change.i: discount_card_change.c.i
 
 # target to preprocess a source file
 discount_card_change.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/discount_card_change.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/discount_card_change.c.i
 .PHONY : discount_card_change.c.i
 
 discount_card_change.s: discount_card_change.c.s
@@ -246,7 +246,7 @@ discount_card_change.s: discount_card_change.c.s
 
 # target to generate assembly for a file
 discount_card_change.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/discount_card_change.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/discount_card_change.c.s
 .PHONY : discount_card_change.c.s
 
 insertTree.o: insertTree.c.o
@@ -254,7 +254,7 @@ insertTree.o: insertTree.c.o
 
 # target to build an object file
 insertTree.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/insertTree.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/insertTree.c.o
 .PHONY : insertTree.c.o
 
 insertTree.i: insertTree.c.i
@@ -262,7 +262,7 @@ insertTree.i: insertTree.c.i
 
 # target to preprocess a source file
 insertTree.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/insertTree.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/insertTree.c.i
 .PHONY : insertTree.c.i
 
 insertTree.s: insertTree.c.s
@@ -270,15 +270,63 @@ insertTree.s: insertTree.c.s
 
 # target to generate assembly for a file
 insertTree.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/insertTree.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/insertTree.c.s
 .PHONY : insertTree.c.s
+
+name_a_pass.o: name_a_pass.c.o
+.PHONY : name_a_pass.o
+
+# target to build an object file
+name_a_pass.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/name_a_pass.c.o
+.PHONY : name_a_pass.c.o
+
+name_a_pass.i: name_a_pass.c.i
+.PHONY : name_a_pass.i
+
+# target to preprocess a source file
+name_a_pass.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/name_a_pass.c.i
+.PHONY : name_a_pass.c.i
+
+name_a_pass.s: name_a_pass.c.s
+.PHONY : name_a_pass.s
+
+# target to generate assembly for a file
+name_a_pass.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/name_a_pass.c.s
+.PHONY : name_a_pass.c.s
+
+printList.o: printList.c.o
+.PHONY : printList.o
+
+# target to build an object file
+printList.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/printList.c.o
+.PHONY : printList.c.o
+
+printList.i: printList.c.i
+.PHONY : printList.i
+
+# target to preprocess a source file
+printList.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/printList.c.i
+.PHONY : printList.c.i
+
+printList.s: printList.c.s
+.PHONY : printList.s
+
+# target to generate assembly for a file
+printList.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/printList.c.s
+.PHONY : printList.c.s
 
 searchTree.o: searchTree.c.o
 .PHONY : searchTree.o
 
 # target to build an object file
 searchTree.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/searchTree.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/searchTree.c.o
 .PHONY : searchTree.c.o
 
 searchTree.i: searchTree.c.i
@@ -286,7 +334,7 @@ searchTree.i: searchTree.c.i
 
 # target to preprocess a source file
 searchTree.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/searchTree.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/searchTree.c.i
 .PHONY : searchTree.c.i
 
 searchTree.s: searchTree.c.s
@@ -294,8 +342,32 @@ searchTree.s: searchTree.c.s
 
 # target to generate assembly for a file
 searchTree.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/printList.c.dir/build.make CMakeFiles/printList.c.dir/searchTree.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/searchTree.c.s
 .PHONY : searchTree.c.s
+
+sum_price.o: sum_price.c.o
+.PHONY : sum_price.o
+
+# target to build an object file
+sum_price.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/sum_price.c.o
+.PHONY : sum_price.c.o
+
+sum_price.i: sum_price.c.i
+.PHONY : sum_price.i
+
+# target to preprocess a source file
+sum_price.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/sum_price.c.i
+.PHONY : sum_price.c.i
+
+sum_price.s: sum_price.c.s
+.PHONY : sum_price.s
+
+# target to generate assembly for a file
+sum_price.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/sum_price.c.s
+.PHONY : sum_price.c.s
 
 # Help Target
 help:
@@ -305,7 +377,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... printList.c"
+	@echo "... MyProject"
 	@echo "... createList.o"
 	@echo "... createList.i"
 	@echo "... createList.s"
@@ -324,9 +396,18 @@ help:
 	@echo "... insertTree.o"
 	@echo "... insertTree.i"
 	@echo "... insertTree.s"
+	@echo "... name_a_pass.o"
+	@echo "... name_a_pass.i"
+	@echo "... name_a_pass.s"
+	@echo "... printList.o"
+	@echo "... printList.i"
+	@echo "... printList.s"
 	@echo "... searchTree.o"
 	@echo "... searchTree.i"
 	@echo "... searchTree.s"
+	@echo "... sum_price.o"
+	@echo "... sum_price.i"
+	@echo "... sum_price.s"
 .PHONY : help
 
 

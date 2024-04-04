@@ -1,1 +1,0 @@
-/usr/bin/gcc -g CMakeFiles/printList.c.dir/searchTree.c.o CMakeFiles/printList.c.dir/createList.c.o CMakeFiles/printList.c.dir/createTree.c.o CMakeFiles/printList.c.dir/deleteTree.c.o CMakeFiles/printList.c.dir/delete_data.c.o CMakeFiles/printList.c.dir/discount_card_change.c.o CMakeFiles/printList.c.dir/insertTree.c.o -o printList.c 

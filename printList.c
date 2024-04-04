@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include"class.h"
 
-//´òÓ¡²Ëµ¥ÖÐµÄ²ËÆ·
+//ï¿½ï¿½Ó¡ï¿½Ëµï¿½ï¿½ÐµÄ²ï¿½Æ·
 void printList_recipe_1(recipe* head)
 {
     printf("Recipe List:\n");
@@ -12,7 +12,7 @@ void printList_recipe_1(recipe* head)
     }
 }
 
-//´òÓ¡¶©µ¥ÖÐ²ËÆ·
+//ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½Æ·
 void printList_recipe_2(recipe* head)
 {
     printf("Recipe List:\n");
@@ -23,7 +23,7 @@ void printList_recipe_2(recipe* head)
     }
 }
 
-//´òÓ¡²ËÆ··ÖÀà
+//ï¿½ï¿½Ó¡ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½
 void printList_r_classify(r_classify* head)
 {
     printf("Class List:\n");
@@ -32,7 +32,7 @@ void printList_r_classify(r_classify* head)
         printf("%s\n", head->name);
         if (head->r_head == NULL)
         {
-            printf("¸Ã²ËÆ·Àà»¹Î´Ìí¼Ó²ËÆ·\n");
+            printf("ï¿½Ã²ï¿½Æ·ï¿½à»¹Î´ï¿½ï¿½ï¿½Ó²ï¿½Æ·\n");
         }
         else
         {
@@ -42,7 +42,7 @@ void printList_r_classify(r_classify* head)
     }
 }
 
-// ´òÓ¡¶©µ¥
+// ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½
 void print_order_list(order* head)
 {
     printf("Order List:\n");
@@ -54,9 +54,9 @@ void print_order_list(order* head)
         printf("Merchant: %s\tAddress: %s\tPhone: %s\n", head->m_name, head->m_address, head->m_phone);
         printf("User: %s\tAddress: %s\tPhone: %s\n", head->u_name, head->u_address, head->u_phone);
         printf("Delivery Person: %s\tPhone: %s\n", head->d_name, head->d_phone);
-        printList_recipe_2(head->r_head); // ´òÓ¡¶©µ¥ÖÐµÄ²ËÆ·ÁÐ±í
+        printList_recipe_2(head->r_head); // ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ²ï¿½Æ·ï¿½Ð±ï¿½
         printf("Total Price: %.2f\n", head->sum_price);
-        switch (head->state) {
+        switch (head->s){
         case WAY:
             printf("Order State: Waiting\n");
             break;
@@ -74,7 +74,7 @@ void print_order_list(order* head)
     }
 }
 
-//´òÓ¡ÉÌ¼ÒÁÐ±í
+//ï¿½ï¿½Ó¡ï¿½Ì¼ï¿½ï¿½Ð±ï¿½
 void printList_merchant(Merchant* head)
 {
     printf("Class List:\n");

@@ -847,7 +847,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "Myproject"
+			"value" : "MyProject"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1130,7 +1130,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "Myproject_BINARY_DIR",
+			"name" : "MyProject_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1142,7 +1142,7 @@
 			"value" : "/mnt/d/Cproject/C-/build"
 		},
 		{
-			"name" : "Myproject_IS_TOP_LEVEL",
+			"name" : "MyProject_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1154,7 +1154,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "Myproject_SOURCE_DIR",
+			"name" : "MyProject_SOURCE_DIR",
 			"properties" : 
 			[
 				{

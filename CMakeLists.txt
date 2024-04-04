@@ -1,6 +1,27 @@
-cmake_minimum_required(VERSION 3.10) # 设置CMake的最小版本要求
-project(Myproject) # 设置项目名称
+cmake_minimum_required(VERSION 3.12)
+project(MyProject)
 
-include_directories(.) # 添加头文件路径
+# Add your source files here
+set(SOURCES
+    createTree.c
+    createList.c
+    delete_data.c
+    deleteTree.c
+    insertTree.c
+    discount_card_change.c
+    name_a_pass.c
+    printList.c
+    searchTree.c
+    sum_price.c
+)
 
-add_executable(printList.c searchTree.c createList.c createTree.c deleteTree.c delete_data.c discount_card_change.c insertTree.c)
+# Add your header files here
+set(HEADERS
+    class.h
+    mergeSortRecipe.h
+    output_recipe_price_range.h
+    classTree.h
+)
+
+# Add executable target
+add_executable(MyProject ${SOURCES} ${HEADERS})

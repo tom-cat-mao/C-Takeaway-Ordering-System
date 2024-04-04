@@ -9,7 +9,7 @@
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.10"
+						"string" : "3.12"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "Myproject",
+					"name" : "MyProject",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "printList.c::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-printList.c-Debug-f620a20722bffb15604b.json",
-					"name" : "printList.c",
+					"id" : "MyProject::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MyProject-Debug-62d6df671a79f7660a83.json",
+					"name" : "MyProject",
 					"projectIndex" : 0
 				}
 			]

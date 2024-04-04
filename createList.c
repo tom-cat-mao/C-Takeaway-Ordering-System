@@ -1,12 +1,12 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "class.h"
 
-//创建订单菜品列表
+// create a list of recipes for the order
 recipe* creatList_recipe_1(char* n, float p, int num)
 {
-    recipe* newNode = (recipe*)malloc(sizeof(recipe));   //申请新节点空间
+    recipe* newNode = (recipe*)malloc(sizeof(recipe)); 
 
-    //检查节点是否申请成功
+// check whether the node is created successfully
     if (!newNode)
     {
         return NULL;
@@ -20,12 +20,12 @@ recipe* creatList_recipe_1(char* n, float p, int num)
     return newNode;
 }
 
-//创建菜单里的菜品列表
+// create a list of recipes for the class
 recipe* creatList_recipe_2(char* n, float p)
 {
-    recipe* newNode = (recipe*)malloc(sizeof(recipe));   //申请新节点空间
+    recipe* newNode = (recipe*)malloc(sizeof(recipe));   
 
-    //检查节点是否申请成功
+// check whether the node is created successfully
     if (!newNode)
     {
         return NULL;
@@ -38,27 +38,27 @@ recipe* creatList_recipe_2(char* n, float p)
     return newNode;
 }
 
-//创建菜类列表
+// create a list of recipes
 r_classify* creatList_r_classify(char* n)
 {
-    r_classify* newNode = (r_classify*)malloc(sizeof(r_classify));//申请节点空间
+    r_classify* newNode = (r_classify*)malloc(sizeof(r_classify));
 
-    //检查节点是否申请成功
+//  check whether the node is created successfully
     if (!newNode)
     {
-        return;
+        return NULL;
     }
 
     strcpy(newNode->name, n);
     newNode->r_head = NULL;
 
-    //是否添加菜品
+    // adjust whether to add recipe
     printf("Add recipes or not (Y/N):\t");
-    char flag = getchar();//获取输入
+    char flag = getchar();// set a flag to determine whether to add recipe
     getchar();
 
-    flag = upper(flag);//转换为大写
-    //添加菜品
+    flag = toupper(flag);// set a flag to determine whether to add recipe
+    //锟斤拷锟接诧拷品
     if (flag == 'Y')
     {
         int i;
@@ -94,13 +94,13 @@ r_classify* creatList_r_classify(char* n)
     return newNode;
 }
 
-//创建订单列表
+// create a list of orders
 order* creatList_order(char* merchant_name, char* merchant_address, char* merchant_phone,
     char* deliver_name, char* deliver_phone, char* user_name, char* user_adderss, char* user_phone)
 {
-    order* newNode = (order*)malloc(sizeof(order));//申请节点空间
+    order* newNode = (order*)malloc(sizeof(order));
 
-    //检查节点是否申请成功
+    // check whether the node is created successfully
     if (!newNode)
     {
         return NULL;
@@ -128,12 +128,12 @@ order* creatList_order(char* merchant_name, char* merchant_address, char* mercha
     return newNode;
 }
 
-//创建商家链表
+// create a list of merchants
 Merchant* creatList_merchant(char* n, char* p, char* a, char* pn)
 {
-    Merchant* newNode = (Merchant*)malloc(sizeof(Merchant));//申请节点空间
+    Merchant* newNode = (Merchant*)malloc(sizeof(Merchant));
 
-    //检查节点是否申请成功
+// check whether the node is created successfully
     if (!newNode)
     {
         return NULL;
@@ -148,12 +148,12 @@ Merchant* creatList_merchant(char* n, char* p, char* a, char* pn)
     return newNode;
 }
 
-//创建用户链表
+// create a list of users
 User* creatList_user(char* n, char* p, char* a, char* pn)
 {
-    User* newNode = (User*)malloc(sizeof(User));//申请节点空间
+    User* newNode = (User*)malloc(sizeof(User));
 
-    //检查节点是否申请成功
+// check whether the node is created successfully
     if (!newNode)
     {
         return NULL;
@@ -168,12 +168,12 @@ User* creatList_user(char* n, char* p, char* a, char* pn)
     return newNode;
 }
 
-//创建外卖员列表
+// create a list of delivery persons
 DeliveryPerson* creatList_deliveryperson(char* n, char* p, char* pn)
 {
-    DeliveryPerson* newNode = (DeliveryPerson*)malloc(sizeof(DeliveryPerson));//申请节点空间
+    DeliveryPerson* newNode = (DeliveryPerson*)malloc(sizeof(DeliveryPerson));
 
-    //检查节点是否申请成功
+// check whether the node is created successfully
     if (!newNode)
     {
         return NULL;
