@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <time.h>
+#include <ctype.h>
 
 double discount[3] = { 0.9,0.85,0.75 };//不同卡对应的折扣
 enum card { SILVER, GOLD, PLATINUM };//用户会员类型
@@ -157,7 +158,7 @@ void print_order_list(order* head);
 void printList_merchant(Merchant* head);
 
 //求单个订单的折后价
-bool sumPrice(order* head, recipe* head_r, int c, int* d);
+bool sumPrice(order* head, recipe* head_r, int c, double* d);
 
 // delete data
 bool delete_order(order* head, char* order_id);// delete an order
@@ -183,7 +184,7 @@ bool discount_change(double* d, int c);
 bool card_class_change(User* head, int c);
 
 // 登录以及修改密码
-bool compare(char* n);
+bool compare(char *f_name,char* n);
 void writeIntoFile_p(char * f_name ,char* n, char* p);
 void updatePassword(char * f_name ,char* n, char* new_p);
 
