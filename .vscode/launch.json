@@ -5,7 +5,7 @@
             "name": "CMake Debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${command:cmake.launchTargetPath}", // 使用CMake Tools扩展提供的变量来获取目标程序的路径
+            "program": "${workspaceFolder}/build/MyProject",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
