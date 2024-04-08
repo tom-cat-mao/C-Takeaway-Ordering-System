@@ -1,12 +1,12 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "class.h"
 
-// create a list of recipes for the order
+// Create a list of recipes for the order
 recipe* creatList_recipe_1(char* n, float p, int num)
 {
     recipe* newNode = (recipe*)malloc(sizeof(recipe)); 
 
-// check whether the node is created successfully
+    // Check whether the node is created successfully
     if (!newNode)
     {
         return NULL;
@@ -20,12 +20,12 @@ recipe* creatList_recipe_1(char* n, float p, int num)
     return newNode;
 }
 
-// create a list of recipes for the class
+// Create a list of recipes for the class
 recipe* creatList_recipe_2(char* n, float p)
 {
     recipe* newNode = (recipe*)malloc(sizeof(recipe));   
 
-// check whether the node is created successfully
+    // Check whether the node is created successfully
     if (!newNode)
     {
         return NULL;
@@ -38,12 +38,12 @@ recipe* creatList_recipe_2(char* n, float p)
     return newNode;
 }
 
-// create a list of recipes
+// Create a list of recipes
 r_classify* creatList_r_classify(char* n)
 {
     r_classify* newNode = (r_classify*)malloc(sizeof(r_classify));
 
-//  check whether the node is created successfully
+    // Check whether the node is created successfully
     if (!newNode)
     {
         return NULL;
@@ -52,13 +52,13 @@ r_classify* creatList_r_classify(char* n)
     strcpy(newNode->name, n);
     newNode->r_head = NULL;
 
-    // adjust whether to add recipe
+    // Ask whether to add recipe
     printf("Add recipes or not (Y/N):\t");
-    char flag = getchar();// set a flag to determine whether to add recipe
+    char flag = getchar(); // Set a flag to determine whether to add recipe
     getchar();
 
-    flag = toupper(flag);// set a flag to determine whether to add recipe
-    //���Ӳ�Ʒ
+    flag = toupper(flag); // Set a flag to determine whether to add recipe
+    // Add product
     if (flag == 'Y')
     {
         int i;
@@ -73,9 +73,9 @@ r_classify* creatList_r_classify(char* n)
                 break;
             }
 
-            // enter the price of the recipe
+            // Enter the price of the recipe
             printf("\nPlease enter the price of the recipe:\t");
-            scanf("%f", price);
+            scanf("%f", &price);
             printf("\n");
             newNode->r_head = creatList_recipe_2(name, price);
         }
@@ -94,19 +94,19 @@ r_classify* creatList_r_classify(char* n)
     return newNode;
 }
 
-// create a list of orders
+// Create a list of orders
 order* creatList_order(char* merchant_name, char* merchant_address, char* merchant_phone,
     char* deliver_name, char* deliver_phone, char* user_name, char* user_adderss, char* user_phone)
 {
     order* newNode = (order*)malloc(sizeof(order));
 
-    // check whether the node is created successfully
+    // Check whether the node is created successfully
     if (!newNode)
     {
         return NULL;
     }
 
-    // initit order information
+    // Initialize order information
     strcpy(newNode->m_name, merchant_name);
     strcpy(newNode->m_address, merchant_address);
     strcpy(newNode->m_phone, merchant_phone);
@@ -128,12 +128,12 @@ order* creatList_order(char* merchant_name, char* merchant_address, char* mercha
     return newNode;
 }
 
-// create a list of merchants
+// Create a list of merchants
 Merchant* creatList_merchant(char* n, char* p, char* a, char* pn)
 {
     Merchant* newNode = (Merchant*)malloc(sizeof(Merchant));
 
-// check whether the node is created successfully
+    // Check whether the node is created successfully
     if (!newNode)
     {
         return NULL;
@@ -148,12 +148,12 @@ Merchant* creatList_merchant(char* n, char* p, char* a, char* pn)
     return newNode;
 }
 
-// create a list of users
+// Create a list of users
 User* creatList_user(char* n, char* p, char* a, char* pn)
 {
     User* newNode = (User*)malloc(sizeof(User));
 
-// check whether the node is created successfully
+    // Check whether the node is created successfully
     if (!newNode)
     {
         return NULL;
@@ -168,12 +168,12 @@ User* creatList_user(char* n, char* p, char* a, char* pn)
     return newNode;
 }
 
-// create a list of delivery persons
+// Create a list of delivery persons
 DeliveryPerson* creatList_deliveryperson(char* n, char* p, char* pn)
 {
     DeliveryPerson* newNode = (DeliveryPerson*)malloc(sizeof(DeliveryPerson));
 
-// check whether the node is created successfully
+    // Check whether the node is created successfully
     if (!newNode)
     {
         return NULL;

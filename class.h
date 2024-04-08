@@ -7,65 +7,65 @@
 #include <time.h>
 #include <ctype.h>
 
-double discount[3] = { 0.9,0.85,0.75 };//不同卡对应的折扣
-enum card { SILVER, GOLD, PLATINUM };//用户会员类型
-enum state_o { WAY, DILLVERING, FINISH };//订单状态
-enum state_d { FREE, BUSY };//外卖员状态
+double discount[3] = { 0.9,0.85,0.75 }; // Different cards corresponding discounts
+enum card { SILVER, GOLD, PLATINUM }; // User membership type
+enum state_o { WAY, DILLVERING, FINISH }; // Order status
+enum state_d { FREE, BUSY }; // Delivery person status
 
-//菜单结构体
+// Menu structure
 typedef struct recipe
 {
-    char name[100];          //菜品名称
-    float price;               //菜品价格
-    int num;                 //菜品数量
-    float sale_discount;     //菜品折扣
+    char name[100];          // Dish name
+    float price;             // Dish price
+    int num;                 // Dish quantity
+    float sale_discount;     // Dish discount
 
     struct recipe* next;
 }recipe;
 
 typedef struct r_classify
 {
-    char name[100];                 //菜品分类名称
-    int total_number;        //记录菜品的总数量
+    char name[100];                 // Dish classification name
+    int total_number;               // Total number of dishes
 
-    struct recipe* r_head;   //菜品链表
-    struct recipe* r_tail;   //菜品链表尾
+    struct recipe* r_head;          // Dish linked list head
+    struct recipe* r_tail;          // Dish linked list tail
 
-    struct r_classify* next; //下一个分类
+    struct r_classify* next;        // Next classification
 }r_classify;
 
-//订单结构体
+// Order structure
 typedef struct order
 {
-    // 订单号
+    // Order ID
     char order_id[100];
 
-    //订单创建时间
+    // Order creation time
     struct tm* localTime;
 
-    // 商家，配送员，顾客的名字
+    // Merchant, delivery person, customer names
     char m_name[100];
     char d_name[100];
     char u_name[100];
 
-    // 商家，顾客的地址
+    // Merchant, customer addresses
     char m_address[100];
     char u_address[100];
 
-    // 商家，配送员，顾客的电话
+    // Merchant, delivery person, customer phone numbers
     char m_phone[20];
     char d_phone[20];
     char u_phone[20];
 
-    // 订单状态
+    // Order status
     enum state_o s;
 
-    //预计到店时间
+    // Estimated arrival time
     struct tm* arrive_time;
-    //预计送达时间
+    // Estimated delivery time
     struct tm* send_time;
 
-    // 订单的菜品
+    // Order dishes
     struct recipe* r_head;
     struct recipe* r_tail;
 
@@ -74,116 +74,114 @@ typedef struct order
     struct order* next;
 }order;
 
-// 商家结构体
+// Merchant structure
 typedef struct Merchant
 {
-    char password[100];//密码
+    char password[100]; // Password
     char name[100];
     char address[100];
     char phone[20];
 
-    struct order* o_head;//订单链表
-    struct order* o_tail;//订单链表尾
+    struct order* o_head; // Order linked list head
+    struct order* o_tail; // Order linked list tail
 
-    struct r_classify* r_head;//菜品分类链表
-    struct r_classify* r_tail;//菜品分类链表尾
+    struct r_classify* r_head; // Dish classification linked list head
+    struct r_classify* r_tail; // Dish classification linked list tail
 
     struct Merchant* next;
 
 }Merchant;
 
-// 外卖员结构体
+// Delivery person structure
 typedef struct DeliveryPerson
 {
-    struct order* o_head;//订单链表
+    struct order* o_head; // Order linked list head
 
-
-    enum state_d s;//状态
+    enum state_d s; // Status
 
     char password[100];
     char name[100];
     char phone[20];
 
-
     struct DeliveryPerson* next;
 
 }DeliveryPerson;
 
-// 用户结构体
+// User structure
 typedef struct User
 {
-    char password[100];//密码
+    char password[100]; // Password
     char name[100];
     char address[100];
     char phone[20];
     
-    enum card c;//用户会员
+    enum card c; // User membership
 
-    //订单号
+    // Order ID
     struct order* head;
 
     struct User* next;
 
 }User;
 
-//创建链表
+// Create linked list
 
-//创建订单菜品列表
+// Create order dish list
 recipe* creatList_recipe_1(char* n, float p, int num);
-//创建菜单里的菜品列表
+// Create menu dish list
 recipe* creatList_recipe_2(char* n, float p);
-//创建菜品类列表
+// Create dish classification list
 r_classify* creatList_r_classify(char* n);
-//创建订单列表
+// Create order list
 order* creatList_order(char* merchant_name, char* merchant_address, char* merchant_phone,
     char* deliver_name, char* deliver_phone, char* user_name, char* user_adderss, char* user_phone);
-//创建商家链表
+// Create merchant linked list
 Merchant* creatList_merchant(char* n, char* p, char* a, char* pn);
-//创建用户链表
+// Create user linked list
 User* creatList_user(char* n, char* p, char* a, char* pn);
-// 创建外卖员列表
+// Create delivery person list
 DeliveryPerson* creatList_deliveryperson(char* n, char* p, char* pn);
 
-//打印链表
+// Print linked list
 
-//打印菜单中的菜品
+// Print menu dishes
 void printList_recipe_1(recipe* head);
-//打印订单中菜品
+// Print order dishes
 void printList_recipe_2(recipe* head);
-//打印菜品分类
+// Print dish classification
 void printList_r_classify(r_classify* head);
-// 打印订单
+// Print order list
 void print_order_list(order* head);
-//打印商家列表
+// Print merchant list
 void printList_merchant(Merchant* head);
 
-//求单个订单的折后价
+// Calculate discounted price for a single order
 bool sumPrice(order* head, recipe* head_r, int c, double* d);
 
-// delete data
-bool delete_order(order* head, char* order_id);// delete an order
-bool delete_recipe (recipe* head, char* name);// delete a recipe
-bool delete_r_class(r_classify* head, char* name);// delete a recipe class
-bool delete_merchant (Merchant* head, char* m_name);// delete a merchant
-bool delete_user (User* head, char* u_name);// delete a user
-bool delete_deliveryperson (DeliveryPerson* head, char* d_name);// delete a delivery person
+// Delete data
+bool delete_order(order* head, char* order_id); // Delete an order
+bool delete_recipe (recipe* head, char* name); // Delete a dish
+bool delete_r_class(r_classify* head, char* name); // Delete a dish class
+bool delete_merchant (Merchant* head, char* m_name); // Delete a merchant
+bool delete_user (User* head, char* u_name); // Delete a user
+bool delete_deliveryperson (DeliveryPerson* head, char* d_name); // Delete a delivery person
 
-//设置时间
+// Set time
 void set_time(struct tm* localTime);
 
-//更改商户密码
+// Change merchant password
 void merchant_change_p(Merchant* head);
-//更改用户密码
+// Change user password
 void user_change_p(User* head);
-//更改外卖员密码
+// Change delivery person password
 void deliveryPerson_change_p(DeliveryPerson* head);
 
-//更改会员折扣
+// Change membership discount
 bool discount_change(double* d, int c);
-//更改用户会员类型
+// Change user membership type
 bool card_class_change(User* head, int c);
 
-// 登录以及修改密码
+// Login and change password
 bool compare(char *f_name,char* n);
 void writeIntoFile_p(char * f_name ,char* n, char* p);
 void updatePassword(char * f_name ,char* n, char* new_p);

@@ -5,15 +5,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-//以菜品名称为判断标准从菜单树中查找节点,返回菜品链表中的节点
+// Search for a node from the menu tree (recipe) with the product name as the judgment standard, and return the node containing the product name
 recipe* search_recipe_name(t_recipe* root, const char* recipe_name) {
-    //如果根节点为空，或者菜品名称为空，返回空指针
+    // If the root node is null or the product name is null, return a null pointer
     if (root == NULL || recipe_name == NULL) {
         return NULL;
     }
-    //循环遍历菜单树节点
+    // Loop to traverse the menu tree nodes
     while (root != NULL) {
-        //如果找到匹配的菜品名称，返回菜品节点
+        // If the found product name matches, return the product node
         if (strcmp(recipe_name, root->r_node->name) == 0) {
             return root->r_node;
         }
@@ -25,18 +25,19 @@ recipe* search_recipe_name(t_recipe* root, const char* recipe_name) {
             root = root->right;
         }
     }
-    // 如果未找到匹配的菜品名称，返回空指针
+    // If no matching product name is found, return a null pointer
     return NULL;
 }
-//以订单号为判断标准从订单树中查找节点,返回订单链表中的节点
+
+// Search for a node from the order tree with the order number as the judgment standard, and return the node containing the order number
 order* search_order_id(t_order* root, const char* order_id) {
-    //如果根节点为空，或者订单号为空，返回空指针
+    // If the root node is null or the order number is null, return a null pointer
     if (root == NULL || order_id == NULL) {
         return NULL;
     }
-    //循环遍历树节点
+    // Loop to traverse the order tree nodes
     while (root != NULL) {
-        //如果找到匹配的订单号，返回订单节点
+        // If the found order number matches, return the order node
         if (strcmp(order_id, root->o_node->order_id) == 0) {
             return root->o_node;
         }
@@ -48,19 +49,20 @@ order* search_order_id(t_order* root, const char* order_id) {
             root = root->right;
         }
     }
-    // 如果未找到匹配的订单号，返回空指针
+    // If no matching order number is found, return a null pointer
     return NULL;
 }
-// 以商家名称为判断标准从商家树中查找节点,返回商家链表中的节点
+
+// Search for a node from the merchant tree with the merchant name as the judgment standard, and return the node containing the merchant name
 Merchant* search_Merchant_name(t_Merchant* root, const char* Merchant_name)
 {
-    //如果根节点为空，或者商家名称为空，返回空指针
+    // If the root node is null or the merchant name is null, return a null pointer
     if (root == NULL || Merchant_name == NULL) {
         return NULL;
     }
-    //循环遍历树节点
+    // Loop to traverse the merchant tree nodes
     while (root != NULL) {
-        //如果找到匹配的商家名称，返回商家节点
+        // If the found merchant name matches, return the merchant node
         if (strcmp(Merchant_name, root->M_node->name) == 0) {
             return root->M_node;
         }
@@ -72,6 +74,6 @@ Merchant* search_Merchant_name(t_Merchant* root, const char* Merchant_name)
             root = root->right;
         }
     }
-    // 如果未找到匹配的商家名称，返回空指针
+    // If no matching merchant name is found, return a null pointer
     return NULL;
 }

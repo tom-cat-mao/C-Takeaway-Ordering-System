@@ -4,39 +4,40 @@
 #include"class.h"
 #include"mergeSortRecipe.h"
 
-//按价格从高到低输出菜品
+// Output products from high price to low within a certain price range
 bool output_recipe_high_to_low(recipe* head, float minPrice, float maxPrice)
 {
-    //返回bool值flag来判断是否成功输出
-    //返回true则代表这个价格区间内有菜品，返回false代表这个区间内无菜品
+    // Use the bool value flag to judge whether the operation is successful
+    // Return true if there are products in the price range, and return false if there are no products
     bool flag = false;
-    // 首先对菜品链表从高到低排序
+    // First sort the products from high to low
     r_mergeSortLower(&head);
-    // 遍历链表，输出在价格区间内的菜品名称
+    // Output the products within the price range in the sorted list
     recipe* current = head;
     while (current != NULL && current->price >= minPrice) {
         if (current->price <= maxPrice)
         {
-            printf("菜品名称：%s\t价格：%.2f\n", current->name, current->price);
+            printf("Product name: %s\tPrice: %.2f\n", current->name, current->price);
             flag = true;
         }
         current = current->next;
     }
     return flag;
 }
-//按价格从低到高输出菜品
-void output_recipe_low_to_high(recipe* head, float minPrice, float maxPrice) 
+
+// Output products from low price to high within a certain price range
+bool output_recipe_low_to_high(recipe* head, float minPrice, float maxPrice) 
 {
-    //返回bool值flag来判断是否成功输出
-    //返回true则代表这个价格区间内有菜品，返回false代表这个区间内无菜品
+    // Use the bool value flag to judge whether the operation is successful
+    // Return true if there are products in the price range, and return false if there are no products
     bool flag = false;
-    // 首先对菜品链表从低到高排序
+    // First sort the products from low to high
     r_mergeSortUpper(&head);
-    // 遍历链表，输出在价格区间内的菜品名称
+    // Output the products within the price range in the sorted list
     recipe* current = head;
     while (current != NULL && current->price <= maxPrice) {
         if (current->price >= minPrice) {
-            printf("菜品名称：%s\t价格：%.2f\n", current->name, current->price);
+            printf("Product name: %s\tPrice: %.2f\n", current->name, current->price);
             flag = true;
         }
         current = current->next;

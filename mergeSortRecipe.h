@@ -3,7 +3,8 @@
 #define _MERGESORTRECIPE_H
 #define _CRT_SECURE_NO_WARNINGS
 #include"class.h"
-// 分割链表
+
+// Split the list
 void splitRecipe(recipe* source, recipe** front, recipe** back)
 {
     recipe* fast;
@@ -35,9 +36,9 @@ void splitRecipe(recipe* source, recipe** front, recipe** back)
     }
 }
 
-//对菜品价格进行升序排序
+// Sort the products by price in ascending order
 
-// 合并两个有序链表，升序排列
+// Merge the two sorted lists
 void r_mergeUpper(recipe** result, recipe* a, recipe* b)
 {
     if (a == NULL)
@@ -64,8 +65,7 @@ void r_mergeUpper(recipe** result, recipe* a, recipe* b)
 
 }
 
-
-// 使用归并排序对链表进行排序
+// Use merge sort to sort the list in ascending order
 void r_mergeSortUpper(recipe** head)
 {
     recipe* current = *head;
@@ -85,9 +85,9 @@ void r_mergeSortUpper(recipe** head)
     r_mergeUpper(head, a, b);
 }
 
-//对菜品价格进行降序排序
+// Sort the products by price in descending order
 
-// 合并两个有序链表，降序
+// Merge the two sorted lists
 void r_mergeLower(recipe** result, recipe* a, recipe* b)
 {
     if (a == NULL)
@@ -114,7 +114,7 @@ void r_mergeLower(recipe** result, recipe* a, recipe* b)
 
 }
 
-// 使用归并排序对链表进行排序
+// Use merge sort to sort the list in descending order
 void r_mergeSortLower(recipe** head)
 {
     recipe* current = *head;

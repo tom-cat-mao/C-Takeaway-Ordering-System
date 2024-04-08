@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "class.h"
 
-// 登录
+// Login
 bool compare(char *f_name, char* n)
 {
     FILE* fp = fopen(f_name, "r+");
@@ -16,7 +16,7 @@ bool compare(char *f_name, char* n)
     char password[50] = { "\0" };
     int found = 0;
 
-    // 寻找要登录的用户
+    // Find the user to log in
     while (fgets(line, sizeof(line), fp) != NULL)
     {
         sscanf(line, "%s\t%s", name, password);
@@ -35,7 +35,7 @@ bool compare(char *f_name, char* n)
     }
     else
     {
-        // 输入密码
+        // Input password
         int i;
         for (i = 0; i < 5; i++)
         {
@@ -56,7 +56,7 @@ bool compare(char *f_name, char* n)
     }
 }
 
-// 注册
+// Register
 void writeIntoFile_p(char * f_name ,char* n, char* p)
 {
     FILE* fp = fopen(f_name, "a+");
@@ -70,7 +70,7 @@ void writeIntoFile_p(char * f_name ,char* n, char* p)
     printf("LinkedList data written to '%s'\n", "merchantpassword.txt");
 }
 
-// 修改密码
+// Change password
 void updatePassword(char * f_name ,char* n, char* new_p)
 {
     FILE* fp = fopen(f_name, "r+");
@@ -86,13 +86,13 @@ void updatePassword(char * f_name ,char* n, char* new_p)
     long filePos;
     int found = 0;
 
-    // 寻找要修改密码的用户
+    // Find the user to change the password
     while (fgets(line, sizeof(line), fp) != NULL)
     {
         sscanf(line, "%s\t%s", name, password);
         if (strcmp(name, n) == 0)
         {
-            filePos = ftell(fp) - (strlen(line) + 1); //返回要修改密码的地址
+            filePos = ftell(fp) - (strlen(line) + 1); // Return the address to change the password
             found = 1;
             break;
         }
@@ -105,9 +105,9 @@ void updatePassword(char * f_name ,char* n, char* new_p)
         return;
     }
 
-    // 寻找并修改密码
+    // Find and change the password
     fseek(fp, filePos, SEEK_SET);
-    fprintf(fp, "%s\t%s\n", n, new_p); //修改密码
+    fprintf(fp, "%s\t%s\n", n, new_p); // Change password
     fclose(fp);
     printf("Password updated for '%s'\n", n);
 }

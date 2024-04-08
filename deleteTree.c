@@ -5,7 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-// 以菜品名称为判断标准从菜单树中删除节点（已检验）
+
+// Delete a node from the menu tree (recipe) with the product name as the judgment standard
 bool delete_recipe_name(t_recipe** root, char* name) {
     if (*root == NULL) {
         return false;
@@ -17,10 +18,10 @@ bool delete_recipe_name(t_recipe** root, char* name) {
     else if (strcmp(name, (*root)->r_node->name) > 0) {
         delete_recipe_name(&((*root)->right), name);
     }
-    else // 找到需要删除的节点
+    else // Found the node to be deleted
     {
         t_order* temp;
-        // 没有子节点或只有一个子节点的情况
+        // No child nodes or only one child node exists
         if ((*root)->left == NULL) {
             temp = *root;
             *root = (*root)->right;
@@ -35,7 +36,7 @@ bool delete_recipe_name(t_recipe** root, char* name) {
         }
         else
         {
-            // 有两个子节点的情况，找到右子树中最小的节点替代当前节点
+            // Both child nodes exist, find the smallest node of the right subtree to replace the current node
             t_recipe* minValueNode = (*root)->right;
             while (minValueNode->left != NULL)
             {
@@ -46,7 +47,8 @@ bool delete_recipe_name(t_recipe** root, char* name) {
         }
     }
 }
-// 以订单号为判断标准从订单树中删除节点
+
+// Delete a node from the order tree with the order number as the judgment standard
 bool delete_order_id(t_order** root, char* order_id) {
     if (*root == NULL) {
         return false;
@@ -58,10 +60,10 @@ bool delete_order_id(t_order** root, char* order_id) {
     else if (strcmp(order_id, (*root)->o_node->order_id) > 0) {
         delete_order_id(&((*root)->right), order_id);
     }
-    else // 找到需要删除的节点
+    else // Found the node to be deleted
     {
         t_order* temp;
-        // 没有子节点或只有一个子节点的情况
+        // No child nodes or only one child node exists
         if ((*root)->left == NULL) {
             temp = *root;
             *root = (*root)->right;
@@ -76,7 +78,7 @@ bool delete_order_id(t_order** root, char* order_id) {
         }
         else
         {
-            // 有两个子节点的情况，找到右子树中最小的节点替代当前节点
+            // Both child nodes exist, find the smallest node of the right subtree to replace the current node
             t_order* minValueNode = (*root)->right;
             while (minValueNode->left != NULL)
             {
@@ -87,7 +89,8 @@ bool delete_order_id(t_order** root, char* order_id) {
         }
     }
 }
-// 以商家名称为判断标准从商家树中删除节点
+
+// Delete a node from the merchant tree with the merchant name as the judgment standard
 bool delete_Merchant_name(t_Merchant** root, char* name) {
     if (*root == NULL) {
         return false;
@@ -99,10 +102,10 @@ bool delete_Merchant_name(t_Merchant** root, char* name) {
     else if (strcmp(name, (*root)->M_node->name) > 0) {
         delete_Merchant_name(&((*root)->right), name);
     }
-    else // 找到需要删除的节点
+    else // Found the node to be deleted
     {
         t_order* temp;
-        // 没有子节点或只有一个子节点的情况
+        // No child nodes or only one child node exists
         if ((*root)->left == NULL) {
             temp = *root;
             *root = (*root)->right;
@@ -117,7 +120,7 @@ bool delete_Merchant_name(t_Merchant** root, char* name) {
         }
         else
         {
-            // 有两个子节点的情况，找到右子树中最小的节点替代当前节点
+            // Both child nodes exist, find the smallest node of the right subtree to replace the current node
             t_Merchant* minValueNode = (*root)->right;
             while (minValueNode->left != NULL)
             {
