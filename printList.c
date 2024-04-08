@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include"class.h"
 
-//��ӡ�˵��еĲ�Ʒ
+// Print all products in the menu
 void printList_recipe_1(recipe* head)
 {
     printf("Recipe List:\n");
@@ -12,7 +12,7 @@ void printList_recipe_1(recipe* head)
     }
 }
 
-//��ӡ�����в�Ʒ
+// Print all products in the order
 void printList_recipe_2(recipe* head)
 {
     printf("Recipe List:\n");
@@ -23,7 +23,7 @@ void printList_recipe_2(recipe* head)
     }
 }
 
-//��ӡ��Ʒ����
+// Print product categories
 void printList_r_classify(r_classify* head)
 {
     printf("Class List:\n");
@@ -32,7 +32,7 @@ void printList_r_classify(r_classify* head)
         printf("%s\n", head->name);
         if (head->r_head == NULL)
         {
-            printf("�ò�Ʒ�໹δ���Ӳ�Ʒ\n");
+            printf("This product category has not added any products yet\n");
         }
         else
         {
@@ -42,7 +42,7 @@ void printList_r_classify(r_classify* head)
     }
 }
 
-// ��ӡ����
+// Print orders
 void print_order_list(order* head)
 {
     printf("Order List:\n");
@@ -54,7 +54,7 @@ void print_order_list(order* head)
         printf("Merchant: %s\tAddress: %s\tPhone: %s\n", head->m_name, head->m_address, head->m_phone);
         printf("User: %s\tAddress: %s\tPhone: %s\n", head->u_name, head->u_address, head->u_phone);
         printf("Delivery Person: %s\tPhone: %s\n", head->d_name, head->d_phone);
-        printList_recipe_2(head->r_head); // ��ӡ�����еĲ�Ʒ�б�
+        printList_recipe_2(head->r_head); // Print the list of products in the order
         printf("Total Price: %.2f\n", head->sum_price);
         switch (head->s){
         case WAY:
@@ -74,7 +74,7 @@ void print_order_list(order* head)
     }
 }
 
-//��ӡ�̼��б�
+// Print merchant list
 void printList_merchant(Merchant* head)
 {
     printf("Class List:\n");

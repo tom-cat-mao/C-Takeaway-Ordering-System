@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "class.h"
 
-// 折扣更改
+// Change discount
 bool discount_change(double* d, int c)
 {
 	double n = 0;
@@ -11,8 +11,7 @@ bool discount_change(double* d, int c)
 	return true;
 }
 
-
-// 会员卡更改
+// Change membership card
 bool card_class_change(User* head, int c)
 {
 	User* current = head;
@@ -32,7 +31,7 @@ bool card_class_change(User* head, int c)
 	}
 	if (current == NULL)
 	{
-		printf("Congratulations ,you have become our sliver card user.\n");
+		printf("Congratulations, you have become our silver card user.\n");
 		current->c = 0;
 	}
 	else

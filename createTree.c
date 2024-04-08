@@ -5,7 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-// 创建新的菜单树节点(已检验）
+
+// create a new recipe node for the tree
 t_recipe* creatTree_recipe(recipe* example)
 {
     t_recipe* newNode = (t_recipe*)malloc(sizeof(t_recipe));
@@ -18,7 +19,8 @@ t_recipe* creatTree_recipe(recipe* example)
     newNode->right = NULL;
     return newNode;
 }
-// 创建新的订单树节点
+
+// create a new order node for the tree
 t_order* creatTree_order(order* example)
 {
     t_order* newNode = (t_order*)malloc(sizeof(t_order));
@@ -31,7 +33,8 @@ t_order* creatTree_order(order* example)
     newNode->right = NULL;
     return newNode;
 }
-// 创建新的商家树节点
+
+// create a new merchant node for the tree
 t_Merchant* creatTree_Merchant(Merchant* example)
 {
     t_Merchant* newNode = (t_Merchant*)malloc(sizeof(t_Merchant));
