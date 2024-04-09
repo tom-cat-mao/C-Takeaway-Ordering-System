@@ -20,7 +20,7 @@ bool delete_recipe_name(t_recipe** root, char* name) {
     }
     else // Found the node to be deleted
     {
-        t_order* temp;
+        t_recipe* temp;
         // No child nodes or only one child node exists
         if ((*root)->left == NULL) {
             temp = *root;
@@ -104,7 +104,7 @@ bool delete_Merchant_name(t_Merchant** root, char* name) {
     }
     else // Found the node to be deleted
     {
-        t_order* temp;
+        t_Merchant* temp;
         // No child nodes or only one child node exists
         if ((*root)->left == NULL) {
             temp = *root;
