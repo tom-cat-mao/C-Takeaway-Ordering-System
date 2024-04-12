@@ -7,8 +7,10 @@
 #include <stdbool.h>
 
 // insert a recipe name node into the tree
-bool insertTree_recipe_name(t_recipe** root, recipe* insert) {
-    if (*root == NULL) {
+bool insertTree_recipe_name(t_recipe** root, recipe* insert) 
+{
+    if (*root == NULL) 
+    {
         *root = creatTree_recipe(insert);
         return true;
     }
@@ -16,24 +18,30 @@ bool insertTree_recipe_name(t_recipe** root, recipe* insert) {
     // create a new node for the tree
     t_recipe* current = *root;
     while (1) {
-        if (strcmp((insert)->name, current->r_node->name) < 0) {
-            if (current->left == NULL) {
+        if (strcmp((insert)->name, current->r_node->name) < 0) 
+        {
+            if (current->left == NULL) 
+            {
                 // when the left child is null, create a new node and link it to the left child
                 current->left = creatTree_recipe(insert);
                 return true;
             }
-            else {
+            else 
+            {
                 current = current->left;
             }
         }
-        else { // strcmp((*insert)->name, current->r_node->name) > 0
+        else // strcmp((*insert)->name, current->r_node->name) > 0
+        { 
             // when the recipe name is greater than the current node's recipe name
-            if (current->right == NULL) {
+            if (current->right == NULL) 
+            {
                 // when the right child is null, create a new node and link it to the right child
                 current->right = creatTree_recipe(insert);
                 return true;
             }
-            else {
+            else 
+            {
                 current = current->right;
             }
         }
@@ -41,8 +49,10 @@ bool insertTree_recipe_name(t_recipe** root, recipe* insert) {
 }
 
 // use the custom order id as the standard to insert nodes into the tree
-bool insertTree_order_id(t_order** root, order* insert) {
-    if (*root == NULL) {
+bool insertTree_order_id(t_order** root, order* insert) 
+{
+    if (*root == NULL) 
+    {
         *root = creatTree_order(insert);
         return true;
     }
@@ -67,12 +77,14 @@ bool insertTree_order_id(t_order** root, order* insert) {
         else // strcmp((insert)->order_id, current->o_node->order_id) > 0
         {
             // when the order id is greater than the current node's order id
-            if (current->right == NULL) {
+            if (current->right == NULL) 
+            {
                 // when the right child is null, create a new node and link it to the right child
                 current->right = creatTree_order(insert);
                 return true;
             }
-            else {
+            else 
+            {
                 current = current->right;
             }
         }
@@ -81,7 +93,8 @@ bool insertTree_order_id(t_order** root, order* insert) {
 
 // use the merchant name as the standard to insert nodes into the tree
 bool insertTree_Merchant_name(t_Merchant** root, Merchant* insert) {
-    if (*root == NULL) {
+    if (*root == NULL) 
+    {
         *root = creatTree_Merchant(insert);
         return true;
     }
@@ -106,12 +119,14 @@ bool insertTree_Merchant_name(t_Merchant** root, Merchant* insert) {
         else // strcmp((insert)->name, current->M_node->name) > 0
         {
             // when the merchant name is greater than the current node's merchant name
-            if (current->right == NULL) {
+            if (current->right == NULL) 
+            {
                 // when the right child is null, create a new node and link it to the right child
                 current->right = creatTree_Merchant(insert);
                 return true;
             }
-            else {
+            else 
+            {
                 current = current->right;
             }
         }

@@ -156,7 +156,7 @@ void print_order_list(order* head);
 void printList_merchant(Merchant* head);
 
 // Calculate discounted price for a single order
-bool sumPrice(order* head, recipe* head_r, int c, double* d);
+bool sumPrice(order* head, recipe* head_r, enum card c, double* d);
 
 // Delete data
 bool delete_order(order* head, char* order_id); // Delete an order

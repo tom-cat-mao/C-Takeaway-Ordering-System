@@ -32,7 +32,7 @@ bool card_class_change(User* head, int c)
 	if (current == NULL)
 	{
 		printf("Congratulations, you have become our silver card user.\n");
-		current->c = 0;
+		current->c = SILVER;
 	}
 	else
 	{

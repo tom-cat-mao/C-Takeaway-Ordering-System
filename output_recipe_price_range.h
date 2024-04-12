@@ -1,6 +1,5 @@
 #pragma once
 #define _CRT_SECURE_NO_WARNINGS
-#include <stdbool.h>
 #include"class.h"
 #include"mergeSortRecipe.h"
 
@@ -14,7 +13,8 @@ bool output_recipe_high_to_low(recipe* head, float minPrice, float maxPrice)
     r_mergeSortLower(&head);
     // Output the products within the price range in the sorted list
     recipe* current = head;
-    while (current != NULL && current->price >= minPrice) {
+    while (current != NULL && current->price >= minPrice) 
+    {
         if (current->price <= maxPrice)
         {
             printf("Product name: %s\tPrice: %.2f\n", current->name, current->price);
@@ -35,8 +35,10 @@ bool output_recipe_low_to_high(recipe* head, float minPrice, float maxPrice)
     r_mergeSortUpper(&head);
     // Output the products within the price range in the sorted list
     recipe* current = head;
-    while (current != NULL && current->price <= maxPrice) {
-        if (current->price >= minPrice) {
+    while (current != NULL && current->price <= maxPrice)
+    {
+        if (current->price >= minPrice)
+        {
             printf("Product name: %s\tPrice: %.2f\n", current->name, current->price);
             flag = true;
         }

@@ -2,6 +2,7 @@
 #ifndef _SALE_RECIPE
 #define _SALE_RECIPE
 #include "class.h"
+
 bool bool_set_sale_recipe(recipe* object, float input)
 {
 	//judge if the value of input is legal
@@ -18,6 +19,7 @@ bool bool_set_sale_recipe(recipe* object, float input)
 		return false;
 	}
 }
+
 void set_sale_recipe(recipe* object, float input)
 {
 	while (1)
