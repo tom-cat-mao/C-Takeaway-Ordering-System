@@ -163,6 +163,7 @@ User* creatList_user(char* n, char* p, char* a, char* pn)
     strcpy(newNode->password, p);
     strcpy(newNode->address, a);
     strcpy(newNode->phone, pn);
+    newNode->c = SILVER;
     newNode->next = NULL;
 
     return newNode;

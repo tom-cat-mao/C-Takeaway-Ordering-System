@@ -2,10 +2,6 @@
 #ifndef CLASSTREE_H
 #define CLASSTREE_H
 #include "class.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
 
 // Menu node
 typedef struct t_recipe
@@ -15,6 +11,7 @@ typedef struct t_recipe
     struct t_recipe* left;
     struct t_recipe* right;
 } t_recipe;
+
 // Order node
 typedef struct t_order
 {
@@ -23,6 +20,7 @@ typedef struct t_order
     struct t_order* left;
     struct t_order* right;
 }t_order;
+
 // Merchant node
 typedef struct t_Merchant
 {

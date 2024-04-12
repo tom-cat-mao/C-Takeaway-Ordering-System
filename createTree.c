@@ -10,7 +10,8 @@
 t_recipe* creatTree_recipe(recipe* example)
 {
     t_recipe* newNode = (t_recipe*)malloc(sizeof(t_recipe));
-    if (newNode == NULL) {
+    if (newNode == NULL) 
+    {
         printf("Recipe Tree error");
         return NULL;
     }
@@ -24,7 +25,8 @@ t_recipe* creatTree_recipe(recipe* example)
 t_order* creatTree_order(order* example)
 {
     t_order* newNode = (t_order*)malloc(sizeof(t_order));
-    if (newNode == NULL) {
+    if (newNode == NULL) 
+    {
         printf("Order Tree error");
         return NULL;
     }
@@ -38,7 +40,8 @@ t_order* creatTree_order(order* example)
 t_Merchant* creatTree_Merchant(Merchant* example)
 {
     t_Merchant* newNode = (t_Merchant*)malloc(sizeof(t_Merchant));
-    if (newNode == NULL) {
+    if (newNode == NULL) 
+    {
         printf("Merchant Tree error");
         return NULL;
     }
