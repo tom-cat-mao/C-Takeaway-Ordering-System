@@ -77,7 +77,16 @@ r_classify* creatList_r_classify(char* n)
             printf("\nPlease enter the price of the recipe:\t");
             scanf("%f", &price);
             printf("\n");
-            newNode->r_head = creatList_recipe_2(name, price);
+
+            if (newNode->r_head == NULL)
+            {
+                newNode->r_head = creatList_recipe_2(name, price);
+                newNode->r_tail = newNode->r_head;
+            }
+            else
+            {
+                newNode->r_tail->next = creatList_recipe_2(name, price);
+            }
         }
         newNode->total_number = i;
     }
