@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "class.h"
 
-bool sumPrice(order* head, recipe* head_r,enum card c, double* d)
+bool sumPrice(order* head, recipe* head_r,int c, double* d)
 {
 	head->sum_price = 0;
 	while (head_r != NULL)
