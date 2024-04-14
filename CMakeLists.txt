@@ -8,6 +8,7 @@ set(SOURCES
     delete_data.c
     deleteTree.c
     insertTree.c
+    password_change.c
     discount_card_change.c
     name_a_pass.c
     printList.c
@@ -22,6 +23,7 @@ set(HEADERS
     mergeSortRecipe.h
     output_recipe_price_range.h
     classTree.h
+    setStar_recipe.h
 )
 
 # Add executable target

@@ -1,5 +1,5 @@
-CMakeFiles/MyProject.dir/searchTree.c.o: \
- /media/tomcat/Data/Cproject/C-/searchTree.c /usr/include/stdc-predef.h \
+CMakeFiles/MyProject.dir/time_set.c.o: \
+ /media/tomcat/Data/Cproject/C-/time_set.c /usr/include/stdc-predef.h \
  /media/tomcat/Data/Cproject/C-/class.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -55,4 +55,4 @@ CMakeFiles/MyProject.dir/searchTree.c.o: \
  /usr/include/x86_64-linux-gnu/bits/time.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
- /usr/include/ctype.h /media/tomcat/Data/Cproject/C-/classTree.h
+ /usr/include/ctype.h
