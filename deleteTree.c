@@ -25,6 +25,14 @@ bool delete_recipe_name(t_recipe** root, char* name)
     else // Found the node to be deleted
     {
         t_recipe* temp;
+
+        //delete the node in the list
+        recipe* current = (*root)->r_node;
+        current->prev->next = current->next;
+        current->next->prev = current->prev;
+        current->prev = NULL;
+        current->next = NULL;
+
         // No child nodes or only one child node exists
         if ((*root)->left == NULL) 
         {
@@ -73,6 +81,14 @@ bool delete_order_id(t_order** root, char* order_id)
     else // Found the node to be deleted
     {
         t_order* temp;
+
+        //delete the node in the list
+        order* current = (*root)->o_node;
+        current->prev->next = current->next;
+        current->next->prev = current->prev;
+        current->prev = NULL;
+        current->next = NULL;
+        
         // No child nodes or only one child node exists
         if ((*root)->left == NULL) 
         {
@@ -121,6 +137,14 @@ bool delete_Merchant_name(t_Merchant** root, char* name)
     else // Found the node to be deleted
     {
         t_Merchant* temp;
+
+        //delete the node in the list
+        Merchant* current = (*root)->M_node;
+        current->prev->next = current->next;
+        current->next->prev = current->prev;
+        current->prev = NULL;
+        current->next = NULL;
+        
         // No child nodes or only one child node exists
         if ((*root)->left == NULL) 
         {

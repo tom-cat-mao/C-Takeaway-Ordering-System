@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "class.h"
+#include"setStar_recipe.h"
 
 // Create a list of recipes for the order
 recipe* creatList_recipe_1(char* n, float p, int num)
@@ -15,6 +16,7 @@ recipe* creatList_recipe_1(char* n, float p, int num)
     strcpy(newNode->name, n);
     newNode->price = p;
     newNode->num = num;
+    newNode->prev = NULL;
     newNode->next = NULL;
 
     return newNode;
@@ -32,10 +34,29 @@ recipe* creatList_recipe_2(char* n, float p)
     }
 
     strcpy(newNode->name, n);
+    newNode->sale_discount = 1.0;
     newNode->price = p;
+    newNode->star = generateRandomStar();
+    newNode->prev = NULL;
     newNode->next = NULL;
 
     return newNode;
+}
+
+// Insert the new node into the end of the list
+void insertEnd_r(recipe** head, recipe** tail, recipe* newNode)
+{
+    if (*head == NULL)
+    {
+        *head = newNode;
+        *tail = newNode;
+    }
+    else
+    {
+        (*tail)->next = newNode;
+        newNode->prev = *(tail);
+        *tail = newNode;
+    }
 }
 
 // Create a list of recipes
@@ -64,8 +85,8 @@ r_classify* creatList_r_classify(char* n)
         int i;
         for (i = 1;; i++)
         {
-            char name[100];
-            float price;
+            char name[100] = {'\0'};
+            float price = 0.0;
             printf("\nPlease enter the name of the recipe(q to quit):\t");
             scanf("%s", name);
             if (name[0] == 'q')
@@ -78,15 +99,8 @@ r_classify* creatList_r_classify(char* n)
             scanf("%f", &price);
             printf("\n");
 
-            if (newNode->r_head == NULL)
-            {
-                newNode->r_head = creatList_recipe_2(name, price);
-                newNode->r_tail = newNode->r_head;
-            }
-            else
-            {
-                newNode->r_tail->next = creatList_recipe_2(name, price);
-            }
+            recipe* current = creatList_recipe_2(name, price);
+            insertEnd_r(&(newNode->r_head), &(newNode->r_tail), current);
         }
         newNode->total_number = i;
     }
@@ -98,9 +112,26 @@ r_classify* creatList_r_classify(char* n)
         return NULL;
     }
 
+    newNode->prev = NULL;
     newNode->next = NULL;
 
     return newNode;
+}
+
+// Insert the new node into the end of the list
+void insertEnd_rc(r_classify** head, r_classify** tail, r_classify* newNode)
+{
+    if (*head == NULL)
+    {
+        *head = newNode;
+        *tail = newNode;
+    }
+    else
+    {
+        (*tail)->next = newNode;
+        newNode->prev = *(tail);
+        *tail = newNode;
+    }
 }
 
 // Create a list of orders
@@ -137,6 +168,22 @@ order* creatList_order(char* merchant_name, char* merchant_address, char* mercha
     return newNode;
 }
 
+// Insert the new node into the end of the list
+void insertEnd_o(order** head, order** tail, order* newNode)
+{
+    if (*head == NULL)
+    {
+        *head = newNode;
+        *tail = newNode;
+    }
+    else
+    {
+        (*tail)->next = newNode;
+        newNode->prev = *(tail);
+        *tail = newNode;
+    }
+}
+
 // Create a list of merchants
 Merchant* creatList_merchant(char* n, char* p, char* a, char* pn)
 {
@@ -155,6 +202,22 @@ Merchant* creatList_merchant(char* n, char* p, char* a, char* pn)
     newNode->next = NULL;
 
     return newNode;
+}
+
+// Insert the new node into the end of the list
+void insertEnd_m(Merchant** head, Merchant** tail, Merchant* newNode)
+{
+    if (*head == NULL)
+    {
+        *head = newNode;
+        *tail = newNode;
+    }
+    else
+    {
+        (*tail)->next = newNode;
+        newNode->prev = *(tail);
+        *tail = newNode;
+    }
 }
 
 // Create a list of users
@@ -178,6 +241,22 @@ User* creatList_user(char* n, char* p, char* a, char* pn)
     return newNode;
 }
 
+// Insert the new node into the end of the list
+void insertEnd_u(User** head, User** tail, User* newNode)
+{
+    if (*head == NULL)
+    {
+        *head = newNode;
+        *tail = newNode;
+    }
+    else
+    {
+        (*tail)->next = newNode;
+        newNode->prev = *(tail);
+        *tail = newNode;
+    }
+}
+
 // Create a list of delivery persons
 DeliveryPerson* creatList_deliveryperson(char* n, char* p, char* pn)
 {
@@ -195,4 +274,20 @@ DeliveryPerson* creatList_deliveryperson(char* n, char* p, char* pn)
     newNode->next = NULL;
 
     return newNode;
+}
+
+// Insert the new node into the end of the list
+void insertEnd_d(DeliveryPerson** head, DeliveryPerson** tail, DeliveryPerson* newNode)
+{
+    if (*head == NULL)
+    {
+        *head = newNode;
+        *tail = newNode;
+    }
+    else
+    {
+        (*tail)->next = newNode;
+        newNode->prev = *(tail);
+        *tail = newNode;
+    }
 }

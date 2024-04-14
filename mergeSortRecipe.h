@@ -5,132 +5,335 @@
 #include"class.h"
 
 // Split the list
-void splitRecipe(recipe* source, recipe** front, recipe** back)
+recipe* splitRecipe(recipe* head)
 {
-    recipe* fast;
-    recipe* slow;
+    recipe* fast=head;
+    recipe* slow=head;
 
-    if (source == NULL || source->next == NULL)
+    while (fast->next && fast->next->next)
     {
-        *front = source;
-        *back = NULL;
+        fast = fast->next->next;
+        slow = slow->next;
     }
-    else
-    {
-        slow = source;
-        fast = source->next;
-
-        while (fast != NULL)
-        {
-            fast = fast->next;
-            if (fast != NULL)
-            {
-                slow = slow->next;
-                fast = fast->next;
-            }
-        }
-
-        *front = source;
-        *back = slow->next;
-        slow->next = NULL;
-    }
+    recipe* temp = slow->next;
+    slow->next = NULL;
+    return temp;
 }
 
 // Sort the products by price in ascending order
 
 // Merge the two sorted lists
-void r_mergeUpper(recipe** result, recipe* a, recipe* b)
+recipe* r_mergeUpper_p(recipe* first, recipe* second)
 {
-    if (a == NULL)
+    // If first linked list is empty
+    if (first == NULL)
     {
-        *result = b;
-        return;
+        return second;
     }
-    if (b == NULL)
+    // If second linked list is empty
+    if (second == NULL)
     {
-        *result = a;
-        return;
+        return first;
     }
 
-    if (a->price <= b->price)
+    // Pick the smaller value
+    if (first->price <= second->price)
     {
-        *result = a;
-        r_mergeUpper((&(*result)->next), a->next, b);
+        first->next = r_mergeUpper_p(first->next, second);
+        first->next->prev = first;
+        first->prev = NULL;
+        return first;
     }
     else
     {
-        *result = b;
-        r_mergeUpper((&(*result)->next), a, b->next);
+        second->next = r_mergeUpper_p(first, second->next);
+        second->next->prev = second;
+        second->prev = NULL;
+        return second;
     }
 
 }
 
 // Use merge sort to sort the list in ascending order
-void r_mergeSortUpper(recipe** head)
+recipe* r_mergeSortUpper_p(recipe* head)
 {
-    recipe* current = *head;
-    recipe* a;
-    recipe* b;
-
-    if (current == NULL || current->next == NULL)
+    if (!head || !head->next)
     {
-        return;
+        return head;
     }
 
-    splitRecipe(current, &a, &b);
+    recipe* second = splitRecipe(head);
 
-    r_mergeSortUpper(&a);
-    r_mergeSortUpper(&b);
+    // Recur for left and right halves
+    head = r_mergeSortUpper_p(head);
+    second = r_mergeSortUpper_p(second);
 
-    r_mergeUpper(head, a, b);
+    // Merge the two sorted halves
+    return r_mergeUpper_p(head, second);
 }
 
 // Sort the products by price in descending order
 
 // Merge the two sorted lists
-void r_mergeLower(recipe** result, recipe* a, recipe* b)
+recipe* r_mergeLower_p(recipe* first, recipe* second)
 {
-    if (a == NULL)
+    // If first linked list is empty
+    if (first == NULL)
     {
-        *result = b;
-        return;
+        return second;
     }
-    if (b == NULL)
+    // If second linked list is empty
+    if (second == NULL)
     {
-        *result = a;
-        return;
+        return first;
     }
 
-    if (a->price >= b->price)
+    // Pick the smaller value
+    if (first->price >= b->price)
     {
-        *result = a;
-        r_mergeLower((&(*result)->next), a->next, b);
+        second->next = r_mergeLower_p(first, second->next);
+        second->next->prev = second;
+        second->prev = NULL;
+        return second;
+        
     }
     else
     {
-        *result = b;
-        r_mergeLower((&(*result)->next), a, b->next);
+        first->next = r_mergeLower_p(first->next, second);
+        first->next->prev = first;
+        first->prev = NULL;
+        return first;
     }
 
 }
 
 // Use merge sort to sort the list in descending order
-void r_mergeSortLower(recipe** head)
+recipe* r_mergeSortLower_p(recipe* head)
 {
-    recipe* current = *head;
-    recipe* a;
-    recipe* b;
-
-    if (current == NULL || current->next == NULL)
+    if (!head || !head->next)
     {
-        return;
+        return head;
     }
 
-    splitRecipe(current, &a, &b);
+    recipe* second = splitRecipe(head);
 
-    r_mergeSortLower(&a);
-    r_mergeSortLower(&b);
+    // Recur for left and right halves
+    head = r_mergeSortLower_p(head);
+    second = r_mergeSortLower_p(second);
 
-    r_mergeLower(head, a, b);
+    // Merge the two sorted halves
+    return r_mergeLower_p(head, second);
 }
+
+// Sort the products by star in ascending order
+
+// Merge the two sorted lists
+recipe* r_mergeUpper_s(recipe* first, recipe* second)
+{
+    // If first linked list is empty
+    if (first == NULL)
+    {
+        return second;
+    }
+    // If second linked list is empty
+    if (second == NULL)
+    {
+        return first;
+    }
+
+    // Pick the smaller value
+    if (first->star <= second->star)
+    {
+        first->next = r_mergeUpper_s(first->next, second);
+        first->next->prev = first;
+        first->prev = NULL;
+        return first;
+    }
+    else
+    {
+        second->next = r_mergeUpper_s(first, second->next);
+        second->next->prev = second;
+        second->prev = NULL;
+        return second;
+    }
+
+}
+
+// Use merge sort to sort the list in ascending order
+recipe* r_mergeSortUpper_s(recipe* head)
+{
+    if (!head || !head->next)
+    {
+        return head;
+    }
+
+    recipe* second = splitRecipe(head);
+
+    // Recur for left and right halves
+    head = r_mergeSortUpper_s(head);
+    second = r_mergeSortUpper_s(second);
+
+    // Merge the two sorted halves
+    return r_mergeUpper_s(head, second);
+}
+
+// Sort the products by star in descending order
+
+// Merge the two sorted lists
+recipe* r_mergeLower_s(recipe* first, recipe* second)
+{
+    // If first linked list is empty
+    if (first == NULL)
+    {
+        return second;
+    }
+    // If second linked list is empty
+    if (second == NULL)
+    {
+        return first;
+    }
+
+    // Pick the smaller value
+    if (first->star >= b->star)
+    {
+        second->next = r_mergeLower_s(first, second->next);
+        second->next->prev = second;
+        second->prev = NULL;
+        return second;
+
+    }
+    else
+    {
+        first->next = r_mergeLower_s(first->next, second);
+        first->next->prev = first;
+        first->prev = NULL;
+        return first;
+    }
+
+}
+
+// Use merge sort to sort the list in descending order
+recipe* r_mergeSortLower_s(recipe* head)
+{
+    if (!head || !head->next)
+    {
+        return head;
+    }
+
+    recipe* second = splitRecipe(head);
+
+    // Recur for left and right halves
+    head = r_mergeSortLower_s(head);
+    second = r_mergeSortLower_s(second);
+
+    // Merge the two sorted halves
+    return r_mergeLower_s(head, second);
+}
+
+// Sort the products by comprehensive in ascending order
+
+// Merge the two sorted lists
+recipe* r_mergeUpper_c(recipe* first, recipe* second)
+{
+    // If first linked list is empty
+    if (first == NULL)
+    {
+        return second;
+    }
+    // If second linked list is empty
+    if (second == NULL)
+    {
+        return first;
+    }
+
+    // Pick the smaller value
+    if ((first->price)*0.5+(first->star)*0.5 <= (second->price)*0.5+(first->star)*0.5)
+    {
+        first->next = r_mergeUpper_c(first->next, second);
+        first->next->prev = first;
+        first->prev = NULL;
+        return first;
+    }
+    else
+    {
+        second->next = r_mergeUpper_c(first, second->next);
+        second->next->prev = second;
+        second->prev = NULL;
+        return second;
+    }
+
+}
+
+// Use merge sort to sort the list in ascending order
+recipe* r_mergeSortUpper_c(recipe* head)
+{
+    if (!head || !head->next)
+    {
+        return head;
+    }
+
+    recipe* second = splitRecipe(head);
+
+    // Recur for left and right halves
+    head = r_mergeSortUpper_c(head);
+    second = r_mergeSortUpper_c(second);
+
+    // Merge the two sorted halves
+    return r_mergeUpper_c(head, second);
+}
+
+// Sort the products by comprehensive in descending order
+
+// Merge the two sorted lists
+recipe* r_mergeLower_c(recipe* first, recipe* second)
+{
+    // If first linked list is empty
+    if (first == NULL)
+    {
+        return second;
+    }
+    // If second linked list is empty
+    if (second == NULL)
+    {
+        return first;
+    }
+
+    // Pick the smaller value
+    if ((first->price) * 0.5 + (first->star) * 0.5 >= (second->price) * 0.5 + (first->star) * 0.5)
+    {
+        second->next = r_mergeLower_c(first, second->next);
+        second->next->prev = second;
+        second->prev = NULL;
+        return second;
+
+    }
+    else
+    {
+        first->next = r_mergeLower_c(first->next, second);
+        first->next->prev = first;
+        first->prev = NULL;
+        return first;
+    }
+
+}
+
+// Use merge sort to sort the list in descending order
+recipe* r_mergeSortLower_c(recipe* head)
+{
+    if (!head || !head->next)
+    {
+        return head;
+    }
+
+    recipe* second = splitRecipe(head);
+
+    // Recur for left and right halves
+    head = r_mergeSortLower_c(head);
+    second = r_mergeSortLower_c(second);
+
+    // Merge the two sorted halves
+    return r_mergeLower_c(head, second);
+}
+
+
 #endif //_MERGESORTRECIPE_H

@@ -149,6 +149,14 @@ User* creatList_user(char* n, char* p, char* a, char* pn);
 // Create delivery person list
 DeliveryPerson* creatList_deliveryperson(char* n, char* p, char* pn);
 
+// Insert the new node into the end of the list
+void insertEnd_r(recipe** head, recipe** tail, recipe* newNode);
+void insertEnd_rc(r_classify** head, r_classify** tail, r_classify* newNode);
+void insertEnd_o(order** head, order** tail, order* newNode);
+void insertEnd_m(Merchant** head, Merchant** tail, Merchant* newNode);
+void insertEnd_u(User** head, User** tail, User* newNode);
+void insertEnd_d(DeliveryPerson** head, DeliveryPerson** tail, DeliveryPerson* newNode);
+
 // Print linked list
 
 // Print menu dishes
