@@ -3,6 +3,13 @@
 #define _INTERFACE_H
 #include <windows.h>
 #include <stdio.h>
+void print_Title()
+{
+	//with the width of 50
+	printf("|--------------------------------------------------|\n");
+	printf("|\t\t  HAVE YOU EATEN?\t\t   |\n");
+	printf("|--------------------------------------------------|\n\n\n");
+}
 void before_sign()
 {
 	system("cls");//clear the screen
