@@ -22,7 +22,7 @@ void FuzzySearchInRecipe(recipe* recipe_current, char* searchstr)
 // Search recipes in recipe list of different classifies
 void FuzzySearchInClassify(r_classify* classify_current, char* searchstr) 
 {
-    if (classify_ptr == NULL) 
+    if (classify_current == NULL)
     {
         return;
     }
