@@ -7,7 +7,7 @@ void printList_recipe_1(recipe* head)
     printf("Recipe List:\n");
     while (head != NULL)
     {
-        printf("Name: %s\tPrice: %.2f\n", head->name, head->price);
+        printf("Name: %s\tPrice: %.2f\tStars:%d\n", head->name, head->price, head->star);
         head = head->next;
     }
 }
@@ -56,7 +56,7 @@ void print_order_list(order* head)
         printf("Delivery Person: %s\tPhone: %s\n", head->d_name, head->d_phone);
         printList_recipe_2(head->r_head); // Print the list of products in the order
         printf("Total Price: %.2f\n", head->sum_price);
-        switch (head->s){
+        switch (head->s) {
         case WAY:
             printf("Order State: Waiting\n");
             break;
