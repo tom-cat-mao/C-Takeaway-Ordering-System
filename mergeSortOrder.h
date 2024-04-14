@@ -36,7 +36,7 @@ order* o_mergeUpper_p(order* first, order* second)
     }
 
     // Pick the smaller value
-    if (first->price <= b->price)
+    if (first->price <= second->price)
     {
         first->next = o_mergeUpper_p(first->next, second);
         first->next->prev = first;
@@ -64,11 +64,11 @@ order* o_mergeSortUpper_p(order* head)
     order* second = splitOrder(head);
 
     // Recur for left and right halves
-    head = r_mergeSortUpper(head);
-    second = r_mergeSortUpper(second);
+    head = o_mergeSortUpper_p(head);
+    second = o_mergeSortUpper_p(second);
 
     // Merge the two sorted halves
-    return r_mergeUpper(head, second);
+    return o_mergeUpper_p(head, second);
 }
 
 // Sort the products by price in descending order
@@ -88,7 +88,7 @@ order* o_mergeLower_p(order* first, order* second)
     }
 
     // Pick the smaller value
-    if (first->price >= b->price)
+    if (first->price >= second->price)
     {
         second->next = o_mergeLower_p(first, second->next);
         second->next->prev = second;
@@ -212,7 +212,7 @@ order* o_mergeLower_t(order* first, order* second)
 }
 
 // Use merge sort to sort the list in descending order
-order* r_mergeSortLower(order* head)
+order* o_mergeSortLower_t(order* head)
 {
     if (!head || !head->next)
     {
