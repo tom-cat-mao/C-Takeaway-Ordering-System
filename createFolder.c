@@ -1,5 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include<sys/stat.h>
+#include <sys/stat.h>
+#include "class.h"
+
 bool CreateFolder(char* fn, User* head)
 {
     FILE* fp;
