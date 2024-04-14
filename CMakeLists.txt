@@ -13,6 +13,7 @@ set(SOURCES
     printList.c
     searchTree.c
     sum_price.c
+    time_set.c
 )
 
 # Add your header files here

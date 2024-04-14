@@ -7,7 +7,7 @@
 #include <time.h>
 #include <ctype.h>
 
-double discount[3] = { 0.9,0.85,0.75 }; // Different cards corresponding discounts
+static double discount[3] = { 0.9,0.85,0.75 }; // Different cards corresponding discounts
 enum card { SILVER, GOLD, PLATINUM }; // User membership type
 enum state_o { WAY, DILLVERING, FINISH }; // Order status
 enum state_d { FREE, BUSY }; // Delivery person status
