@@ -14,6 +14,7 @@ set(SOURCES
     searchTree.c
     sum_price.c
     time_set.c
+    folder_c_c_d.c
 )
 
 # Add your header files here
@@ -22,6 +23,7 @@ set(HEADERS
     mergeSortRecipe.h
     output_recipe_price_range.h
     classTree.h
+    folder_create_change_delete.h
 )
 
 # Add executable target

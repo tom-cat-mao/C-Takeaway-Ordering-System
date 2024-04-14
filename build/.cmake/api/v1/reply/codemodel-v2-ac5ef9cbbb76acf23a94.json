@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "MyProject::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-MyProject-Debug-62d6df671a79f7660a83.json",
+					"jsonFile" : "target-MyProject-Debug-b630f4e952633f300060.json",
 					"name" : "MyProject",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/mnt/d/Cproject/C-/build",
-		"source" : "/mnt/d/Cproject/C-"
+		"build" : "/media/tomcat/Data/Cproject/C-/build",
+		"source" : "/media/tomcat/Data/Cproject/C-"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 4
+		"minor" : 3
 	}
 }

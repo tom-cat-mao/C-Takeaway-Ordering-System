@@ -1,52 +1,62 @@
 [
 {
-  "directory": "/mnt/d/Cproject/C-/build",
-  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/createTree.c.o -c /mnt/d/Cproject/C-/createTree.c",
-  "file": "/mnt/d/Cproject/C-/createTree.c"
+  "directory": "/media/tomcat/Data/Cproject/C-/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/createTree.c.o -c /media/tomcat/Data/Cproject/C-/createTree.c",
+  "file": "/media/tomcat/Data/Cproject/C-/createTree.c"
 },
 {
-  "directory": "/mnt/d/Cproject/C-/build",
-  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/createList.c.o -c /mnt/d/Cproject/C-/createList.c",
-  "file": "/mnt/d/Cproject/C-/createList.c"
+  "directory": "/media/tomcat/Data/Cproject/C-/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/createList.c.o -c /media/tomcat/Data/Cproject/C-/createList.c",
+  "file": "/media/tomcat/Data/Cproject/C-/createList.c"
 },
 {
-  "directory": "/mnt/d/Cproject/C-/build",
-  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/delete_data.c.o -c /mnt/d/Cproject/C-/delete_data.c",
-  "file": "/mnt/d/Cproject/C-/delete_data.c"
+  "directory": "/media/tomcat/Data/Cproject/C-/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/delete_data.c.o -c /media/tomcat/Data/Cproject/C-/delete_data.c",
+  "file": "/media/tomcat/Data/Cproject/C-/delete_data.c"
 },
 {
-  "directory": "/mnt/d/Cproject/C-/build",
-  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/deleteTree.c.o -c /mnt/d/Cproject/C-/deleteTree.c",
-  "file": "/mnt/d/Cproject/C-/deleteTree.c"
+  "directory": "/media/tomcat/Data/Cproject/C-/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/deleteTree.c.o -c /media/tomcat/Data/Cproject/C-/deleteTree.c",
+  "file": "/media/tomcat/Data/Cproject/C-/deleteTree.c"
 },
 {
-  "directory": "/mnt/d/Cproject/C-/build",
-  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/insertTree.c.o -c /mnt/d/Cproject/C-/insertTree.c",
-  "file": "/mnt/d/Cproject/C-/insertTree.c"
+  "directory": "/media/tomcat/Data/Cproject/C-/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/insertTree.c.o -c /media/tomcat/Data/Cproject/C-/insertTree.c",
+  "file": "/media/tomcat/Data/Cproject/C-/insertTree.c"
 },
 {
-  "directory": "/mnt/d/Cproject/C-/build",
-  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/discount_card_change.c.o -c /mnt/d/Cproject/C-/discount_card_change.c",
-  "file": "/mnt/d/Cproject/C-/discount_card_change.c"
+  "directory": "/media/tomcat/Data/Cproject/C-/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/discount_card_change.c.o -c /media/tomcat/Data/Cproject/C-/discount_card_change.c",
+  "file": "/media/tomcat/Data/Cproject/C-/discount_card_change.c"
 },
 {
-  "directory": "/mnt/d/Cproject/C-/build",
-  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/name_a_pass.c.o -c /mnt/d/Cproject/C-/name_a_pass.c",
-  "file": "/mnt/d/Cproject/C-/name_a_pass.c"
+  "directory": "/media/tomcat/Data/Cproject/C-/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/name_a_pass.c.o -c /media/tomcat/Data/Cproject/C-/name_a_pass.c",
+  "file": "/media/tomcat/Data/Cproject/C-/name_a_pass.c"
 },
 {
-  "directory": "/mnt/d/Cproject/C-/build",
-  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/printList.c.o -c /mnt/d/Cproject/C-/printList.c",
-  "file": "/mnt/d/Cproject/C-/printList.c"
+  "directory": "/media/tomcat/Data/Cproject/C-/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/printList.c.o -c /media/tomcat/Data/Cproject/C-/printList.c",
+  "file": "/media/tomcat/Data/Cproject/C-/printList.c"
 },
 {
-  "directory": "/mnt/d/Cproject/C-/build",
-  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/searchTree.c.o -c /mnt/d/Cproject/C-/searchTree.c",
-  "file": "/mnt/d/Cproject/C-/searchTree.c"
+  "directory": "/media/tomcat/Data/Cproject/C-/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/searchTree.c.o -c /media/tomcat/Data/Cproject/C-/searchTree.c",
+  "file": "/media/tomcat/Data/Cproject/C-/searchTree.c"
 },
 {
-  "directory": "/mnt/d/Cproject/C-/build",
-  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/sum_price.c.o -c /mnt/d/Cproject/C-/sum_price.c",
-  "file": "/mnt/d/Cproject/C-/sum_price.c"
+  "directory": "/media/tomcat/Data/Cproject/C-/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/sum_price.c.o -c /media/tomcat/Data/Cproject/C-/sum_price.c",
+  "file": "/media/tomcat/Data/Cproject/C-/sum_price.c"
+},
+{
+  "directory": "/media/tomcat/Data/Cproject/C-/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/time_set.c.o -c /media/tomcat/Data/Cproject/C-/time_set.c",
+  "file": "/media/tomcat/Data/Cproject/C-/time_set.c"
+},
+{
+  "directory": "/media/tomcat/Data/Cproject/C-/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/folder_c_c_d.c.o -c /media/tomcat/Data/Cproject/C-/folder_c_c_d.c",
+  "file": "/media/tomcat/Data/Cproject/C-/folder_c_c_d.c"
 }
 ]
