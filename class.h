@@ -19,7 +19,9 @@ typedef struct recipe
     float price;             // Dish price
     int num;                 // Dish quantity
     float sale_discount;     // Dish discount
+    int star;                // Dish star 
 
+    struct recipe* prev;
     struct recipe* next;
 }recipe;
 
@@ -31,6 +33,7 @@ typedef struct r_classify
     struct recipe* r_head;          // Dish linked list head
     struct recipe* r_tail;          // Dish linked list tail
 
+    struct r_classify* prev;
     struct r_classify* next;        // Next classification
 }r_classify;
 
@@ -71,6 +74,7 @@ typedef struct order
 
     float sum_price;
 
+    struct order* prev;
     struct order* next;
 }order;
 
@@ -88,6 +92,7 @@ typedef struct Merchant
     struct r_classify* r_head; // Dish classification linked list head
     struct r_classify* r_tail; // Dish classification linked list tail
 
+    struct Merchant* prev;
     struct Merchant* next;
 
 }Merchant;
@@ -103,6 +108,7 @@ typedef struct DeliveryPerson
     char name[100];
     char phone[20];
 
+    struct DeliveryPerson* prev;
     struct DeliveryPerson* next;
 
 }DeliveryPerson;
@@ -120,6 +126,7 @@ typedef struct User
     // Order ID
     struct order* head;
 
+    struct User* prev;
     struct User* next;
 
 }User;
