@@ -12,7 +12,18 @@
 
 int main()
 {
+	// Create list head node;
+	recipe* r_head;
+	r_classify* rc_head;
+	order* o_head;
+	Merchant* m_head;
+	User* u_head;
+	DeliveryPerson* d_head;
+	t_recipe* t_r_head;
+	t_order* t_o_head;
+	t_Merchant* m_head;
 
+	//read file
 
 
 	return 0;
