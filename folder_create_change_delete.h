@@ -4,6 +4,7 @@
 #include "dirent.h"
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <io.h>
 
 // write the merchant list to the merchant list folder
 bool write_t_merchant_list(Merchant* head);

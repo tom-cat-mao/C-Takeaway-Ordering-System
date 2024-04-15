@@ -4,7 +4,15 @@
 bool write_t_merchant_list(Merchant* head) 
 {
     // switch to the merchant list folder
-    chdir("Merchant List");
+`   if (_chdir("Merchant List") != 0)
+    {
+        if (mkdir("Merchant List") != 0)
+        {
+            printf("Failed to create the folder.\n");
+            return 0;
+        }
+        _chdir("Merchant List");
+    }
 
     // write merchant data to different files
     for (Merchant* current = head; current != NULL; current = current->next)
@@ -37,7 +45,7 @@ bool write_t_merchant_list(Merchant* head)
     }
 
 
-    chdir("..");
+    _chdir("..");
     return 1;
 }
 
@@ -45,8 +53,16 @@ bool write_t_merchant_list(Merchant* head)
 bool write_t_user_list(User* head) 
 {
     // switch to the user list folder
-    chdir("User List");
-
+    if (_chdir("User List") != 0)
+    {
+        if (mkdir("User List") != 0)
+        {
+            printf("Failed to create the folder.\n");
+            return 0;
+        }
+        _chdir("User List");
+    }
+    
     // write User data to different files
     for (User* current = head; current != NULL; current = current->next)
     {
@@ -73,7 +89,7 @@ bool write_t_user_list(User* head)
     }
 
 
-    chdir("..");
+    _chdir("..");
     return 1;
 }
 
@@ -81,8 +97,16 @@ bool write_t_user_list(User* head)
 bool write_t_deliveryperson_list(DeliveryPerson* head) 
 {
     // switch to the deliveryperson list folder
-    chdir("Deliveryperson List");
-
+    if (_chdir("Deliveryperson List") != 0)
+    {
+        if (mkdir("Deliveryperson List") != 0)
+        {
+            printf("Failed to create the folder.\n");
+            return 0;
+        }
+        _chdir("Deliveryperson List");
+    }
+    
     // write deliveryman data to different files
     for (DeliveryPerson* current = head; current != NULL; current = current->next)
     {
@@ -108,7 +132,7 @@ bool write_t_deliveryperson_list(DeliveryPerson* head)
     }
 
 
-    chdir("..");
+    _chdir("..");
     return 1;
 }
 
@@ -116,8 +140,16 @@ bool write_t_deliveryperson_list(DeliveryPerson* head)
 bool write_t_order_list(order* head) 
 {
     // switch to the order list folder
-    chdir("Order List");
-
+    if (_chdir("Order List") != 0)
+    {
+        if (mkdir("Order List") != 0)
+        {
+            printf("Failed to create the folder.\n");
+            return 0;
+        }
+        _chdir("Order List");
+    }
+    
     // write order data to different files
     for (order* current = head; current != NULL; current = current->next)
     {
@@ -179,7 +211,7 @@ bool write_t_order_list(order* head)
         fclose(file);
     }
 
-    chdir("..");
+    _chdir("..");
     return 1;
 }
 
@@ -187,8 +219,16 @@ bool write_t_order_list(order* head)
 bool write_t_r_class_list(r_classify* head) 
 {
     // switch to the recipe classify list folder
-    chdir("Recipe classify List");
-
+    if (_chdir("Recipe classify List") != 0)
+    {
+        if (mkdir("Recipe classify List") != 0)
+        {
+            printf("Failed to create the folder.\n");
+            return 0;
+        }
+        _chdir("Recipe classify List");
+    }
+    
     // write recipe classify data to different files
     for (r_classify* current = head; current != NULL; current = current->next)
     {
@@ -211,7 +251,7 @@ bool write_t_r_class_list(r_classify* head)
         fclose(file);
     }
 
-    chdir("..");
+    _chdir("..");
     return 1;
 }
 
@@ -219,8 +259,16 @@ bool write_t_r_class_list(r_classify* head)
 bool write_t_recipe_list(recipe* head) 
 {
     // switch to the recipe  list folder
-    chdir("Recipe List");
-
+    if (_chdir("Recipe List") != 0)
+    {
+        if (mkdir("Recipe List") != 0)
+        {
+            printf("Failed to create the folder.\n");
+            return 0;
+        }
+        _chdir("Recipe List");
+    }
+    
     // write recipe data to different files
     for (recipe* current = head; current != NULL; current = current->next)
     {
@@ -240,7 +288,7 @@ bool write_t_recipe_list(recipe* head)
         fclose(file);
     }
 
-    chdir("..");
+    _chdir("..");
     return 1;
 }
 
@@ -248,7 +296,7 @@ bool write_t_recipe_list(recipe* head)
 bool read_merchant_list(Merchant* head, Merchant* current)
 {
     // switch to the merchant list folder
-    chdir("Merchant List");
+    _chdir("Merchant List");
     DIR *dir;
     struct dirent *entry;
     FILE *file;
@@ -322,7 +370,7 @@ bool read_merchant_list(Merchant* head, Merchant* current)
     closedir(dir);
 
 
-    chdir("..");
+    _chdir("..");
     return 1;
 }
 
@@ -330,7 +378,7 @@ bool read_merchant_list(Merchant* head, Merchant* current)
 bool read_user_list(User* head, User* current)
 {
     // switch to the user list folder
-    chdir("User List");
+    _chdir("User List");
     DIR *dir;
     struct dirent *entry;
     FILE *file;
@@ -399,7 +447,7 @@ bool read_user_list(User* head, User* current)
     closedir(dir);
 
 
-    chdir("..");
+    _chdir("..");
     return 1;
 }
 
@@ -407,7 +455,7 @@ bool read_user_list(User* head, User* current)
 bool read_deliveryperson_list(DeliveryPerson* head, DeliveryPerson* current)
 {
     // switch to the deliveryman list folder
-    chdir("Deliveryperson List");
+    _chdir("Deliveryperson List");
     DIR *dir;
     struct dirent *entry;
     FILE *file;
@@ -473,7 +521,7 @@ bool read_deliveryperson_list(DeliveryPerson* head, DeliveryPerson* current)
     closedir(dir);
 
 
-    chdir("..");
+    _chdir("..");
     return 1;
 }
 
@@ -481,7 +529,7 @@ bool read_deliveryperson_list(DeliveryPerson* head, DeliveryPerson* current)
 bool read_r_class_list(r_classify* head, r_classify* current)
 {
     // switch to the r_classify list folder
-    chdir("Recipe classify List");
+    _chdir("Recipe classify List");
     DIR *dir;
     struct dirent *entry;
     FILE *file;
@@ -544,7 +592,7 @@ bool read_r_class_list(r_classify* head, r_classify* current)
     // close directory
     closedir(dir);
 
-    chdir("..");
+    _chdir("..");
     return 1;
 
 }
@@ -553,7 +601,7 @@ bool read_r_class_list(r_classify* head, r_classify* current)
 bool read_recipe_list(recipe* head, recipe* current)
 {
     // switch to the recipe list folder
-    chdir("Recipe List");
+    _chdir("Recipe List");
     DIR *dir;
     struct dirent *entry;
     FILE *file;
@@ -618,7 +666,7 @@ bool read_recipe_list(recipe* head, recipe* current)
     // close directory
     closedir(dir);
 
-    chdir("..");
+    _chdir("..");
     return 1;
 }
 
@@ -626,7 +674,7 @@ bool read_recipe_list(recipe* head, recipe* current)
 bool read_order_list(order* head, order* current)
 {
     // switch to the order list folder
-    chdir("Order List");
+    _chdir("Order List");
     DIR *dir;
     struct dirent *entry;
     FILE *file;
@@ -769,7 +817,7 @@ bool read_order_list(order* head, order* current)
     // close directory
     closedir(dir);
 
-    chdir("..");
+    _chdir("..");
 
     return 1;
 }
