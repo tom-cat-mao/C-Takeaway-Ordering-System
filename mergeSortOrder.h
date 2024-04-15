@@ -4,236 +4,229 @@
 #include"class.h"
 
 // Split the list
-void splitOrder(order* source, order** front, order** back)
+order* splitOrder(order* head)
 {
-    order* fast;
-    order* slow;
+    order* fast = head;
+    order* slow = head;
 
-    if (source == NULL || source->next == NULL)
+    while (fast->next && fast->next->next)
     {
-        *front = source;
-        *back = NULL;
+        fast = fast->next->next;
+        slow = slow->next;
     }
-    else
-    {
-        slow = source;
-        fast = source->next;
-
-        while (fast != NULL)
-        {
-            fast = fast->next;
-            if (fast != NULL)
-            {
-                slow = slow->next;
-                fast = fast->next;
-            }
-        }
-
-        *front = source;
-        *back = slow->next;
-        slow->next = NULL;
-    }
+    order* temp = slow->next;
+    slow->next = NULL;
+    return temp;
 }
 
 // Sort the products by price in ascending order
 
 // Merge the two sorted lists
-void o_mergeUpper_p(order** result, order* a, order* b)
+order* o_mergeUpper_p(order* first, order* second)
 {
-    if (a == NULL)
+    // If first linked list is empty
+    if (first == NULL)
     {
-        *result = b;
-        return;
+        return second;
     }
-    if (b == NULL)
+    // If second linked list is empty
+    if (second == NULL)
     {
-        *result = a;
-        return;
+        return first;
     }
 
-    if (a->sum_price <= b->sum_price)
+    // Pick the smaller value
+    if (first->price <= second->price)
     {
-        *result = a;
-        o_mergeUpper_p((&(*result)->next), a->next, b);
+        first->next = o_mergeUpper_p(first->next, second);
+        first->next->prev = first;
+        first->prev = NULL;
+        return first;
     }
     else
     {
-        *result = b;
-        o_mergeUpper_p((&(*result)->next), a, b->next);
+        second->next = o_mergeUpper_p(first, second->next);
+        second->next->prev = second;
+        second->prev = NULL;
+        return second;
     }
 
 }
 
-
 // Use merge sort to sort the list in ascending order
-void o_mergeSortUpper_p(order** head)
+order* o_mergeSortUpper_p(order* head)
 {
-    order* current = *head;
-    order* a;
-    order* b;
-
-    if (current == NULL || current->next == NULL)
+    if (!head || !head->next)
     {
-        return;
+        return head;
     }
 
-    splitOrder(current, &a, &b);
+    order* second = splitOrder(head);
 
-    o_mergeSortUpper_p(&a);
-    o_mergeSortUpper_p(&b);
+    // Recur for left and right halves
+    head = o_mergeSortUpper_p(head);
+    second = o_mergeSortUpper_p(second);
 
-    o_mergeUpper_p(head, a, b);
+    // Merge the two sorted halves
+    return o_mergeUpper_p(head, second);
 }
 
 // Sort the products by price in descending order
 
 // Merge the two sorted lists
-void o_mergeLower_p(order** result, order* a, order* b)
+order* o_mergeLower_p(order* first, order* second)
 {
-    if (a == NULL)
+    // If first linked list is empty
+    if (first == NULL)
     {
-        *result = b;
-        return;
+        return second;
     }
-    if (b == NULL)
+    // If second linked list is empty
+    if (second == NULL)
     {
-        *result = a;
-        return;
+        return first;
     }
 
-    if (a->sum_price >= b->sum_price)
+    // Pick the smaller value
+    if (first->price >= second->price)
     {
-        *result = a;
-        o_mergeLower_p((&(*result)->next), a->next, b);
+        second->next = o_mergeLower_p(first, second->next);
+        second->next->prev = second;
+        second->prev = NULL;
+        return second;
+
     }
     else
     {
-        *result = b;
-        o_mergeLower_p((&(*result)->next), a, b->next);
+        first->next = o_mergeLower_p(first->next, second);
+        first->next->prev = first;
+        first->prev = NULL;
+        return first;
     }
 
 }
 
 // Use merge sort to sort the list in descending order
-void o_mergeSortLower_p(order** head)
+order* o_mergeSortLower_p(order* head)
 {
-    order* current = *head;
-    order* a;
-    order* b;
-
-    if (current == NULL || current->next == NULL)
+    if (!head || !head->next)
     {
-        return;
+        return head;
     }
 
-    splitOrder(current, &a, &b);
+    order* second = splitOrder(head);
 
-    o_mergeSortLower_p(&a);
-    o_mergeSortLower_p(&b);
+    // Recur for left and right halves
+    head = o_mergeSortLower_p(head);
+    second = o_mergeSortLower_p(second);
 
-    o_mergeLower_p(head, a, b);
+    // Merge the two sorted halves
+    return o_mergeLower_p(head, second);
 }
-
-
 
 // Sort the products by time in ascending order
 
 // Merge the two sorted lists
-void o_mergeUpper_t(order** result, order* a, order* b)
+order* o_mergeUpper_t(order* first, order* second)
 {
-    if (a == NULL)
+    // If first linked list is empty
+    if (first == NULL)
     {
-        *result = b;
-        return;
+        return second;
     }
-    if (b == NULL)
+    // If second linked list is empty
+    if (second == NULL)
     {
-        *result = a;
-        return;
+        return first;
     }
 
-    if (mktime(a->localTime) <= mktime(b->localTime))
+    // Pick the smaller value
+    if (mktime(first->localTime) <= mktime(second->localTime))
     {
-        *result = a;
-        o_mergeUpper_t((&(*result)->next), a->next, b);
+        first->next = o_mergeUpper_t(first->next, second);
+        first->next->prev = first;
+        first->prev = NULL;
+        return first;
     }
     else
     {
-        *result = b;
-        o_mergeUpper_t((&(*result)->next), a, b->next);
+        second->next = o_mergeUpper_t(first, second->next);
+        second->next->prev = second;
+        second->prev = NULL;
+        return second;
     }
 
 }
 
-
 // Use merge sort to sort the list in ascending order
-void o_mergeSortUpper_t(order** head)
+order* o_mergeSortUpper_t(order* head)
 {
-    order* current = *head;
-    order* a;
-    order* b;
-
-    if (current == NULL || current->next == NULL)
+    if (!head || !head->next)
     {
-        return;
+        return head;
     }
 
-    splitOrder(current, &a, &b);
+    order* second = splitOrder(head);
 
-    o_mergeSortUpper_t(&a);
-    o_mergeSortUpper_t(&b);
+    // Recur for left and right halves
+    head = o_mergeSortUpper_t(head);
+    second = o_mergeSortUpper_t(second);
 
-    o_mergeUpper_t(head, a, b);
+    // Merge the two sorted halves
+    return o_mergeUpper_t(head, second);
 }
 
 // Sort the products by time in descending order
 
 // Merge the two sorted lists
-void o_mergeLower_t(order** result, order* a, order* b)
+order* o_mergeLower_t(order* first, order* second)
 {
-    if (a == NULL)
+    // If first linked list is empty
+    if (first == NULL)
     {
-        *result = b;
-        return;
+        return second;
     }
-    if (b == NULL)
+    // If second linked list is empty
+    if (second == NULL)
     {
-        *result = a;
-        return;
+        return first;
     }
 
-    if (mktime(a->localTime) >= mktime(b->localTime))
+    // Pick the smaller value
+    if (mktime(first->localTime) >= mktime(second->localTime))
     {
-        *result = a;
-        o_mergeLower_t((&(*result)->next), a->next, b);
+        second->next = o_mergeLower_t(first, second->next);
+        second->next->prev = second;
+        second->prev = NULL;
+        return second;
+
     }
     else
     {
-        *result = b;
-        o_mergeLower_t((&(*result)->next), a, b->next);
+        first->next = o_mergeLower_t(first->next, second);
+        first->next->prev = first;
+        first->prev = NULL;
+        return first;
     }
 
 }
 
 // Use merge sort to sort the list in descending order
-void o_mergeSortLower_t(order** head)
+order* o_mergeSortLower_t(order* head)
 {
-    order* current = *head;
-    order* a;
-    order* b;
-
-    if (current == NULL || current->next == NULL)
+    if (!head || !head->next)
     {
-        return;
+        return head;
     }
 
-    splitOrder(current, &a, &b);
+    order* second = splitOrder(head);
 
-    o_mergeSortLower_t(&a);
-    o_mergeSortLower_t(&b);
+    // Recur for left and right halves
+    head = o_mergeSortLower_t(head);
+    second = o_mergeSortLower_t(second);
 
-    o_mergeLower_t(head, a, b);
+    // Merge the two sorted halves
+    return o_mergeLower_t(head, second);
 }
-
 
 #endif //_MERGESORTORDER_H
