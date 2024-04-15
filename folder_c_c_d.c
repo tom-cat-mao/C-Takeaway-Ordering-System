@@ -4,7 +4,7 @@
 bool write_t_merchant_list(Merchant* head) 
 {
     // switch to the merchant list folder
-`   if (_chdir("Merchant List") != 0)
+    if (_chdir("Merchant List") != 0)
     {
         if (mkdir("Merchant List") != 0)
         {
