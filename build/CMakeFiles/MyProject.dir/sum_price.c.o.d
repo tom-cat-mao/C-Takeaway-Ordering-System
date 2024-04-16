@@ -1,6 +1,7 @@
 CMakeFiles/MyProject.dir/sum_price.c.o: \
- /media/tomcat/Data/Cproject/C-/sum_price.c /usr/include/stdc-predef.h \
- /media/tomcat/Data/Cproject/C-/class.h /usr/include/stdio.h \
+ /media/tomcat/workstudylife/Cproject/C-/sum_price.c \
+ /usr/include/stdc-predef.h \
+ /media/tomcat/workstudylife/Cproject/C-/class.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
