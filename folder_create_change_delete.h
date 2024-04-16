@@ -26,22 +26,22 @@ bool write_t_recipe_list(recipe* head);
 
 
 // read all merchant list from the file to the memory
-bool read_merchant_list(Merchant* head, Merchant* current);
+bool read_merchant_list(Merchant** head, Merchant** current);
 
 // read all user lists form the file to the memory
-bool read_user_list(User* head, User* current);
+bool read_user_list(User** head, User** current);
 
 // read all deliveryman lists form the file to the memory
-bool read_deliveryperson_list(DeliveryPerson* head, DeliveryPerson* current);
+bool read_deliveryperson_list(DeliveryPerson** head, DeliveryPerson** current);
 
 // read all r_classify lists form the file to the memory
-bool read_r_class_list(r_classify* head, r_classify* current);
+bool read_r_class_list(r_classify** head, r_classify** current);
 
 // read all recipe lists form the file to the memory
-bool read_recipe_list(recipe* head, recipe* current);
+bool read_recipe_list(recipe** head, recipe** current);
 
 // read all order lists form the file to the memory
-bool read_order_list(order* head, order* current);
+bool read_order_list(order** head, order** current);
 
 
 
