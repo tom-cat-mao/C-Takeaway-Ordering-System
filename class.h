@@ -131,6 +131,34 @@ typedef struct User
 
 }User;
 
+// Password struct
+typedef struct Password_m
+{
+    char name[100];
+    char password[100];
+    char phone[100];
+
+    struct Password_m* next;
+}Password_m;
+
+typedef struct Password_u
+{
+    char name[100];
+    char password[100];
+    char phone[100];
+
+    struct Password_u* next;
+}Password_u;
+
+typedef struct Password_d
+{
+    char name[100];
+    char password[100];
+    char phone[100];
+
+    struct Password_d* next;
+}Password_d;
+
 // Create linked list
 
 // Create order dish list

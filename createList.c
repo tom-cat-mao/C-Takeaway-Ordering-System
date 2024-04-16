@@ -163,6 +163,7 @@ order* creatList_order(char* merchant_name, char* merchant_address, char* mercha
         newNode->order_id[j] = newNode->u_phone[i];
         
     }
+    newNode->prev = NULL;
     newNode->next = NULL;
 
     return newNode;
@@ -199,6 +200,7 @@ Merchant* creatList_merchant(char* n, char* p, char* a, char* pn)
     strcpy(newNode->password, p);
     strcpy(newNode->address, a);
     strcpy(newNode->phone, pn);
+    newNode->prev = NULL;
     newNode->next = NULL;
 
     return newNode;
@@ -236,6 +238,7 @@ User* creatList_user(char* n, char* p, char* a, char* pn)
     strcpy(newNode->address, a);
     strcpy(newNode->phone, pn);
     newNode->c = SILVER;
+    newNode->prev = NULL;
     newNode->next = NULL;
 
     return newNode;
@@ -271,6 +274,7 @@ DeliveryPerson* creatList_deliveryperson(char* n, char* p, char* pn)
     strcpy(newNode->name, n);
     strcpy(newNode->password, p);
     strcpy(newNode->phone, pn);
+    newNode->prev = NULL;
     newNode->next = NULL;
 
     return newNode;
