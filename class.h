@@ -9,7 +9,7 @@
 
 static double discount[3] = { 0.9,0.85,0.75 }; // Different cards corresponding discounts
 enum card { SILVER, GOLD, PLATINUM }; // User membership type
-enum state_o { WAY, DILLVERING, FINISH }; // Order status
+enum state_o { WAY, DILLVERING, FINISH, CANCEL }; // Order status
 enum state_d { FREE, BUSY }; // Delivery person status
 
 // Menu structure
@@ -101,6 +101,7 @@ typedef struct Merchant
 typedef struct DeliveryPerson
 {
     struct order* o_head; // Order linked list head
+    struct order* o_tail; // Order linked list tail
 
     enum state_d s; // Status
 
@@ -124,7 +125,8 @@ typedef struct User
     enum card c; // User membership
 
     // Order ID
-    struct order* head;
+    struct order* o_head;
+    struct order* o_tail; // Order linked list tail
 
     struct User* prev;
     struct User* next;
@@ -194,9 +196,11 @@ void printList_recipe_2(recipe* head);
 // Print dish classification
 void printList_r_classify(r_classify* head);
 // Print order list
-void print_order_list(order* head);
+void print_order_list(order* tail);
 // Print merchant list
 void printList_merchant(Merchant* head);
+// Print current order
+void print_current_order(order* tail);
 
 // Calculate discounted price for a single order
 bool sumPrice(order* head, recipe* head_r, int c, double* d);
@@ -213,11 +217,11 @@ bool delete_deliveryperson (DeliveryPerson* head, char* d_name); // Delete a del
 void set_time(struct tm* localTime);
 
 // Change merchant password
-void merchant_change_p(Merchant* head);
+void merchant_change_p(Merchant* current, Password_m* p_current);
 // Change user password
-void user_change_p(User* head);
+void user_change_p(User* current, Password_u* p_current);
 // Change delivery person password
-void deliveryPerson_change_p(DeliveryPerson* head);
+void deliveryPerson_change_p(DeliveryPerson* current, Password_d* p_current);
 
 // Change membership discount
 bool discount_change(double* d, int c);
@@ -225,8 +229,33 @@ bool discount_change(double* d, int c);
 bool card_class_change(User* head, int c);
 
 // Login and change password
-bool compare(char *f_name,char* n);
-void writeIntoFile_p(char * f_name ,char* n, char* p);
-void updatePassword(char * f_name ,char* n, char* new_p);
+bool compare_m(Password_m* head, char* n, Password_m** p_current);
+bool compare_u(Password_u* head, char* n, Password_u** p_current);
+bool compare_d(Password_d* head, char* n, Password_d** p_current);
+
+//write the password into the file
+void m_writeIntoFile_p(Password_m* head);
+void u_writeIntoFile_p(Password_u* head);
+void d_writeIntoFile_p(Password_d* head);
+//read the password from the file
+void m_readIntoList_p(Password_m** head);
+void u_readIntoList_p(Password_u** head);
+void d_readIntoList_p(Password_d** head);
+//register
+// Create password list
+Password_m* m_creatNode_p(char* n, char* p, char* pn);
+void m_createList_p(Password_m** head, Password_m** tail, Password_m* newNode);
+Password_u* u_creatNode_p(char* n, char* p, char* pn);
+void u_createList_p(Password_u** head, Password_u** tail, Password_u* newNode);
+Password_d* d_creatNode_p(char* n, char* p, char* pn);
+void d_createList_p(Password_d** head, Password_d** tail, Password_d* newNode);
+
+// Find account in the list
+Merchant* find_m(Merchant* head, char* n);
+User* find_u(User* head, char* n);
+DeliveryPerson* find_d(DeliveryPerson* head, char* n);
+
+// Set the state of the order
+void set_state_o(order* tail, int s);
 
 #endif

@@ -265,8 +265,9 @@ void d_createList_p(Password_d** head, Password_d** tail, Password_d* newNode)
     }
 }
 
+
 // Login
-bool compare(Password_m* head, char* n)
+bool compare_m(Password_m* head, char* n, Password_m** p_current)
 {
     Password_m* current = head;
 
@@ -289,6 +290,95 @@ bool compare(Password_m* head, char* n)
     }
     else
     {
+        *p_current = current;
+        // Input password
+        int i;
+        for (i = 0; i < 5; i++)
+        {
+            printf("Please input your password:");
+            char p[100] = { '\0' };
+            scanf("%s", p);
+            if (strcmp(current->password, p) == 0)
+            {
+                return true;
+            }
+        }
+        if (i == 5)
+        {
+            printf("Password wrong!\n");
+            return false;
+        }
+    }
+}
+
+bool compare_u(Password_u* head, char* n, Password_u** p_current)
+{
+    Password_u* current = head;
+
+    int found = 0;
+
+    while (current != NULL)
+    {
+        if (strcmp(current->name, n) == 0)
+        {
+            found = 1;
+            break;
+        }
+        current = current->next;
+    }
+
+    if (found == 0)
+    {
+        printf("You haven't create an account!\n");
+        return false;
+    }
+    else
+    {
+        *p_current = current;
+        // Input password
+        int i;
+        for (i = 0; i < 5; i++)
+        {
+            printf("Please input your password:");
+            char p[100] = { '\0' };
+            scanf("%s", p);
+            if (strcmp(current->password, p) == 0)
+            {
+                return true;
+            }
+        }
+        if (i == 5)
+        {
+            printf("Password wrong!\n");
+            return false;
+        }
+    }
+}
+
+bool compare_d(Password_d* head, char* n, Password_d** p_current)
+{
+    Password_d* current = head;
+
+    int found = 0;
+
+    while (current != NULL)
+    {
+        if (strcmp(current->name, n) == 0)
+        {
+            found = 1;
+            break;
+        }
+        current = current->next;
+    }
+
+    if (found == 0)
+    {
+        printf("You haven't create an account!\n");
+        return false;
+    }
+    else
+    {
+        *p_current = current;
         // Input password
         int i;
         for (i = 0; i < 5; i++)

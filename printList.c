@@ -43,20 +43,20 @@ void printList_r_classify(r_classify* head)
 }
 
 // Print orders
-void print_order_list(order* head)
+void print_order_list(order* tail)
 {
     printf("Order List:\n");
-    while (head != NULL)
+    while (tail != NULL)
     {
-        printf("%d-%02d-%02d %02d:%02d:%02d\n", head->localTime->tm_year + 1900, head->localTime->tm_mon + 1, head->localTime->tm_mday,
-            head->localTime->tm_hour, head->localTime->tm_min, head->localTime->tm_sec);
-        printf("Order ID: %s\n", head->order_id);
-        printf("Merchant: %s\tAddress: %s\tPhone: %s\n", head->m_name, head->m_address, head->m_phone);
-        printf("User: %s\tAddress: %s\tPhone: %s\n", head->u_name, head->u_address, head->u_phone);
-        printf("Delivery Person: %s\tPhone: %s\n", head->d_name, head->d_phone);
-        printList_recipe_2(head->r_head); // Print the list of products in the order
-        printf("Total Price: %.2f\n", head->sum_price);
-        switch (head->s) {
+        printf("%d-%02d-%02d %02d:%02d:%02d\n", tail->localTime->tm_year + 1900, tail->localTime->tm_mon + 1, tail->localTime->tm_mday,
+            tail->localTime->tm_hour, tail->localTime->tm_min, tail->localTime->tm_sec);
+        printf("Order ID: %s\n", tail->order_id);
+        printf("Merchant: %s\tAddress: %s\tPhone: %s\n", tail->m_name, tail->m_address, tail->m_phone);
+        printf("User: %s\tAddress: %s\tPhone: %s\n", tail->u_name, tail->u_address, tail->u_phone);
+        printf("Delivery Person: %s\tPhone: %s\n", tail->d_name, tail->d_phone);
+        printList_recipe_2(tail->r_head); // Print the list of products in the order
+        printf("Total Price: %.2f\t", tail->sum_price);
+        switch (tail->s) {
         case WAY:
             printf("Order State: Waiting\n");
             break;
@@ -67,10 +67,10 @@ void print_order_list(order* head)
             printf("Order State: Finished\n");
             break;
         default:
-            printf("Order State: Unknown\n");
+            printf("Order State: Canceled\n");
             break;
         }
-        head = head->next;
+        tail = tail->prev;
     }
 }
 
@@ -82,5 +82,33 @@ void printList_merchant(Merchant* head)
     {
         printf("Name: %s\tAddress: %s\n", head->name, head->address);
         head = head->next;
+    }
+}
+
+// Print current order
+void print_current_order(order* tail)
+{
+    printf("Order List:\n");
+    printf("%d-%02d-%02d %02d:%02d:%02d\n", tail->localTime->tm_year + 1900, tail->localTime->tm_mon + 1, tail->localTime->tm_mday,
+        tail->localTime->tm_hour, tail->localTime->tm_min, tail->localTime->tm_sec);
+    printf("Order ID: %s\n", tail->order_id);
+    printf("Merchant: %s\tAddress: %s\tPhone: %s\n", tail->m_name, tail->m_address, tail->m_phone);
+    printf("User: %s\tAddress: %s\tPhone: %s\n", tail->u_name, tail->u_address, tail->u_phone);
+    printf("Delivery Person: %s\tPhone: %s\n", tail->d_name, tail->d_phone);
+    printList_recipe_2(tail->r_head); // Print the list of products in the order
+    printf("Total Price: %.2f\t", tail->sum_price);
+    switch (tail->s) {
+    case WAY:
+        printf("Order State: Waiting\n");
+        break;
+    case DILLVERING:
+        printf("Order State: Delivering\n");
+        break;
+    case FINISH:
+        printf("Order State: Finished\n");
+        break;
+    default:
+        printf("Order State: Canceled\n");
+        break;
     }
 }
