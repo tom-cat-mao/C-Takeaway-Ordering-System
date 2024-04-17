@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "class.h"
+#include"classTree.h"
 #include"setStar_recipe.h"
 
 // Create a list of recipes for the order
@@ -72,46 +73,6 @@ r_classify* creatList_r_classify(char* n)
 
     strcpy(newNode->name, n);
     newNode->r_head = NULL;
-
-    // Ask whether to add recipe
-    printf("Add recipes or not (Y/N):\t");
-    char flag = getchar(); // Set a flag to determine whether to add recipe
-    getchar();
-
-    flag = toupper(flag); // Set a flag to determine whether to add recipe
-    // Add product
-    if (flag == 'Y')
-    {
-        int i;
-        for (i = 1;; i++)
-        {
-            char name[100] = {'\0'};
-            float price = 0.0;
-            printf("\nPlease enter the name of the recipe(q to quit):\t");
-            scanf("%s", name);
-            if (name[0] == 'q')
-            {
-                break;
-            }
-
-            // Enter the price of the recipe
-            printf("\nPlease enter the price of the recipe:\t");
-            scanf("%f", &price);
-            printf("\n");
-
-            recipe* current = creatList_recipe_2(name, price);
-            insertEnd_r(&(newNode->r_head), &(newNode->r_tail), current);
-        }
-        newNode->total_number = i;
-    }
-    else
-    {
-        newNode->total_number = 0;
-        free(newNode);
-        newNode = NULL;
-        return NULL;
-    }
-
     newNode->prev = NULL;
     newNode->next = NULL;
 
@@ -163,6 +124,9 @@ order* creatList_order(char* merchant_name, char* merchant_address, char* mercha
         newNode->order_id[j] = newNode->u_phone[i];
         
     }
+    memset(newNode->arrive_time, 0, sizeof(struct tm));
+    memset(newNode->send_time, 0, sizeof(struct tm));
+    newNode->s = WAY;
     newNode->prev = NULL;
     newNode->next = NULL;
 

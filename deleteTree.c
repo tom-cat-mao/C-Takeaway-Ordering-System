@@ -7,7 +7,7 @@
 #include <stdbool.h>
 
 // Delete a node from the menu tree (recipe) with the product name as the judgment standard
-bool delete_recipe_name(t_recipe** root, char* name) 
+bool delete_recipe_name(t_recipe** root, char* name, recipe** head, recipe** tail)
 {
     if (*root == NULL)
     {
@@ -28,10 +28,7 @@ bool delete_recipe_name(t_recipe** root, char* name)
 
         //delete the node in the list
         recipe* current = (*root)->r_node;
-        current->prev->next = current->next;
-        current->next->prev = current->prev;
-        current->prev = NULL;
-        current->next = NULL;
+        delete_specific_recipe(&current, head, tail);
 
         // No child nodes or only one child node exists
         if ((*root)->left == NULL) 
@@ -63,7 +60,7 @@ bool delete_recipe_name(t_recipe** root, char* name)
 }
 
 // Delete a node from the order tree with the order number as the judgment standard
-bool delete_order_id(t_order** root, char* order_id) 
+bool delete_order_id(t_order** root, char* order_id, order** head, order** tail)
 {
     if (*root == NULL) 
     {
@@ -84,10 +81,7 @@ bool delete_order_id(t_order** root, char* order_id)
 
         //delete the node in the list
         order* current = (*root)->o_node;
-        current->prev->next = current->next;
-        current->next->prev = current->prev;
-        current->prev = NULL;
-        current->next = NULL;
+        delete_specific_order(&current, head, tail);
         
         // No child nodes or only one child node exists
         if ((*root)->left == NULL) 
@@ -119,7 +113,7 @@ bool delete_order_id(t_order** root, char* order_id)
 }
 
 // Delete a node from the merchant tree with the merchant name as the judgment standard
-bool delete_Merchant_name(t_Merchant** root, char* name) 
+bool delete_Merchant_name(t_Merchant** root, char* name, Merchant** head, Merchant** tail)
 {
     if (*root == NULL)
     {
@@ -140,10 +134,7 @@ bool delete_Merchant_name(t_Merchant** root, char* name)
 
         //delete the node in the list
         Merchant* current = (*root)->M_node;
-        current->prev->next = current->next;
-        current->next->prev = current->prev;
-        current->prev = NULL;
-        current->next = NULL;
+        delete_specific_merchant(&current, head, tail);
         
         // No child nodes or only one child node exists
         if ((*root)->left == NULL) 

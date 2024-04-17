@@ -29,7 +29,7 @@ void printList_r_classify(r_classify* head)
     printf("Class List:\n");
     while (head != NULL)
     {
-        printf("%s\n", head->name);
+        printf("Recipe class:%s\n", head->name);
         if (head->r_head == NULL)
         {
             printf("This product category has not added any products yet\n");
@@ -54,7 +54,6 @@ void print_order_list(order* tail)
         printf("Merchant: %s\tAddress: %s\tPhone: %s\n", tail->m_name, tail->m_address, tail->m_phone);
         printf("User: %s\tAddress: %s\tPhone: %s\n", tail->u_name, tail->u_address, tail->u_phone);
         printf("Delivery Person: %s\tPhone: %s\n", tail->d_name, tail->d_phone);
-        printList_recipe_2(tail->r_head); // Print the list of products in the order
         printf("Total Price: %.2f\t", tail->sum_price);
         switch (tail->s) {
         case WAY:
@@ -70,6 +69,7 @@ void print_order_list(order* tail)
             printf("Order State: Canceled\n");
             break;
         }
+        printList_recipe_2(tail->r_head); // Print the list of products in the order
         tail = tail->prev;
     }
 }

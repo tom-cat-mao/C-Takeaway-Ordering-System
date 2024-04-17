@@ -92,7 +92,8 @@ bool insertTree_order_id(t_order** root, order* insert)
 }
 
 // use the merchant name as the standard to insert nodes into the tree
-bool insertTree_Merchant_name(t_Merchant** root, Merchant* insert) {
+bool insertTree_Merchant_name(t_Merchant** root, Merchant* insert) 
+{
     if (*root == NULL) 
     {
         *root = creatTree_Merchant(insert);

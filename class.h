@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include <time.h>
 #include <ctype.h>
+#include"classTree.h"
 
 static double discount[3] = { 0.9,0.85,0.75 }; // Different cards corresponding discounts
 enum card { SILVER, GOLD, PLATINUM }; // User membership type
@@ -68,6 +69,9 @@ typedef struct order
     // Estimated delivery time
     struct tm* send_time;
 
+    // Total time
+    int total_time;
+
     // Order dishes
     struct recipe* r_head;
     struct recipe* r_tail;
@@ -85,6 +89,9 @@ typedef struct Merchant
     char name[100];
     char address[100];
     char phone[20];
+
+    struct t_order* t_o_head;// Order tree head
+    struct t_recipe* t_r_head;//Recipe tree head
 
     struct order* o_head; // Order linked list head
     struct order* o_tail; // Order linked list tail
@@ -123,6 +130,8 @@ typedef struct User
     char phone[20];
     
     enum card c; // User membership
+
+    struct t_order* t_o_head;// Order tree head
 
     // Order ID
     struct order* o_head;
@@ -257,5 +266,15 @@ DeliveryPerson* find_d(DeliveryPerson* head, char* n);
 
 // Set the state of the order
 void set_state_o(order* tail, int s);
+// Synchronization order statement
+void Synchronization_o_s(order* tail, Merchant* m_head, User* u_head);
+
+//to find a special r_classify in onre Merchant
+r_classify* find_r_classify(Merchant* merchant, const char* classify_name);
+//delete specific node in the list
+bool delete_specific_r_class(r_classify** current, r_classify** head, r_classify** tail);
+bool delete_specific_recipe(recipe** current, recipe** head, recipe** tail);
+bool delete_specific_order(order** current, order** head, order** tail);
+bool delete_specific_merchant(Merchant** current, Merchant** head, Merchant** tail);
 
 #endif
