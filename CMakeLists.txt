@@ -15,6 +15,9 @@ set(SOURCES
     sum_price.c
     time_set.c
     folder_c_c_d.c
+    Search_Classify_in_Merchant.c
+    password_change.c
+    main.c
 )
 
 # Add your header files here
@@ -24,6 +27,12 @@ set(HEADERS
     output_recipe_price_range.h
     classTree.h
     folder_create_change_delete.h
+    wordcolour.h
+    sale_recipe.h
+    mergeSortOrder.h
+    interface.h
+    FuzzySearch.h
+    setStar_recipe.h
 )
 
 # Add executable target

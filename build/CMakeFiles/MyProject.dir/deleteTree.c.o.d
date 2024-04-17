@@ -1,6 +1,7 @@
 CMakeFiles/MyProject.dir/deleteTree.c.o: \
- /media/tomcat/Data/Cproject/C-/deleteTree.c /usr/include/stdc-predef.h \
- /media/tomcat/Data/Cproject/C-/class.h /usr/include/stdio.h \
+ /media/tomcat/workstudylife/Cproject/C-/deleteTree.c \
+ /usr/include/stdc-predef.h \
+ /media/tomcat/workstudylife/Cproject/C-/class.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -55,4 +56,4 @@ CMakeFiles/MyProject.dir/deleteTree.c.o: \
  /usr/include/x86_64-linux-gnu/bits/time.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
- /usr/include/ctype.h /media/tomcat/Data/Cproject/C-/classTree.h
+ /usr/include/ctype.h /media/tomcat/workstudylife/Cproject/C-/classTree.h
