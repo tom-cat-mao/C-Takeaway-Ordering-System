@@ -1,7 +1,7 @@
 #include"class.h"
 #include"classTree.h"
 #include"folder_create_change_delete.h"
-#include"FuzzySearch.h"
+#include"SearchFuzzy&SaleRecipe.h"
 #include"interface.h"
 #include"mergeSortOrder.h"
 #include"mergeSortRecipe.h"
@@ -150,72 +150,173 @@ int main()
 
 											//add recipe class
 											case 1:
-												printf("please enter your recipe class name:\n");
-												char rc_name[100] = { '\0' };
-												scanf("%s", rc_name);
-												rc_current = creatList_r_classify(rc_name);
-												insertEnd_rc(&(m_current->r_head), &(m_current->r_tail), rc_current);
-
-												//create recipe
-												for (int flag_5 = 1; flag_5 != 0; flag_5++)
+												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													printf("0.return,1.add recipe\n");
+													printf("0.log out,1,continue,2.return\n");
 													int t_5 = 0;
 													scanf("%d", &t_5);
 													switch (t_5)
 													{
-														// return to the front page
+													//log out
 													case 0:
 														flag_5 = 0;
+														flag_4 = 0;
+														flag_3 = 0;
+														flag_2 = 0;
+														flag_1 = 0;
 														break;
 
-														//create recipe
+													//continue
 													case 1:
-														char r_name[100] = { '\0' };
-														float p = 0.0;
-														printf("please enter recipe name:\n");
-														scanf("%s", r_name);
-														printf("please enter the price:\n");
-														scanf("%f", &p);
-														r_current = creatList_recipe_2(r_name, p);
-														insertEnd_r(&(rc_current->r_head), &(rc_current->r_tail), r_current);
-														insertTree_recipe_name(&(m_current->t_r_head), r_current);
-														rc_current->total_number = flag_5;
+														printf("please enter your recipe class name:\n");
+														char rc_name[100] = { '\0' };
+														scanf("%s", rc_name);
+														rc_current = creatList_r_classify(rc_name);
+														insertEnd_rc(&(m_current->r_head), &(m_current->r_tail), rc_current);
+
+														//create recipe
+														for (int flag_6 = 1; flag_6 != 0; flag_6++)
+														{
+															printf("0.return,1.add recipe\n");
+															int t_6 = 0;
+															scanf("%d", &t_6);
+															switch (t_6)
+															{
+															// return to the front page
+															case 0:
+																flag_6 = 0;
+																break;
+
+															//create recipe
+															case 1:
+																char r_name[100] = { '\0' };
+																float p = 0.0;
+																printf("please enter recipe name:\n");
+																scanf("%s", r_name);
+																printf("please enter the price:\n");
+																scanf("%f", &p);
+																r_current = creatList_recipe_2(r_name, p);
+																insertEnd_r(&(rc_current->r_head), &(rc_current->r_tail), r_current);
+																insertTree_recipe_name(&(m_current->t_r_head), r_current);
+																rc_current->total_number = flag_6;
+																break;
+															default:
+																break;
+															}
+														}
+														break;
+
+													//return
+													case 2:
+														flag_5 = 0;
 														break;
 													default:
 														break;
 													}
 												}
+												
 												break;
 
 											//delete recipe class
 											case 2:
-												char rc_name[100] = { '\0' };
-												printf("please enter the recipe class you want to operate:\n");
-												scanf("%s", rc_name);
-												rc_current = find_r_classify(m_current, rc_name);
-												delete_specific_r_class(&rc_current, &(m_current->r_head), &(m_current->r_tail));
+												for (int flag_5 = 1; flag_5 != 0;)
+												{
+													printf("0.log out,1,continue,2.return\n");
+													int t_5 = 0;
+													scanf("%d", &t_5);
+													switch (t_5)
+													{
+													case 0:
+														flag_5 = 0;
+														flag_4 = 0;
+														flag_3 = 0;
+														flag_2 = 0;
+														flag_1 = 0;
+														break;
+													case 1:
+														char rc_name[100] = { '\0' };
+														printf("please enter the recipe class you want to operate:\n");
+														scanf("%s", rc_name);
+														rc_current = find_r_classify(m_current, rc_name);
+														delete_specific_r_class(&rc_current, &(m_current->r_head), &(m_current->r_tail));
+														break;
+													case 2:
+														flag_5 = 0;
+														break;
+													default:
+														break;
+													}
+												}
+												
 												break;
 
 											//change recipe name
 											case 3:
-												char rc_name[100] = { '\0' };
-												printf("please enter the recipe class you want to operate:\n");
-												scanf("%s", rc_name);
-												rc_current = find_r_classify(m_current, rc_name);
-												char new_rc_name[100] = { '\0' };
-												printf("please enter the new name:\n");
-												scanf("%s", new_rc_name);
-												strcpy(rc_current->name, new_rc_name);
+												for (int flag_5 = 1; flag_5 != 0;)
+												{
+													printf("0.log out,1,continue,2.return\n");
+													int t_5 = 0;
+													scanf("%d", &t_5);
+													switch (t_5)
+													{
+													case 0:
+														flag_5 = 0;
+														flag_4 = 0;
+														flag_3 = 0;
+														flag_2 = 0;
+														flag_1 = 0;
+														break;
+													case 1:
+														char rc_name[100] = { '\0' };
+														printf("please enter the recipe class you want to operate:\n");
+														scanf("%s", rc_name);
+														rc_current = find_r_classify(m_current, rc_name);
+														char new_rc_name[100] = { '\0' };
+														printf("please enter the new name:\n");
+														scanf("%s", new_rc_name);
+														strcpy(rc_current->name, new_rc_name);
+														break;
+													case 2:
+														flag_5 = 0;
+														break;
+													default:
+														break;
+													}
+												}
+												
 												break;
 
 											//inquiry recipe class
 											case 4:
-												char rc_name[100] = { '\0' };
-												printf("please enter the recipe class you want to see:\n");
-												scanf("%s", rc_name);
-												rc_current = find_r_classify(m_current, rc_name);
-												printList_recipe_1(rc_current->r_head);
+												for (int flag_5 = 1; flag_5 != 0;)
+												{
+													printf("0.log out,1,continue,2.return\n");
+													int t_5 = 0;
+													scanf("%d", &t_5);
+													switch (t_5)
+													{
+													case 0:
+														flag_5 = 0;
+														flag_4 = 0;
+														flag_3 = 0;
+														flag_2 = 0;
+														flag_1 = 0;
+														break;
+													case 1:
+														char rc_name[100] = { '\0' };
+														printf("please enter the recipe class you want to see:\n");
+														scanf("%s", rc_name);
+														rc_current = find_r_classify(m_current, rc_name);
+														printList_recipe_1(rc_current->r_head);
+														break;
+													case 2:
+														flag_5 = 0;
+														break;
+													default:
+														break;
+													}
+												}
+												
 												break;
 
 											//return
@@ -230,7 +331,15 @@ int main()
 
 									//operate in recipe
 									case 2:
+										for (int flag_4 = 1; flag_4 != 0;)
+										{
+											printf("0.log out,1.add recipe,2.delete recipe,3.move recipe,4.inquiry recipe,5.return\n");
+											int t_4 = 0;
+											scanf("%d", &t_4);
+											//
 
+
+										}
 										break;
 									default:
 										break;
