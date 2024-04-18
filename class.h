@@ -271,10 +271,16 @@ void Synchronization_o_s(order* tail, Merchant* m_head, User* u_head);
 
 //to find a special r_classify in onre Merchant
 r_classify* find_r_classify(Merchant* merchant, const char* classify_name);
+
 //delete specific node in the list
 bool delete_specific_r_class(r_classify** current, r_classify** head, r_classify** tail);
 bool delete_specific_recipe(recipe** current, recipe** head, recipe** tail);
 bool delete_specific_order(order** current, order** head, order** tail);
 bool delete_specific_merchant(Merchant** current, Merchant** head, Merchant** tail);
+
+//delete node by tree
+bool delete_recipe_name(t_recipe** root, char* name, recipe** head, recipe** tail);
+bool delete_order_id(t_order** root, char* order_id, order** head, order** tail);
+bool delete_Merchant_name(t_Merchant** root, char* name, Merchant** head, Merchant** tail);
 
 #endif

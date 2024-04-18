@@ -17,7 +17,8 @@ bool insertTree_recipe_name(t_recipe** root, recipe* insert)
 
     // create a new node for the tree
     t_recipe* current = *root;
-    while (1) {
+    while (1) 
+    {
         if (strcmp((insert)->name, current->r_node->name) < 0) 
         {
             if (current->left == NULL) 

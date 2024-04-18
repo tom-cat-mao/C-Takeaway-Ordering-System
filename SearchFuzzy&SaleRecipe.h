@@ -3,6 +3,7 @@
 #define _SEARCHFUZZYSALERECIPE_H
 #define _CRT_SECURE_NO_WARNINGS
 #include"class.h"
+
 //Fuzzy Search
 // Search recipes in a recipe list
 void FuzzySearchInRecipe(recipe* recipe_current, char* searchstr) 
