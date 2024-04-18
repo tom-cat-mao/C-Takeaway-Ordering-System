@@ -58,5 +58,20 @@
   "directory": "/media/tomcat/Data/Cproject/C-/build",
   "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/folder_c_c_d.c.o -c /media/tomcat/Data/Cproject/C-/folder_c_c_d.c",
   "file": "/media/tomcat/Data/Cproject/C-/folder_c_c_d.c"
+},
+{
+  "directory": "/media/tomcat/Data/Cproject/C-/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/Search_Classify_in_Merchant.c.o -c /media/tomcat/Data/Cproject/C-/Search_Classify_in_Merchant.c",
+  "file": "/media/tomcat/Data/Cproject/C-/Search_Classify_in_Merchant.c"
+},
+{
+  "directory": "/media/tomcat/Data/Cproject/C-/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/password_change.c.o -c /media/tomcat/Data/Cproject/C-/password_change.c",
+  "file": "/media/tomcat/Data/Cproject/C-/password_change.c"
+},
+{
+  "directory": "/media/tomcat/Data/Cproject/C-/build",
+  "command": "/usr/bin/gcc   -g -o CMakeFiles/MyProject.dir/main.c.o -c /media/tomcat/Data/Cproject/C-/main.c",
+  "file": "/media/tomcat/Data/Cproject/C-/main.c"
 }
 ]

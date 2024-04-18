@@ -2,6 +2,7 @@
 #define _FOLDER_C_C_D_H_
 #include "class.h"
 #include <dirent.h>
+#include <direct.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <io.h>

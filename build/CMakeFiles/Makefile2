@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/tomcat/workstudylife/Cproject/C-
+CMAKE_SOURCE_DIR = /media/tomcat/Data/Cproject/C-
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /media/tomcat/workstudylife/Cproject/C-/build
+CMAKE_BINARY_DIR = /media/tomcat/Data/Cproject/C-/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/MyProject.dir/clean
 CMakeFiles/MyProject.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/tomcat/workstudylife/Cproject/C-/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 "Built target MyProject"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/media/tomcat/Data/Cproject/C-/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 "Built target MyProject"
 .PHONY : CMakeFiles/MyProject.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/MyProject.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/tomcat/workstudylife/Cproject/C-/build/CMakeFiles 16
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/tomcat/Data/Cproject/C-/build/CMakeFiles 16
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MyProject.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/tomcat/workstudylife/Cproject/C-/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/tomcat/Data/Cproject/C-/build/CMakeFiles 0
 .PHONY : CMakeFiles/MyProject.dir/rule
 
 # Convenience name for target.

@@ -1,3 +1,3 @@
-/media/tomcat/workstudylife/Cproject/C-/build/CMakeFiles/MyProject.dir
-/media/tomcat/workstudylife/Cproject/C-/build/CMakeFiles/edit_cache.dir
-/media/tomcat/workstudylife/Cproject/C-/build/CMakeFiles/rebuild_cache.dir
+/media/tomcat/Data/Cproject/C-/build/CMakeFiles/MyProject.dir
+/media/tomcat/Data/Cproject/C-/build/CMakeFiles/edit_cache.dir
+/media/tomcat/Data/Cproject/C-/build/CMakeFiles/rebuild_cache.dir

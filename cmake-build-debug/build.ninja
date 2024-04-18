@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /media/tomcat/workstudylife/Cproject/C-/cmake-build-debug/
+cmake_ninja_workdir = /media/tomcat/Data/Cproject/C-/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target MyProject
 
@@ -49,95 +49,125 @@ cmake_ninja_workdir = /media/tomcat/workstudylife/Cproject/C-/cmake-build-debug/
 
 build cmake_object_order_depends_target_MyProject: phony || CMakeFiles/MyProject.dir
 
-build CMakeFiles/MyProject.dir/createTree.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/workstudylife/Cproject/C-/createTree.c || cmake_object_order_depends_target_MyProject
+build CMakeFiles/MyProject.dir/createTree.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/Data/Cproject/C-/createTree.c || cmake_object_order_depends_target_MyProject
   DEP_FILE = CMakeFiles/MyProject.dir/createTree.c.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/MyProject.dir
   OBJECT_FILE_DIR = CMakeFiles/MyProject.dir
+  TARGET_COMPILE_PDB = CMakeFiles/MyProject.dir/
+  TARGET_PDB = MyProject.pdb
 
-build CMakeFiles/MyProject.dir/createList.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/workstudylife/Cproject/C-/createList.c || cmake_object_order_depends_target_MyProject
+build CMakeFiles/MyProject.dir/createList.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/Data/Cproject/C-/createList.c || cmake_object_order_depends_target_MyProject
   DEP_FILE = CMakeFiles/MyProject.dir/createList.c.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/MyProject.dir
   OBJECT_FILE_DIR = CMakeFiles/MyProject.dir
+  TARGET_COMPILE_PDB = CMakeFiles/MyProject.dir/
+  TARGET_PDB = MyProject.pdb
 
-build CMakeFiles/MyProject.dir/delete_data.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/workstudylife/Cproject/C-/delete_data.c || cmake_object_order_depends_target_MyProject
+build CMakeFiles/MyProject.dir/delete_data.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/Data/Cproject/C-/delete_data.c || cmake_object_order_depends_target_MyProject
   DEP_FILE = CMakeFiles/MyProject.dir/delete_data.c.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/MyProject.dir
   OBJECT_FILE_DIR = CMakeFiles/MyProject.dir
+  TARGET_COMPILE_PDB = CMakeFiles/MyProject.dir/
+  TARGET_PDB = MyProject.pdb
 
-build CMakeFiles/MyProject.dir/deleteTree.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/workstudylife/Cproject/C-/deleteTree.c || cmake_object_order_depends_target_MyProject
+build CMakeFiles/MyProject.dir/deleteTree.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/Data/Cproject/C-/deleteTree.c || cmake_object_order_depends_target_MyProject
   DEP_FILE = CMakeFiles/MyProject.dir/deleteTree.c.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/MyProject.dir
   OBJECT_FILE_DIR = CMakeFiles/MyProject.dir
+  TARGET_COMPILE_PDB = CMakeFiles/MyProject.dir/
+  TARGET_PDB = MyProject.pdb
 
-build CMakeFiles/MyProject.dir/insertTree.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/workstudylife/Cproject/C-/insertTree.c || cmake_object_order_depends_target_MyProject
+build CMakeFiles/MyProject.dir/insertTree.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/Data/Cproject/C-/insertTree.c || cmake_object_order_depends_target_MyProject
   DEP_FILE = CMakeFiles/MyProject.dir/insertTree.c.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/MyProject.dir
   OBJECT_FILE_DIR = CMakeFiles/MyProject.dir
+  TARGET_COMPILE_PDB = CMakeFiles/MyProject.dir/
+  TARGET_PDB = MyProject.pdb
 
-build CMakeFiles/MyProject.dir/discount_card_change.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/workstudylife/Cproject/C-/discount_card_change.c || cmake_object_order_depends_target_MyProject
+build CMakeFiles/MyProject.dir/discount_card_change.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/Data/Cproject/C-/discount_card_change.c || cmake_object_order_depends_target_MyProject
   DEP_FILE = CMakeFiles/MyProject.dir/discount_card_change.c.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/MyProject.dir
   OBJECT_FILE_DIR = CMakeFiles/MyProject.dir
+  TARGET_COMPILE_PDB = CMakeFiles/MyProject.dir/
+  TARGET_PDB = MyProject.pdb
 
-build CMakeFiles/MyProject.dir/name_a_pass.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/workstudylife/Cproject/C-/name_a_pass.c || cmake_object_order_depends_target_MyProject
+build CMakeFiles/MyProject.dir/name_a_pass.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/Data/Cproject/C-/name_a_pass.c || cmake_object_order_depends_target_MyProject
   DEP_FILE = CMakeFiles/MyProject.dir/name_a_pass.c.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/MyProject.dir
   OBJECT_FILE_DIR = CMakeFiles/MyProject.dir
+  TARGET_COMPILE_PDB = CMakeFiles/MyProject.dir/
+  TARGET_PDB = MyProject.pdb
 
-build CMakeFiles/MyProject.dir/printList.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/workstudylife/Cproject/C-/printList.c || cmake_object_order_depends_target_MyProject
+build CMakeFiles/MyProject.dir/printList.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/Data/Cproject/C-/printList.c || cmake_object_order_depends_target_MyProject
   DEP_FILE = CMakeFiles/MyProject.dir/printList.c.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/MyProject.dir
   OBJECT_FILE_DIR = CMakeFiles/MyProject.dir
+  TARGET_COMPILE_PDB = CMakeFiles/MyProject.dir/
+  TARGET_PDB = MyProject.pdb
 
-build CMakeFiles/MyProject.dir/searchTree.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/workstudylife/Cproject/C-/searchTree.c || cmake_object_order_depends_target_MyProject
+build CMakeFiles/MyProject.dir/searchTree.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/Data/Cproject/C-/searchTree.c || cmake_object_order_depends_target_MyProject
   DEP_FILE = CMakeFiles/MyProject.dir/searchTree.c.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/MyProject.dir
   OBJECT_FILE_DIR = CMakeFiles/MyProject.dir
+  TARGET_COMPILE_PDB = CMakeFiles/MyProject.dir/
+  TARGET_PDB = MyProject.pdb
 
-build CMakeFiles/MyProject.dir/sum_price.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/workstudylife/Cproject/C-/sum_price.c || cmake_object_order_depends_target_MyProject
+build CMakeFiles/MyProject.dir/sum_price.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/Data/Cproject/C-/sum_price.c || cmake_object_order_depends_target_MyProject
   DEP_FILE = CMakeFiles/MyProject.dir/sum_price.c.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/MyProject.dir
   OBJECT_FILE_DIR = CMakeFiles/MyProject.dir
+  TARGET_COMPILE_PDB = CMakeFiles/MyProject.dir/
+  TARGET_PDB = MyProject.pdb
 
-build CMakeFiles/MyProject.dir/time_set.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/workstudylife/Cproject/C-/time_set.c || cmake_object_order_depends_target_MyProject
+build CMakeFiles/MyProject.dir/time_set.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/Data/Cproject/C-/time_set.c || cmake_object_order_depends_target_MyProject
   DEP_FILE = CMakeFiles/MyProject.dir/time_set.c.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/MyProject.dir
   OBJECT_FILE_DIR = CMakeFiles/MyProject.dir
+  TARGET_COMPILE_PDB = CMakeFiles/MyProject.dir/
+  TARGET_PDB = MyProject.pdb
 
-build CMakeFiles/MyProject.dir/folder_c_c_d.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/workstudylife/Cproject/C-/folder_c_c_d.c || cmake_object_order_depends_target_MyProject
+build CMakeFiles/MyProject.dir/folder_c_c_d.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/Data/Cproject/C-/folder_c_c_d.c || cmake_object_order_depends_target_MyProject
   DEP_FILE = CMakeFiles/MyProject.dir/folder_c_c_d.c.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/MyProject.dir
   OBJECT_FILE_DIR = CMakeFiles/MyProject.dir
+  TARGET_COMPILE_PDB = CMakeFiles/MyProject.dir/
+  TARGET_PDB = MyProject.pdb
 
-build CMakeFiles/MyProject.dir/Search_Classify_in_Merchant.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/workstudylife/Cproject/C-/Search_Classify_in_Merchant.c || cmake_object_order_depends_target_MyProject
+build CMakeFiles/MyProject.dir/Search_Classify_in_Merchant.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/Data/Cproject/C-/Search_Classify_in_Merchant.c || cmake_object_order_depends_target_MyProject
   DEP_FILE = CMakeFiles/MyProject.dir/Search_Classify_in_Merchant.c.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/MyProject.dir
   OBJECT_FILE_DIR = CMakeFiles/MyProject.dir
+  TARGET_COMPILE_PDB = CMakeFiles/MyProject.dir/
+  TARGET_PDB = MyProject.pdb
 
-build CMakeFiles/MyProject.dir/password_change.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/workstudylife/Cproject/C-/password_change.c || cmake_object_order_depends_target_MyProject
+build CMakeFiles/MyProject.dir/password_change.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/Data/Cproject/C-/password_change.c || cmake_object_order_depends_target_MyProject
   DEP_FILE = CMakeFiles/MyProject.dir/password_change.c.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/MyProject.dir
   OBJECT_FILE_DIR = CMakeFiles/MyProject.dir
+  TARGET_COMPILE_PDB = CMakeFiles/MyProject.dir/
+  TARGET_PDB = MyProject.pdb
 
-build CMakeFiles/MyProject.dir/main.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/workstudylife/Cproject/C-/main.c || cmake_object_order_depends_target_MyProject
+build CMakeFiles/MyProject.dir/main.c.o: C_COMPILER__MyProject_unscanned_Debug /media/tomcat/Data/Cproject/C-/main.c || cmake_object_order_depends_target_MyProject
   DEP_FILE = CMakeFiles/MyProject.dir/main.c.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/MyProject.dir
   OBJECT_FILE_DIR = CMakeFiles/MyProject.dir
+  TARGET_COMPILE_PDB = CMakeFiles/MyProject.dir/
+  TARGET_PDB = MyProject.pdb
 
 
 # =============================================================================
@@ -152,15 +182,16 @@ build MyProject: C_EXECUTABLE_LINKER__MyProject_Debug CMakeFiles/MyProject.dir/c
   OBJECT_DIR = CMakeFiles/MyProject.dir
   POST_BUILD = :
   PRE_LINK = :
+  TARGET_COMPILE_PDB = CMakeFiles/MyProject.dir/
   TARGET_FILE = MyProject
-  TARGET_PDB = MyProject.dbg
+  TARGET_PDB = MyProject.pdb
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /media/tomcat/workstudylife/Cproject/C-/cmake-build-debug && /snap/clion/274/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /media/tomcat/Data/Cproject/C-/cmake-build-debug && /home/tomcat/clion-2024.1/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -171,7 +202,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /media/tomcat/workstudylife/Cproject/C-/cmake-build-debug && /snap/clion/274/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/media/tomcat/workstudylife/Cproject/C- -B/media/tomcat/workstudylife/Cproject/C-/cmake-build-debug
+  COMMAND = cd /media/tomcat/Data/Cproject/C-/cmake-build-debug && /home/tomcat/clion-2024.1/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/media/tomcat/Data/Cproject/C- -B/media/tomcat/Data/Cproject/C-/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -187,7 +218,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 #############################################
-# Folder: /media/tomcat/workstudylife/Cproject/C-/cmake-build-debug
+# Folder: /media/tomcat/Data/Cproject/C-/cmake-build-debug
 
 build all: phony MyProject
 
@@ -198,14 +229,14 @@ build all: phony MyProject
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /media/tomcat/workstudylife/Cproject/C-/CMakeLists.txt /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCCompiler.cmake.in /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCCompilerABI.c /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompileFeatures.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeFindBinUtils.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeParseImplicitIncludeInfo.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeParseLibraryArchitecture.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystem.cmake.in /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeTestCompilerCommon.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/ADSP-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/ARMCC-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/ARMClang-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/AppleClang-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Borland-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Cray-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/CrayClang-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GHS-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-FindBinUtils.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/HP-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/IAR-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Intel-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/LCC-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/MSVC-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/NVHPC-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/OrangeC-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/PGI-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/PathScale-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/SCO-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/TI-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Tasking-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Watcom-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/XL-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/zOS-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Internal/FeatureTesting.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-Determine-CXX.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /media/tomcat/Data/Cproject/C-/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /media/tomcat/workstudylife/Cproject/C-/CMakeLists.txt /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux.cmake /snap/clion/274/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake: phony
+build /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCCompiler.cmake.in /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCCompilerABI.c /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCInformation.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXCompiler.cmake.in /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompileFeatures.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeFindBinUtils.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeParseImplicitIncludeInfo.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeParseImplicitLinkInfo.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeParseLibraryArchitecture.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystem.cmake.in /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/CMakeTestCompilerCommon.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/ADSP-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/ARMCC-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/ARMClang-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/AppleClang-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Borland-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Cray-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/CrayClang-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GHS-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-C.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU-FindBinUtils.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/GNU.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/HP-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/IAR-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Intel-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/LCC-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/MSVC-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/NVHPC-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/OrangeC-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/PGI-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/PathScale-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/SCO-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/TI-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Tasking-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/Watcom-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/XL-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/zOS-C-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Internal/FeatureTesting.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-Determine-CXX.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-C.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU-CXX.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-GNU.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/Linux.cmake /home/tomcat/clion-2024.1/bin/cmake/linux/x64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /media/tomcat/Data/Cproject/C-/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake: phony
 
 
 #############################################
