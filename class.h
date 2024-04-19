@@ -179,8 +179,7 @@ recipe* creatList_recipe_2(char* n, float p);
 // Create dish classification list
 r_classify* creatList_r_classify(char* n);
 // Create order list
-order* creatList_order(char* merchant_name, char* merchant_address, char* merchant_phone,
-    char* deliver_name, char* deliver_phone, char* user_name, char* user_adderss, char* user_phone);
+order* creatList_order(Merchant* m_current, User* u_current, DeliveryPerson* d_current);
 // Create merchant linked list
 Merchant* creatList_merchant(char* n, char* p, char* a, char* pn);
 // Create user linked list
@@ -267,7 +266,11 @@ DeliveryPerson* find_d(DeliveryPerson* head, char* n);
 // Set the state of the order
 void set_state_o(order* tail, int s);
 // Synchronization order statement
-void Synchronization_o_s(order* tail, Merchant* m_head, User* u_head);
+void Synchronization_o_s_for_d(order* tail, Merchant* m_head, User* u_head);
+void Synchronization_o_s_for_u(order* current, Merchant* m_head, DeliveryPerson* d_head);
+// Synchronization order delivery person
+void Synchronization_o_d_for_m(order* current, DeliveryPerson* d_head, User* u_head);
+void Synchronization_o_d_for_u(order* current, DeliveryPerson* d_head, Merchant* m_head);
 
 //to find a special r_classify in onre Merchant
 r_classify* find_r_classify(Merchant* merchant, const char* classify_name);
@@ -282,5 +285,8 @@ bool delete_specific_merchant(Merchant** current, Merchant** head, Merchant** ta
 bool delete_recipe_name(t_recipe** root, char* name, recipe** head, recipe** tail);
 bool delete_order_id(t_order** root, char* order_id, order** head, order** tail);
 bool delete_Merchant_name(t_Merchant** root, char* name, Merchant** head, Merchant** tail);
+
+// search for the free delivery preson
+DeliveryPerson* find_free_d(DeliveryPerson* head);
 
 #endif

@@ -52,9 +52,9 @@ int main()
 	print_Title();
 
 	//read file
-	read_merchant_list(&m_head, &m_current);
-	read_user_list(&u_head, &u_current);
-	read_deliveryperson_list(&d_head, &d_current);
+	read_merchant_list(&m_head, &m_tail);
+	read_user_list(&u_head, &u_tail);
+	read_deliveryperson_list(&d_head, &d_tail);
 	m_readIntoList_p(&p_head_m);
 	u_readIntoList_p(&p_head_u);
 	d_readIntoList_p(&p_head_d);
@@ -74,6 +74,270 @@ int main()
 
 		//User
 		case 1:
+			for (int flag_1 = 1; flag_1 != 0;)
+			{
+				printf("0.return,1.sign in,2.sign up\n");
+				int t_1 = 0;
+				scanf("%d", &t_1);
+				switch (t_1)
+				{
+				//return
+				case 0:
+					flag_1 = 0;
+					break;
+
+				//sign in
+				case 1:
+					char name[100] = { '\0' };
+					printf("please enter your username:\n");
+					scanf("%s", name);
+					if (compare_u(p_head_u, name, &p_u_current))//compare the user's name and password
+					{
+						u_current = find_u(u_head, name);//find user in the list
+
+						for (int flag_2 = 1; flag_2 != 0;)
+						{
+							printf("0.log out,1.make an order,2.view and cancel order,3.change card,4.password change\n");
+							int t_2 = 0;
+							scanf("%d", &t_2);
+							switch (t_2)
+							{
+							//log out
+							case 0:
+								flag_2 = 0;
+								flag_1 = 0;
+								break;
+
+							//make an order
+							case 1:
+
+								break;
+
+							//view and cancel order
+							case 2:
+								for (int flag_3 = 1; flag_3 != 0;)
+								{
+									printf("0.log out,1.show order,2.cancel order,3.return\n");
+									int t_3 = 0;
+									scanf("%d", &t_3);
+									switch (t_3)
+									{
+									//log out
+									case 0:
+										flag_3 = 0;
+										flag_2 = 0;
+										flag_1 = 0;
+										break;
+
+									//show order
+									case 1:
+										for (int flag_4 = 1; flag_4 != 0;)
+										{
+											print_order_list(u_current->o_tail);
+											printf("0.log out,1.sort in time,2.sort in price,3.return\n");
+											int t_4 = 0;
+											scanf("%d", &t_4);
+											switch (t_4)
+											{
+											//log out
+											case 0:
+												flag_4 = 0;
+												flag_3 = 0;
+												flag_2 = 0;
+												flag_1 = 0;
+												break;
+
+											//sort in time
+											case 1:
+												for (int flag_5 = 1; flag_5 != 0;)
+												{
+													printf("0.return,1.upper,2.lower\n");
+													int  t_5 = 0;
+													scanf("%d", &t_5);
+													switch (t_5)
+													{
+													//return
+													case 0:
+														flag_5 = 0;
+														break;
+
+													//upper
+													case 1:
+														u_current->o_head = o_mergeSortLower_t(u_current->o_head,&(u_current->o_tail));
+														print_order_list(u_current->o_tail);
+														break;
+
+													//lower
+													case 2:
+														u_current->o_head = o_mergeSortUpper_t(u_current->o_head,&(u_current->o_tail));
+														print_order_list(u_current->o_tail);
+														break;
+													default:
+														break;
+													}
+												}
+												break;
+
+											//sort in price
+											case 2:
+												for (int flag_5 = 1; flag_5 != 0;)
+												{
+													printf("0.return,1.upper,2.lower\n");
+													int  t_5 = 0;
+													scanf("%d", &t_5);
+													switch (t_5)
+													{
+														//return
+													case 0:
+														flag_5 = 0;
+														break;
+
+														//upper
+													case 1:
+														u_current->o_head = o_mergeSortLower_p(u_current->o_head,&(u_current->o_tail));
+														print_order_list(u_current->o_tail);
+														break;
+
+														//lower
+													case 2:
+														u_current->o_head = o_mergeSortUpper_p(u_current->o_head, &(u_current->o_tail));
+														print_order_list(u_current->o_tail);
+														break;
+													default:
+														break;
+													}
+												}
+												break;
+
+											//return
+											case 3:
+												flag_4 = 0;
+												break;
+											default:
+												break;
+											}
+										}
+										break;
+
+									//cancel order
+									case 2:
+										for (int flag_4 = 1; flag_4 != 0;)
+										{
+											print_order_list(u_current->o_tail);
+											printf("0.log out,1.contiune,2.return\n");
+											int t_4 = 0;
+											scanf("%d", &t_4);
+											switch (t_4)
+											{
+											//log out
+											case 0:
+												flag_4 = 0;
+												flag_3 = 0;
+												flag_2 = 0;
+												flag_1 = 0;
+												break;
+
+											//contiune
+											case 1:
+												char o_id[100] = { '\0' };
+												printf("please enter the order id you want to cancel\n");
+												scanf("%s", o_id);
+												o_current = search_order_id(u_current->t_o_head, o_id);
+												printf("Y\N(Y for cancle)\n");
+												char j;
+												scanf("%c", &j);
+												switch (j)
+												{
+												case Y:
+													o_current->s = CANCEL;
+													Synchronization_o_s_for_u(o_current, m_head, d_head);
+													break;
+												case N:
+													break;
+												default:
+													break;
+												}
+												break;
+
+											//return
+											case 2:
+												flag_4 = 0;
+												break;
+											default:
+												break;
+											}
+											
+										}
+										break;
+
+									//return
+									case 3:
+										flag_3 = 0;
+										break;
+									default:
+										break;
+									}
+								}
+								break;
+
+							//change card
+							case 3:
+								for (int flag_3 = 1; flag_3 != 0;)
+								{
+									printf("1.SILVER,2.GOLD,3.PLATINUM\n");
+									int t_3 = 0;
+									switch (t_3)
+									{
+									case 1:
+										u_current->c = SILVER;
+										break;
+									case 2:
+										u_current->c = GOLD;
+										break;
+									case 3:
+										u_current->c = PLATINUM;
+										break;
+									default:
+										break;
+									}
+								}
+								break;
+
+							//change password
+							case 4:
+								user_change_p(u_current, p_u_current);
+								break;
+							default:
+								break;
+							}
+						}
+
+					}
+					break;
+
+				//sign up
+				case 2:
+					//create user's detail information
+					char name[100] = { '\0' };
+					char password[100] = { '\0' };
+					char address[100] = { '\0' };
+					char phone[100] = { '\0' };
+					printf("please enter your username:\n");
+					scanf("%s", name);
+					printf("please enter your password:\n");
+					scanf("%s", password);
+					printf("please enter your address:\n");
+					scanf("%s", address);
+					printf("please enter your phone number:\n");
+					scanf("%s", phone);
+					u_createList_p(&p_head_u, &p_u_current, u_creatNode_p(name, password, phone));
+					u_current = creatList_user(name, password, address, phone);
+					insertEnd_u(&u_head, &u_tail, u_current);
+					break;
+				default:
+					break;
+				}
+			}
 			break;
 
 
@@ -775,7 +1039,7 @@ int main()
 																	case 1:
 																		while (m_current->r_head != NULL)
 																		{
-																			m_current->r_head->r_head = r_mergeSortUpper_p(m_current->r_head->r_head);
+																			m_current->r_head->r_head = r_mergeSortUpper_p(m_current->r_head->r_head, &(m_current->r_head->r_tail));
 																			m_current->r_head = m_current->r_head->next;
 																		}
 																		printList_r_classify(m_current->r_head);
@@ -785,7 +1049,7 @@ int main()
 																	case 2:
 																		while (m_current->r_head != NULL)
 																		{
-																			m_current->r_head->r_head = r_mergeSortLower_p(m_current->r_head->r_head);
+																			m_current->r_head->r_head = r_mergeSortLower_p(m_current->r_head->r_head, &(m_current->r_head->r_tail));
 																			m_current->r_head = m_current->r_head->next;
 																		}
 																		printList_r_classify(m_current->r_head);
@@ -814,7 +1078,7 @@ int main()
 																	case 1:
 																		while (m_current->r_head != NULL)
 																		{
-																			m_current->r_head->r_head = r_mergeSortUpper_s(m_current->r_head->r_head);
+																			m_current->r_head->r_head = r_mergeSortUpper_s(m_current->r_head->r_head, &(m_current->r_head->r_tail));
 																			m_current->r_head = m_current->r_head->next;
 																		}
 																		printList_r_classify(m_current->r_head);
@@ -824,7 +1088,7 @@ int main()
 																	case 2:
 																		while (m_current->r_head != NULL)
 																		{
-																			m_current->r_head->r_head = r_mergeSortLower_s(m_current->r_head->r_head);
+																			m_current->r_head->r_head = r_mergeSortLower_s(m_current->r_head->r_head,&(m_current->r_head->r_tail));
 																			m_current->r_head = m_current->r_head->next;
 																		}
 																		printList_r_classify(m_current->r_head);
@@ -869,11 +1133,104 @@ int main()
 
 							//setting in order
 							case 2:
+								for (int flag_3 = 1; flag_3 != 0;)
+								{
+									print_order_list(m_current->r_tail);
+									printf("0.log out,1.distribute delivery person2.sort order,3,return");
+									int t_3 = 0;
+									scanf("%d", &t_3);
+									switch (t_3)
+									{
+									//log out
+									case 0:
+										flag_3 = 0;
+										flag_2 = 0;
+										flag_1 = 0;
+										break;
 
+									//distribute delivery person
+									case 1:
+										for (int flag_4 = 1; flag_4 != 0;)
+										{
+											print_order_list(m_current->r_tail);
+											printf("0.return,1.continue\n");
+											int t_4 = 0;
+											scanf("%d", &t_4);
+											switch (t_4)
+											{
+											//return
+											case 0:
+												flag_4 = 0;
+												break;
 
+											//continue
+											case 1:
+												printf("you can only operate the order which haven't distributed a delivery person\n");
+												char o_id[100] = { '\0' };
+												printf("please enter the order you want to operate:\n");
+												scanf("%s", o_id);
+												o_current = search_order_id(m_current->t_o_head, o_id);
+												//
+												d_current = find_free_d(d_head);
+												strcpy(o_current->d_name, d_current->name);
+												strcpy(o_current->d_phone, d_current->phone);
+												Synchronization_o_d_for_m(o_current, d_head, u_head);
+												break;
+											default:
+												break;
+											}
+											
+										}
+										break;
 
+									//sort order
+									case 2:
+										for (int flag_4 = 1; flag_4 != 0;)
+										{
+											print_order_list(m_current->r_tail);
+											printf("0.log out,1.upper,2.lower,3.return\n");
+											int t_4 = 0;
+											scanf("%d", &t_4);
+											switch (t_4)
+											{
+											//log out
+											case 0:
+												flag_4 = 0;
+												flag_3 = 0;
+												flag_2 = 0;
+												flag_1 = 0;
+												break;
 
+											//upper
+											case 1:
+												m_current->o_tail= o_mergeSortLower_t(m_current->o_head,&(m_current->o_tail));
+												print_order_list(m_current->o_tail);
+												break;
 
+											//lower
+											case 2:
+												m_current->o_tail = o_mergeSortUpper_t(m_current->o_head, &(m_current->o_tail));
+												print_order_list(m_current->o_tail);
+												break;
+
+											//return
+											case 3:
+												flag_4 = 0;
+												break;
+											default:
+												break;
+											}
+										}
+										break;
+
+									//return
+									case 3:
+										flag_3 = 0;
+										break;
+									default:
+										break;
+									}
+								}
 								break;
 
 							//password change
@@ -1036,7 +1393,7 @@ int main()
 										int s = 0;
 										scanf("%d", &s);
 										set_state_o(d_current->o_tail, s);
-										Synchronization_o_s(d_current->o_tail, m_head, u_head);
+										Synchronization_o_s_for_d(d_current->o_tail, m_head, u_head);
 										break;
 
 									//return to the front page

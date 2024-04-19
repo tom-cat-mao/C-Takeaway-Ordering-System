@@ -96,8 +96,7 @@ void insertEnd_rc(r_classify** head, r_classify** tail, r_classify* newNode)
 }
 
 // Create a list of orders
-order* creatList_order(char* merchant_name, char* merchant_address, char* merchant_phone,
-    char* deliver_name, char* deliver_phone, char* user_name, char* user_adderss, char* user_phone)
+order* creatList_order(Merchant* m_current, User* u_current, DeliveryPerson* d_current)
 {
     order* newNode = (order*)malloc(sizeof(order));
 
@@ -108,14 +107,23 @@ order* creatList_order(char* merchant_name, char* merchant_address, char* mercha
     }
 
     // Initialize order information
-    strcpy(newNode->m_name, merchant_name);
-    strcpy(newNode->m_address, merchant_address);
-    strcpy(newNode->m_phone, merchant_phone);
-    strcpy(newNode->u_name, user_name);
-    strcpy(newNode->u_address, user_adderss);
-    strcpy(newNode->u_phone, user_phone);
-    strcpy(newNode->d_name, deliver_name);
-    strcpy(newNode->d_phone, deliver_phone);
+    strcpy(newNode->m_name, m_current->name);
+    strcpy(newNode->m_address, m_current->address);
+    strcpy(newNode->m_phone, m_current->phone);
+    strcpy(newNode->u_name, u_current->name);
+    strcpy(newNode->u_address, u_current->address);
+    strcpy(newNode->u_phone, u_current->phone);
+    if (d_current == NULL)
+    {
+        newNode->d_name = { "need to be operate" };
+        newNode->d_phone = { "need to be operate" };
+    }
+    else
+    {
+        strcpy(newNode->d_name, d_current->name);
+        strcpy(newNode->d_phone, d_current->phone);
+    }
+    
     set_time(newNode->localTime);
     strftime(newNode->order_id, sizeof(newNode->order_id), "%Y%m%d %H%M%S", newNode->localTime);
     for (int i = 7, j = strlen(newNode->order_id); i < 11; i++,j++)
