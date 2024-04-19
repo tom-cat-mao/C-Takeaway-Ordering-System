@@ -110,7 +110,517 @@ int main()
 
 							//make an order
 							case 1:
+								for (int flag_3 = 1; flag_3 != 0;)
+								{
+									printList_merchant(m_head);
+									printf("0.log out,1.choose a merchant,2.return\n");
+									int t_3 = 0;
+									scanf("%d", &t_3);
+									switch (t_3)
+									{
+									//log out
+									case 0:
+										flag_3 = 0;
+										flag_2 = 0;
+										flag_1 = 0;
+										break;
 
+									//choose a merchant
+									case 1:
+										char m_name[100] = { '\0' };
+										printf("please enter the merchant you choose:\n");
+										scanf("%s", m_name);
+										m_current = search_Merchant_name(t_m_head, m_name);
+
+										int judge = 0;
+
+										for (int flag_4 = 1; flag_4 != 0;)
+										{
+											printList_r_classify(m_current->r_head);
+											printf("0.log out,1.sort,2.search,3choose,4.return||finish\n");
+											int t_4 = 0;
+											scanf("%d", &t_4);
+											switch (t_4)
+											{
+											//log out
+											case 0:
+												flag_4 = 0;
+												flag_3 = 0;
+												flag_2 = 0;
+												flag_1 = 0;
+												break;
+
+											//sort
+											case 1:
+												for (int flag_5 = 0; flag_5 != 0;)
+												{
+													printf("0.log out,1.sort,2.return\n");
+													int t_5 = 0;
+													switch (t_5)
+													{
+														//log out
+													case 0:
+														flag_5 = 0;
+														flag_4 = 0;
+														flag_3 = 0;
+														flag_2 = 0;
+														flag_1 = 0;
+														break;
+
+														//sort
+													case 1:
+														for (int flag_6 = 0; flag_6 != 0;)
+														{
+															printf("0.return,1.sort by price,2.sort by stars,3.sort by comprehensive\n");
+															int t_6 = 0;
+															scanf("%d", &t_6);
+															switch (t_6)
+															{
+																//return
+															case 0:
+																flag_6 = 0;
+																break;
+
+																//sort by price
+															case 1:
+																for (int flag_7 = 1; flag_7 != 0;)
+																{
+																	printf("0.return,1.upper,2.lower,3.choose\n");
+																	int t_7 = 0;
+																	scanf("%d", &t_7);
+																	switch (t_7)
+																	{
+																		//return
+																	case 0:
+																		flag_7 = 0;
+																		break;
+
+																		//upper
+																	case 1:
+																		while (m_current->r_head != NULL)
+																		{
+																			m_current->r_head->r_head = r_mergeSortUpper_p(m_current->r_head->r_head, &(m_current->r_head->r_tail));
+																			m_current->r_head = m_current->r_head->next;
+																		}
+																		printList_r_classify(m_current->r_head);
+																		break;
+
+																		//lower
+																	case 2:
+																		while (m_current->r_head != NULL)
+																		{
+																			m_current->r_head->r_head = r_mergeSortLower_p(m_current->r_head->r_head, &(m_current->r_head->r_tail));
+																			m_current->r_head = m_current->r_head->next;
+																		}
+																		printList_r_classify(m_current->r_head);
+																		break;
+
+																		//choose
+																	case 3:
+																		judge = 1;
+
+																		char r_name[100] = { '\0' };
+																		printf("please enter the recipe name:\n");
+																		scanf("%s", r_name);
+																		r_current = search_recipe_name(m_current->t_r_head, r_name);
+																		printf("pleae enter the number you want:\n");
+																		int n = 0;
+																		scanf("%d", &n);
+																		r_current = creatList_recipe_1(r_current->name, r_current->price, n);
+																		insertEnd_r(&r_head, &r_tail, r_current);
+																		break;
+																	default:
+																		break;
+																	}
+																}
+																break;
+
+																//sort by star
+															case 2:
+																for (int flag_7 = 1; flag_7 != 0;)
+																{
+																	printf("0.return,1.upper,2.lower\n");
+																	int t_7 = 0;
+																	scanf("%d", &t_7);
+																	switch (t_7)
+																	{
+																		//return
+																	case 0:
+																		flag_7 = 0;
+																		break;
+
+																		//upper
+																	case 1:
+																		while (m_current->r_head != NULL)
+																		{
+																			m_current->r_head->r_head = r_mergeSortUpper_s(m_current->r_head->r_head, &(m_current->r_head->r_tail));
+																			m_current->r_head = m_current->r_head->next;
+																		}
+																		printList_r_classify(m_current->r_head);
+																		break;
+
+																		//lower
+																	case 2:
+																		while (m_current->r_head != NULL)
+																		{
+																			m_current->r_head->r_head = r_mergeSortLower_s(m_current->r_head->r_head, &(m_current->r_head->r_tail));
+																			m_current->r_head = m_current->r_head->next;
+																		}
+																		printList_r_classify(m_current->r_head);
+																		break;
+
+																		//choose
+																	case 3:
+																		judge = 1;
+
+																		char r_name[100] = { '\0' };
+																		printf("please enter the recipe name:\n");
+																		scanf("%s", r_name);
+																		r_current = search_recipe_name(m_current->t_r_head, r_name);
+																		printf("pleae enter the number you want:\n");
+																		int n = 0;
+																		scanf("%d", &n);
+																		r_current = creatList_recipe_1(r_current->name, r_current->price, n);
+																		insertEnd_r(&r_head, &r_tail, r_current);
+																		break;
+																	default:
+																		break;
+																	}
+																}
+																break;
+
+															//sort by comprehensive
+															case 3:
+																for (int flag_7 = 1; flag_7 != 0;)
+																{
+																	printf("0.return,1.upper,2.lower\n");
+																	int t_7 = 0;
+																	scanf("%d", &t_7);
+																	switch (t_7)
+																	{
+																		//return
+																	case 0:
+																		flag_7 = 0;
+																		break;
+
+																		//upper
+																	case 1:
+																		while (m_current->r_head != NULL)
+																		{
+																			m_current->r_head->r_head = r_mergeSortUpper_c(m_current->r_head->r_head, &(m_current->r_head->r_tail));
+																			m_current->r_head = m_current->r_head->next;
+																		}
+																		printList_r_classify(m_current->r_head);
+																		break;
+
+																		//lower
+																	case 2:
+																		while (m_current->r_head != NULL)
+																		{
+																			m_current->r_head->r_head = r_mergeSortLower_c(m_current->r_head->r_head, &(m_current->r_head->r_tail));
+																			m_current->r_head = m_current->r_head->next;
+																		}
+																		printList_r_classify(m_current->r_head);
+																		break;
+
+																		//choose
+																	case 3:
+																		judge = 1;
+
+																		char r_name[100] = { '\0' };
+																		printf("please enter the recipe name:\n");
+																		scanf("%s", r_name);
+																		r_current = search_recipe_name(m_current->t_r_head, r_name);
+																		printf("pleae enter the number you want:\n");
+																		int n = 0;
+																		scanf("%d", &n);
+																		r_current = creatList_recipe_1(r_current->name, r_current->price, n);
+																		insertEnd_r(&r_head, &r_tail, r_current);
+																		break;
+																	default:
+																		break;
+																	}
+																}
+																break;
+															default:
+																break;
+															}
+														}
+														break;
+
+														//return
+													case 2:
+														flag_5 = 0;
+														break;
+													default:
+														break;
+													}
+												}
+
+												break;
+
+											//search
+											case 2:
+												for (int flag_5 = 1; flag_5 != 0;)
+												{
+													printf("0.return,1.accurate search,2.fuzzy search,3.price range,4.sale recipe\n");
+													int t_5 = 0;
+													scanf("%d", &t_5);
+													switch (t_5)
+													{
+													//return
+													case 0:
+														flag_5 = 0;
+														break;
+
+													//accurate search
+													case 1:
+														for (int flag_6 = 1; flag_6 != 0;)
+														{
+															printf("0.return,1.single inquiry,2.combination inquiry\n");
+															int t_6 = 0;
+															scanf("%d", &t_6);
+															switch (t_6)
+															{
+															//return
+															case 0:
+																flag_6 = 0;
+																break;
+
+															//single inquiry
+															case 1:
+																for (int flag_7 = 1; flag_7 != 0;)
+																{
+																	printf("0.return,1.continue\n");
+																	int t_7 = 0;
+																	scanf("%d", &t_7);
+																	switch (t_7)
+																	{
+																	//return
+																	case 0:
+																		flag_7 = 0;
+																		break;
+																	
+																	//continue
+																	case 1:
+																		char r_name[100] = { '\0' };
+																		printf("please enter the recipe name:\n");
+																		scanf("%s", r_name);
+																		r_current = search_recipe_name(m_current->t_r_head, r_name);
+																		if (r_current == NULL)
+																		{
+																			printf("we don't have the recipe you search\n");
+																		}
+																		else
+																		{
+																			//print
+																			char j;
+																			printf("Y\N(Y for choose this recipe)\n");
+																			scanf("%c", &j);
+																			if (j == 'Y')
+																			{
+																				judge = 1;
+																				printf("pleae enter the number you want:\n");
+																				int n = 0;
+																				scanf("%d", &n);
+																				r_current = creatList_recipe_1(r_current->name, r_current->price, n);
+																				insertEnd_r(&r_head, &r_tail, r_current);
+																			}
+																		}
+																		break;
+																	default:
+																		break;
+																	}
+																}
+																
+																
+																break;
+
+															//combination inquiry
+															case 2:
+																for (int flag_7 = 1; flag_7 != 0;)
+																{
+																	printf("0.return,1.continue\n");
+																	int t_7 = 0;
+																	scanf("%d", &t_7);
+																	switch (t_7)
+																	{
+																		//return
+																	case 0:
+																		flag_7 = 0;
+																		break;
+
+																		//continue
+																	case 1:
+																		char rc_name[100] = { '\0' };
+																		char r_name[100] = { '\0' };
+																		printf("please enter the r_class and the rcipe you want to search:\n");
+																		scanf("%s", rc_name);
+																		scanf("%s", r_name);
+																		rc_current = find_r_classify(m_current, rc_name);
+																		if (rc_current == NULL)
+																		{
+																			printf("we don't have the class you want\n");
+																		}
+																		else
+																		{
+																			r_current = find_recipe_by_list(rc_current, r_name);
+																			if (r_current == NULL)
+																			{
+																				printf("we don't have the recipe you search\n");
+																			}
+																			else
+																			{
+																				//print
+																				char j;
+																				printf("Y\N(Y for choose this recipe)\n");
+																				scanf("%c", &j);
+																				if (j == 'Y')
+																				{
+																					judge = 1;
+																					printf("pleae enter the number you want:\n");
+																					int n = 0;
+																					scanf("%d", &n);
+																					r_current = creatList_recipe_1(r_current->name, r_current->price, n);
+																					insertEnd_r(&r_head, &r_tail, r_current);
+																				}
+																			}
+																		}
+																		break;
+																	default:
+																		break;
+																	}
+																}
+
+																break;
+															default:
+																break;
+															}
+														}
+														break;
+
+													//fuzzy search
+													case 2:
+														for (int flag_6 = 1; flag_6 != 0;)
+														{
+															printf("0.return,1.continue\n");
+															int t_6 = 0;
+															scanf("%d", &t_6);
+															switch (t_6)
+															{
+															//return
+															case 0:
+																flag_6 = 0;
+																break;
+
+															//continue
+															case 1:
+																char str[100] = { '\0' };
+																printf("please enter the string you want to search:\n");
+																scanf("%s", str);
+																FuzzySearchInClassify(m_current->r_head, str);
+																for (int flag_7 = 1; flag_7 != 0;)
+																{
+																	printf("whether you want to order any recipe\n");
+																	printf("0.return,1.continue\n");
+																	int t_7 = 0;
+																	scanf("%d", &t_7);
+																	switch (t_7)
+																	{
+																	//return
+																	case 0:
+																		flag_7 = 0;
+																		break;
+
+																	//continue
+																	case 1:
+																		judge = 1;
+
+																		char r_name[100] = { '\0' };
+																		printf("please enter the recipe name:\n");
+																		scanf("%s", r_name);
+																		r_current = search_recipe_name(m_current->t_r_head, r_name);
+																		printf("pleae enter the number you want:\n");
+																		int n = 0;
+																		scanf("%d", &n);
+																		r_current = creatList_recipe_1(r_current->name, r_current->price, n);
+																		insertEnd_r(&r_head, &r_tail, r_current);
+																		break;
+																	default:
+																		break;
+																	}
+																}
+																break;
+															default:
+																break;
+															}
+														}
+														break;
+
+													//price range
+													case 3:
+
+														break;
+
+													//sale recipe
+													case 4:
+
+														break;
+													default:
+														break;
+													}
+												}
+
+												break;
+
+											//choose
+											case 3:
+												judge = 1;
+
+												char r_name[100] = { '\0' };
+												printf("please enter the recipe name:\n");
+												scanf("%s", r_name);
+												r_current = search_recipe_name(m_current->t_r_head, r_name);
+												printf("pleae enter the number you want:\n");
+												int n = 0;
+												scanf("%d", &n);
+												r_current = creatList_recipe_1(r_current->name, r_current->price, n);
+												insertEnd_r(&r_head, &r_tail, r_current);
+												break;
+
+											//return||finish
+											case 4:
+												flag_4 = 0;
+												break;
+											default:
+												break;
+											}
+										}
+
+										if (judge == 1)
+										{
+											d_current = find_free_d(d_head);
+											o_current = creatList_order(m_current, u_current, d_current);
+											o_current->r_head = r_head;
+											o_current->r_tail = r_tail;
+											o_current->sum_price = sumPrice(o_current, o_current->r_head, u_current->c, discount);
+											insertEnd_o(&(u_current->o_head), &(u_current->o_tail), o_current);
+											insertEnd_o(&(m_current->o_head), &(m_current->o_tail), o_current);
+											insertEnd_o(&(d_current->o_head), &(d_current->o_tail), o_current);
+											insertTree_order_id(&(u_current->t_o_head), o_current);
+											insertTree_order_id(&(m_current->t_o_head), o_current);
+										}
+
+										break;
+
+									//return
+									case 2:
+										flag_3 = 0;
+										break;
+									default:
+										break;
+									}
+								}
 								break;
 
 							//view and cancel order
@@ -134,7 +644,7 @@ int main()
 										for (int flag_4 = 1; flag_4 != 0;)
 										{
 											print_order_list(u_current->o_tail);
-											printf("0.log out,1.sort in time,2.sort in price,3.return\n");
+											printf("0.log out,1.sort in time,2.sort in price,3.search,4.return\n");
 											int t_4 = 0;
 											scanf("%d", &t_4);
 											switch (t_4)
@@ -209,8 +719,19 @@ int main()
 												}
 												break;
 
-											//return
+											
 											case 3:
+												for (int flag_5 = 1; flag_5 != 0;)
+												{
+													char o_id[100] = 0;
+													printf("please enter the order you want to search:\n");
+													scanf("%s", o_id);
+													o_current = search_order_id(u_current->t_o_head, o_id);
+													//print
+												}
+												break;
+											//return
+											case 4:
 												flag_4 = 0;
 												break;
 											default:

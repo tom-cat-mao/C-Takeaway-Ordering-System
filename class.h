@@ -288,5 +288,7 @@ bool delete_Merchant_name(t_Merchant** root, char* name, Merchant** head, Mercha
 
 // search for the free delivery preson
 DeliveryPerson* find_free_d(DeliveryPerson* head);
+//find recipe by list
+recipe* find_recipe_by_list(r_classify* head, char* name);
 
 #endif
