@@ -20,16 +20,5 @@ bool bool_set_sale_recipe(recipe* object, float input)
 	}
 }
 
-void set_sale_recipe(recipe* object, float input)
-{
-	while (1)
-	{
-		if (bool_set_sale_recipe(object, input))
-		{
-			break;
-		}
-	}
-}
-
 
 #endif

@@ -36,7 +36,7 @@ order* o_mergeUpper_p(order* first, order* second)
     }
 
     // Pick the smaller value
-    if (first->price <= second->price)
+    if (first->sum_price <= second->sum_price)
     {
         first->next = o_mergeUpper_p(first->next, second);
         first->next->prev = first;
@@ -88,7 +88,7 @@ order* o_mergeLower_p(order* first, order* second)
     }
 
     // Pick the smaller value
-    if (first->price >= second->price)
+    if (first->sum_price >= second->sum_price)
     {
         second->next = o_mergeLower_p(first, second->next);
         second->next->prev = second;

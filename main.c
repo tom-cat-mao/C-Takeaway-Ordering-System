@@ -336,7 +336,7 @@ int main()
 									case 2:
 										for (int flag_4 = 1; flag_4 != 0;)
 										{
-											printf("0.log out,1.add recipe,2.delete recipe,3.move recipe,4.inquiry recipe,5.return\n");
+											printf("0.log out,1.add recipe,2.delete recipe,3.move recipe,4.inquiry recipe,5.set slae recipe,6.sort recipe,7.return\n");
 											int t_4 = 0;
 											scanf("%d", &t_4);
 											switch (t_4)
@@ -678,8 +678,181 @@ int main()
 												}
 												break;
 
-											//return
+											//set slae recipe
 											case 5:
+												for (int flag_5 = 1; flag_5 != 0;)
+												{
+													printf("0.log out,1.set sale recipe,2.return\n");
+													int t_5 = 0;
+													scanf("%d", &t_5);
+													switch (t_5)
+													{
+													//log out
+													case 0:
+														flag_5 = 0;
+														flag_4 = 0;
+														flag_3 = 0;
+														flag_2 = 0;
+														flag_1 = 0;
+														break;
+
+													//set sale recip
+													case 1:
+														char r_name[100] = { '\0' };
+														printf("please enter the recipe you want to operate:\n");
+														scanf("%s", r_name);
+														r_current = search_recipe_name(m_current->t_r_head, r_name);
+														for (;;)
+														{
+															printf("please enter the sale discount:\n");
+															float sale = 0.0;
+															scanf("%f", sale);
+															if (bool_set_sale_recipe(r_current, sale))
+															{
+																break;
+															}
+														}
+														break;
+
+													//return
+													case 2:
+														flag_5 = 0;
+														break;
+													default:
+														break;
+													}
+												}
+
+												break;
+
+
+											//sort recipe
+											case 6:
+												for (int flag_5 = 0; flag_5 != 0;)
+												{
+													printf("0.log out,1.sort,2.return\n");
+													int t_5 = 0;
+													switch (t_5)
+													{
+													//log out
+													case 0:
+														flag_5 = 0;
+														flag_4 = 0;
+														flag_3 = 0;
+														flag_2 = 0;
+														flag_1 = 0;
+														break;
+
+													//sort
+													case 1:
+														for (int flag_6 = 0; flag_6 != 0;)
+														{
+															printf("0.return,1.sort by price,2.sort by stars\n");
+															int t_6 = 0;
+															scanf("%d", &t_6);
+															switch (t_6)
+															{
+															//return
+															case 0:
+																flag_6 = 0;
+																break;
+
+															//sort by price
+															case 1:
+																for (int flag_7 = 1; flag_7 != 0;)
+																{
+																	printf("0.return,1.upper,2.lower\n");
+																	int t_7 = 0;
+																	scanf("%d", &t_7);
+																	switch (t_7)
+																	{
+																	//return
+																	case 0:
+																		flag_7 = 0;
+																		break;
+
+																	//upper
+																	case 1:
+																		while (m_current->r_head != NULL)
+																		{
+																			m_current->r_head->r_head = r_mergeSortUpper_p(m_current->r_head->r_head);
+																			m_current->r_head = m_current->r_head->next;
+																		}
+																		printList_r_classify(m_current->r_head);
+																		break;
+
+																	//lower
+																	case 2:
+																		while (m_current->r_head != NULL)
+																		{
+																			m_current->r_head->r_head = r_mergeSortLower_p(m_current->r_head->r_head);
+																			m_current->r_head = m_current->r_head->next;
+																		}
+																		printList_r_classify(m_current->r_head);
+																		break;
+																	default:
+																		break;
+																	}
+																}
+																break;
+
+															//sort by star
+															case 2:
+																for (int flag_7 = 1; flag_7 != 0;)
+																{
+																	printf("0.return,1.upper,2.lower\n");
+																	int t_7 = 0;
+																	scanf("%d", &t_7);
+																	switch (t_7)
+																	{
+																		//return
+																	case 0:
+																		flag_7 = 0;
+																		break;
+
+																		//upper
+																	case 1:
+																		while (m_current->r_head != NULL)
+																		{
+																			m_current->r_head->r_head = r_mergeSortUpper_s(m_current->r_head->r_head);
+																			m_current->r_head = m_current->r_head->next;
+																		}
+																		printList_r_classify(m_current->r_head);
+																		break;
+
+																		//lower
+																	case 2:
+																		while (m_current->r_head != NULL)
+																		{
+																			m_current->r_head->r_head = r_mergeSortLower_s(m_current->r_head->r_head);
+																			m_current->r_head = m_current->r_head->next;
+																		}
+																		printList_r_classify(m_current->r_head);
+																		break;
+																	default:
+																		break;
+																	}
+																}
+																break;
+															default:
+																break;
+															}
+														}
+														break;
+
+													//return
+													case 2:
+														flag_5 = 0;
+														break;
+													default:
+														break;
+													}
+												}
+												break;
+
+
+											//return
+											case 7:
 												flag_4 = 0;
 												break;
 											default:

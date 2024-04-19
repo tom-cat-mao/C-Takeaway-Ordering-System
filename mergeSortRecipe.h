@@ -89,7 +89,7 @@ recipe* r_mergeLower_p(recipe* first, recipe* second)
     }
 
     // Pick the smaller value
-    if (first->price >= b->price)
+    if (first->price >= second->price)
     {
         second->next = r_mergeLower_p(first, second->next);
         second->next->prev = second;

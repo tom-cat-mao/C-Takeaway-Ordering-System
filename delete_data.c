@@ -8,7 +8,6 @@
 bool delete_order (order* head, char* order_id)
 {
     order* current = head;
-    order* previous = NULL;
 
     while (current != NULL)
     {
@@ -31,7 +30,6 @@ bool delete_order (order* head, char* order_id)
             return true;
         }
 
-        previous = current;
         current = current->next;
     }
     printf("could not find the order\n");
@@ -41,7 +39,6 @@ bool delete_order (order* head, char* order_id)
 bool delete_recipe (recipe* head, char* name)
 {
     recipe* current = head;
-    recipe* previous = NULL;
 
     while (current != NULL)
     {
@@ -52,7 +49,6 @@ bool delete_recipe (recipe* head, char* name)
             return true;
         }
 
-        previous = current;
         current = current->next;
     }
 
@@ -63,7 +59,6 @@ bool delete_recipe (recipe* head, char* name)
 bool delete_r_class (r_classify* head, char* r_name)
 {
     r_classify* current = head;
-    r_classify* previous = NULL;
 
     while (current != NULL)
     {
@@ -84,7 +79,6 @@ bool delete_r_class (r_classify* head, char* r_name)
             return true;
         }
 
-        previous = current;
         current = current->next;
     }
 
@@ -95,7 +89,6 @@ bool delete_r_class (r_classify* head, char* r_name)
 bool delete_merchant (Merchant* head, char* m_name)
 {
     Merchant* current = head;
-    Merchant* previous = NULL;
 
     while (current != NULL)
     {
@@ -129,7 +122,6 @@ bool delete_merchant (Merchant* head, char* m_name)
             return true;
         }
 
-        previous = current;
         current = current->next;
     }
 
@@ -140,7 +132,6 @@ bool delete_merchant (Merchant* head, char* m_name)
 bool delete_user (User* head, char* u_name)
 {
     User* current = head;
-    User* previous = NULL;
 
     while (current != NULL)
     {
@@ -162,7 +153,6 @@ bool delete_user (User* head, char* u_name)
             return true;
         }
 
-        previous = current;
         current = current->next;
     }
 
@@ -170,10 +160,9 @@ bool delete_user (User* head, char* u_name)
     return false;
 }
 
-bool delete_deliveryperson (DeliveryPerson* head, char* d_name)
+bool delete_delivery_person (DeliveryPerson* head, char* d_name)
 {
     DeliveryPerson* current = head;
-    DeliveryPerson* previous = NULL;
 
     while (current != NULL)
     {
@@ -195,7 +184,6 @@ bool delete_deliveryperson (DeliveryPerson* head, char* d_name)
             return true;
         }
 
-        previous = current;
         current = current->next;
     }
 
