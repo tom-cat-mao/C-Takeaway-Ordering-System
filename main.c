@@ -559,11 +559,147 @@ int main()
 
 													//price range
 													case 3:
+														for (int flag_6 = 1; flag_6 != 0;)
+														{
+															printf("0.return,1.continue\n");
+															int t_6 = 0;
+															scanf("%d", &t_6);
+															switch (t_6)
+															{
+																//return
+															case 0:
+																flag_6 = 0;
+																break;
 
+																//continue
+															case 1:
+																float max_price = 0.0;
+																float min_price = 0.0;
+																printf("please enter the max price and the min price:\n");
+																scanf("%d%d", &max_price, &min_price);
+																for (int flag_7 = 1; flag_7 = 0;)
+																{
+																	printf("0.return,1.lower,2.upper\n");
+																	int t_7 = 0;
+																	scanf("%d", &t_7);
+																	switch (t_7)
+																	{
+																	case 0:
+																		flag_7 = 0;
+																		break;
+																	case 1:
+																		output_recipe_high_to_low(m_current->r_head, min_price, max_price);
+																		for (int flag_8 = 1; flag_8 != 0;)
+																		{
+																			printf("whether you want to order any recipe\n");
+																			printf("0.return,1.continue\n");
+																			int t_8 = 0;
+																			scanf("%d", &t_8);
+																			switch (t_8)
+																			{
+																				//return
+																			case 0:
+																				flag_7 = 0;
+																				break;
+
+																				//continue
+																			case 1:
+																				judge = 1;
+
+																				char r_name[100] = { '\0' };
+																				printf("please enter the recipe name:\n");
+																				scanf("%s", r_name);
+																				r_current = search_recipe_name(m_current->t_r_head, r_name);
+																				printf("pleae enter the number you want:\n");
+																				int n = 0;
+																				scanf("%d", &n);
+																				r_current = creatList_recipe_1(r_current->name, r_current->price, n);
+																				insertEnd_r(&r_head, &r_tail, r_current);
+																				break;
+																			default:
+																				break;
+																			}
+																		}
+																		break;
+																	case 2:
+																		output_recipe_low_to_high(m_current->r_head, min_price, max_price);
+																		for (int flag_8 = 1; flag_8 != 0;)
+																		{
+																			printf("whether you want to order any recipe\n");
+																			printf("0.return,1.continue\n");
+																			int t_8 = 0;
+																			scanf("%d", &t_8);
+																			switch (t_8)
+																			{
+																				//return
+																			case 0:
+																				flag_7 = 0;
+																				break;
+
+																				//continue
+																			case 1:
+																				judge = 1;
+
+																				char r_name[100] = { '\0' };
+																				printf("please enter the recipe name:\n");
+																				scanf("%s", r_name);
+																				r_current = search_recipe_name(m_current->t_r_head, r_name);
+																				printf("pleae enter the number you want:\n");
+																				int n = 0;
+																				scanf("%d", &n);
+																				r_current = creatList_recipe_1(r_current->name, r_current->price, n);
+																				insertEnd_r(&r_head, &r_tail, r_current);
+																				break;
+																			default:
+																				break;
+																			}
+																		}
+																		break;
+																	default:
+																		break;
+																	}
+																}
+																break;
+															default:
+																break;
+															}
+														}
 														break;
 
 													//sale recipe
 													case 4:
+														SaleRecipeSearch(m_current->t_r_head);
+														for (int flag_6 = 1; flag_6 != 0;)
+														{
+															printf("0.return,1.continue\n");
+															int t_6 = 0;
+															scanf("%d", &t_6);
+															switch (t_6)
+															{
+																//return
+															case 0:
+																flag_6 = 0;
+																break;
+
+																//continue
+															case 1:
+																judge = 1;
+
+																char r_name[100] = { '\0' };
+																printf("please enter the recipe name:\n");
+																scanf("%s", r_name);
+																r_current = search_recipe_name(m_current->t_r_head, r_name);
+																printf("pleae enter the number you want:\n");
+																int n = 0;
+																scanf("%d", &n);
+																r_current = creatList_recipe_1(r_current->name, r_current->price, n);
+																insertEnd_r(&r_head, &r_tail, r_current);
+																break;
+
+															default:
+																break;
+															}
+														}
 
 														break;
 													default:
@@ -1391,7 +1527,50 @@ int main()
 
 													//sale recipe search
 													case 2:
+														SaleRecipeSearch(m_current->t_r_head);
+														for (int flag_6 = 1; flag_6 != 0;)
+														{
+															printf("0.log out,1.continue,2.return\n");
+															int t_6 = 0;
+															scanf("%d", &t_6);
+															switch (t_6)
+															{
+															//log out
+															case 0:
+																flag_6 = 0;
+																flag_5 = 0;
+																flag_4 = 0;
+																flag_3 = 0;
+																flag_2 = 0;
+																flag_1 = 0;
+																break;
 
+															//continue
+															case 1:
+																char r_name[100] = { '\0' };
+																printf("please enter the recipe you want to operate:\n");
+																scanf("%s", r_name);
+																r_current = search_recipe_name(m_current->t_r_head, r_name);
+																for (;;)
+																{
+																	printf("please enter the sale discount:\n");
+																	float sale = 0.0;
+																	scanf("%f", sale);
+																	if (bool_set_sale_recipe(r_current, sale))
+																	{
+																		break;
+																	}
+																}
+																break;
+
+															//return
+															case 2:
+																flag_6 = 0;
+																break;
+															default:
+																break;
+															}
+														}
 
 
 														break;
@@ -1432,10 +1611,10 @@ int main()
 																		flag_7 = 0;
 																		break;
 																	case 1:
-																		//output_recipe_high_to_low();
+																		output_recipe_high_to_low(m_current->r_head, min_price, max_price);
 																		break;
 																	case 2:
-																		//output_recipe_low_to_high();
+																		output_recipe_low_to_high(m_current->r_head, min_price, max_price);
 																		break;
 																	default:
 																		break;
@@ -1463,7 +1642,7 @@ int main()
 												}
 												break;
 
-											//set slae recipe
+											//set sale recipe
 											case 5:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
