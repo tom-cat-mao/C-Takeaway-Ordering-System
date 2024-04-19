@@ -97,7 +97,7 @@ int main()
 
 						for (int flag_2 = 1; flag_2 != 0;)
 						{
-							printf("0.log out,1.make an order,2.view and cancel order,3.change card,4.password change\n");
+							printf("0.log out,1.make an order,2.view and cancel order,3.change card,4.password change,5.deactivate\n"); 
 							int t_2 = 0;
 							scanf("%d", &t_2);
 							switch (t_2)
@@ -964,6 +964,11 @@ int main()
 							case 4:
 								user_change_p(u_current, p_u_current);
 								break;
+
+							//deactivate
+							case 5:
+								delete_user(u_head,u_current->name)£»
+								break;
 							default:
 								break;
 							}
@@ -1026,7 +1031,7 @@ int main()
 
 						for (int flag_2 = 1; flag_2 != 0;)
 						{
-							printf("0.log out,1.recipe,2.order,3.password");
+							printf("0.log out,1.recipe,2.order,3.password£¬4.deactivate\n");
 							int t_2 = 0;
 							scanf("%d", &t_2);
 							switch (t_2)
@@ -1937,6 +1942,11 @@ int main()
 							case 3:
 								merchant_change_p(m_current, p_m_current);
 								break;
+
+							//deactivate
+							case 4:
+								delete_merchant(m_head, m_current->name);
+								break;
 							default:
 								break;
 							}
@@ -2057,7 +2067,7 @@ int main()
 
 						for (int flag_2 = 1; flag_2 != 0;)
 						{
-							printf("0.log out,1.order,2.change password");
+							printf("0.log out,1.order,2.change password,3.deactivate\n");
 							int t_2 = 0;
 							scanf("%d", &t_2);
 							switch (t_2)
@@ -2113,6 +2123,11 @@ int main()
 							case 2:
 								deliveryPerson_change_p(d_current, p_d_current);
 								break;
+
+							//deactivate
+							case 3:
+								delete_deliveryperson(d_head, d_current->name);
+								break;
 							default:
 								printf("wrong choice!\n");
 								break;
@@ -2155,6 +2170,7 @@ int main()
 	m_writeIntoFile_p(p_head_m);
 	u_writeIntoFile_p(p_head_u);
 	d_writeIntoFile_p(p_head_d);
+
 
 	return 0;
 }
