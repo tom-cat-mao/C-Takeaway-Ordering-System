@@ -1,48 +1,123 @@
-#pragma once
+﻿#pragma once
 #define _CRT_SECURE_NO_WARNINGS
 #include"class.h"
 #include"mergeSortRecipe.h"
-
-// Output products from high price to low within a certain price range
-bool output_recipe_high_to_low(recipe* head, float minPrice, float maxPrice)
+#include"interface.h"
+bool output_recipe_high_to_low(r_classify* r_classify_head, float min_price, float max_price)
 {
     // Use the bool value flag to judge whether the operation is successful
     // Return true if there are products in the price range, and return false if there are no products
     bool flag = false;
-    // First sort the products from high to low
-    r_mergeSortLower(&head);
-    // Output the products within the price range in the sorted list
-    recipe* current = head;
-    while (current != NULL && current->price >= minPrice) 
+
+    r_classify* current_classify = r_classify_head;
+    while (current_classify != NULL)
     {
-        if (current->price <= maxPrice)
+        printf("Class:%s\n", current_classify->name);
+        // Sort recipes within the current classification from high to low price
+        r_mergeSortLower(current_classify->r_head);
+        // Traverse through each recipe within the current classification
+        recipe* current_recipe = current_classify->r_head;
+        if (current_recipe == NULL)
         {
-            printf("Product name: %s\tPrice: %.2f\n", current->name, current->price);
-            flag = true;
+            colour(12);
+            printf("This product category has not added any products yet\n");
+            colour(7);
         }
-        current = current->next;
+        while (current_recipe != NULL && current_recipe->price >= min_price)
+        {
+            if (current_recipe->price <= max_price)
+            {
+                if (current_recipe->sale_discount != 1.0)
+                {
+                    printf("\tName: ");
+                    colour(3);
+                    printf("%s\n", current_recipe->name);
+                    colour(7);
+                }
+                else
+                {
+                    printf("\tName: %s\n", current_recipe->name);
+                }
+                printf("\tStars: ");
+                for (int i = 0; i < current_recipe->star; i++)
+                {
+                    colour(6);
+                    printf("*");
+                    colour(7);
+                }
+                printf("\tPrice: %.2f\n", current_recipe->price);
+                flag = true;
+            }
+            // Traverse all the recipes in one classify
+            current_recipe = current_recipe->next;
+            if (current_recipe != NULL)
+            {
+                printf("        --------------------------------------------\n");
+            }
+        }
+        //Traverse all classifies
+        current_classify = current_classify->next;
+        printf("----------------------------------------------------\n");
     }
+
     return flag;
 }
-
-// Output products from low price to high within a certain price range
-bool output_recipe_low_to_high(recipe* head, float minPrice, float maxPrice) 
+bool output_recipe_low_to_high(r_classify* r_classify_head, float min_price, float max_price)
 {
     // Use the bool value flag to judge whether the operation is successful
     // Return true if there are products in the price range, and return false if there are no products
     bool flag = false;
-    // First sort the products from low to high
-    r_mergeSortUpper(&head);
-    // Output the products within the price range in the sorted list
-    recipe* current = head;
-    while (current != NULL && current->price <= maxPrice)
+
+    r_classify* current_classify = r_classify_head;
+    while (current_classify != NULL)
     {
-        if (current->price >= minPrice)
+        printf("Classification: %s\n", current_classify->name);
+        // Sort recipes within the current classification from low to high price
+        r_mergeSortUpper(current_classify->r_head);
+        // Traverse through each recipe within the current classification
+        recipe* current_recipe = current_classify->r_head;
+        if (current_recipe == NULL)
         {
-            printf("Product name: %s\tPrice: %.2f\n", current->name, current->price);
-            flag = true;
+            colour(12);
+            printf("This product category has not added any products yet\n");
+            colour(7);
         }
-        current = current->next;
+        while (current_recipe != NULL && current_recipe->price >= min_price)
+        {
+            if (current_recipe->price <= max_price)
+            {
+                if (current_recipe->sale_discount != 1.0)
+                {
+                    printf("\tName: ");
+                    colour(3);
+                    printf("%s\n", current_recipe->name);
+                    colour(7);
+                }
+                else
+                {
+                    printf("\tName: %s\n", current_recipe->name);
+                }
+                printf("\tStars: ");
+                for (int i = 0; i < current_recipe->star; i++)
+                {
+                    colour(6);
+                    printf("*");
+                    colour(7);
+                }
+                printf("\tPrice: %.2f\n", current_recipe->price);
+                flag = true;
+            }
+            // Traverse all the recipes in one classify
+            current_recipe = current_recipe->next;
+            if (current_recipe != NULL)
+            {
+                printf("        --------------------------------------------\n");
+            }
+        }
+        //Traverse all classifies
+        current_classify = current_classify->next;
+        printf("----------------------------------------------------\n");
     }
+
     return flag;
 }
