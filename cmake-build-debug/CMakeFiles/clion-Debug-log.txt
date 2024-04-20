@@ -1,4 +1,13 @@
-/snap/clion/274/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/274/bin/ninja/linux/x64/ninja -G Ninja -S /media/tomcat/workstudylife/Cproject/C- -B /media/tomcat/workstudylife/Cproject/C-/cmake-build-debug
--- Configuring done (0.0s)
+D:\Clion\CLion-2023.2.2.win\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S D:\Cproject\C- -B D:\Cproject\C-\cmake-build-debug
+CMake Deprecation Warning:
+  Support for "Extra Generators" like
+
+    CodeBlocks
+
+  is deprecated and will be removed from a future version of CMake.  IDEs may
+  use the cmake-file-api(7) to view CMake-generated project build trees.
+
+
+-- Configuring done (0.2s)
 -- Generating done (0.0s)
--- Build files have been written to: /media/tomcat/workstudylife/Cproject/C-/cmake-build-debug
+-- Build files have been written to: D:/Cproject/C-/cmake-build-debug

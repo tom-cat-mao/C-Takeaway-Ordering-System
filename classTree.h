@@ -4,7 +4,7 @@
 #include "class.h"
 
 // Menu node
-typedef struct t_recipe
+struct t_recipe
 {
     struct recipe* r_node;
 
@@ -13,7 +13,7 @@ typedef struct t_recipe
 };
 
 // Order node
-typedef struct t_order
+struct t_order
 {
     struct  order* o_node;
 
@@ -22,7 +22,7 @@ typedef struct t_order
 };
 
 // Merchant node
-typedef struct t_Merchant
+struct t_Merchant
 {
     struct Merchant* M_node;
 

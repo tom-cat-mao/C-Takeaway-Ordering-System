@@ -14,7 +14,7 @@ enum state_o { WAY, DILLVERING, FINISH, CANCEL }; // Order status
 enum state_d { FREE, BUSY }; // Delivery person status
 
 // Menu structure
-typedef struct recipe
+struct recipe
 {
     char name[100];          // Dish name
     float price;             // Dish price
@@ -26,7 +26,7 @@ typedef struct recipe
     struct recipe* next;
 };
 
-typedef struct r_classify
+struct r_classify
 {
     char name[100];                 // Dish classification name
     int total_number;               // Total number of dishes
@@ -39,7 +39,7 @@ typedef struct r_classify
 };
 
 // Order structure
-typedef struct order
+struct order
 {
     // Order ID
     char order_id[100];
@@ -83,7 +83,7 @@ typedef struct order
 };
 
 // Merchant structure
-typedef struct Merchant
+struct Merchant
 {
     char password[100]; // Password
     char name[100];
@@ -105,7 +105,7 @@ typedef struct Merchant
 };
 
 // Delivery person structure
-typedef struct DeliveryPerson
+struct DeliveryPerson
 {
     struct order* o_head; // Order linked list head
     struct order* o_tail; // Order linked list tail
@@ -122,7 +122,7 @@ typedef struct DeliveryPerson
 };
 
 // User structure
-typedef struct User
+struct User
 {
     char password[100]; // Password
     char name[100];
@@ -143,7 +143,7 @@ typedef struct User
 };
 
 // Password struct
-typedef struct Password_m
+struct Password_m
 {
     char name[100];
     char password[100];
@@ -152,7 +152,7 @@ typedef struct Password_m
     struct Password_m* next;
 };
 
-typedef struct Password_u
+struct Password_u
 {
     char name[100];
     char password[100];
@@ -161,7 +161,7 @@ typedef struct Password_u
     struct Password_u* next;
 };
 
-typedef struct Password_d
+struct Password_d
 {
     char name[100];
     char password[100];

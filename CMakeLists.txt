@@ -16,6 +16,7 @@ set(SOURCES
     time_set.c
     folder_c_c_d.c
     Search_Classify_in_Merchant.c
+        Search_Classify_in_Merchant.c
     password_change.c
     main.c
 )
@@ -31,7 +32,7 @@ set(HEADERS
     sale_recipe.h
     mergeSortOrder.h
     interface.h
-    FuzzySearch.h
+    SearchFuzzy&SaleRecipe.h
     setStar_recipe.h
 )
 
