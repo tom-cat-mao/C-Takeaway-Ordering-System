@@ -291,4 +291,7 @@ DeliveryPerson* find_free_d(DeliveryPerson* head);
 //find recipe by list
 recipe* find_recipe_by_list(r_classify* head, char* name);
 
+//change discount
+void change_discount_manager(char* card_level, double new_value);
+
 #endif

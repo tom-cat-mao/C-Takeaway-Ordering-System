@@ -2244,7 +2244,7 @@ int main()
 									printf("total number:%d", count);
 									for (int flag_3 = 1; flag_3 != 0;)
 									{
-										printf("0.return,1.delete merchant\n");
+										printf("0.return,1.delete user\n");
 										int t_3 = 0;
 										scanf("%d", &t_3);
 										switch (t_3)
@@ -2280,7 +2280,7 @@ int main()
 									printf("total number:%d", count);
 									for (int flag_3 = 1; flag_3 != 0;)
 									{
-										printf("0.return,1.delete merchant\n");
+										printf("0.return,1.delete delivery person\n");
 										int t_3 = 0;
 										scanf("%d", &t_3);
 										switch (t_3)
@@ -2305,8 +2305,39 @@ int main()
 
 								//change discount
 								case 4:
+									for (int flag_3 = 1; flag_3 != 0;)
+									{
+										printf("0.return,1.change discount\n");
+										int t_3 = 0;
+										scanf("%d", &t_3);
+										switch (t_3)
+										{
+											//return
+										case 0:
+											flag_3 = 0;
+											break;
 
-
+											//delete
+										case 1:
+											printf("please enter the card class:\n");
+											char name[100] = { '\0' };
+											scanf("%s", name);
+											printf("please enter the new discount:\n");
+											float d = 0.0;
+											scanf("%f", &d);
+											if (d > 0 && d <= 1)
+											{
+												change_discount_manager(name, d);
+											}
+											else
+											{
+												printf("illegal input\n");
+											}
+											break;
+										default:
+											break;
+										}
+									}
 									break;
 								default:
 									break;
