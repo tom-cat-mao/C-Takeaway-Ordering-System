@@ -49,9 +49,6 @@ int main()
 	struct t_Merchant* t_m_head = NULL;
 	struct t_Merchant* t_m_current = NULL;
 
-	//enter the program
-	print_Title();
-
 	//read file
 	read_merchant_list(&m_head, &m_tail);
 	read_user_list(&u_head, &u_tail);
@@ -59,6 +56,9 @@ int main()
 	m_readIntoList_p(&p_head_m);
 	u_readIntoList_p(&p_head_u);
 	d_readIntoList_p(&p_head_d);
+
+	//enter the program
+	print_Title();
 
 	for (int flag = 1; flag != 0;)
 	{
