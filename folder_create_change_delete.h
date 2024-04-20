@@ -2,9 +2,7 @@
 #define _FOLDER_C_C_D_H_
 #include "class.h"
 #include "dirent.h"
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <io.h>
+#include <direct.h>
 
 // write the merchant list to the merchant list folder
 bool write_t_merchant_list(Merchant* head);
