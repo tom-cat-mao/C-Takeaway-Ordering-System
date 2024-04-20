@@ -61,7 +61,7 @@ int main()
 
 	for (int flag = 1; flag != 0;)
 	{
-		printf("please choose your identity:(0.Close,1.User,2.Merchant,3.Delivery Preson)\n");
+		printf("please choose your identity:(0.Close,1.User,2.Merchant,3.Delivery Preson,4.administrator)\n");
 		int t = 0;
 		scanf("%d", &t);
 		switch (t)
@@ -2155,6 +2155,171 @@ int main()
 					printf("wrong choice!\n");
 					break;
 				}
+			}
+			break;
+
+		//administrator
+		case 4:
+			for (int flag_1 = 1; flag_1 != 0;)
+			{
+				printf("0.return,1.sign in\n");
+				int t_1 = 0;
+				scanf("%d", &t_1);
+				switch (t_1)
+				{
+				//return
+				case 0:
+					flag_1 = 0;
+					break;
+
+				//sign in
+				case 1:
+					char name[100] = { '\0' };
+					char password[100] = { '\0' };
+					printf("please enter your username:\n");
+					scanf("%s", name);
+					printf("please enter your password:\n");
+					scanf("%s", password);
+					if (strcmp(name, "adm") == 0)
+					{
+						if (strcmp(password, "1234") == 0)
+						{
+							for (int flag_2 = 1; flag_2 != 0;)
+							{
+								printf("0.log out,1.merchant,2.user,3.deliver person,4.change discount\n");
+								int t_2 = 0;
+								switch (t_2)
+								{
+									//log out
+								case 0:
+									flag_1 = 0;
+									break;
+
+									//merchant
+								case 1:
+									m_current = m_head;
+									int count = 0;
+									while (m_current != NULL)
+									{
+										printf("%s\n", m_current->name);
+										count++;
+										m_current = m_current->next;
+									}
+									printf("total number:%d", count);
+									for (int flag_3 = 1; flag_3 != 0;)
+									{
+										printf("0.return,1.delete merchant\n");
+										int t_3 = 0;
+										scanf("%d", &t_3);
+										switch (t_3)
+										{
+										//return
+										case 0:
+											flag_3 = 0;
+											break;
+
+										//delete
+										case 1:
+											printf("please enter the name:\n");
+											char name[100] = { '\0' };
+											scanf("%s", name);
+											delete_merchant(m_head, name);
+											break;
+										default:
+											break;
+										}
+									}
+									break;
+
+									//user
+								case 2:
+									u_current = u_head;
+									int count = 0;
+									while (u_current != NULL)
+									{
+										printf("%s\n", u_current->name);
+										count++;
+										u_current = u_current->next;
+									}
+									printf("total number:%d", count);
+									for (int flag_3 = 1; flag_3 != 0;)
+									{
+										printf("0.return,1.delete merchant\n");
+										int t_3 = 0;
+										scanf("%d", &t_3);
+										switch (t_3)
+										{
+											//return
+										case 0:
+											flag_3 = 0;
+											break;
+
+											//delete
+										case 1:
+											printf("please enter the name:\n");
+											char name[100] = { '\0' };
+											scanf("%s", name);
+											delete_user(u_head, name);
+											break;
+										default:
+											break;
+										}
+									}
+									break;
+
+									//deliver person
+								case 3:
+									d_current = d_head;
+									int count = 0;
+									while (d_current != NULL)
+									{
+										printf("%s\n", d_current->name);
+										count++;
+										d_current = d_current->next;
+									}
+									printf("total number:%d", count);
+									for (int flag_3 = 1; flag_3 != 0;)
+									{
+										printf("0.return,1.delete merchant\n");
+										int t_3 = 0;
+										scanf("%d", &t_3);
+										switch (t_3)
+										{
+											//return
+										case 0:
+											flag_3 = 0;
+											break;
+
+											//delete
+										case 1:
+											printf("please enter the name:\n");
+											char name[100] = { '\0' };
+											scanf("%s", name);
+											delete_delivery_person(d_head, name);
+											break;
+										default:
+											break;
+										}
+									}
+									break;
+
+								//change discount
+								case 4:
+
+
+									break;
+								default:
+									break;
+								}
+							}
+							
+						}
+					}
+					break;
+				default:
+					break;
+				}
+				
 			}
 			break;
 		default:

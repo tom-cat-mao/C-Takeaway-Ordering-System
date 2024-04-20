@@ -97,7 +97,8 @@ void print_current_order(order* tail)
     printf("Delivery Person: %s\tPhone: %s\n", tail->d_name, tail->d_phone);
     printList_recipe_2(tail->r_head); // Print the list of products in the order
     printf("Total Price: %.2f\t", tail->sum_price);
-    switch (tail->s) {
+    switch (tail->s) 
+    {
     case WAY:
         printf("Order State: Waiting\n");
         break;
