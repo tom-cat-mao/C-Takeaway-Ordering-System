@@ -12,9 +12,9 @@ bool discount_change(double* d, int c)
 }
 
 // Change membership card
-bool card_class_change(User* head, int c)
+bool card_class_change(struct User* head, int c)
 {
-	User* current = head;
+	struct User* current = head;
 	char n[100] = { "\n" };
 	if(!scanf("%s", n))
 		return false;

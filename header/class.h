@@ -24,7 +24,7 @@ typedef struct recipe
 
     struct recipe* prev;
     struct recipe* next;
-}recipe;
+};
 
 typedef struct r_classify
 {
@@ -36,7 +36,7 @@ typedef struct r_classify
 
     struct r_classify* prev;
     struct r_classify* next;        // Next classification
-}r_classify;
+};
 
 // Order structure
 typedef struct order
@@ -80,7 +80,7 @@ typedef struct order
 
     struct order* prev;
     struct order* next;
-}order;
+};
 
 // Merchant structure
 typedef struct Merchant
@@ -102,7 +102,7 @@ typedef struct Merchant
     struct Merchant* prev;
     struct Merchant* next;
 
-}Merchant;
+};
 
 // Delivery person structure
 typedef struct DeliveryPerson
@@ -119,7 +119,7 @@ typedef struct DeliveryPerson
     struct DeliveryPerson* prev;
     struct DeliveryPerson* next;
 
-}DeliveryPerson;
+};
 
 // User structure
 typedef struct User
@@ -128,7 +128,7 @@ typedef struct User
     char name[100];
     char address[100];
     char phone[20];
-    
+
     enum card c; // User membership
 
     struct t_order* t_o_head;// Order tree head
@@ -140,7 +140,7 @@ typedef struct User
     struct User* prev;
     struct User* next;
 
-}User;
+};
 
 // Password struct
 typedef struct Password_m
@@ -150,7 +150,7 @@ typedef struct Password_m
     char phone[100];
 
     struct Password_m* next;
-}Password_m;
+};
 
 typedef struct Password_u
 {
@@ -159,7 +159,7 @@ typedef struct Password_u
     char phone[100];
 
     struct Password_u* next;
-}Password_u;
+};
 
 typedef struct Password_d
 {
@@ -168,128 +168,128 @@ typedef struct Password_d
     char phone[100];
 
     struct Password_d* next;
-}Password_d;
+};
 
 // Create linked list
 
 // Create order dish list
-recipe* creatList_recipe_1(char* n, float p, int num);
+struct recipe* creatList_recipe_1(char* n, float p, int num);
 // Create menu dish list
-recipe* creatList_recipe_2(char* n, float p);
+struct recipe* creatList_recipe_2(char* n, float p);
 // Create dish classification list
-r_classify* creatList_r_classify(char* n);
+struct r_classify* creatList_r_classify(char* n);
 // Create order list
-order* creatList_order(Merchant* m_current, User* u_current, DeliveryPerson* d_current);
+struct order* creatList_order(struct Merchant* m_current, struct User* u_current, struct DeliveryPerson* d_current);
 // Create merchant linked list
-Merchant* creatList_merchant(char* n, char* p, char* a, char* pn);
+struct Merchant* creatList_merchant(char* n, char* p, char* a, char* pn);
 // Create user linked list
-User* creatList_user(char* n, char* p, char* a, char* pn);
+struct User* creatList_user(char* n, char* p, char* a, char* pn);
 // Create delivery person list
-DeliveryPerson* creatList_deliveryperson(char* n, char* p, char* pn);
+struct DeliveryPerson* creatList_deliveryperson(char* n, char* p, char* pn);
 
 // Insert the new node into the end of the list
-void insertEnd_r(recipe** head, recipe** tail, recipe* newNode);
-void insertEnd_rc(r_classify** head, r_classify** tail, r_classify* newNode);
-void insertEnd_o(order** head, order** tail, order* newNode);
-void insertEnd_m(Merchant** head, Merchant** tail, Merchant* newNode);
-void insertEnd_u(User** head, User** tail, User* newNode);
-void insertEnd_d(DeliveryPerson** head, DeliveryPerson** tail, DeliveryPerson* newNode);
+void insertEnd_r(struct recipe** head, struct recipe** tail, struct recipe* newNode);
+void insertEnd_rc(struct r_classify** head, struct r_classify** tail, struct r_classify* newNode);
+void insertEnd_o(struct order** head, struct order** tail, struct order* newNode);
+void insertEnd_m(struct Merchant** head, struct Merchant** tail, struct Merchant* newNode);
+void insertEnd_u(struct User** head, struct User** tail, struct User* newNode);
+void insertEnd_d(struct DeliveryPerson** head, struct DeliveryPerson** tail, struct DeliveryPerson* newNode);
 
 // Print linked list
 
 // Print menu dishes
-void printList_recipe_1(recipe* head);
+void printList_recipe_1(struct recipe* head);
 // Print order dishes
-void printList_recipe_2(recipe* head);
+void printList_recipe_2(struct recipe* head);
 // Print dish classification
-void printList_r_classify(r_classify* head);
+void printList_r_classify(struct r_classify* head);
 // Print order list
-void print_order_list(order* tail);
+void print_order_list(struct order* tail);
 // Print merchant list
-void printList_merchant(Merchant* head);
+void printList_merchant(struct Merchant* head);
 // Print current order
-void print_current_order(order* tail);
+void print_current_order(struct order* tail);
 
 // Calculate discounted price for a single order
-bool sumPrice(order* head, recipe* head_r, int c, double* d);
+bool sumPrice(struct order* head, struct recipe* head_r, int c, double* d);
 
 // Delete data
-bool delete_order(order* head, char* order_id); // Delete an order
-bool delete_recipe (recipe* head, char* name); // Delete a dish
-bool delete_r_class(r_classify* head, char* name); // Delete a dish class
-bool delete_merchant (Merchant* head, char* m_name); // Delete a merchant
-bool delete_user (User* head, char* u_name); // Delete a user
-bool delete_deliveryperson (DeliveryPerson* head, char* d_name); // Delete a delivery person
+bool delete_order(struct order* head, char* order_id); // Delete an order
+bool delete_recipe(struct recipe* head, char* name); // Delete a dish
+bool delete_r_class(struct r_classify* head, char* name); // Delete a dish class
+bool delete_merchant(struct Merchant* head, char* m_name); // Delete a merchant
+bool delete_user(struct User* head, char* u_name); // Delete a user
+bool delete_delivery_person(struct DeliveryPerson* head, char* d_name); // Delete a delivery person
 
 // Set time
 void set_time(struct tm* localTime);
 
 // Change merchant password
-void merchant_change_p(Merchant* current, Password_m* p_current);
+void merchant_change_p(struct Merchant* current, struct Password_m* p_current);
 // Change user password
-void user_change_p(User* current, Password_u* p_current);
+void user_change_p(struct User* current, struct Password_u* p_current);
 // Change delivery person password
-void deliveryPerson_change_p(DeliveryPerson* current, Password_d* p_current);
+void deliveryPerson_change_p(struct DeliveryPerson* current, struct Password_d* p_current);
 
 // Change membership discount
 bool discount_change(double* d, int c);
 // Change user membership type
-bool card_class_change(User* head, int c);
+bool card_class_change(struct User* head, int c);
 
 // Login and change password
-bool compare_m(Password_m* head, char* n, Password_m** p_current);
-bool compare_u(Password_u* head, char* n, Password_u** p_current);
-bool compare_d(Password_d* head, char* n, Password_d** p_current);
+bool compare_m(struct Password_m* head, char* n, struct Password_m** p_current);
+bool compare_u(struct Password_u* head, char* n, struct Password_u** p_current);
+bool compare_d(struct Password_d* head, char* n, struct Password_d** p_current);
 
 //write the password into the file
-void m_writeIntoFile_p(Password_m* head);
-void u_writeIntoFile_p(Password_u* head);
-void d_writeIntoFile_p(Password_d* head);
+void m_writeIntoFile_p(struct Password_m* head);
+void u_writeIntoFile_p(struct Password_u* head);
+void d_writeIntoFile_p(struct Password_d* head);
 //read the password from the file
-void m_readIntoList_p(Password_m** head);
-void u_readIntoList_p(Password_u** head);
-void d_readIntoList_p(Password_d** head);
+void m_readIntoList_p(struct Password_m** head);
+void u_readIntoList_p(struct Password_u** head);
+void d_readIntoList_p(struct Password_d** head);
 //register
 // Create password list
-Password_m* m_creatNode_p(char* n, char* p, char* pn);
-void m_createList_p(Password_m** head, Password_m** tail, Password_m* newNode);
-Password_u* u_creatNode_p(char* n, char* p, char* pn);
-void u_createList_p(Password_u** head, Password_u** tail, Password_u* newNode);
-Password_d* d_creatNode_p(char* n, char* p, char* pn);
-void d_createList_p(Password_d** head, Password_d** tail, Password_d* newNode);
+struct Password_m* m_creatNode_p(char* n, char* p, char* pn);
+void m_createList_p(struct Password_m** head, struct Password_m** tail, struct Password_m* newNode);
+struct Password_u* u_creatNode_p(char* n, char* p, char* pn);
+void u_createList_p(struct Password_u** head, struct Password_u** tail, struct Password_u* newNode);
+struct Password_d* d_creatNode_p(char* n, char* p, char* pn);
+void d_createList_p(struct Password_d** head, struct Password_d** tail, struct Password_d* newNode);
 
 // Find account in the list
-Merchant* find_m(Merchant* head, char* n);
-User* find_u(User* head, char* n);
-DeliveryPerson* find_d(DeliveryPerson* head, char* n);
+struct Merchant* find_m(struct Merchant* head, char* n);
+struct User* find_u(struct User* head, char* n);
+struct DeliveryPerson* find_d(struct DeliveryPerson* head, char* n);
 
 // Set the state of the order
-void set_state_o(order* tail, int s);
+void set_state_o(struct order* tail, int s);
 // Synchronization order statement
-void Synchronization_o_s_for_d(order* tail, Merchant* m_head, User* u_head);
-void Synchronization_o_s_for_u(order* current, Merchant* m_head, DeliveryPerson* d_head);
+void Synchronization_o_s_for_d(struct order* tail, struct Merchant* m_head, struct User* u_head);
+void Synchronization_o_s_for_u(struct order* current, struct Merchant* m_head, struct DeliveryPerson* d_head);
 // Synchronization order delivery person
-void Synchronization_o_d_for_m(order* current, DeliveryPerson* d_head, User* u_head);
-void Synchronization_o_d_for_u(order* current, DeliveryPerson* d_head, Merchant* m_head);
+void Synchronization_o_d_for_m(struct order* current, struct DeliveryPerson* d_head, struct User* u_head);
+void Synchronization_o_d_for_u(struct order* current, struct DeliveryPerson* d_head, struct Merchant* m_head);
 
 //to find a special r_classify in onre Merchant
-r_classify* find_r_classify(Merchant* merchant, const char* classify_name);
+struct r_classify* find_r_classify(struct Merchant* merchant, const char* classify_name);
 
 //delete specific node in the list
-bool delete_specific_r_class(r_classify** current, r_classify** head, r_classify** tail);
-bool delete_specific_recipe(recipe** current, recipe** head, recipe** tail);
-bool delete_specific_order(order** current, order** head, order** tail);
-bool delete_specific_merchant(Merchant** current, Merchant** head, Merchant** tail);
+bool delete_specific_r_class(struct r_classify** current, struct r_classify** head, struct r_classify** tail);
+bool delete_specific_recipe(struct recipe** current, struct recipe** head, struct recipe** tail);
+bool delete_specific_order(struct order** current, struct order** head, struct order** tail);
+bool delete_specific_merchant(struct Merchant** current, struct Merchant** head, struct Merchant** tail);
 
 //delete node by tree
-bool delete_recipe_name(t_recipe** root, char* name, recipe** head, recipe** tail);
-bool delete_order_id(t_order** root, char* order_id, order** head, order** tail);
-bool delete_Merchant_name(t_Merchant** root, char* name, Merchant** head, Merchant** tail);
+bool delete_recipe_name(struct t_recipe** root, char* name, struct recipe** head, struct recipe** tail);
+bool delete_order_id(struct t_order** root, char* order_id, struct  order** head, struct order** tail);
+bool delete_Merchant_name(struct t_Merchant** root, char* name, struct Merchant** head, struct Merchant** tail);
 
 // search for the free delivery preson
-DeliveryPerson* find_free_d(DeliveryPerson* head);
+struct DeliveryPerson* find_free_d(struct DeliveryPerson* head);
 //find recipe by list
-recipe* find_recipe_by_list(r_classify* head, char* name);
+struct recipe* find_recipe_by_list(struct r_classify* head, char* name);
 
 //change discount
 void change_discount_manager(char* card_level, double new_value);

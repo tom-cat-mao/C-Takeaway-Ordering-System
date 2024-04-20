@@ -2,7 +2,7 @@
 #include"class.h"
 
 //delete specific node in the list
-bool delete_specific_r_class(r_classify** current, r_classify** head, r_classify** tail)
+bool delete_specific_r_class(struct r_classify** current, struct  r_classify** head, struct  r_classify** tail)
 {
     if ((*current)->prev == NULL)
     {
@@ -29,7 +29,7 @@ bool delete_specific_r_class(r_classify** current, r_classify** head, r_classify
     return true;
 }
 
-bool delete_specific_recipe(recipe** current, recipe** head, recipe** tail)
+bool delete_specific_recipe(struct recipe** current, struct recipe** head, struct recipe** tail)
 {
     if ((*current)->prev == NULL)
     {
@@ -56,7 +56,7 @@ bool delete_specific_recipe(recipe** current, recipe** head, recipe** tail)
     return true;
 }
 
-bool delete_specific_order(order** current, order** head, order** tail)
+bool delete_specific_order(struct order** current, struct  order** head, struct  order** tail)
 {
     if ((*current)->prev == NULL)
     {
@@ -83,7 +83,7 @@ bool delete_specific_order(order** current, order** head, order** tail)
     return true;
 }
 
-bool delete_specific_merchant(Merchant** current, Merchant** head, Merchant** tail)
+bool delete_specific_merchant(struct Merchant** current, struct  Merchant** head, struct  Merchant** tail)
 {
     if ((*current)->prev == NULL)
     {
