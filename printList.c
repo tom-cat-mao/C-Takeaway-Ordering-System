@@ -89,27 +89,35 @@ void printList_merchant(struct Merchant* head)
 void print_current_order(struct order* tail)
 {
     printf("Order List:\n");
-    printf("%d-%02d-%02d %02d:%02d:%02d\n", tail->localTime->tm_year + 1900, tail->localTime->tm_mon + 1, tail->localTime->tm_mday,
-        tail->localTime->tm_hour, tail->localTime->tm_min, tail->localTime->tm_sec);
-    printf("Order ID: %s\n", tail->order_id);
-    printf("Merchant: %s\tAddress: %s\tPhone: %s\n", tail->m_name, tail->m_address, tail->m_phone);
-    printf("User: %s\tAddress: %s\tPhone: %s\n", tail->u_name, tail->u_address, tail->u_phone);
-    printf("Delivery Person: %s\tPhone: %s\n", tail->d_name, tail->d_phone);
-    printList_recipe_2(tail->r_head); // Print the list of products in the order
-    printf("Total Price: %.2f\t", tail->sum_price);
-    switch (tail->s) 
+    if (tail == NULL)
     {
-    case WAY:
-        printf("Order State: Waiting\n");
-        break;
-    case DILLVERING:
-        printf("Order State: Delivering\n");
-        break;
-    case FINISH:
-        printf("Order State: Finished\n");
-        break;
-    default:
-        printf("Order State: Canceled\n");
-        break;
+        printf("you don't have any order\n");
     }
+    else
+    {
+        printf("%d-%02d-%02d %02d:%02d:%02d\n", tail->localTime->tm_year + 1900, tail->localTime->tm_mon + 1, tail->localTime->tm_mday,
+            tail->localTime->tm_hour, tail->localTime->tm_min, tail->localTime->tm_sec);
+        printf("Order ID: %s\n", tail->order_id);
+        printf("Merchant: %s\tAddress: %s\tPhone: %s\n", tail->m_name, tail->m_address, tail->m_phone);
+        printf("User: %s\tAddress: %s\tPhone: %s\n", tail->u_name, tail->u_address, tail->u_phone);
+        printf("Delivery Person: %s\tPhone: %s\n", tail->d_name, tail->d_phone);
+        printList_recipe_2(tail->r_head); // Print the list of products in the order
+        printf("Total Price: %.2f\t", tail->sum_price);
+        switch (tail->s)
+        {
+        case WAY:
+            printf("Order State: Waiting\n");
+            break;
+        case DILLVERING:
+            printf("Order State: Delivering\n");
+            break;
+        case FINISH:
+            printf("Order State: Finished\n");
+            break;
+        default:
+            printf("Order State: Canceled\n");
+            break;
+        }
+    }
+    
 }
