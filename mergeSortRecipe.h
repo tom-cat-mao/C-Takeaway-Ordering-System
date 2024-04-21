@@ -136,7 +136,7 @@ struct recipe* r_mergeSortLower_p(struct recipe* head, struct recipe** tail)
         return head;
     }
 
-    struct recipe* second = splitRecipe(head, tail);
+    struct recipe* second = splitRecipe(head);
     struct  recipe* secondTail;
 
     // Recur for left and right halves

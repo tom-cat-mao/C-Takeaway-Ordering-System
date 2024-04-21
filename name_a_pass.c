@@ -14,7 +14,9 @@ void m_writeIntoFile_p(struct Password_m* head)
     struct Password_m* current = head;
     while (current != NULL)
     {
-        fprintf("%s\t%s\t%s\n", current->name, current->phone, current->password);
+        fprintf(fp, "%s\n", current->name);
+        fprintf(fp, "%s\n", current->phone);
+        fprintf(fp, "%s\n", current->password);
         current = current->next;
     }
     fclose(fp);
@@ -31,7 +33,9 @@ void u_writeIntoFile_p(struct Password_u* head)
     struct Password_u* current = head;
     while (current != NULL)
     {
-        fprintf("%s\t%s\t%s\n", current->name, current->phone, current->password);
+        fprintf(fp, "%s\n", current->name);
+        fprintf(fp, "%s\n", current->phone);
+        fprintf(fp, "%s\n", current->password);
         current = current->next;
     }
     fclose(fp);
@@ -48,7 +52,9 @@ void d_writeIntoFile_p(struct Password_d* head)
     struct Password_d* current = head;
     while (current != NULL)
     {
-        fprintf("%s\t%s\t%s\n", current->name, current->phone, current->password);
+        fprintf(fp, "%s\n", current->name);
+        fprintf(fp, "%s\n", current->phone);
+        fprintf(fp, "%s\n", current->password);
         current = current->next;
     }
     fclose(fp);
@@ -56,7 +62,7 @@ void d_writeIntoFile_p(struct Password_d* head)
 
 //read the password from the file
 
-void m_readIntoList_p(struct Password_m** head)
+void m_readIntoList_p(struct Password_m** head, struct Password_m** tail)
 {
     FILE* fp = fopen("Merchant_password.txt", "r");
     if (fp == NULL)
@@ -70,9 +76,19 @@ void m_readIntoList_p(struct Password_m** head)
     char name[100] = { '\0' };
     char phone[100] = { '\0' };
     char password[100] = { '\0' };
+    char line[100] = { '\0' };
 
-    while (fscanf("%s\t%s\t%s", name, phone, password) != NULL)
+    while (fgets(line, sizeof(line), fp) != NULL)
     {
+        line[strlen(line) - 1] = '\0';
+        strcpy(name, line);
+        fgets(line, sizeof(line), fp);
+        line[strlen(line) - 1] = '\0';
+        strcpy(phone, line);
+        fgets(line, sizeof(line), fp);
+        line[strlen(line) - 1] = '\0';
+        strcpy(password, line);
+
         struct Password_m* newNode = (struct Password_m*)malloc(sizeof(struct Password_m));
 
         strcpy(newNode->name, name);
@@ -80,7 +96,7 @@ void m_readIntoList_p(struct Password_m** head)
         strcpy(newNode->password, password);
         newNode->next = NULL;
 
-        if (head == NULL)
+        if (*head == NULL)
         {
             *head = newNode;
             current = newNode;
@@ -91,9 +107,11 @@ void m_readIntoList_p(struct Password_m** head)
             current = newNode;
         }
     }
+    *tail = current;
+    fclose(fp);
 }
 
-void u_readIntoList_p(struct Password_u** head)
+void u_readIntoList_p(struct Password_u** head, struct Password_u** tail)
 {
     FILE* fp = fopen("User_password.txt", "r");
     if (fp == NULL)
@@ -107,9 +125,19 @@ void u_readIntoList_p(struct Password_u** head)
     char name[100] = { '\0' };
     char phone[100] = { '\0' };
     char password[100] = { '\0' };
+    char line[100] = { '\0' };
 
-    while (fscanf("%s\t%s\t%s", name, phone, password) != NULL)
+    while (fgets(line, sizeof(line), fp) != NULL)
     {
+        line[strlen(line) - 1] = '\0';
+        strcpy(name, line);
+        fgets(line, sizeof(line), fp);
+        line[strlen(line) - 1] = '\0';
+        strcpy(phone, line);
+        fgets(line, sizeof(line), fp);
+        line[strlen(line) - 1] = '\0';
+        strcpy(password, line);
+
         struct Password_u* newNode = (struct Password_u*)malloc(sizeof(struct Password_u));
 
         strcpy(newNode->name, name);
@@ -117,7 +145,7 @@ void u_readIntoList_p(struct Password_u** head)
         strcpy(newNode->password, password);
         newNode->next = NULL;
 
-        if (head == NULL)
+        if (*head == NULL)
         {
             *head = newNode;
             current = newNode;
@@ -128,9 +156,11 @@ void u_readIntoList_p(struct Password_u** head)
             current = newNode;
         }
     }
+    *tail = current;
+    fclose(fp);
 }
 
-void d_readIntoList_p(struct Password_d** head)
+void d_readIntoList_p(struct Password_d** head, struct Password_d** tail)
 {
     FILE* fp = fopen("Deliveryperson_password.txt", "r");
     if (fp == NULL)
@@ -144,9 +174,19 @@ void d_readIntoList_p(struct Password_d** head)
     char name[100] = { '\0' };
     char phone[100] = { '\0' };
     char password[100] = { '\0' };
+    char line[100] = { '\0' };
 
-    while (fscanf("%s\t%s\t%s", name, phone, password) != NULL)
+    while (fgets(line, sizeof(line), fp) != NULL)
     {
+        line[strlen(line) - 1] = '\0';
+        strcpy(name, line);
+        fgets(line, sizeof(line), fp);
+        line[strlen(line) - 1] = '\0';
+        strcpy(phone, line);
+        fgets(line, sizeof(line), fp);
+        line[strlen(line) - 1] = '\0';
+        strcpy(password, line);
+
         struct Password_d* newNode = (struct Password_d*)malloc(sizeof(struct Password_d));
 
         strcpy(newNode->name, name);
@@ -154,7 +194,7 @@ void d_readIntoList_p(struct Password_d** head)
         strcpy(newNode->password, password);
         newNode->next = NULL;
 
-        if (head == NULL)
+        if (*head == NULL)
         {
             *head = newNode;
             current = newNode;
@@ -165,6 +205,8 @@ void d_readIntoList_p(struct Password_d** head)
             current = newNode;
         }
     }
+    *tail = current;
+    fclose(fp);
 }
 
 //register
