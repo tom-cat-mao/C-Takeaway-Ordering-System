@@ -75,7 +75,7 @@ struct recipe* r_mergeSortUpper_p(struct recipe* head, struct recipe** tail)
         return head;
     }
 
-    struct recipe* second = splitRecipe(head, tail);
+    struct recipe* second = splitRecipe(head);
     struct recipe* secondTail;
 
     // Recur for left and right halves
@@ -197,7 +197,7 @@ struct recipe* r_mergeSortUpper_s(struct recipe* head, struct recipe** tail)
         return head;
     }
 
-    struct recipe* second = splitRecipe(head, tail);
+    struct recipe* second = splitRecipe(head);
     struct recipe* secondTail;
 
     // Recur for left and right halves
@@ -259,7 +259,7 @@ struct recipe* r_mergeSortLower_s(struct recipe* head, struct recipe** tail)
         return head;
     }
 
-    struct recipe* second = splitRecipe(head, tail);
+    struct recipe* second = splitRecipe(head);
     struct recipe* secondTail;
 
     // Recur for left and right halves
@@ -320,7 +320,7 @@ struct recipe* r_mergeSortUpper_c(struct recipe* head, struct recipe** tail)
         return head;
     }
 
-    struct recipe* second = splitRecipe(head, tail);
+    struct recipe* second = splitRecipe(head);
     struct recipe* secondTail;
 
     // Recur for left and right halves
@@ -381,7 +381,7 @@ struct recipe* r_mergeSortLower_c(struct recipe* head, struct recipe** tail)
         return head;
     }
 
-    struct recipe* second = splitRecipe(head, tail);
+    struct recipe* second = splitRecipe(head);
     struct recipe* secondTail;
 
     // Recur for left and right halves

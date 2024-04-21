@@ -193,7 +193,7 @@ struct order* o_mergeSortUpper_t(struct order* head, struct order** tail)
         return head;
     }
 
-    struct order* second = splitOrder(head, tail);
+    struct order* second = splitOrder(head);
     struct order* secondTail;
 
     // Recur for left and right halves
@@ -255,7 +255,7 @@ struct order* o_mergeSortLower_t(struct order* head, struct  order** tail)
         return head;
     }
 
-    struct order* second = splitOrder(head, tail);
+    struct order* second = splitOrder(head);
     struct order* secondTail;
 
     // Recur for left and right halves

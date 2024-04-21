@@ -416,7 +416,7 @@ int main()
 																		{
 																			//print
 																			char j;
-																			printf("Y\N(Y for choose this recipe)\n");
+																			printf("Y\\N(Y for choose this recipe)\n");
 																			scanf("%c", &j);
 																			if (j == 'Y')
 																			{
@@ -474,7 +474,7 @@ int main()
 																			{
 																				//print
 																				char j;
-																				printf("Y\N(Y for choose this recipe)\n");
+																				printf("Y\\N(Y for choose this recipe)\n");
 																				scanf("%c", &j);
 																				if (j == 'Y')
 																				{
@@ -901,7 +901,7 @@ int main()
 												printf("please enter the order id you want to cancel\n");
 												scanf("%s", o_id);
 												o_current = search_order_id(u_current->t_o_head, o_id);
-												printf("Y\N(Y for cancle)\n");
+												printf("Y\\N(Y for cancle)\n");
 												char j;
 												scanf("%c", &j);
 												switch (j)
@@ -1893,7 +1893,7 @@ int main()
 									case 2:
 										for (int flag_4 = 1; flag_4 != 0;)
 										{
-											print_order_list(m_current->r_tail);
+											print_order_list(m_current->o_tail);
 											printf("0.log out,1.upper,2.lower,3.return\n");
 											int t_4 = 0;
 											scanf("%d", &t_4);

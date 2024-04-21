@@ -73,6 +73,7 @@ struct r_classify* creatList_r_classify(char* n)
 
     strcpy(newNode->name, n);
     newNode->r_head = NULL;
+    newNode->r_tail = NULL;
     newNode->prev = NULL;
     newNode->next = NULL;
 
@@ -134,6 +135,8 @@ struct order* creatList_order(struct Merchant* m_current, struct  User* u_curren
     }
     memset(newNode->arrive_time, 0, sizeof(struct tm));
     memset(newNode->send_time, 0, sizeof(struct tm));
+    newNode->r_head = NULL;
+    newNode->r_tail = NULL;
     newNode->s = WAY;
     newNode->prev = NULL;
     newNode->next = NULL;
@@ -172,6 +175,12 @@ struct Merchant* creatList_merchant(char* n, char* p, char* a, char* pn)
     strcpy(newNode->password, p);
     strcpy(newNode->address, a);
     strcpy(newNode->phone, pn);
+    newNode->o_head = NULL;
+    newNode->o_tail = NULL;
+    newNode->r_head = NULL;
+    newNode->r_tail = NULL;
+    newNode->t_o_head = NULL;
+    newNode->t_r_head = NULL;
     newNode->prev = NULL;
     newNode->next = NULL;
 
@@ -210,6 +219,9 @@ struct User* creatList_user(char* n, char* p, char* a, char* pn)
     strcpy(newNode->address, a);
     strcpy(newNode->phone, pn);
     newNode->c = SILVER;
+    newNode->o_head = NULL;
+    newNode->o_tail = NULL;
+    newNode->t_o_head = NULL;
     newNode->prev = NULL;
     newNode->next = NULL;
 
@@ -246,6 +258,8 @@ struct DeliveryPerson* creatList_deliveryperson(char* n, char* p, char* pn)
     strcpy(newNode->name, n);
     strcpy(newNode->password, p);
     strcpy(newNode->phone, pn);
+    newNode->o_head = NULL;
+    newNode->o_tail = NULL;
     newNode->prev = NULL;
     newNode->next = NULL;
 
