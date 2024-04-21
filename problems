@@ -80,29 +80,7 @@ D:\Cproject\C-\name_a_pass.c:148:56: warning: comparison between pointer and int
 [ 81%] Building C object CMakeFiles/MyProject.dir/Search_Classify_in_Merchant.c.obj
 [ 87%] Building C object CMakeFiles/MyProject.dir/password_change.c.obj
 [ 93%] Building C object CMakeFiles/MyProject.dir/main.c.obj
-In file included from D:\Cproject\C-\main.c:8:
-D:\Cproject\C-\mergeSortOrder.h: In function 'o_mergeSortUpper_t':
-D:\Cproject\C-\mergeSortOrder.h:196:28: error: too many arguments to function 'splitOrder'
-  196 |     struct order* second = splitOrder(head, tail);
-      |                            ^~~~~~~~~~
-D:\Cproject\C-\mergeSortOrder.h:7:15: note: declared here
-    7 | struct order* splitOrder(struct order* head)
-      |               ^~~~~~~~~~
-D:\Cproject\C-\mergeSortOrder.h: In function 'o_mergeSortLower_t':
-D:\Cproject\C-\mergeSortOrder.h:258:28: error: too many arguments to function 'splitOrder'
-  258 |     struct order* second = splitOrder(head, tail);
-      |                            ^~~~~~~~~~
-D:\Cproject\C-\mergeSortOrder.h:7:15: note: declared here
-    7 | struct order* splitOrder(struct order* head)
-      |               ^~~~~~~~~~
 In file included from D:\Cproject\C-\main.c:9:
-D:\Cproject\C-\mergeSortRecipe.h: In function 'r_mergeSortUpper_p':
-D:\Cproject\C-\mergeSortRecipe.h:78:29: error: too many arguments to function 'splitRecipe'
-   78 |     struct recipe* second = splitRecipe(head, tail);
-      |                             ^~~~~~~~~~~
-D:\Cproject\C-\mergeSortRecipe.h:8:16: note: declared here
-    8 | struct recipe* splitRecipe(struct recipe* head)
-      |                ^~~~~~~~~~~
 D:\Cproject\C-\mergeSortRecipe.h: In function 'r_mergeSortLower_p':
 D:\Cproject\C-\mergeSortRecipe.h:139:29: error: too many arguments to function 'splitRecipe'
   139 |     struct recipe* second = splitRecipe(head, tail);
@@ -110,47 +88,7 @@ D:\Cproject\C-\mergeSortRecipe.h:139:29: error: too many arguments to function '
 D:\Cproject\C-\mergeSortRecipe.h:8:16: note: declared here
     8 | struct recipe* splitRecipe(struct recipe* head)
       |                ^~~~~~~~~~~
-D:\Cproject\C-\mergeSortRecipe.h: In function 'r_mergeSortUpper_s':
-D:\Cproject\C-\mergeSortRecipe.h:200:29: error: too many arguments to function 'splitRecipe'
-  200 |     struct recipe* second = splitRecipe(head, tail);
-      |                             ^~~~~~~~~~~
-D:\Cproject\C-\mergeSortRecipe.h:8:16: note: declared here
-    8 | struct recipe* splitRecipe(struct recipe* head)
-      |                ^~~~~~~~~~~
-D:\Cproject\C-\mergeSortRecipe.h: In function 'r_mergeSortLower_s':
-D:\Cproject\C-\mergeSortRecipe.h:262:29: error: too many arguments to function 'splitRecipe'
-  262 |     struct recipe* second = splitRecipe(head, tail);
-      |                             ^~~~~~~~~~~
-D:\Cproject\C-\mergeSortRecipe.h:8:16: note: declared here
-    8 | struct recipe* splitRecipe(struct recipe* head)
-      |                ^~~~~~~~~~~
-D:\Cproject\C-\mergeSortRecipe.h: In function 'r_mergeSortUpper_c':
-D:\Cproject\C-\mergeSortRecipe.h:323:29: error: too many arguments to function 'splitRecipe'
-  323 |     struct recipe* second = splitRecipe(head, tail);
-      |                             ^~~~~~~~~~~
-D:\Cproject\C-\mergeSortRecipe.h:8:16: note: declared here
-    8 | struct recipe* splitRecipe(struct recipe* head)
-      |                ^~~~~~~~~~~
-D:\Cproject\C-\mergeSortRecipe.h: In function 'r_mergeSortLower_c':
-D:\Cproject\C-\mergeSortRecipe.h:384:29: error: too many arguments to function 'splitRecipe'
-  384 |     struct recipe* second = splitRecipe(head, tail);
-      |                             ^~~~~~~~~~~
-D:\Cproject\C-\mergeSortRecipe.h:8:16: note: declared here
-    8 | struct recipe* splitRecipe(struct recipe* head)
-      |                ^~~~~~~~~~~
 D:\Cproject\C-\main.c: In function 'main':
-D:\Cproject\C-\main.c:419:193: error: '\N' not followed by '{'
-  419 |                                                                                                                                                         printf("Y\N(Y for choose this recipe)\n");
-      |                                                                                                                                                                                                 ^
-D:\Cproject\C-\main.c:419:193: error: incomplete universal character name \N
-D:\Cproject\C-\main.c:477:201: error: '\N' not followed by '{'
-  477 |                                                                                                                                                                 printf("Y\N(Y for choose this recipe)\n");
-      |                                                                                                                                                                                                         ^
-D:\Cproject\C-\main.c:477:201: error: incomplete universal character name \N
-D:\Cproject\C-\main.c:904:125: error: '\N' not followed by '{'
-  904 |                                                                                                 printf("Y\N(Y for cancle)\n");
-      |                                                                                                                             ^
-D:\Cproject\C-\main.c:904:125: error: incomplete universal character name \N
 D:\Cproject\C-\main.c:1844:99: warning: passing argument 1 of 'print_order_list' from incompatible pointer type [-Wincompatible-pointer-types]
  1844 |                                                                         print_order_list(m_current->r_tail);
       |                                                                                          ~~~~~~~~~^~~~~~~~
@@ -162,14 +100,6 @@ D:\Cproject\C-\class.h:207:37: note: expected 'struct order *' but argument is o
       |                       ~~~~~~~~~~~~~~^~~~
 D:\Cproject\C-\main.c:1861:115: warning: passing argument 1 of 'print_order_list' from incompatible pointer type [-Wincompatible-pointer-types]
  1861 |                                                                                         print_order_list(m_current->r_tail);
-      |                                                                                                          ~~~~~~~~~^~~~~~~~
-      |                                                                                                                   |
-      |                                                                                                                   struct r_classify *
-D:\Cproject\C-\class.h:207:37: note: expected 'struct order *' but argument is of type 'struct r_classify *'
-  207 | void print_order_list(struct order* tail);
-      |                       ~~~~~~~~~~~~~~^~~~
-D:\Cproject\C-\main.c:1896:115: warning: passing argument 1 of 'print_order_list' from incompatible pointer type [-Wincompatible-pointer-types]
- 1896 |                                                                                         print_order_list(m_current->r_tail);
       |                                                                                                          ~~~~~~~~~^~~~~~~~
       |                                                                                                                   |
       |                                                                                                                   struct r_classify *
