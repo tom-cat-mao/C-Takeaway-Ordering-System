@@ -502,7 +502,7 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
 
         newNode->next = NULL;
 
-        if (head == NULL)
+        if (*head == NULL)
         {
             *head = newNode;
             *current = *head;
@@ -574,7 +574,7 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
 
         newNode->next = NULL;
 
-        if (head == NULL)
+        if (*head == NULL)
         {
             *head = newNode;
             *current = *head;
@@ -647,7 +647,7 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
         newNode->star = star;
         newNode->next = NULL;
 
-        if (head == NULL)
+        if (*head == NULL)
         {
             *head = newNode;
             *current = *head;
@@ -704,7 +704,7 @@ bool read_order_list(struct order** head, struct order** current)
         char u_phone[20];
         int s;
         float sum_price;
-        struct tm* localTime;
+        struct tm* _localTime;
         struct tm* arrive_time;
         struct tm* send_time;
         int l_mday, l_month, l_hour, l_min, l_sec;
@@ -746,17 +746,17 @@ bool read_order_list(struct order** head, struct order** current)
         strcpy(newNode->d_phone, d_phone);
         strcpy(newNode->u_phone, u_phone);
 
-        localTime = (struct tm*)malloc(sizeof(struct tm));
-        localTime->tm_mday = l_mday;
-        localTime->tm_mon = l_month - 1;
-        localTime->tm_hour = l_hour;
-        localTime->tm_min = l_min;
-        localTime->tm_sec = l_sec;
+        _localTime = (struct tm*)malloc(sizeof(struct tm));
+        _localTime->tm_mday = l_mday;
+        _localTime->tm_mon = l_month - 1;
+        _localTime->tm_hour = l_hour;
+        _localTime->tm_min = l_min;
+        _localTime->tm_sec = l_sec;
 
-        time_t t = mktime(localTime);
-        free(localTime);
+        time_t t = mktime(_localTime);
+        free(_localTime);
 
-        localTime = localtime(&t);
+        _localTime = localtime(&t);
 
 
         arrive_time = (struct tm*)malloc(sizeof(struct tm));
@@ -797,7 +797,7 @@ bool read_order_list(struct order** head, struct order** current)
 
         newNode->next = NULL;
 
-        if (head == NULL)
+        if (*head == NULL)
         {
             *head = newNode;
             *current = *head;
