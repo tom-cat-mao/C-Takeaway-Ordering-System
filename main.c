@@ -1035,7 +1035,7 @@ int main()
 
 						for (int flag_2 = 1; flag_2 != 0;)
 						{
-							printf("0.log out,1.recipe,2.order,3.password£¬4.deactivate\n");
+							printf("0.log out,1.recipe,2.order,3.passwordÂ£Â¬4.deactivate\n");
 							int t_2 = 0;
 							scanf("%d", &t_2);
 							switch (t_2)
@@ -1844,7 +1844,7 @@ int main()
 							case 2:
 								for (int flag_3 = 1; flag_3 != 0;)
 								{
-									print_order_list(m_current->r_tail);
+									print_order_list(m_current->o_tail);
 									printf("0.log out,1.distribute delivery person2.sort order,3,return");
 									int t_3 = 0;
 									scanf("%d", &t_3);
