@@ -1,93 +1,28 @@
 ====================[ Build | MyProject | Debug ]===============================
 D:\Clion\CLion-2023.2.2.win\bin\cmake\win\x64\bin\cmake.exe --build D:\Cproject\C-\cmake-build-debug --target MyProject -- -j 14
-[  6%] Building C object CMakeFiles/MyProject.dir/createTree.c.obj
-[ 12%] Building C object CMakeFiles/MyProject.dir/createList.c.obj
-[ 18%] Building C object CMakeFiles/MyProject.dir/delete_data.c.obj
-[ 25%] Building C object CMakeFiles/MyProject.dir/deleteTree.c.obj
-[ 31%] Building C object CMakeFiles/MyProject.dir/insertTree.c.obj
-[ 37%] Building C object CMakeFiles/MyProject.dir/discount_card_change.c.obj
-[ 43%] Building C object CMakeFiles/MyProject.dir/name_a_pass.c.obj
-[ 50%] Building C object CMakeFiles/MyProject.dir/printList.c.obj
-D:\Cproject\C-\name_a_pass.c: In function 'm_writeIntoFile_p':
-D:\Cproject\C-\name_a_pass.c:17:17: warning: passing argument 1 of 'fprintf' from incompatible pointer type [-Wincompatible-pointer-types]
-   17 |         fprintf("%s\t%s\t%s\n", current->name, current->phone, current->password);
-      |                 ^~~~~~~~~~~~~~
-      |                 |
-      |                 char *
-In file included from D:\Cproject\C-\class.h:3,
-                 from D:\Cproject\C-\name_a_pass.c:2:
-D:/Clion/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/stdio.h:360:20: note: expected 'FILE *' {aka 'struct _iobuf *'} but argument is of type 'char *'
-  360 | int fprintf (FILE *__stream, const char *__format, ...)
-      |              ~~~~~~^~~~~~~~
-D:\Cproject\C-\name_a_pass.c: In function 'u_writeIntoFile_p':
-D:\Cproject\C-\name_a_pass.c:34:17: warning: passing argument 1 of 'fprintf' from incompatible pointer type [-Wincompatible-pointer-types]
-   34 |         fprintf("%s\t%s\t%s\n", current->name, current->phone, current->password);
-      |                 ^~~~~~~~~~~~~~
-      |                 |
-      |                 char *
-D:/Clion/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/stdio.h:360:20: note: expected 'FILE *' {aka 'struct _iobuf *'} but argument is of type 'char *'
-  360 | int fprintf (FILE *__stream, const char *__format, ...)
-      |              ~~~~~~^~~~~~~~
-D:\Cproject\C-\name_a_pass.c: In function 'd_writeIntoFile_p':
-D:\Cproject\C-\name_a_pass.c:51:17: warning: passing argument 1 of 'fprintf' from incompatible pointer type [-Wincompatible-pointer-types]
-   51 |         fprintf("%s\t%s\t%s\n", current->name, current->phone, current->password);
-      |                 ^~~~~~~~~~~~~~
-      |                 |
-      |                 char *
-D:/Clion/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/stdio.h:360:20: note: expected 'FILE *' {aka 'struct _iobuf *'} but argument is of type 'char *'
-  360 | int fprintf (FILE *__stream, const char *__format, ...)
-      |              ~~~~~~^~~~~~~~
-D:\Cproject\C-\name_a_pass.c: In function 'm_readIntoList_p':
-D:\Cproject\C-\name_a_pass.c:74:19: warning: passing argument 1 of 'fscanf' from incompatible pointer type [-Wincompatible-pointer-types]
-   74 |     while (fscanf("%s\t%s\t%s", name, phone, password) != NULL)
-      |                   ^~~~~~~~~~~~
-      |                   |
-      |                   char *
-D:/Clion/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/stdio.h:315:18: note: expected 'FILE *' {aka 'struct _iobuf *'} but argument is of type 'char *'
-  315 | int fscanf(FILE *__stream, const char *__format, ...)
-      |            ~~~~~~^~~~~~~~
-D:\Cproject\C-\name_a_pass.c:74:56: warning: comparison between pointer and integer
-   74 |     while (fscanf("%s\t%s\t%s", name, phone, password) != NULL)
-      |                                                        ^~
-D:\Cproject\C-\name_a_pass.c: In function 'u_readIntoList_p':
-D:\Cproject\C-\name_a_pass.c:111:19: warning: passing argument 1 of 'fscanf' from incompatible pointer type [-Wincompatible-pointer-types]
-  111 |     while (fscanf("%s\t%s\t%s", name, phone, password) != NULL)
-      |                   ^~~~~~~~~~~~
-      |                   |
-      |                   char *
-D:/Clion/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/stdio.h:315:18: note: expected 'FILE *' {aka 'struct _iobuf *'} but argument is of type 'char *'
-  315 | int fscanf(FILE *__stream, const char *__format, ...)
-      |            ~~~~~~^~~~~~~~
-D:\Cproject\C-\name_a_pass.c:111:56: warning: comparison between pointer and integer
-  111 |     while (fscanf("%s\t%s\t%s", name, phone, password) != NULL)
-      |                                                        ^~
-D:\Cproject\C-\name_a_pass.c: In function 'd_readIntoList_p':
-D:\Cproject\C-\name_a_pass.c:148:19: warning: passing argument 1 of 'fscanf' from incompatible pointer type [-Wincompatible-pointer-types]
-  148 |     while (fscanf("%s\t%s\t%s", name, phone, password) != NULL)
-      |                   ^~~~~~~~~~~~
-      |                   |
-      |                   char *
-D:/Clion/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/stdio.h:315:18: note: expected 'FILE *' {aka 'struct _iobuf *'} but argument is of type 'char *'
-  315 | int fscanf(FILE *__stream, const char *__format, ...)
-      |            ~~~~~~^~~~~~~~
-D:\Cproject\C-\name_a_pass.c:148:56: warning: comparison between pointer and integer
-  148 |     while (fscanf("%s\t%s\t%s", name, phone, password) != NULL)
-      |                                                        ^~
-[ 56%] Building C object CMakeFiles/MyProject.dir/searchTree.c.obj
-[ 62%] Building C object CMakeFiles/MyProject.dir/sum_price.c.obj
-[ 68%] Building C object CMakeFiles/MyProject.dir/time_set.c.obj
-[ 75%] Building C object CMakeFiles/MyProject.dir/folder_c_c_d.c.obj
-[ 81%] Building C object CMakeFiles/MyProject.dir/Search_Classify_in_Merchant.c.obj
-[ 87%] Building C object CMakeFiles/MyProject.dir/password_change.c.obj
-[ 93%] Building C object CMakeFiles/MyProject.dir/main.c.obj
-In file included from D:\Cproject\C-\main.c:9:
-D:\Cproject\C-\mergeSortRecipe.h: In function 'r_mergeSortLower_p':
-D:\Cproject\C-\mergeSortRecipe.h:139:29: error: too many arguments to function 'splitRecipe'
-  139 |     struct recipe* second = splitRecipe(head, tail);
-      |                             ^~~~~~~~~~~
-D:\Cproject\C-\mergeSortRecipe.h:8:16: note: declared here
-    8 | struct recipe* splitRecipe(struct recipe* head)
-      |                ^~~~~~~~~~~
+[  6%] Building C object CMakeFiles/MyProject.dir/name_a_pass.c.obj
+[ 12%] Building C object CMakeFiles/MyProject.dir/main.c.obj
+D:\Cproject\C-\name_a_pass.c:65:6: error: conflicting types for 'm_readIntoList_p'; have 'void(struct Password_m **, struct Password_m **)'
+   65 | void m_readIntoList_p(struct Password_m** head, struct Password_m** tail)
+      |      ^~~~~~~~~~~~~~~~
+In file included from D:\Cproject\C-\name_a_pass.c:2:
+D:\Cproject\C-\class.h:249:6: note: previous declaration of 'm_readIntoList_p' with type 'void(struct Password_m **)'
+  249 | void m_readIntoList_p(struct Password_m** head);
+      |      ^~~~~~~~~~~~~~~~
+D:\Cproject\C-\name_a_pass.c:114:6: error: conflicting types for 'u_readIntoList_p'; have 'void(struct Password_u **, struct Password_u **)'
+  114 | void u_readIntoList_p(struct Password_u** head, struct Password_u** tail)
+      |      ^~~~~~~~~~~~~~~~
+D:\Cproject\C-\class.h:250:6: note: previous declaration of 'u_readIntoList_p' with type 'void(struct Password_u **)'
+  250 | void u_readIntoList_p(struct Password_u** head);
+      |      ^~~~~~~~~~~~~~~~
+D:\Cproject\C-\name_a_pass.c:163:6: error: conflicting types for 'd_readIntoList_p'; have 'void(struct Password_d **, struct Password_d **)'
+  163 | void d_readIntoList_p(struct Password_d** head, struct Password_d** tail)
+      |      ^~~~~~~~~~~~~~~~
+D:\Cproject\C-\class.h:251:6: note: previous declaration of 'd_readIntoList_p' with type 'void(struct Password_d **)'
+  251 | void d_readIntoList_p(struct Password_d** head);
+      |      ^~~~~~~~~~~~~~~~
+mingw32-make[3]: *** [CMakeFiles\MyProject.dir\build.make:159: CMakeFiles/MyProject.dir/name_a_pass.c.obj] Error 1
+mingw32-make[3]: *** Waiting for unfinished jobs....
 D:\Cproject\C-\main.c: In function 'main':
 D:\Cproject\C-\main.c:1844:99: warning: passing argument 1 of 'print_order_list' from incompatible pointer type [-Wincompatible-pointer-types]
  1844 |                                                                         print_order_list(m_current->r_tail);
@@ -106,7 +41,6 @@ D:\Cproject\C-\main.c:1861:115: warning: passing argument 1 of 'print_order_list
 D:\Cproject\C-\class.h:207:37: note: expected 'struct order *' but argument is of type 'struct r_classify *'
   207 | void print_order_list(struct order* tail);
       |                       ~~~~~~~~~~~~~~^~~~
-mingw32-make[3]: *** [CMakeFiles\MyProject.dir\build.make:271: CMakeFiles/MyProject.dir/main.c.obj] Error 1
 mingw32-make[2]: *** [CMakeFiles\Makefile2:82: CMakeFiles/MyProject.dir/all] Error 2
 mingw32-make[1]: *** [CMakeFiles\Makefile2:89: CMakeFiles/MyProject.dir/rule] Error 2
 mingw32-make: *** [Makefile:123: MyProject] Error 2
