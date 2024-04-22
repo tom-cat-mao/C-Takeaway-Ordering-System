@@ -16,9 +16,15 @@ set(SOURCES
     time_set.c
     folder_c_c_d.c
     Search_Classify_in_Merchant.c
-        Search_Classify_in_Merchant.c
     password_change.c
     main.c
+    Search_Classify_in_Merchant.c
+    Manager.c
+    delete_node.c
+        Search_Recipe_in_Class.c
+        find_free_deliver.c
+        set_order_state.c
+        find_account_in_the_list.c
 )
 
 # Add your header files here
@@ -34,6 +40,7 @@ set(HEADERS
     interface.h
     SearchFuzzy&SaleRecipe.h
     setStar_recipe.h
+    dirent.h
 )
 
 # Add executable target
