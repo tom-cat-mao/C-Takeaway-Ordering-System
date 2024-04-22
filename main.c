@@ -16,10 +16,13 @@ int main()
 	//Create password list head node
 	struct Password_m* p_head_m = NULL;
 	struct Password_m* p_m_current = NULL;
+	struct Password_m* p_m_tail = NULL;
 	struct Password_u* p_head_u = NULL;
 	struct Password_u* p_u_current = NULL;
+	struct Password_u* p_u_tail = NULL;
 	struct Password_d* p_head_d = NULL;
 	struct Password_d* p_d_current = NULL;
+	struct Password_d* p_d_tail = NULL;
 
 	// Create list head node and current node
 	struct recipe* r_head = NULL;
@@ -50,12 +53,12 @@ int main()
 	struct t_Merchant* t_m_current = NULL;
 
 	//read file
+	m_readIntoList_p(&p_head_m, &p_m_tail);
+	u_readIntoList_p(&p_head_u, &p_u_tail);
+	d_readIntoList_p(&p_head_d, &p_d_tail);
 	read_merchant_list(&m_head, &m_tail);
 	read_user_list(&u_head, &u_tail);
 	read_deliveryperson_list(&d_head, &d_tail);
-	m_readIntoList_p(&p_head_m);
-	u_readIntoList_p(&p_head_u);
-	d_readIntoList_p(&p_head_d);
 
 	//enter the program
 	print_Title();
@@ -2361,12 +2364,12 @@ int main()
 	}
 
 	//write in file
+	d_writeIntoFile_p(p_head_d);
+	m_writeIntoFile_p(p_head_m);
+	u_writeIntoFile_p(p_head_u);
 	write_t_merchant_list(m_head);
 	write_t_user_list(u_head);
 	write_t_deliveryperson_list(d_head);
-	m_writeIntoFile_p(p_head_m);
-	u_writeIntoFile_p(p_head_u);
-	d_writeIntoFile_p(p_head_d);
 
 
 	return 0;
