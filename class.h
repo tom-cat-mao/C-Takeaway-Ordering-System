@@ -246,9 +246,9 @@ void m_writeIntoFile_p(struct Password_m* head);
 void u_writeIntoFile_p(struct Password_u* head);
 void d_writeIntoFile_p(struct Password_d* head);
 //read the password from the file
-void m_readIntoList_p(struct Password_m** head);
-void u_readIntoList_p(struct Password_u** head);
-void d_readIntoList_p(struct Password_d** head);
+void u_readIntoList_p(struct Password_u** head, struct Password_u** tail);
+void d_readIntoList_p(struct Password_d** head, struct Password_d** tail);
+void m_readIntoList_p(struct Password_m** head, struct Password_m** tail);
 //register
 // Create password list
 struct Password_m* m_creatNode_p(char* n, char* p, char* pn);

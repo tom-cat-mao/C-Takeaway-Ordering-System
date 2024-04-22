@@ -1858,7 +1858,7 @@ int main()
 									case 1:
 										for (int flag_4 = 1; flag_4 != 0;)
 										{
-											print_order_list(m_current->r_tail);
+											print_order_list(m_current->o_tail);
 											printf("0.return,1.continue\n");
 											int t_4 = 0;
 											scanf("%d", &t_4);
