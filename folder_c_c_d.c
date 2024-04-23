@@ -210,7 +210,7 @@ bool write_t_order_list(struct order* head)
 
         fprintf(file, "%s\n", current->order_id);
 
-        // write loacal time include year, month, day, hour, minute, second
+        // write local time include year, month, day, hour, minute, second
         fprintf(file, "%d\n", current->localTime->tm_mon);
         fprintf(file, "%d\n", current->localTime->tm_mday);
         fprintf(file, "%d\n", current->localTime->tm_hour);
