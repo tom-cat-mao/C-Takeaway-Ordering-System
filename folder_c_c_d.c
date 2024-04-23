@@ -16,6 +16,8 @@ bool write_t_merchant_list(struct Merchant* head)
         }
         _chdir(".\\Merchant_List");
     }
+    printf("%d\n", errno);
+    fflush(stdout);
 
     // write merchant data to different files
     for (struct Merchant* current = head; current != NULL; current = current->next)
@@ -25,8 +27,12 @@ bool write_t_merchant_list(struct Merchant* head)
 
         if (_chdir(file_path) != 0)
         {
+            printf("%d\n", errno);
+            fflush(stdout);
             if (_mkdir(file_path) != 0)
             {
+                printf("%d\n", errno);
+                fflush(stdout);
                 perror("Failed to create the folder.\n");
                 return 0;
             }
@@ -649,6 +655,7 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
                 strcpy(newNode->name, name);
                 strcpy(newNode->phone, phone);
                 newNode->s = (enum state_d)s;
+                fclose(file);
             }
             else if (en->d_type == DT_DIR && strcmp(en->d_name, "Order List") == 0)
             {
@@ -659,7 +666,7 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
                 }
             }
         }
-        
+
         if (*head == NULL)
         {
             *head = newNode;
@@ -674,7 +681,6 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
         }
 
         // close file
-        fclose(file);
         closedir(subdir);
 
         _chdir("..");
@@ -742,6 +748,7 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
                 fscanf(file, "%s", name);
 
                 strcpy(newNode->name, name);
+                fclose(file);
             }
             else if (en->d_type == DT_DIR && strcmp(en->d_name, "Recipe List") == 0)
             {
@@ -767,7 +774,6 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
         }
 
         // close file
-        fclose(file);
         closedir(subdir);
 
         _chdir("..");
@@ -987,6 +993,7 @@ bool read_order_list(struct order** head, struct order** current)
 
                 newNode->s = (enum state_o)s;
                 newNode->sum_price = sum_price;
+                fclose(file);
             }
             else if (en->d_type == DT_DIR && strcmp(en->d_name, "Recipe List") == 0)
             {
@@ -997,7 +1004,7 @@ bool read_order_list(struct order** head, struct order** current)
                 }
             }
         }
-        
+
 
         if (*head == NULL)
         {
@@ -1013,7 +1020,6 @@ bool read_order_list(struct order** head, struct order** current)
         }
 
         // close file
-        fclose(file);
         closedir(subdir);
 
         _chdir("..");
