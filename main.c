@@ -649,7 +649,7 @@ int main()
 																			{
 																				//return
 																			case 0:
-																				flag_7 = 0;
+																				flag_8 = 0;
 																				break;
 
 																				//continue
@@ -687,7 +687,7 @@ int main()
 																			{
 																				//return
 																			case 0:
-																				flag_7 = 0;
+																				flag_8 = 0;
 																				break;
 
 																				//continue
@@ -926,12 +926,38 @@ int main()
 											case 3:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													char o_id[100] = { '\0' };
-													printf("please enter the order you want to search:\n");
-                                                    fflush(stdout);
-													scanf("%s", o_id);
-													o_current = search_order_id(u_current->t_o_head, o_id);
-													//print
+													printf("0.log out,1.contiune,2.return\n");
+													int t_5 = 0;
+													scanf("%d", &t_5);
+													switch (t_5)
+													{
+														//log out
+													case 0:
+														flag_5 = 0;
+														flag_4 = 0;
+														flag_3 = 0;
+														flag_2 = 0;
+														flag_1 = 0;
+														break;
+
+														//continue
+													case 1:
+														char o_id[100] = { '\0' };
+														printf("please enter the order you want to search:\n");
+														fflush(stdout);
+														scanf("%s", o_id);
+														o_current = search_order_id(u_current->t_o_head, o_id);
+														//print
+														break;
+
+														//return
+													case 2:
+														flag_5 = 0;
+														break;
+													default:
+														break;
+													}
+													
 												}
 												break;
 												//return
@@ -1012,23 +1038,40 @@ int main()
 							case 3:
 								for (int flag_3 = 1; flag_3 != 0;)
 								{
-									printf("1.SILVER,2.GOLD,3.PLATINUM\n");
+									printf("0.return,1.contiune\n");
 									int t_3 = 0;
-                                    fflush(stdout);
+									scanf("%d", &t_3);
 									switch (t_3)
 									{
+										//return
+									case 0:
+										flag_3 = 0;
+										break;
+
+										//continue
 									case 1:
-										u_current->c = SILVER;
-										break;
-									case 2:
-										u_current->c = GOLD;
-										break;
-									case 3:
-										u_current->c = PLATINUM;
+										printf("1.SILVER,2.GOLD,3.PLATINUM\n");
+										int t_3 = 0;
+										fflush(stdout);
+										switch (t_3)
+										{
+										case 1:
+											u_current->c = SILVER;
+											break;
+										case 2:
+											u_current->c = GOLD;
+											break;
+										case 3:
+											u_current->c = PLATINUM;
+											break;
+										default:
+											break;
+										}
 										break;
 									default:
 										break;
 									}
+									
 								}
 								break;
 
@@ -2350,6 +2393,7 @@ int main()
 								{
 									//log out
 								case 0:
+									flag_2 = 0;
 									flag_1 = 0;
 									break;
 
