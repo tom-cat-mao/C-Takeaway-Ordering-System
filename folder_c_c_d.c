@@ -19,6 +19,16 @@ bool write_t_merchant_list(struct Merchant* head)
     // write merchant data to different files
     for (struct Merchant* current = head; current != NULL; current = current->next)
     {
+        if (_chdir(current->name) != 0)
+        {
+            if (_mkdir(current->name) != 0)
+            {
+                perror("Failed to create the folder.\n");
+                return 0;
+            }
+            _chdir(current->name);
+        }
+
         FILE* file = fopen(current->name, "w");
         if (file == NULL)
         {
@@ -44,6 +54,8 @@ bool write_t_merchant_list(struct Merchant* head)
         }
 
         fclose(file);
+
+        _chdir("..");
     }
 
 
@@ -68,6 +80,16 @@ bool write_t_user_list(struct User* head)
     // write User data to different files
     for (struct User* current = head; current != NULL; current = current->next)
     {
+        if (_chdir(current->name) != 0)
+        {
+            if (_mkdir(current->name) != 0)
+            {
+                perror("Failed to create the folder.\n");
+                return 0;
+            }
+            _chdir(current->name);
+        }
+
         FILE* file = fopen(current->name, "w");
         if (file == NULL)
         {
@@ -88,6 +110,8 @@ bool write_t_user_list(struct User* head)
         }
 
         fclose(file);
+
+        _chdir("..");
     }
 
 
@@ -112,6 +136,16 @@ bool write_t_deliveryperson_list(struct DeliveryPerson* head)
     // write deliveryman data to different files
     for (struct DeliveryPerson* current = head; current != NULL; current = current->next)
     {
+        if (_chdir(current->name) != 0)
+        {
+            if (_mkdir(current->name) != 0)
+            {
+                perror("Failed to create the folder.\n");
+                return 0;
+            }
+            _chdir(current->name);
+        }
+
         FILE* file = fopen(current->name, "w");
         if (file == NULL)
         {
@@ -131,6 +165,8 @@ bool write_t_deliveryperson_list(struct DeliveryPerson* head)
         }
 
         fclose(file);
+
+        _chdir("..");
     }
 
 
@@ -155,6 +191,16 @@ bool write_t_order_list(struct order* head)
     // write order data to different files
     for (struct order* current = head; current != NULL; current = current->next)
     {
+        if (_chdir(current->order_id) != 0)
+        {
+            if (_mkdir(current->order_id) != 0)
+            {
+                perror("Failed to create the folder.\n");
+                return 0;
+            }
+            _chdir(current->order_id);
+        }
+
         FILE* file = fopen(current->order_id, "w");
         if (file == NULL)
         {
@@ -211,6 +257,8 @@ bool write_t_order_list(struct order* head)
         }
 
         fclose(file);
+
+        _chdir("..");
     }
 
     _chdir("..");
@@ -234,6 +282,16 @@ bool write_t_r_class_list(struct r_classify* head)
     // write recipe classify data to different files
     for (struct r_classify* current = head; current != NULL; current = current->next)
     {
+        if (_chdir(current->name) != 0)
+        {
+            if (_mkdir(current->name) != 0)
+            {
+                perror("Failed to create the folder.\n");
+                return 0;
+            }
+            _chdir(current->name);
+        }
+
         FILE* file = fopen(current->name, "w");
         if (file == NULL)
         {
@@ -251,6 +309,8 @@ bool write_t_r_class_list(struct r_classify* head)
         }
 
         fclose(file);
+
+        _chdir("..");
     }
 
     _chdir("..");
@@ -274,6 +334,16 @@ bool write_t_recipe_list(struct recipe* head)
     // write recipe data to different files
     for (struct recipe* current = head; current != NULL; current = current->next)
     {
+        if (_chdir(current->name) != 0)
+        {
+            if (_mkdir(current->name) != 0)
+            {
+                perror("Failed to create the folder.\n");
+                return 0;
+            }
+            _chdir(current->name);
+        }
+
         FILE* file = fopen(current->name, "w");
         if (file == NULL)
         {
@@ -288,6 +358,8 @@ bool write_t_recipe_list(struct recipe* head)
         fprintf(file, "%d\n", current->star);
 
         fclose(file);
+
+        _chdir("..");
     }
 
     _chdir("..");
@@ -313,43 +385,63 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        DIR* subdir;
+        subdir = opendir(entry->d_name);
+        if (subdir == NULL)
+        {
+            perror("Failed to open directory");
+            return 0;
+        }
+        
         FILE* file;
         char file_path[260];
         struct Merchant* newNode = (struct Merchant*)malloc(sizeof(struct Merchant));
+        newNode->next = NULL;
         char name[100];
         char address[100];
         char phone[20];
-        // splice path
-        sprintf(file_path, "%s/%s", ".", entry->d_name);
 
-        // open file
-        file = fopen(file_path, "r");
-        if (file == NULL)
+        struct dirent* en;
+        
+        while ((en = readdir(subdir)) != NULL)
         {
-            perror("Failed to open file");
-            return 0;
+            if (en->d_type == DT_REG)
+            {
+                // splice path
+                sprintf(file_path, "%s\\%s", ".", en->d_name);
+                // open file
+                file = fopen(file_path, "r");
+                if (file == NULL)
+                {
+                    perror("Failed to open file");
+                    return 0;
+                }
+
+                fscanf(file, "%s\n%s\n%s\n", name, address, phone);
+
+                strcpy(newNode->name, name);
+                strcpy(newNode->address, address);
+                strcpy(newNode->phone, phone);
+            }
+            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Order List") == 0)
+            {
+                if (!read_order_list(&(newNode->o_head), &(newNode->o_tail)))
+                {
+                    perror("Failed to read the order list.\n");
+                    return 0;
+                }
+            }
+            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Recipe classify List") == 0)
+            {
+                if (!read_r_class_list(&(newNode->r_head), &(newNode->r_tail)))
+                {
+                    perror("Failed to read the recipe classify list.\n");
+                    return 0;
+                }
+            }
         }
-
-        fscanf(file, "%s\n%s\n%s\n", name, address, phone);
-
-        strcpy(newNode->name, name);
-        strcpy(newNode->address, address);
-        strcpy(newNode->phone, phone);
-
-        if (!read_order_list(&(newNode->o_head), &(newNode->o_tail)))
-        {
-            perror("Failed to read the order list.\n");
-            return 0;
-        }
-
-        if (!read_r_class_list(&(newNode->r_head), &(newNode->r_tail)))
-        {
-            perror("Failed to read the recipe classify list.\n");
-            return 0;
-        }
-
-        newNode->next = NULL;
-
+        
+        // add new node to the list
         if (*head == NULL)
         {
             *head = newNode;
@@ -365,6 +457,8 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
 
         // close file
         fclose(file);
+
+        _chdir("..");
     }
 
     // close directory
@@ -394,6 +488,14 @@ bool read_user_list(struct User** head, struct User** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        DIR* subdir;
+        subdir = opendir(entry->d_name);
+        if (subdir == NULL)
+        {
+            perror("Failed to open directory");
+            return 0;
+        }
+        
         FILE* file;
         char file_path[260];
         struct User* newNode = (struct User*)malloc(sizeof(struct User));
@@ -401,31 +503,40 @@ bool read_user_list(struct User** head, struct User** current)
         char address[100];
         char phone[20];
         int c;
-        // splice path
-        sprintf(file_path, "%s/%s", ".", entry->d_name);
-
-        // open file
-        file = fopen(file_path, "r");
-        if (file == NULL)
-        {
-            perror("Failed to open file");
-            return 0;
-        }
-
-        fscanf(file, "%s\n%s\n%s\n%d\n", name, address, phone, &c);
-
-        strcpy(newNode->name, name);
-        strcpy(newNode->address, address);
-        strcpy(newNode->phone, phone);
-        newNode->c = (enum card)c;
-
-        if (!read_order_list(&(newNode->o_head), NULL))
-        {
-            perror("Failed to read the order list.\n");
-            return 0;
-        }
-
+        struct dirent* en;
         newNode->next = NULL;
+        
+
+        while ((en = readdir(subdir)) != NULL)
+        {
+            if (en->d_type == DT_REG)
+            {
+                // splice path
+                sprintf(file_path, "%s\\%s", ".", en->d_name);
+                // open file
+                file = fopen(file_path, "r");
+                if (file == NULL)
+                {
+                    perror("Failed to open file");
+                    return 0;
+                }
+
+                fscanf(file, "%s\n%s\n%s\n%d\n", name, address, phone, &c);
+
+                strcpy(newNode->name, name);
+                strcpy(newNode->address, address);
+                strcpy(newNode->phone, phone);
+                newNode->c = (enum card)c;
+            }
+            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Order List") == 0)
+            {
+                if (!read_order_list(&(newNode->o_head), NULL))
+                {
+                    perror("Failed to read the order list.\n");
+                    return 0;
+                }
+            }
+        }
 
         if (*head == NULL)
         {
@@ -442,11 +553,12 @@ bool read_user_list(struct User** head, struct User** current)
 
         // close file
         fclose(file);
+
+        _chdir("..");
     }
 
     // close directory
     closedir(dir);
-
 
     _chdir("..");
     return 1;
@@ -471,37 +583,53 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        DIR* subdir;
+        subdir = opendir(entry->d_name);
+        if (subdir == NULL)
+        {
+            perror("Failed to open directory");
+            return 0;
+        }
+        
         FILE* file;
         char file_path[260];
         struct DeliveryPerson* newNode = (struct DeliveryPerson*)malloc(sizeof(struct DeliveryPerson));
         char name[100];
         char phone[20];
         int s;
-        // splice path
-        sprintf(file_path, "%s/%s", ".", entry->d_name);
 
-        // open file
-        file = fopen(file_path, "r");
-        if (file == NULL)
+        struct dirent* en;
+        
+        while ((en = readdir(subdir)) != NULL)
         {
-            perror("Failed to open file");
-            return 0;
+            if (en->d_type == DT_REG)
+            {
+                // splice path
+                sprintf(file_path, "%s\\%s", ".", en->d_name);
+                // open file
+                file = fopen(file_path, "r");
+                if (file == NULL)
+                {
+                    perror("Failed to open file");
+                    return 0;
+                }
+
+                fscanf(file, "%s\n%s\n%d\n", name, phone, &s);
+
+                strcpy(newNode->name, name);
+                strcpy(newNode->phone, phone);
+                newNode->s = (enum state_d)s;
+            }
+            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Order List") == 0)
+            {
+                if (!read_order_list(&(newNode->o_head), NULL))
+                {
+                    perror("Failed to read the order list.\n");
+                    return 0;
+                }
+            }
         }
-
-        fscanf(file, "%s\n%s\n%d\n", name, phone, &s);
-
-        strcpy(newNode->name, name);
-        strcpy(newNode->phone, phone);
-        newNode->s = (enum state_d)s;
-
-        if (!read_order_list(&(newNode->o_head), NULL))
-        {
-            perror("Failed to read the order list.\n");
-            return 0;
-        }
-
-        newNode->next = NULL;
-
+        
         if (*head == NULL)
         {
             *head = newNode;
@@ -517,11 +645,12 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
 
         // close file
         fclose(file);
+
+        _chdir("..");
     }
 
     // close directory
     closedir(dir);
-
 
     _chdir("..");
     return 1;
@@ -546,33 +675,49 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        DIR* subdir;
+        subdir = opendir(entry->d_name);
+        if (subdir == NULL)
+        {
+            perror("Failed to open directory");
+            return 0;
+        }
+        
         FILE* file;
         char file_path[260];
         struct r_classify* newNode = (struct r_classify*)malloc(sizeof(struct r_classify));
+        newNode->next = NULL;
         char name[100];
 
-        // splice path
-        sprintf(file_path, "%s/%s", ".", entry->d_name);
+        struct dirent* en;
 
-        // open file
-        file = fopen(file_path, "r");
-        if (file == NULL)
+        while ((en = readdir(subdir)) != NULL)
         {
-            perror("Failed to open file");
-            return 0;
+            if (en->d_type == DT_REG)
+            {
+                // splice path
+                sprintf(file_path, "%s\\%s", ".", en->d_name);
+                // open file
+                file = fopen(file_path, "r");
+                if (file == NULL)
+                {
+                    perror("Failed to open file");
+                    return 0;
+                }
+
+                fscanf(file, "%s", name);
+
+                strcpy(newNode->name, name);
+            }
+            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Recipe List") == 0)
+            {
+                if (!read_recipe_list(&(newNode->r_head), &(newNode->r_tail)))
+                {
+                    perror("Failed to read the recipe list.\n");
+                    return 0;
+                }
+            }
         }
-
-        fscanf(file, "%s", name);
-
-        strcpy(newNode->name, name);
-
-        if (!read_recipe_list(&(newNode->r_head), &(newNode->r_tail)))
-        {
-            perror("Failed to read the recipe list.\n");
-            return 0;
-        }
-
-        newNode->next = NULL;
 
         if (*head == NULL)
         {
@@ -589,6 +734,8 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
 
         // close file
         fclose(file);
+
+        _chdir("..");
     }
 
     // close directory
@@ -627,7 +774,7 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
         int star;
 
         // splice path
-        sprintf(file_path, "%s/%s", ".", entry->d_name);
+        sprintf(file_path, "%s\\%s", ".", entry->d_name);
 
         // open file
         file = fopen(file_path, "r");
@@ -690,9 +837,18 @@ bool read_order_list(struct order** head, struct order** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        DIR* subdir;
+        subdir = opendir(entry->d_name);
+        if (subdir == NULL)
+        {
+            perror("Failed to open directory");
+            return 0;
+        }
+        
         FILE* file;
         char file_path[260];
         struct order* newNode = (struct order*)malloc(sizeof(struct order));
+        newNode->next = NULL;
         char order_id[100];
         char m_name[100];
         char d_name[100];
@@ -711,91 +867,99 @@ bool read_order_list(struct order** head, struct order** current)
         int a_mday, a_month, a_hour, a_min, a_sec;
         int s_mday, s_month, s_hour, s_min, s_sec;
 
-        // splice path
-        sprintf(file_path, "%s/%s", ".", entry->d_name);
+        struct dirent* en;
 
-        // open file
-        file = fopen(file_path, "r");
-        if (file == NULL)
+        while ((en = readdir(subdir)) != NULL)
         {
-            perror("Failed to open file");
-            return 0;
+            if (en->d_type == DT_REG)
+            {
+                // splice path
+                sprintf(file_path, "%s\\%s", ".", entry->d_name);
+
+                // open file
+                file = fopen(file_path, "r");
+                if (file == NULL)
+                {
+                    perror("Failed to open file");
+                    return 0;
+                }
+
+                fscanf(file, "%s\n", order_id);
+                fscanf(file, "%d\n%d\n%d\n%d\n%d\n", &l_month, &l_mday, &l_hour, &l_min, &l_sec);
+                fscanf(file, "%d\n%d\n%d\n%d\n%d\n", &s_month, &s_mday, &s_hour, &s_min, &s_sec);
+                fscanf(file, "%d\n%d\n%d\n%d\n%d\n", &a_month, &a_mday, &a_hour, &a_min, &a_sec);
+                fscanf(file, "%s\n%s\n%s\n", m_name, m_address, m_phone);
+                fscanf(file, "%s\n%s\n", d_name, d_phone);
+                fscanf(file, "%s\n%s\n%s\n", u_name, u_address, u_phone);
+                fscanf(file, "%d\n%f\n", &s, &sum_price);
+
+                // initialize the new node
+                strcpy(newNode->order_id, order_id);
+
+
+                strcpy(newNode->m_name, m_name);
+                strcpy(newNode->d_name, d_name);
+                strcpy(newNode->u_name, u_name);
+
+                strcpy(newNode->m_address, m_address);
+                strcpy(newNode->u_address, u_address);
+
+                strcpy(newNode->m_phone, m_phone);
+                strcpy(newNode->d_phone, d_phone);
+                strcpy(newNode->u_phone, u_phone);
+
+                _localTime = (struct tm*)malloc(sizeof(struct tm));
+                _localTime->tm_mday = l_mday;
+                _localTime->tm_mon = l_month - 1;
+                _localTime->tm_hour = l_hour;
+                _localTime->tm_min = l_min;
+                _localTime->tm_sec = l_sec;
+
+                time_t t = mktime(_localTime);
+                free(_localTime);
+
+                _localTime = localtime(&t);
+
+
+                arrive_time = (struct tm*)malloc(sizeof(struct tm));
+                arrive_time->tm_mday = a_mday;
+                arrive_time->tm_mon = a_month - 1;
+                arrive_time->tm_hour = a_hour;
+                arrive_time->tm_min = a_min;
+                arrive_time->tm_sec = a_sec;
+
+                t = mktime(arrive_time);
+                free(arrive_time);
+
+                arrive_time = localtime(&t);
+
+
+                send_time = (struct tm*)malloc(sizeof(struct tm));
+
+                send_time->tm_mday = s_mday;
+                send_time->tm_mon = s_month - 1;
+                send_time->tm_hour = s_hour;
+                send_time->tm_min = s_min;
+                send_time->tm_sec = s_sec;
+
+                t = mktime(send_time);
+                free(send_time);
+                send_time = localtime(&t);
+
+
+                newNode->s = (enum state_o)s;
+                newNode->sum_price = sum_price;
+            }
+            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Recipe List") == 0)
+            {
+                if (!read_recipe_list(&(newNode->r_head), &(newNode->r_tail)))
+                {
+                    perror("Failed to read the recipe list.\n");
+                    return 0;
+                }
+            }
         }
-
-        fscanf(file, "%s\n", order_id);
-        fscanf(file, "%d\n%d\n%d\n%d\n%d\n", &l_month, &l_mday, &l_hour, &l_min, &l_sec);
-        fscanf(file, "%d\n%d\n%d\n%d\n%d\n", &s_month, &s_mday, &s_hour, &s_min, &s_sec);
-        fscanf(file, "%d\n%d\n%d\n%d\n%d\n", &a_month, &a_mday, &a_hour, &a_min, &a_sec);
-        fscanf(file, "%s\n%s\n%s\n", m_name, m_address, m_phone);
-        fscanf(file, "%s\n%s\n", d_name, d_phone);
-        fscanf(file, "%s\n%s\n%s\n", u_name, u_address, u_phone);
-        fscanf(file, "%d\n%f\n", &s, &sum_price);
-
-        // initialize the new node
-        strcpy(newNode->order_id, order_id);
-
-
-        strcpy(newNode->m_name, m_name);
-        strcpy(newNode->d_name, d_name);
-        strcpy(newNode->u_name, u_name);
-
-        strcpy(newNode->m_address, m_address);
-        strcpy(newNode->u_address, u_address);
-
-        strcpy(newNode->m_phone, m_phone);
-        strcpy(newNode->d_phone, d_phone);
-        strcpy(newNode->u_phone, u_phone);
-
-        _localTime = (struct tm*)malloc(sizeof(struct tm));
-        _localTime->tm_mday = l_mday;
-        _localTime->tm_mon = l_month - 1;
-        _localTime->tm_hour = l_hour;
-        _localTime->tm_min = l_min;
-        _localTime->tm_sec = l_sec;
-
-        time_t t = mktime(_localTime);
-        free(_localTime);
-
-        _localTime = localtime(&t);
-
-
-        arrive_time = (struct tm*)malloc(sizeof(struct tm));
-        arrive_time->tm_mday = a_mday;
-        arrive_time->tm_mon = a_month - 1;
-        arrive_time->tm_hour = a_hour;
-        arrive_time->tm_min = a_min;
-        arrive_time->tm_sec = a_sec;
-
-        t = mktime(arrive_time);
-        free(arrive_time);
-
-        arrive_time = localtime(&t);
-
-
-        send_time = (struct tm*)malloc(sizeof(struct tm));
-
-        send_time->tm_mday = s_mday;
-        send_time->tm_mon = s_month - 1;
-        send_time->tm_hour = s_hour;
-        send_time->tm_min = s_min;
-        send_time->tm_sec = s_sec;
-
-        t = mktime(send_time);
-        free(send_time);
-        send_time = localtime(&t);
-
-
-        newNode->s = (enum state_o)s;
-        newNode->sum_price = sum_price;
-
-        if (!read_recipe_list(&(newNode->r_head), &(newNode->r_tail)))
-        {
-            perror("Failed to read the recipe classify list.\n");
-            return 0;
-        }
-
-
-        newNode->next = NULL;
+        
 
         if (*head == NULL)
         {
@@ -812,6 +976,8 @@ bool read_order_list(struct order** head, struct order** current)
 
         // close file
         fclose(file);
+
+        _chdir("..");
     }
 
     // close directory
