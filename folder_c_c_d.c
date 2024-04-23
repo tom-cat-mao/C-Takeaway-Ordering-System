@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "folder_create_change_delete.h"
+#include <errno.h>
 
 
 // write the merchant list to the merchant list folder
@@ -21,8 +22,12 @@ bool write_t_merchant_list(struct Merchant* head)
     {
         if (_chdir(current->name) != 0)
         {
+            printf("%d\n", errno);
+            fflush(stdout);
             if (_mkdir(current->name) != 0)
             {
+                printf("%d\n", errno);
+                fflush(stdout);
                 perror("Failed to create the folder.\n");
                 return 0;
             }

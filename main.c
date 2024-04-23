@@ -66,6 +66,7 @@ int main()
 	for (int flag = 1; flag != 0;)
 	{
 		printf("please choose your identity:(0.Close,1.User,2.Merchant,3.Delivery Preson,4.administrator)\n");
+        fflush(stdout);
 		int t = 0;
 		scanf("%d", &t);
 		switch (t)
@@ -81,6 +82,7 @@ int main()
 			for (int flag_1 = 1; flag_1 != 0;)
 			{
 				printf("0.return,1.sign in,2.sign up\n");
+                fflush(stdout);
 				int t_1 = 0;
 				scanf("%d", &t_1);
 				switch (t_1)
@@ -92,8 +94,9 @@ int main()
 
 					//sign in
 				case 1:
-					char name[100] = { '\0' };
+					char name[100];
 					printf("please enter your username:\n");
+                    fflush(stdout);
 					scanf("%s", name);
 					if (compare_u(p_head_u, name, &p_u_current))//compare the user's name and password
 					{
@@ -102,6 +105,7 @@ int main()
 						for (int flag_2 = 1; flag_2 != 0;)
 						{
 							printf("0.log out,1.make an order,2.view and cancel order,3.change card,4.password change,5.deactivate\n");
+                            fflush(stdout);
 							int t_2 = 0;
 							scanf("%d", &t_2);
 							switch (t_2)
@@ -118,6 +122,7 @@ int main()
 								{
 									printList_merchant(m_head);
 									printf("0.log out,1.choose a merchant,2.return\n");
+                                    fflush(stdout);
 									int t_3 = 0;
 									scanf("%d", &t_3);
 									switch (t_3)
@@ -131,8 +136,9 @@ int main()
 
 										//choose a merchant
 									case 1:
-										char m_name[100] = { '\0' };
+										char m_name[100];
 										printf("please enter the merchant you choose:\n");
+                                        fflush(stdout);
 										scanf("%s", m_name);
 										m_current = search_Merchant_name(t_m_head, m_name);
 
@@ -141,7 +147,9 @@ int main()
 										for (int flag_4 = 1; flag_4 != 0;)
 										{
 											printList_r_classify(m_current->r_head);
+                                            fflush(stdout);
 											printf("0.log out,1.sort,2.search,3choose,4.return||finish\n");
+                                            fflush(stdout);
 											int t_4 = 0;
 											scanf("%d", &t_4);
 											switch (t_4)
@@ -156,9 +164,10 @@ int main()
 
 												//sort
 											case 1:
-												for (int flag_5 = 0; flag_5 != 0;)
+												for (int flag_5 = 1; flag_5 != 0;)
 												{
 													printf("0.log out,1.sort,2.return\n");
+                                                    fflush(stdout);
 													int t_5 = 0;
 													switch (t_5)
 													{
@@ -173,9 +182,10 @@ int main()
 
 														//sort
 													case 1:
-														for (int flag_6 = 0; flag_6 != 0;)
+														for (int flag_6 = 1; flag_6 != 0;)
 														{
 															printf("0.return,1.sort by price,2.sort by stars,3.sort by comprehensive\n");
+                                                            fflush(stdout);
 															int t_6 = 0;
 															scanf("%d", &t_6);
 															switch (t_6)
@@ -190,6 +200,7 @@ int main()
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
 																	printf("0.return,1.upper,2.lower,3.choose\n");
+                                                                    fflush(stdout);
 																	int t_7 = 0;
 																	scanf("%d", &t_7);
 																	switch (t_7)
@@ -207,6 +218,7 @@ int main()
 																			m_current->r_head = m_current->r_head->next;
 																		}
 																		printList_r_classify(m_current->r_head);
+                                                                        fflush(stdout);
 																		break;
 
 																		//lower
@@ -217,6 +229,7 @@ int main()
 																			m_current->r_head = m_current->r_head->next;
 																		}
 																		printList_r_classify(m_current->r_head);
+                                                                        fflush(stdout);
 																		break;
 
 																		//choose
@@ -225,9 +238,11 @@ int main()
 
 																		char r_name[100] = { '\0' };
 																		printf("please enter the recipe name:\n");
+                                                                        fflush(stdout);
 																		scanf("%s", r_name);
 																		r_current = search_recipe_name(m_current->t_r_head, r_name);
 																		printf("pleae enter the number you want:\n");
+                                                                        fflush(stdout);
 																		int n = 0;
 																		scanf("%d", &n);
 																		r_current = creatList_recipe_1(r_current->name, r_current->price, n);
@@ -244,6 +259,7 @@ int main()
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
 																	printf("0.return,1.upper,2.lower\n");
+                                                                    fflush(stdout);
 																	int t_7 = 0;
 																	scanf("%d", &t_7);
 																	switch (t_7)
@@ -261,6 +277,7 @@ int main()
 																			m_current->r_head = m_current->r_head->next;
 																		}
 																		printList_r_classify(m_current->r_head);
+                                                                        fflush(stdout);
 																		break;
 
 																		//lower
@@ -271,6 +288,7 @@ int main()
 																			m_current->r_head = m_current->r_head->next;
 																		}
 																		printList_r_classify(m_current->r_head);
+                                                                        fflush(stdout);
 																		break;
 
 																		//choose
@@ -279,9 +297,11 @@ int main()
 
 																		char r_name[100] = { '\0' };
 																		printf("please enter the recipe name:\n");
+                                                                        fflush(stdout);
 																		scanf("%s", r_name);
 																		r_current = search_recipe_name(m_current->t_r_head, r_name);
 																		printf("pleae enter the number you want:\n");
+                                                                        fflush(stdout);
 																		int n = 0;
 																		scanf("%d", &n);
 																		r_current = creatList_recipe_1(r_current->name, r_current->price, n);
@@ -298,6 +318,7 @@ int main()
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
 																	printf("0.return,1.upper,2.lower\n");
+                                                                    fflush(stdout);
 																	int t_7 = 0;
 																	scanf("%d", &t_7);
 																	switch (t_7)
@@ -315,6 +336,7 @@ int main()
 																			m_current->r_head = m_current->r_head->next;
 																		}
 																		printList_r_classify(m_current->r_head);
+                                                                        fflush(stdout);
 																		break;
 
 																		//lower
@@ -325,6 +347,7 @@ int main()
 																			m_current->r_head = m_current->r_head->next;
 																		}
 																		printList_r_classify(m_current->r_head);
+                                                                        fflush(stdout);
 																		break;
 
 																		//choose
@@ -336,6 +359,7 @@ int main()
 																		scanf("%s", r_name);
 																		r_current = search_recipe_name(m_current->t_r_head, r_name);
 																		printf("pleae enter the number you want:\n");
+                                                                        fflush(stdout);
 																		int n = 0;
 																		scanf("%d", &n);
 																		r_current = creatList_recipe_1(r_current->name, r_current->price, n);
@@ -382,6 +406,7 @@ int main()
 														for (int flag_6 = 1; flag_6 != 0;)
 														{
 															printf("0.return,1.single inquiry,2.combination inquiry\n");
+                                                            fflush(stdout);
 															int t_6 = 0;
 															scanf("%d", &t_6);
 															switch (t_6)
@@ -396,6 +421,7 @@ int main()
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
 																	printf("0.return,1.continue\n");
+                                                                    fflush(stdout);
 																	int t_7 = 0;
 																	scanf("%d", &t_7);
 																	switch (t_7)
@@ -409,22 +435,26 @@ int main()
 																	case 1:
 																		char r_name[100] = { '\0' };
 																		printf("please enter the recipe name:\n");
+                                                                        fflush(stdout);
 																		scanf("%s", r_name);
 																		r_current = search_recipe_name(m_current->t_r_head, r_name);
 																		if (r_current == NULL)
 																		{
 																			printf("we don't have the recipe you search\n");
+                                                                            fflush(stdout);
 																		}
 																		else
 																		{
 																			//print
 																			char j;
 																			printf("Y\\N(Y for choose this recipe)\n");
+                                                                            fflush(stdout);
 																			scanf("%c", &j);
 																			if (j == 'Y')
 																			{
 																				judge = 1;
 																				printf("pleae enter the number you want:\n");
+                                                                                fflush(stdout);
 																				int n = 0;
 																				scanf("%d", &n);
 																				r_current = creatList_recipe_1(r_current->name, r_current->price, n);
@@ -445,6 +475,7 @@ int main()
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
 																	printf("0.return,1.continue\n");
+                                                                    fflush(stdout);
 																	int t_7 = 0;
 																	scanf("%d", &t_7);
 																	switch (t_7)
@@ -459,12 +490,14 @@ int main()
 																		char rc_name[100] = { '\0' };
 																		char r_name[100] = { '\0' };
 																		printf("please enter the r_class and the rcipe you want to search:\n");
+                                                                        fflush(stdout);
 																		scanf("%s", rc_name);
 																		scanf("%s", r_name);
 																		rc_current = find_r_classify(m_current, rc_name);
 																		if (rc_current == NULL)
 																		{
 																			printf("we don't have the class you want\n");
+                                                                            fflush(stdout);
 																		}
 																		else
 																		{
@@ -472,17 +505,20 @@ int main()
 																			if (r_current == NULL)
 																			{
 																				printf("we don't have the recipe you search\n");
+                                                                                fflush(stdout);
 																			}
 																			else
 																			{
 																				//print
 																				char j;
 																				printf("Y\\N(Y for choose this recipe)\n");
+                                                                                fflush(stdout);
 																				scanf("%c", &j);
 																				if (j == 'Y')
 																				{
 																					judge = 1;
 																					printf("pleae enter the number you want:\n");
+                                                                                    fflush(stdout);
 																					int n = 0;
 																					scanf("%d", &n);
 																					r_current = creatList_recipe_1(r_current->name, r_current->price, n);
@@ -508,6 +544,7 @@ int main()
 														for (int flag_6 = 1; flag_6 != 0;)
 														{
 															printf("0.return,1.continue\n");
+                                                            fflush(stdout);
 															int t_6 = 0;
 															scanf("%d", &t_6);
 															switch (t_6)
@@ -521,12 +558,15 @@ int main()
 															case 1:
 																char str[100] = { '\0' };
 																printf("please enter the string you want to search:\n");
+                                                                fflush(stdout);
 																scanf("%s", str);
 																FuzzySearchInClassify(m_current->r_head, str);
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
 																	printf("whether you want to order any recipe\n");
+                                                                    fflush(stdout);
 																	printf("0.return,1.continue\n");
+                                                                    fflush(stdout);
 																	int t_7 = 0;
 																	scanf("%d", &t_7);
 																	switch (t_7)
@@ -542,9 +582,11 @@ int main()
 
 																		char r_name[100] = { '\0' };
 																		printf("please enter the recipe name:\n");
+                                                                        fflush(stdout);
 																		scanf("%s", r_name);
 																		r_current = search_recipe_name(m_current->t_r_head, r_name);
 																		printf("pleae enter the number you want:\n");
+                                                                        fflush(stdout);
 																		int n = 0;
 																		scanf("%d", &n);
 																		r_current = creatList_recipe_1(r_current->name, r_current->price, n);
@@ -568,6 +610,7 @@ int main()
 															printf("0.return,1.continue\n");
 															int t_6 = 0;
 															scanf("%d", &t_6);
+                                                            fflush(stdout);
 															switch (t_6)
 															{
 																//return
@@ -580,10 +623,12 @@ int main()
 																float max_price = 0.0;
 																float min_price = 0.0;
 																printf("please enter the max price and the min price:\n");
-																scanf("%d%d", &max_price, &min_price);
-																for (int flag_7 = 1; flag_7 = 0;)
+                                                                fflush(stdout);
+																scanf("%f%f", &max_price, &min_price);
+																for (int flag_7 = 1; flag_7 != 0;)
 																{
 																	printf("0.return,1.lower,2.upper\n");
+                                                                    fflush(stdout);
 																	int t_7 = 0;
 																	scanf("%d", &t_7);
 																	switch (t_7)
@@ -597,6 +642,7 @@ int main()
 																		{
 																			printf("whether you want to order any recipe\n");
 																			printf("0.return,1.continue\n");
+                                                                            fflush(stdout);
 																			int t_8 = 0;
 																			scanf("%d", &t_8);
 																			switch (t_8)
@@ -612,12 +658,15 @@ int main()
 
 																				char r_name[100] = { '\0' };
 																				printf("please enter the recipe name:\n");
+                                                                                fflush(stdout);
 																				scanf("%s", r_name);
 																				r_current = search_recipe_name(m_current->t_r_head, r_name);
 																				printf("pleae enter the number you want:\n");
+                                                                                fflush(stdout);
 																				int n = 0;
 																				scanf("%d", &n);
 																				r_current = creatList_recipe_1(r_current->name, r_current->price, n);
+                                                                                fflush(stdout);
 																				insertEnd_r(&r_head, &r_tail, r_current);
 																				break;
 																			default:
@@ -631,6 +680,7 @@ int main()
 																		{
 																			printf("whether you want to order any recipe\n");
 																			printf("0.return,1.continue\n");
+                                                                            fflush(stdout);
 																			int t_8 = 0;
 																			scanf("%d", &t_8);
 																			switch (t_8)
@@ -646,6 +696,7 @@ int main()
 
 																				char r_name[100] = { '\0' };
 																				printf("please enter the recipe name:\n");
+                                                                                fflush(stdout);
 																				scanf("%s", r_name);
 																				r_current = search_recipe_name(m_current->t_r_head, r_name);
 																				printf("pleae enter the number you want:\n");
@@ -676,6 +727,7 @@ int main()
 														for (int flag_6 = 1; flag_6 != 0;)
 														{
 															printf("0.return,1.continue\n");
+                                                            fflush(stdout);
 															int t_6 = 0;
 															scanf("%d", &t_6);
 															switch (t_6)
@@ -691,9 +743,11 @@ int main()
 
 																char r_name[100] = { '\0' };
 																printf("please enter the recipe name:\n");
+                                                                fflush(stdout);
 																scanf("%s", r_name);
 																r_current = search_recipe_name(m_current->t_r_head, r_name);
 																printf("pleae enter the number you want:\n");
+                                                                fflush(stdout);
 																int n = 0;
 																scanf("%d", &n);
 																r_current = creatList_recipe_1(r_current->name, r_current->price, n);
@@ -719,9 +773,11 @@ int main()
 
 												char r_name[100] = { '\0' };
 												printf("please enter the recipe name:\n");
+                                                fflush(stdout);
 												scanf("%s", r_name);
 												r_current = search_recipe_name(m_current->t_r_head, r_name);
-												printf("pleae enter the number you want:\n");
+												printf("please enter the number you want:\n");
+                                                fflush(stdout);
 												int n = 0;
 												scanf("%d", &n);
 												r_current = creatList_recipe_1(r_current->name, r_current->price, n);
@@ -768,6 +824,7 @@ int main()
 								for (int flag_3 = 1; flag_3 != 0;)
 								{
 									printf("0.log out,1.show order,2.cancel order,3.return\n");
+                                    fflush(stdout);
 									int t_3 = 0;
 									scanf("%d", &t_3);
 									switch (t_3)
@@ -785,6 +842,7 @@ int main()
 										{
 											print_order_list(u_current->o_tail);
 											printf("0.log out,1.sort in time,2.sort in price,3.search,4.return\n");
+                                            fflush(stdout);
 											int t_4 = 0;
 											scanf("%d", &t_4);
 											switch (t_4)
@@ -802,6 +860,7 @@ int main()
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
 													printf("0.return,1.upper,2.lower\n");
+                                                    fflush(stdout);
 													int  t_5 = 0;
 													scanf("%d", &t_5);
 													switch (t_5)
@@ -815,12 +874,14 @@ int main()
 													case 1:
 														u_current->o_head = o_mergeSortLower_t(u_current->o_head, &(u_current->o_tail));
 														print_order_list(u_current->o_tail);
+                                                        fflush(stdout);
 														break;
 
 														//lower
 													case 2:
 														u_current->o_head = o_mergeSortUpper_t(u_current->o_head, &(u_current->o_tail));
 														print_order_list(u_current->o_tail);
+                                                        fflush(stdout);
 														break;
 													default:
 														break;
@@ -834,6 +895,7 @@ int main()
 												{
 													printf("0.return,1.upper,2.lower\n");
 													int  t_5 = 0;
+                                                    fflush(stdout);
 													scanf("%d", &t_5);
 													switch (t_5)
 													{
@@ -846,6 +908,7 @@ int main()
 													case 1:
 														u_current->o_head = o_mergeSortLower_p(u_current->o_head, &(u_current->o_tail));
 														print_order_list(u_current->o_tail);
+                                                        fflush(stdout);
 														break;
 
 														//lower
@@ -865,6 +928,7 @@ int main()
 												{
 													char o_id[100] = { '\0' };
 													printf("please enter the order you want to search:\n");
+                                                    fflush(stdout);
 													scanf("%s", o_id);
 													o_current = search_order_id(u_current->t_o_head, o_id);
 													//print
@@ -886,6 +950,7 @@ int main()
 										{
 											print_order_list(u_current->o_tail);
 											printf("0.log out,1.contiune,2.return\n");
+                                            fflush(stdout);
 											int t_4 = 0;
 											scanf("%d", &t_4);
 											switch (t_4)
@@ -902,10 +967,12 @@ int main()
 											case 1:
 												char o_id[100] = { '\0' };
 												printf("please enter the order id you want to cancel\n");
+                                                fflush(stdout);
 												scanf("%s", o_id);
 												o_current = search_order_id(u_current->t_o_head, o_id);
 												printf("Y\\N(Y for cancle)\n");
 												char j;
+                                                fflush(stdout);
 												scanf("%c", &j);
 												switch (j)
 												{
@@ -947,6 +1014,7 @@ int main()
 								{
 									printf("1.SILVER,2.GOLD,3.PLATINUM\n");
 									int t_3 = 0;
+                                    fflush(stdout);
 									switch (t_3)
 									{
 									case 1:
@@ -989,12 +1057,16 @@ int main()
 					char address[100] = { '\0' };
 					char phone[100] = { '\0' };
 					printf("please enter your username:\n");
+                    fflush(stdout);
 					scanf("%s", name_1);
 					printf("please enter your password:\n");
+                    fflush(stdout);
 					scanf("%s", password);
 					printf("please enter your address:\n");
+                    fflush(stdout);
 					scanf("%s", address);
 					printf("please enter your phone number:\n");
+                    fflush(stdout);
 					scanf("%s", phone);
 					u_createList_p(&p_head_u, &p_u_current, u_creatNode_p(name_1, password, phone));
 					u_current = creatList_user(name_1, password, address, phone);
@@ -1012,10 +1084,11 @@ int main()
 
 			//Merchant
 		case 2:
-			for (int flag_1 = 1; flag_1 = 0;)
+			for (int flag_1 = 1; flag_1 != 0;)
 			{
 				printf("0.Return,1.Sign in,2.Sign up\n");
 				int t_1 = 0;
+                fflush(stdout);
 				scanf("%d", &t_1);
 				switch (t_1)
 				{
@@ -1028,6 +1101,7 @@ int main()
 				case 1:
 					char name[100] = { '\0' };
 					printf("please enter your username:\n");
+                    fflush(stdout);
 					scanf("%s", name);
 					if (compare_m(p_head_m, name, &p_m_current))//compare the merchant's name and password
 					{
@@ -1037,6 +1111,7 @@ int main()
 						{
 							printf("0.log out,1.recipe,2.order,3.password£¬4.deactivate\n");
 							int t_2 = 0;
+                            fflush(stdout);
 							scanf("%d", &t_2);
 							switch (t_2)
 							{
@@ -1053,6 +1128,7 @@ int main()
 									printList_r_classify(m_current->r_head);
 									printf("0.log out,1.operate in recipe class,2.operate in recipe,3return\n");
 									int t_3 = 0;
+                                    fflush(stdout);
 									scanf("%d", &t_3);
 									switch (t_3)
 									{
@@ -1070,6 +1146,7 @@ int main()
 
 											printf("0.log out,1.add recipe class,2.delete recipe class,3.change recipe class's name,4.inquiry recipe class,5.return\n");
 											int t_4 = 0;
+                                            fflush(stdout);
 											scanf("%d", &t_4);
 											switch (t_4)
 											{
@@ -1087,6 +1164,7 @@ int main()
 												{
 													printf("0.log out,1,continue,2.return\n");
 													int t_5 = 0;
+                                                    fflush(stdout);
 													scanf("%d", &t_5);
 													switch (t_5)
 													{
@@ -1103,6 +1181,7 @@ int main()
 													case 1:
 														printf("please enter your recipe class name:\n");
 														char rc_name[100] = { '\0' };
+                                                        fflush(stdout);
 														scanf("%s", rc_name);
 														rc_current = creatList_r_classify(rc_name);
 														insertEnd_rc(&(m_current->r_head), &(m_current->r_tail), rc_current);
@@ -1112,6 +1191,7 @@ int main()
 														{
 															printf("0.return,1.add recipe\n");
 															int t_6 = 0;
+                                                            fflush(stdout);
 															scanf("%d", &t_6);
 															switch (t_6)
 															{
@@ -1125,8 +1205,10 @@ int main()
 																char r_name[100] = { '\0' };
 																float p = 0.0;
 																printf("please enter recipe name:\n");
+                                                                fflush(stdout);
 																scanf("%s", r_name);
 																printf("please enter the price:\n");
+                                                                fflush(stdout);
 																scanf("%f", &p);
 																r_current = creatList_recipe_2(r_name, p);
 																insertEnd_r(&(rc_current->r_head), &(rc_current->r_tail), r_current);
@@ -1156,6 +1238,7 @@ int main()
 												{
 													printf("0.log out,1,continue,2.return\n");
 													int t_5 = 0;
+                                                    fflush(stdout);
 													scanf("%d", &t_5);
 													switch (t_5)
 													{
@@ -1169,6 +1252,7 @@ int main()
 													case 1:
 														char rc_name[100] = { '\0' };
 														printf("please enter the recipe class you want to operate:\n");
+                                                        fflush(stdout);
 														scanf("%s", rc_name);
 														rc_current = find_r_classify(m_current, rc_name);
 														delete_specific_r_class(&rc_current, &(m_current->r_head), &(m_current->r_tail));
@@ -1189,6 +1273,7 @@ int main()
 												{
 													printf("0.log out,1,continue,2.return\n");
 													int t_5 = 0;
+                                                    fflush(stdout);
 													scanf("%d", &t_5);
 													switch (t_5)
 													{
@@ -1202,10 +1287,12 @@ int main()
 													case 1:
 														char rc_name[100] = { '\0' };
 														printf("please enter the recipe class you want to operate:\n");
+                                                        fflush(stdout);
 														scanf("%s", rc_name);
 														rc_current = find_r_classify(m_current, rc_name);
 														char new_rc_name[100] = { '\0' };
 														printf("please enter the new name:\n");
+                                                        fflush(stdout);
 														scanf("%s", new_rc_name);
 														strcpy(rc_current->name, new_rc_name);
 														break;
@@ -1225,6 +1312,7 @@ int main()
 												{
 													printf("0.log out,1,continue,2.return\n");
 													int t_5 = 0;
+                                                    fflush(stdout);
 													scanf("%d", &t_5);
 													switch (t_5)
 													{
@@ -1238,6 +1326,7 @@ int main()
 													case 1:
 														char rc_name[100] = { '\0' };
 														printf("please enter the recipe class you want to see:\n");
+                                                        fflush(stdout);
 														scanf("%s", rc_name);
 														rc_current = find_r_classify(m_current, rc_name);
 														printList_recipe_1(rc_current->r_head);
@@ -1268,6 +1357,7 @@ int main()
 										{
 											printf("0.log out,1.add recipe,2.delete recipe,3.move recipe,4.inquiry recipe,5.set slae recipe,6.sort recipe,7.return\n");
 											int t_4 = 0;
+                                            fflush(stdout);
 											scanf("%d", &t_4);
 											switch (t_4)
 											{
@@ -1285,6 +1375,7 @@ int main()
 												{
 													printf("0.log out,1,continue,2.return\n");
 													int t_5 = 0;
+                                                    fflush(stdout);
 													scanf("%d", &t_5);
 													switch (t_5)
 													{
@@ -1301,6 +1392,7 @@ int main()
 													case 1:
 														printf("please enter your recipe class name you want to operate:\n");
 														char rc_name[100] = { '\0' };
+                                                        fflush(stdout);
 														scanf("%s", rc_name);
 														rc_current = find_r_classify(m_current, rc_name);
 
@@ -1309,6 +1401,7 @@ int main()
 														{
 															printf("0.return,1.add recipe\n");
 															int t_6 = 0;
+                                                            fflush(stdout);
 															scanf("%d", &t_6);
 															switch (t_6)
 															{
@@ -1322,8 +1415,10 @@ int main()
 																char r_name[100] = { '\0' };
 																float p = 0.0;
 																printf("please enter recipe name:\n");
+                                                                fflush(stdout);
 																scanf("%s", r_name);
 																printf("please enter the price:\n");
+                                                                fflush(stdout);
 																scanf("%f", &p);
 																r_current = creatList_recipe_2(r_name, p);
 																insertEnd_r(&(rc_current->r_head), &(rc_current->r_tail), r_current);
@@ -1352,6 +1447,7 @@ int main()
 												{
 													printf("0.log out,1,continue,2.return\n");
 													int t_5 = 0;
+                                                    fflush(stdout);
 													scanf("%d", &t_5);
 													switch (t_5)
 													{
@@ -1368,6 +1464,7 @@ int main()
 													case 1:
 														printf("please enter your recipe class name you want to operate:\n");
 														char rc_name[100] = { '\0' };
+                                                        fflush(stdout);
 														scanf("%s", rc_name);
 														rc_current = find_r_classify(m_current, rc_name);
 
@@ -1376,6 +1473,7 @@ int main()
 														{
 															printf("0.return,1.delete recipe\n");
 															int t_6 = 0;
+                                                            fflush(stdout);
 															scanf("%d", &t_6);
 															switch (t_6)
 															{
@@ -1388,6 +1486,7 @@ int main()
 															case 1:
 																char r_name[100] = { '\0' };
 																printf("please enter recipe name you want to delete:\n");
+                                                                fflush(stdout);
 																scanf("%s", r_name);
 																delete_recipe_name(&(m_current->t_r_head), r_name, &(rc_current->r_head), &(rc_current->r_tail));
 																rc_current->total_number = rc_current->total_number - 1;
@@ -1414,6 +1513,7 @@ int main()
 												{
 													printf("0.log out,1,continue,2.return\n");
 													int t_5 = 0;
+                                                    fflush(stdout);
 													scanf("%d", &t_5);
 													switch (t_5)
 													{
@@ -1430,6 +1530,7 @@ int main()
 													case 1:
 														printf("please enter the recipe class name you want to move from:\n");
 														char rc_name[100] = { '\0' };
+                                                        fflush(stdout);
 														scanf("%s", rc_name);
 														rc_current = find_r_classify(m_current, rc_name);
 
@@ -1438,6 +1539,7 @@ int main()
 														{
 															printf("0.return,1.move recipe\n");
 															int t_6 = 0;
+                                                            fflush(stdout);
 															scanf("%d", &t_6);
 															switch (t_6)
 															{
@@ -1450,6 +1552,7 @@ int main()
 															case 1:
 																char r_name[100] = { '\0' };
 																printf("please enter recipe name:\n");
+                                                                fflush(stdout);
 																scanf("%s", r_name);
 																r_current = search_recipe_name(m_current->t_r_head, r_name);
 																r_current = creatList_recipe_2(r_current->name, r_current->price);
@@ -1457,6 +1560,7 @@ int main()
 																delete_recipe_name(&(m_current->t_r_head), r_name, &(rc_current->r_head), &(rc_current->r_tail));
 																printf("please enter the recipe class name you want to move in:\n");
 																char rc_name[100] = { '\0' };
+                                                                fflush(stdout);
 																scanf("%s", rc_name);
 																rc_current = find_r_classify(m_current, rc_name);
 																insertEnd_r(&(rc_current->r_head), &(rc_current->r_tail), r_current);
@@ -1486,6 +1590,7 @@ int main()
 												{
 													printf("0.log out,1.fuzzy search,2.sale recipe search,3.search price range,4.return\n");
 													int t_5 = 0;
+                                                    fflush(stdout);
 													scanf("%d", &t_5);
 													switch (t_5)
 													{
@@ -1521,6 +1626,7 @@ int main()
 																char str[100] = { '\0' };
 																printf("please enter the name you want to search:");
 																scanf("%s", str);
+                                                                fflush(stdout);
 																FuzzySearchInClassify(m_current->r_head, str);
 																break;
 
@@ -1541,6 +1647,7 @@ int main()
 														{
 															printf("0.log out,1.continue,2.return\n");
 															int t_6 = 0;
+                                                            fflush(stdout);
 															scanf("%d", &t_6);
 															switch (t_6)
 															{
@@ -1558,12 +1665,14 @@ int main()
 															case 1:
 																char r_name[100] = { '\0' };
 																printf("please enter the recipe you want to operate:\n");
+                                                                fflush(stdout);
 																scanf("%s", r_name);
 																r_current = search_recipe_name(m_current->t_r_head, r_name);
 																for (;;)
 																{
 																	printf("please enter the sale discount:\n");
 																	float sale = 0.0;
+                                                                    fflush(stdout);
 																	scanf("%f", sale);
 																	if (bool_set_sale_recipe(r_current, sale))
 																	{
@@ -1590,6 +1699,7 @@ int main()
 														{
 															printf("0.log out,1.continue,2.return\n");
 															int t_6 = 0;
+                                                            fflush(stdout);
 															scanf("%d", &t_6);
 															switch (t_6)
 															{
@@ -1608,11 +1718,13 @@ int main()
 																float max_price = 0.0;
 																float min_price = 0.0;
 																printf("please enter the max price and the min price:\n");
+                                                                fflush(stdout);
 																scanf("%d%d", &max_price, &min_price);
 																for (int flag_7 = 1; flag_7 = 0;)
 																{
 																	printf("0.return,1.lower,2.upper\n");
 																	int t_7 = 0;
+                                                                    fflush(stdout);
 																	scanf("%d", &t_7);
 																	switch (t_7)
 																	{
@@ -1657,6 +1769,7 @@ int main()
 												{
 													printf("0.log out,1.set sale recipe,2.return\n");
 													int t_5 = 0;
+                                                    fflush(stdout);
 													scanf("%d", &t_5);
 													switch (t_5)
 													{
@@ -1673,12 +1786,14 @@ int main()
 													case 1:
 														char r_name[100] = { '\0' };
 														printf("please enter the recipe you want to operate:\n");
+                                                        fflush(stdout);
 														scanf("%s", r_name);
 														r_current = search_recipe_name(m_current->t_r_head, r_name);
 														for (;;)
 														{
 															printf("please enter the sale discount:\n");
-															float sale = 0.0;
+                                                            fflush(stdout);
+															float sale = 0;
 															scanf("%f", sale);
 															if (bool_set_sale_recipe(r_current, sale))
 															{
@@ -1704,6 +1819,7 @@ int main()
 												for (int flag_5 = 0; flag_5 != 0;)
 												{
 													printf("0.log out,1.sort,2.return\n");
+                                                    fflush(stdout);
 													int t_5 = 0;
 													switch (t_5)
 													{
@@ -1721,6 +1837,7 @@ int main()
 														for (int flag_6 = 0; flag_6 != 0;)
 														{
 															printf("0.return,1.sort by price,2.sort by stars\n");
+                                                            fflush(stdout);
 															int t_6 = 0;
 															scanf("%d", &t_6);
 															switch (t_6)
@@ -1735,6 +1852,7 @@ int main()
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
 																	printf("0.return,1.upper,2.lower\n");
+                                                                    fflush(stdout);
 																	int t_7 = 0;
 																	scanf("%d", &t_7);
 																	switch (t_7)
@@ -1752,6 +1870,7 @@ int main()
 																			m_current->r_head = m_current->r_head->next;
 																		}
 																		printList_r_classify(m_current->r_head);
+                                                                        fflush(stdout);
 																		break;
 
 																		//lower
@@ -1762,6 +1881,7 @@ int main()
 																			m_current->r_head = m_current->r_head->next;
 																		}
 																		printList_r_classify(m_current->r_head);
+                                                                        fflush(stdout);
 																		break;
 																	default:
 																		break;
@@ -1774,6 +1894,7 @@ int main()
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
 																	printf("0.return,1.upper,2.lower\n");
+                                                                    fflush(stdout);
 																	int t_7 = 0;
 																	scanf("%d", &t_7);
 																	switch (t_7)
@@ -1791,6 +1912,7 @@ int main()
 																			m_current->r_head = m_current->r_head->next;
 																		}
 																		printList_r_classify(m_current->r_head);
+                                                                        fflush(stdout);
 																		break;
 
 																		//lower
@@ -1801,6 +1923,7 @@ int main()
 																			m_current->r_head = m_current->r_head->next;
 																		}
 																		printList_r_classify(m_current->r_head);
+                                                                        fflush(stdout);
 																		break;
 																	default:
 																		break;
@@ -1846,6 +1969,7 @@ int main()
 								{
 									print_order_list(m_current->o_tail);
 									printf("0.log out,1.distribute delivery person2.sort order,3,return");
+                                    fflush(stdout);
 									int t_3 = 0;
 									scanf("%d", &t_3);
 									switch (t_3)
@@ -1863,6 +1987,7 @@ int main()
 										{
 											print_order_list(m_current->o_tail);
 											printf("0.return,1.continue\n");
+                                            fflush(stdout);
 											int t_4 = 0;
 											scanf("%d", &t_4);
 											switch (t_4)
@@ -1877,6 +2002,7 @@ int main()
 												printf("you can only operate the order which haven't distributed a delivery person\n");
 												char o_id[100] = { '\0' };
 												printf("please enter the order you want to operate:\n");
+                                                fflush(stdout);
 												scanf("%s", o_id);
 												o_current = search_order_id(m_current->t_o_head, o_id);
 												//
@@ -1898,6 +2024,7 @@ int main()
 										{
 											print_order_list(m_current->o_tail);
 											printf("0.log out,1.upper,2.lower,3.return\n");
+                                            fflush(stdout);
 											int t_4 = 0;
 											scanf("%d", &t_4);
 											switch (t_4)
@@ -1914,12 +2041,14 @@ int main()
 											case 1:
 												m_current->o_tail = o_mergeSortLower_t(m_current->o_head, &(m_current->o_tail));
 												print_order_list(m_current->o_tail);
+                                                fflush(stdout);
 												break;
 
 												//lower
 											case 2:
 												m_current->o_tail = o_mergeSortUpper_t(m_current->o_head, &(m_current->o_tail));
 												print_order_list(m_current->o_tail);
+                                                fflush(stdout);
 												break;
 
 												//return
@@ -1966,24 +2095,30 @@ int main()
 					char address[100] = { '\0' };
 					char phone[100] = { '\0' };
 					printf("please enter your username:\n");
+                    fflush(stdout);
 					scanf("%s", name_2);
 					printf("please enter your password:\n");
+                    fflush(stdout);
 					scanf("%s", password);
 					printf("please enter your address:\n");
+                    fflush(stdout);
 					scanf("%s", address);
 					printf("please enter your phone number:\n");
+                    fflush(stdout);
 					scanf("%s", phone);
 					m_createList_p(&p_head_m, &p_m_current, m_creatNode_p(name_2, password, phone));
 					m_current = creatList_merchant(name_2, password, address, phone);
 					insertEnd_m(&m_head, &m_tail, m_current);
 					insertTree_Merchant_name(&t_m_head, m_current);
 					printf("continue to create recipe\n");
+                    fflush(stdout);
 
 					//create recipe class and recipe
 					for (int flag_2 = 1; flag_2 != 0;)
 					{
 						printf("0.return,1.contiune\n");
 						int t_2 = 0;
+                        fflush(stdout);
 						scanf("%d", &t_2);
 						switch (t_2)
 						{
@@ -1996,15 +2131,17 @@ int main()
 						case 1:
 							printf("please enter your recipe class name:\n");
 							char rc_name[100] = { '\0' };
+                            fflush(stdout);
 							scanf("%s", rc_name);
 							rc_current = creatList_r_classify(rc_name);
 							insertEnd_rc(&(m_current->r_head), &(m_current->r_tail), rc_current);
 
 							//create recipe
-							for (int flag_3 = 1; flag_3 != 0; flag_3++)
+							for (int flag_3 = 1; flag_3 != 0;)
 							{
 								printf("0.return,1.add recipe\n");
 								int t_3 = 0;
+                                fflush(stdout);
 								scanf("%d", &t_3);
 								switch (t_3)
 								{
@@ -2018,9 +2155,11 @@ int main()
 									char r_name[100] = { '\0' };
 									float p = 0.0;
 									printf("please enter recipe name:\n");
+                                    fflush(stdout);
 									scanf("%s", r_name);
 									printf("please enter the price:\n");
 									scanf("%f", &p);
+                                    fflush(stdout);
 									r_current = creatList_recipe_2(r_name, p);
 									insertEnd_r(&(rc_current->r_head), &(rc_current->r_tail), r_current);
 									insertTree_recipe_name(&(m_current->t_r_head), r_current);
@@ -2038,6 +2177,7 @@ int main()
 					break;
 				default:
 					printf("wrong choice!\n");
+                    fflush(stdout);
 					break;
 				}
 			}
@@ -2052,6 +2192,7 @@ int main()
 			{
 				printf("0.Return,1.Sign in,2.Sign up\n");
 				int t_1 = 0;
+                fflush(stdout);
 				scanf("%d", &t_1);
 				switch (t_1)
 				{
@@ -2064,6 +2205,7 @@ int main()
 				case 1:
 					char name[100] = { '\0' };
 					printf("please enter your username:\n");
+                    fflush(stdout);
 					scanf("%s", name);
 					if (compare_d(p_head_d, name, &p_d_current))//compare name and password to log in
 					{
@@ -2073,6 +2215,7 @@ int main()
 						{
 							printf("0.log out,1.order,2.change password,3.deactivate\n");
 							int t_2 = 0;
+                            fflush(stdout);
 							scanf("%d", &t_2);
 							switch (t_2)
 							{
@@ -2090,6 +2233,7 @@ int main()
 								{
 									printf("0.log out,1.set the order,2.return\n");
 									int t_3 = 0;
+                                    fflush(stdout);
 									scanf("%d", &t_3);
 									switch (t_3)
 									{
@@ -2105,6 +2249,7 @@ int main()
 										print_current_order(d_current->o_tail);
 										printf("please enter the statement of the order:(1.delivering,2.Finish)\n");
 										int s = 0;
+                                        fflush(stdout);
 										scanf("%d", &s);
 										set_state_o(d_current->o_tail, s);
 										Synchronization_o_s_for_d(d_current->o_tail, m_head, u_head);
@@ -2116,9 +2261,11 @@ int main()
 										break;
 									default:
 										printf("wrong choice!\n");
+                                        fflush(stdout);
 										break;
 									}
 									print_current_order(d_current->o_tail);
+                                    fflush(stdout);
 								}
 
 								break;
@@ -2146,10 +2293,13 @@ int main()
 					char password[100] = { '\0' };
 					char phone[100] = { '\0' };
 					printf("please enter your username:\n");
+                    fflush(stdout);
 					scanf("%s", name_3);
 					printf("please enter your password:\n");
+                    fflush(stdout);
 					scanf("%s", password);
 					printf("please enter your phone number:\n");
+                    fflush(stdout);
 					scanf("%s", phone);
 					d_createList_p(&p_head_d, &p_d_current, d_creatNode_p(name_3, password, phone));
 					d_current = creatList_deliveryperson(name_3, password, phone);
@@ -2157,6 +2307,7 @@ int main()
 					break;
 				default:
 					printf("wrong choice!\n");
+                    fflush(stdout);
 					break;
 				}
 			}
@@ -2168,6 +2319,7 @@ int main()
 			{
 				printf("0.return,1.sign in\n");
 				int t_1 = 0;
+                fflush(stdout);
 				scanf("%d", &t_1);
 				switch (t_1)
 				{
@@ -2181,7 +2333,9 @@ int main()
 					char name[100] = { '\0' };
 					char password[100] = { '\0' };
 					printf("please enter your username:\n");
+                    fflush(stdout);
 					scanf("%s", name);
+                    fflush(stdout);
 					printf("please enter your password:\n");
 					scanf("%s", password);
 					if (strcmp(name, "adm") == 0)
@@ -2214,6 +2368,7 @@ int main()
 									{
 										printf("0.return,1.delete merchant\n");
 										int t_3 = 0;
+                                        fflush(stdout);
 										scanf("%d", &t_3);
 										switch (t_3)
 										{
@@ -2225,7 +2380,8 @@ int main()
 											//delete
 										case 1:
 											printf("please enter the name:\n");
-											char name[100] = { '\0' };
+											char name[100];
+                                            fflush(stdout);
 											scanf("%s", name);
 											delete_merchant(m_head, name);
 											break;
@@ -2250,6 +2406,7 @@ int main()
 									{
 										printf("0.return,1.delete user\n");
 										int t_3 = 0;
+                                        fflush(stdout);
 										scanf("%d", &t_3);
 										switch (t_3)
 										{
@@ -2262,6 +2419,7 @@ int main()
 										case 1:
 											printf("please enter the name:\n");
 											char name[100] = { '\0' };
+                                            fflush(stdout);
 											scanf("%s", name);
 											delete_user(u_head, name);
 											break;
@@ -2286,6 +2444,7 @@ int main()
 									{
 										printf("0.return,1.delete delivery person\n");
 										int t_3 = 0;
+                                        fflush(stdout);
 										scanf("%d", &t_3);
 										switch (t_3)
 										{
@@ -2298,6 +2457,7 @@ int main()
 										case 1:
 											printf("please enter the name:\n");
 											char name[100] = { '\0' };
+                                            fflush(stdout);
 											scanf("%s", name);
 											delete_delivery_person(d_head, name);
 											break;
@@ -2313,6 +2473,7 @@ int main()
 									{
 										printf("0.return,1.change discount\n");
 										int t_3 = 0;
+                                        fflush(stdout);
 										scanf("%d", &t_3);
 										switch (t_3)
 										{
@@ -2325,9 +2486,11 @@ int main()
 										case 1:
 											printf("please enter the card class:\n");
 											char name[100] = { '\0' };
+                                            fflush(stdout);
 											scanf("%s", name);
 											printf("please enter the new discount:\n");
 											float d = 0.0;
+                                            fflush(stdout);
 											scanf("%f", &d);
 											if (d > 0 && d <= 1)
 											{
@@ -2359,6 +2522,7 @@ int main()
 			break;
 		default:
 			printf("wrong choice!\n");
+            fflush(stdout);
 			break;
 		}
 	}
