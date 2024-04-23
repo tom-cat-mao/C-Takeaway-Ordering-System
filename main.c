@@ -1052,7 +1052,7 @@ int main()
 					//sign up
 				case 2:
 					//create user's detail information
-					char name_1[100] = { '\0' };
+					char name_1[100];
 					char password[100] = { '\0' };
 					char address[100] = { '\0' };
 					char phone[100] = { '\0' };

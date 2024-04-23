@@ -7,31 +7,30 @@
 bool write_t_merchant_list(struct Merchant* head)
 {
     // switch to the merchant list folder
-    if (_chdir("Merchant List") != 0)
+    if (_chdir(".\\Merchant_List") != 0)
     {
-        if (_mkdir("Merchant List") != 0)
+        if (_mkdir(".\\Merchant_List") != 0)
         {
             perror("Failed to create the folder.\n");
             return 0;
         }
-        _chdir("Merchant List");
+        _chdir(".\\Merchant_List");
     }
 
     // write merchant data to different files
     for (struct Merchant* current = head; current != NULL; current = current->next)
     {
-        if (_chdir(current->name) != 0)
+        char file_path[260];
+        sprintf(file_path, "%s\\%s", ".", current->name);
+
+        if (_chdir(file_path) != 0)
         {
-            printf("%d\n", errno);
-            fflush(stdout);
-            if (_mkdir(current->name) != 0)
+            if (_mkdir(file_path) != 0)
             {
-                printf("%d\n", errno);
-                fflush(stdout);
                 perror("Failed to create the folder.\n");
                 return 0;
             }
-            _chdir(current->name);
+            _chdir(file_path);
         }
 
         FILE* file = fopen(current->name, "w");
@@ -72,27 +71,30 @@ bool write_t_merchant_list(struct Merchant* head)
 bool write_t_user_list(struct User* head)
 {
     // switch to the user list folder
-    if (_chdir("User List") != 0)
+    if (_chdir(".\\User_List") != 0)
     {
-        if (_mkdir("User List") != 0)
+        if (_mkdir(".\\User_List") != 0)
         {
             perror("Failed to create the folder.\n");
             return 0;
         }
-        _chdir("User List");
+        _chdir(".\\User_List");
     }
 
     // write User data to different files
     for (struct User* current = head; current != NULL; current = current->next)
     {
-        if (_chdir(current->name) != 0)
+        char file_path[260];
+        sprintf(file_path, "%s\\%s", ".", current->name);
+
+        if (_chdir(file_path) != 0)
         {
-            if (_mkdir(current->name) != 0)
+            if (_mkdir(file_path) != 0)
             {
                 perror("Failed to create the folder.\n");
                 return 0;
             }
-            _chdir(current->name);
+            _chdir(file_path);
         }
 
         FILE* file = fopen(current->name, "w");
@@ -128,27 +130,30 @@ bool write_t_user_list(struct User* head)
 bool write_t_deliveryperson_list(struct DeliveryPerson* head)
 {
     // switch to the deliveryperson list folder
-    if (_chdir("Deliveryperson List") != 0)
+    if (_chdir(".\\Delivery_person_List") != 0)
     {
-        if (_mkdir("Deliveryperson List") != 0)
+        if (_mkdir(".\\Delivery_person_List") != 0)
         {
             perror("Failed to create the folder.\n");
             return 0;
         }
-        _chdir("Deliveryperson List");
+        _chdir(".\\Delivery_person_List");
     }
 
     // write deliveryman data to different files
     for (struct DeliveryPerson* current = head; current != NULL; current = current->next)
     {
-        if (_chdir(current->name) != 0)
+        char file_path[260];
+        sprintf(file_path, "%s\\%s", ".", current->name);
+
+        if (_chdir(file_path) != 0)
         {
-            if (_mkdir(current->name) != 0)
+            if (_mkdir(file_path) != 0)
             {
                 perror("Failed to create the folder.\n");
                 return 0;
             }
-            _chdir(current->name);
+            _chdir(file_path);
         }
 
         FILE* file = fopen(current->name, "w");
@@ -183,27 +188,30 @@ bool write_t_deliveryperson_list(struct DeliveryPerson* head)
 bool write_t_order_list(struct order* head)
 {
     // switch to the order list folder
-    if (_chdir("Order List") != 0)
+    if (_chdir(".\\Order_List") != 0)
     {
-        if (_mkdir("Order List") != 0)
+        if (_mkdir(".\\Order_List") != 0)
         {
             perror("Failed to create the folder.\n");
             return 0;
         }
-        _chdir("Order List");
+        _chdir(".\\Order_List");
     }
 
     // write order data to different files
     for (struct order* current = head; current != NULL; current = current->next)
     {
-        if (_chdir(current->order_id) != 0)
+        char file_path[260];
+        sprintf(file_path, "%s\\%s", ".", current->order_id);
+
+        if (_chdir(file_path) != 0)
         {
-            if (_mkdir(current->order_id) != 0)
+            if (_mkdir(file_path) != 0)
             {
                 perror("Failed to create the folder.\n");
                 return 0;
             }
-            _chdir(current->order_id);
+            _chdir(file_path);
         }
 
         FILE* file = fopen(current->order_id, "w");
@@ -274,27 +282,30 @@ bool write_t_order_list(struct order* head)
 bool write_t_r_class_list(struct r_classify* head)
 {
     // switch to the recipe classify list folder
-    if (_chdir("Recipe classify List") != 0)
+    if (_chdir(".\\Recipe_classify_List") != 0)
     {
-        if (_mkdir("Recipe classify List") != 0)
+        if (_mkdir(".\\Recipe_classify_List") != 0)
         {
             perror("Failed to create the folder.\n");
             return 0;
         }
-        _chdir("Recipe classify List");
+        _chdir(".\\Recipe_classify_List");
     }
 
     // write recipe classify data to different files
     for (struct r_classify* current = head; current != NULL; current = current->next)
     {
-        if (_chdir(current->name) != 0)
+        char file_path[260];
+        sprintf(file_path, "%s\\%s", ".", current->name);
+
+        if (_chdir(file_path) != 0)
         {
-            if (_mkdir(current->name) != 0)
+            if (_mkdir(file_path) != 0)
             {
                 perror("Failed to create the folder.\n");
                 return 0;
             }
-            _chdir(current->name);
+            _chdir(file_path);
         }
 
         FILE* file = fopen(current->name, "w");
@@ -326,27 +337,30 @@ bool write_t_r_class_list(struct r_classify* head)
 bool write_t_recipe_list(struct recipe* head)
 {
     // switch to the recipe  list folder
-    if (_chdir("Recipe List") != 0)
+    if (_chdir(".\\Recipe_List") != 0)
     {
-        if (_mkdir("Recipe List") != 0)
+        if (_mkdir(".\\Recipe_List") != 0)
         {
             perror("Failed to create the folder.\n");
             return 0;
         }
-        _chdir("Recipe List");
+        _chdir(".\\Recipe_List");
     }
 
     // write recipe data to different files
     for (struct recipe* current = head; current != NULL; current = current->next)
     {
-        if (_chdir(current->name) != 0)
+        char file_path[260];
+        sprintf(file_path, "%s\\%s", ".", current->name);
+
+        if (_chdir(file_path) != 0)
         {
-            if (_mkdir(current->name) != 0)
+            if (_mkdir(file_path) != 0)
             {
                 perror("Failed to create the folder.\n");
                 return 0;
             }
-            _chdir(current->name);
+            _chdir(file_path);
         }
 
         FILE* file = fopen(current->name, "w");
@@ -375,7 +389,7 @@ bool write_t_recipe_list(struct recipe* head)
 bool read_merchant_list(struct Merchant** head, struct Merchant** current)
 {
     // switch to the merchant list folder
-    _chdir("Merchant List");
+    _chdir(".\\Merchant_List");
     DIR* dir;
     struct dirent* entry;
 
@@ -391,7 +405,10 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
     while ((entry = readdir(dir)) != NULL)
     {
         DIR* subdir;
-        subdir = opendir(entry->d_name);
+        char filepath[260];
+        sprintf(filepath, "%s\\%s", ".", entry->d_name);
+
+        subdir = opendir(filepath);
         if (subdir == NULL)
         {
             perror("Failed to open directory");
@@ -462,6 +479,7 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
 
         // close file
         fclose(file);
+        closedir(subdir);
 
         _chdir("..");
     }
@@ -478,7 +496,7 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
 bool read_user_list(struct User** head, struct User** current)
 {
     // switch to the user list folder
-    _chdir("User List");
+    _chdir(".\\User_List");
     DIR* dir;
     struct dirent* entry;
 
@@ -493,8 +511,11 @@ bool read_user_list(struct User** head, struct User** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        char filepath[260];
+        sprintf(filepath, "%s\\%s", ".", entry->d_name);
+
         DIR* subdir;
-        subdir = opendir(entry->d_name);
+        subdir = opendir(filepath);
         if (subdir == NULL)
         {
             perror("Failed to open directory");
@@ -558,6 +579,7 @@ bool read_user_list(struct User** head, struct User** current)
 
         // close file
         fclose(file);
+        closedir(subdir);
 
         _chdir("..");
     }
@@ -573,7 +595,7 @@ bool read_user_list(struct User** head, struct User** current)
 bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerson** current)
 {
     // switch to the deliveryman list folder
-    _chdir("Deliveryperson List");
+    _chdir(".\\Delivery_person_List");
     DIR* dir;
     struct dirent* entry;
 
@@ -588,8 +610,11 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        char filepath[260];
+        sprintf(filepath, "%s\\%s", ".", entry->d_name);
+
         DIR* subdir;
-        subdir = opendir(entry->d_name);
+        subdir = opendir(filepath);
         if (subdir == NULL)
         {
             perror("Failed to open directory");
@@ -650,6 +675,7 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
 
         // close file
         fclose(file);
+        closedir(subdir);
 
         _chdir("..");
     }
@@ -665,7 +691,7 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
 bool read_r_class_list(struct r_classify** head, struct r_classify** current)
 {
     // switch to the r_classify list folder
-    _chdir("Recipe classify List");
+    _chdir(".\\Recipe_classify_List");
     DIR* dir;
     struct dirent* entry;
 
@@ -680,8 +706,11 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        char filepath[260];
+        sprintf(filepath, "%s\\%s", ".", entry->d_name);
+
         DIR* subdir;
-        subdir = opendir(entry->d_name);
+        subdir = opendir(filepath);
         if (subdir == NULL)
         {
             perror("Failed to open directory");
@@ -739,6 +768,7 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
 
         // close file
         fclose(file);
+        closedir(subdir);
 
         _chdir("..");
     }
@@ -754,7 +784,7 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
 bool read_recipe_list(struct recipe** head, struct recipe** current)
 {
     // switch to the recipe list folder
-    _chdir("Recipe List");
+    _chdir(".\\Recipe_List");
     DIR* dir;
     struct dirent* entry;
 
@@ -827,7 +857,7 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
 bool read_order_list(struct order** head, struct order** current)
 {
     // switch to the order list folder
-    _chdir("Order List");
+    _chdir(".\\Order_List");
     DIR* dir;
     struct dirent* entry;
 
@@ -842,8 +872,11 @@ bool read_order_list(struct order** head, struct order** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        char filepath[260];
+        sprintf(filepath, "%s\\%s", ".", entry->d_name);
+
         DIR* subdir;
-        subdir = opendir(entry->d_name);
+        subdir = opendir(filepath);
         if (subdir == NULL)
         {
             perror("Failed to open directory");
@@ -981,6 +1014,7 @@ bool read_order_list(struct order** head, struct order** current)
 
         // close file
         fclose(file);
+        closedir(subdir);
 
         _chdir("..");
     }
