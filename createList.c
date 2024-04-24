@@ -126,16 +126,10 @@ struct order* creatList_order(struct Merchant* m_current, struct  User* u_curren
         strcpy(newNode->d_phone, d_current->phone);
     }
 
-    set_time(newNode->localTime);
-    strftime(newNode->order_id, sizeof(newNode->order_id), "%Y%m%d %H%M%S", newNode->localTime);
-    for (int i = 7, j = strlen(newNode->order_id); i < 11; i++, j++)
-    {
-
-        newNode->order_id[j] = newNode->u_phone[i];
-
-    }
-    memset(newNode->arrive_time, 0, sizeof(struct tm));
-    memset(newNode->send_time, 0, sizeof(struct tm));
+    //newNode->settime
+    //order id
+    newNode->arrive_time = 0;
+    newNode->send_time = 0;
     newNode->r_head = NULL;
     newNode->r_tail = NULL;
     newNode->t_r_head = NULL;

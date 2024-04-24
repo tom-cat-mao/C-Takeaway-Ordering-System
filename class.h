@@ -46,8 +46,7 @@ struct order
     // Order ID
     char order_id[100];
 
-    // Order creation time
-    struct tm* localTime;
+    int settime;
 
     // Merchant, delivery person, customer names
     char m_name[100];
@@ -67,9 +66,9 @@ struct order
     enum state_o s;
 
     // Estimated arrival time
-    struct tm* arrive_time;
+    int arrive_time;
     // Estimated delivery time
-    struct tm* send_time;
+    int send_time;
 
     // Total time
     int total_time;

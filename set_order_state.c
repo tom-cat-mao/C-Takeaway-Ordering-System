@@ -8,12 +8,12 @@ void set_state_o(struct order* tail, int s)
 	tail->s = s;
 	if (s == 1)
 	{
-		set_time(tail->send_time);
+		//tail->send_time
 	}
 	if (s == 2)
 	{
-		set_time(tail->arrive_time);
-		tail->total_time = mktime(tail->arrive_time) - mktime(tail->send_time);
+		//tail->arrive_time
+		tail->total_time = tail->arrive_time - tail->send_time;
 	}
 }
 
