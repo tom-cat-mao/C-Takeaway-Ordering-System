@@ -34,7 +34,7 @@ struct r_classify
     struct recipe* r_head;          // Dish linked list head
     struct recipe* r_tail;          // Dish linked list tail
 
-    struct recipe* t_r_head;
+    struct t_recipe* t_r_head;
 
     struct r_classify* prev;
     struct r_classify* next;        // Next classification
