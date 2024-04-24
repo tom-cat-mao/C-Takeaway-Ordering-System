@@ -72,6 +72,7 @@ struct r_classify* creatList_r_classify(char* n)
     }
 
     strcpy(newNode->name, n);
+    newNode->t_r_head = NULL;
     newNode->r_head = NULL;
     newNode->r_tail = NULL;
     newNode->prev = NULL;
@@ -260,6 +261,7 @@ struct DeliveryPerson* creatList_deliveryperson(char* n, char* p, char* pn)
     strcpy(newNode->password, p);
     strcpy(newNode->phone, pn);
     newNode->s = FREE;
+    newNode->t_o_head = NULL;
     newNode->o_head = NULL;
     newNode->o_tail = NULL;
     newNode->prev = NULL;
