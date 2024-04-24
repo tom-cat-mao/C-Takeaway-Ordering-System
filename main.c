@@ -796,6 +796,7 @@ int main()
 										if (judge == 1)
 										{
 											d_current = find_free_d(d_head);
+											d_current->s = BUSY;
 											o_current = creatList_order(m_current, u_current, d_current);
 											o_current->r_head = r_head;
 											o_current->r_tail = r_tail;
@@ -1005,6 +1006,8 @@ int main()
 												case 'Y':
 													o_current->s = CANCEL;
 													Synchronization_o_s_for_u(o_current, m_head, d_head);
+													d_current = find_d(d_head, o_current->d_name);
+													d_current->s = FREE;
 													break;
 												case 'N':
 													break;
@@ -2068,6 +2071,7 @@ int main()
 												o_current = search_order_id(m_current->t_o_head, o_id);
 												//
 												d_current = find_free_d(d_head);
+												d_current->s = BUSY;
 												strcpy(o_current->d_name, d_current->name);
 												strcpy(o_current->d_phone, d_current->phone);
 												Synchronization_o_d_for_m(o_current, d_head, u_head);
@@ -2323,6 +2327,14 @@ int main()
 										int s = 0;
                                         fflush(stdout);
 										scanf("%d", &s);
+										if (s == 1)
+										{
+											d_current->s = BUSY;
+										}
+										else
+										{
+											d_current->s = FREE;
+										}
 										set_state_o(d_current->o_tail, s);
 										Synchronization_o_s_for_d(d_current->o_tail, m_head, u_head);
 										break;
