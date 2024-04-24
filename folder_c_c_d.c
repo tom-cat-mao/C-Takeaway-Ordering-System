@@ -1133,7 +1133,7 @@ bool read_order_list(struct order** head, struct order** current)
             {
 
                 // splice path
-                sprintf(file_path, "%s\\%s", ".", entry->d_name);
+                sprintf(file_path, "%s\\%s", ".", en->d_name);
 
                 // open file
                 file = fopen(file_path, "r");
