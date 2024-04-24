@@ -169,6 +169,7 @@ int main()
 													printf("0.log out,1.sort,2.return\n");
                                                     fflush(stdout);
 													int t_5 = 0;
+													scanf("%d", &t_5);
 													switch (t_5)
 													{
 														//log out
