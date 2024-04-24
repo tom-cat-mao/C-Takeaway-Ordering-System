@@ -1112,7 +1112,7 @@ int main()
 						scanf("%s", address);
 						printf("please enter your phone number:\n");
 						scanf("%s", phone);
-						u_createList_p(&p_head_u, &p_u_current, u_creatNode_p(name_1, password, phone));
+						u_createList_p(&p_head_u, &p_u_tail, u_creatNode_p(name_1, password, phone));
 						u_current = creatList_user(name_1, password, address, phone);
 						insertEnd_u(&u_head, &u_tail, u_current);
 					}
@@ -2169,7 +2169,7 @@ int main()
 						scanf("%s", address);
 						printf("please enter your phone number:\n");
 						scanf("%s", phone);
-						m_createList_p(&p_head_m, &p_m_current, m_creatNode_p(name_2, password, phone));
+						m_createList_p(&p_head_m, &p_m_tail, m_creatNode_p(name_2, password, phone));
 						m_current = creatList_merchant(name_2, password, address, phone);
 						insertEnd_m(&m_head, &m_tail, m_current);
 						insertTree_Merchant_name(&t_m_head, m_current);
@@ -2383,7 +2383,7 @@ int main()
 						scanf("%s", password);
 						printf("please enter your phone number:\n");
 						scanf("%s", phone);
-						d_createList_p(&p_head_d, &p_d_current, d_creatNode_p(name_3, password, phone));
+						d_createList_p(&p_head_d, &p_d_tail, d_creatNode_p(name_3, password, phone));
 						d_current = creatList_deliveryperson(name_3, password, phone);
 						insertEnd_d(&d_head, &d_tail, d_current);
 					}
