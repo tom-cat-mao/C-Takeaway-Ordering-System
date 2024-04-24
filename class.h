@@ -231,10 +231,8 @@ void user_change_p(struct User* current, struct Password_u* p_current);
 // Change delivery person password
 void deliveryPerson_change_p(struct DeliveryPerson* current, struct Password_d* p_current);
 
-// Change membership discount
-bool discount_change(double* d, int c);
 // Change user membership type
-bool card_class_change(struct User* head, int c);
+bool card_class_change(struct User* current, int c);
 
 // Login and change password
 bool compare_m(struct Password_m* head, char* n, struct Password_m** p_current);
@@ -293,5 +291,15 @@ struct recipe* find_recipe_by_list(struct r_classify* head, char* name);
 
 //change discount
 void change_discount_manager(char* card_level, double new_value);
+
+//get back password
+bool get_back_p_u(struct Password_u* head, char* name, char* phone);
+bool get_back_p_d(struct Password_d* head, char* name, char* phone);
+bool get_back_p_m(struct Password_m* head, char* name, char* phone);
+
+//check duplicate name
+bool duplicate_name_u(struct Password_u* head, char* name);
+bool duplicate_name_m(struct Password_m* head, char* name);
+bool duplicate_name_d(struct Password_d* head, char* name);
 
 #endif
