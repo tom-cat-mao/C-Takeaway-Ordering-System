@@ -16,8 +16,6 @@ bool write_t_merchant_list(struct Merchant* head)
         }
         _chdir(".\\Merchant_List");
     }
-    printf("%d\n", errno);
-    fflush(stdout);
 
     // write merchant data to different files
     for (struct Merchant* current = head; current != NULL; current = current->next)
@@ -27,8 +25,6 @@ bool write_t_merchant_list(struct Merchant* head)
 
         if (_chdir(file_path) != 0)
         {
-            printf("%d\n", errno);
-            fflush(stdout);
             if (_mkdir(file_path) != 0)
             {
                 printf("%d\n", errno);
@@ -395,7 +391,11 @@ bool write_t_recipe_list(struct recipe* head)
 bool read_merchant_list(struct Merchant** head, struct Merchant** current)
 {
     // switch to the merchant list folder
-    _chdir(".\\Merchant_List");
+    if ((_chdir(".\\Merchant_List") != 0))
+    {
+        perror("Failed to open directory");
+        return 0;
+    }
     DIR* dir;
     struct dirent* entry;
 
@@ -502,7 +502,11 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
 bool read_user_list(struct User** head, struct User** current)
 {
     // switch to the user list folder
-    _chdir(".\\User_List");
+    if (_chdir(".\\User_List") != 0)
+    {
+        perror("Failed to open directory");
+        return 0;
+    }
     DIR* dir;
     struct dirent* entry;
 
@@ -601,7 +605,11 @@ bool read_user_list(struct User** head, struct User** current)
 bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerson** current)
 {
     // switch to the deliveryman list folder
-    _chdir(".\\Delivery_person_List");
+    if (_chdir(".\\Delivery_person_List") != 0)
+    {
+        perror("Failed to open the directory");
+        return 0;
+    }
     DIR* dir;
     struct dirent* entry;
 
@@ -697,7 +705,11 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
 bool read_r_class_list(struct r_classify** head, struct r_classify** current)
 {
     // switch to the r_classify list folder
-    _chdir(".\\Recipe_classify_List");
+    if (_chdir(".\\Recipe_classify_List") != 0 )
+    {
+        perror("Failed to open the directory");
+        return 0;
+    }
     DIR* dir;
     struct dirent* entry;
 
@@ -790,7 +802,11 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
 bool read_recipe_list(struct recipe** head, struct recipe** current)
 {
     // switch to the recipe list folder
-    _chdir(".\\Recipe_List");
+    if (_chdir(".\\Recipe_List") != 0 )
+    {
+        perror("Failed to open the directory");
+        return 0;
+    }
     DIR* dir;
     struct dirent* entry;
 
@@ -863,7 +879,11 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
 bool read_order_list(struct order** head, struct order** current)
 {
     // switch to the order list folder
-    _chdir(".\\Order_List");
+    if (_chdir(".\\Order_List") != 0 )
+    {
+        perror("Failed to open the directory");
+        return 0;
+    }
     DIR* dir;
     struct dirent* entry;
 
