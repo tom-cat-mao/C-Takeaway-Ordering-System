@@ -441,7 +441,7 @@ bool write_t_recipe_list(struct recipe* head)
 }
 
 // read all merchant list from the file to the memory
-bool read_merchant_list(struct Merchant** head, struct Merchant** current)
+bool read_merchant_list(struct Merchant** head, struct Merchant** current, struct t_Merchant** t_head)
 {
     char initial_dir[_MAX_PATH];
     if (_getcwd(initial_dir, sizeof(initial_dir)) == NULL)
@@ -536,7 +536,7 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
             }
             else if (en->d_type == DT_DIR && strcmp(en->d_name, "Order_List") == 0)
             {
-                if (!read_order_list(&(newNode->o_head), &(newNode->o_tail)))
+                if (!read_order_list(&(newNode->o_head), &(newNode->o_tail),&(newNode->t_o_head)))
                 {
                     perror("Failed to read the order list.\n");
                     return 0;
@@ -570,6 +570,8 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
         closedir(subdir);
 
         _chdir("..");
+
+        insertTree_Merchant_name(t_head, *current);
     }
 
     // close directory
@@ -683,7 +685,7 @@ bool read_user_list(struct User** head, struct User** current)
             }
             else if (en->d_type == DT_DIR && strcmp(en->d_name, "Order_List") == 0)
             {
-                if (!read_order_list(&(newNode->o_head), NULL))
+                if (!read_order_list(&(newNode->o_head), &(newNode->o_tail),&(newNode->t_o_head)))
                 {
                     perror("Failed to read the order list.\n");
                     return 0;
@@ -819,7 +821,7 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
             }
             else if (en->d_type == DT_DIR && strcmp(en->d_name, "Order_List") == 0)
             {
-                if (!read_order_list(&(newNode->o_head), NULL))
+                if (!read_order_list(&(newNode->o_head), &(newNode->o_tail),&(newNode->t_o_head)))
                 {
                     perror("Failed to read the order list.\n");
                     return 0;
@@ -942,7 +944,7 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
             }
             else if (en->d_type == DT_DIR && strcmp(en->d_name, "Recipe_List") == 0)
             {
-                if (!read_recipe_list(&(newNode->r_head), &(newNode->r_tail)))
+                if (!read_recipe_list(&(newNode->r_head), &(newNode->r_tail),&(newNode->t_r_head)))
                 {
                     perror("Failed to read the recipe list.\n");
                     return 0;
@@ -977,7 +979,7 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
 }
 
 // read all recipe lists form the file to the memory
-bool read_recipe_list(struct recipe** head, struct recipe** current)
+bool read_recipe_list(struct recipe** head, struct recipe** current, struct t_recipe** t_head)
 {
     // switch to the recipe list folder
     if (_chdir(".\\Recipe_List") != 0 )
@@ -1061,6 +1063,8 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
         // close file
         fclose(file);
         _chdir("..");
+
+        insertTree_recipe_name(t_head, *current);
     }
 
     // close directory
@@ -1071,7 +1075,7 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
 }
 
 // read all order lists form the file to the memory
-bool read_order_list(struct order** head, struct order** current)
+bool read_order_list(struct order** head, struct order** current, struct t_order** t_head)
 {
     // switch to the order list folder
     if (_chdir(".\\Order_List") != 0 )
@@ -1268,6 +1272,8 @@ bool read_order_list(struct order** head, struct order** current)
         closedir(subdir);
 
         _chdir("..");
+
+        insertTree_order_id(t_head, *current);
     }
 
     // close directory

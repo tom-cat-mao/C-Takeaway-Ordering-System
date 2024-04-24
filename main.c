@@ -56,7 +56,7 @@ int main()
 	m_readIntoList_p(&p_head_m, &p_m_tail);
 	u_readIntoList_p(&p_head_u, &p_u_tail);
 	d_readIntoList_p(&p_head_d, &p_d_tail);
-	read_merchant_list(&m_head, &m_tail);
+	read_merchant_list(&m_head, &m_tail,&t_m_head);
 	read_user_list(&u_head, &u_tail);
 	read_deliveryperson_list(&d_head, &d_tail);
 

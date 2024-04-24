@@ -24,7 +24,7 @@ bool write_t_recipe_list(struct recipe* head);
 
 
 // read all merchant list from the file to the memory
-bool read_merchant_list(struct Merchant** head, struct Merchant** current);
+bool read_merchant_list(struct Merchant** head, struct Merchant** current, struct t_Merchant** t_head);
 
 // read all user lists form the file to the memory
 bool read_user_list(struct User** head, struct User** current);
@@ -36,10 +36,10 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
 bool read_r_class_list(struct r_classify** head, struct r_classify** current);
 
 // read all recipe lists form the file to the memory
-bool read_recipe_list(struct recipe** head, struct recipe** current);
+bool read_recipe_list(struct recipe** head, struct recipe** current, struct t_recipe** t_head);
 
 // read all order lists form the file to the memory
-bool read_order_list(struct order** head, struct order** current);
+bool read_order_list(struct order** head, struct order** current, struct t_order** t_head);
 
 
 
