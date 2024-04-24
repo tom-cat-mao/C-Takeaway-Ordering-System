@@ -3,19 +3,25 @@
 #include <errno.h>
 #include <direct.h> // for _getcwd
 
-
 void print_current_directory() {
-    char cwd[1024];
-    if (_getcwd(cwd, sizeof(cwd)) != NULL) {
-        printf("Current working directory: %s\n", cwd);
+    char path[_MAX_PATH];
+    if (_getcwd(path, sizeof(path)) != NULL) {
+        printf("Current directory: %s\n", path);
     } else {
-        perror("_getcwd() error");
+        perror("Error retrieving current directory");
     }
 }
 
 // write the merchant list to the merchant list folder
 bool write_t_merchant_list(struct Merchant* head)
 {
+    char initial_dir[_MAX_PATH];
+    if (_getcwd(initial_dir, sizeof(initial_dir)) == NULL)
+    {
+        perror("Failed to get the current directory.\n");
+        return 0;
+    }
+    
     // switch to the merchant list folder
     if (_chdir(".\\Merchant_List") != 0)
     {
@@ -76,12 +82,27 @@ bool write_t_merchant_list(struct Merchant* head)
 
 
     _chdir("..");
+
+// switch back to the initial directory
+    if (_chdir(initial_dir) != 0)
+    {
+        perror("Failed to switch back to the initial directory.\n");
+        return 0;
+    }
+
     return 1;
 }
 
 // write the user list to the user list folder
 bool write_t_user_list(struct User* head)
 {
+    char initial_dir[_MAX_PATH];
+    if (_getcwd(initial_dir, sizeof(initial_dir)) == NULL)
+    {
+        perror("Failed to get the current directory.\n");
+        return 0;
+    }
+    
     // switch to the user list folder
     if (_chdir(".\\User_List") != 0)
     {
@@ -135,12 +156,26 @@ bool write_t_user_list(struct User* head)
 
 
     _chdir("..");
+
+    // switch back to the initial directory
+    if (_chdir(initial_dir) != 0)
+    {
+        perror("Failed to switch back to the initial directory.\n");
+        return 0;
+    }
     return 1;
 }
 
 // write the deliveryman list to the deliveryman list folder
 bool write_t_deliveryperson_list(struct DeliveryPerson* head)
 {
+    char initial_dir[_MAX_PATH];
+    if (_getcwd(initial_dir, sizeof(initial_dir)) == NULL)
+    {
+        perror("Failed to get the current directory.\n");
+        return 0;
+    }
+    
     // switch to the deliveryperson list folder
     if (_chdir(".\\Delivery_person_List") != 0)
     {
@@ -193,6 +228,14 @@ bool write_t_deliveryperson_list(struct DeliveryPerson* head)
 
 
     _chdir("..");
+
+    // switch back to the initial directory
+    if (_chdir(initial_dir) != 0)
+    {
+        perror("Failed to switch back to the initial directory.\n");
+        return 0;
+    }
+
     return 1;
 }
 
@@ -400,6 +443,13 @@ bool write_t_recipe_list(struct recipe* head)
 // read all merchant list from the file to the memory
 bool read_merchant_list(struct Merchant** head, struct Merchant** current)
 {
+    char initial_dir[_MAX_PATH];
+    if (_getcwd(initial_dir, sizeof(initial_dir)) == NULL)
+    {
+        perror("Failed to get the current directory.\n");
+        return 0;
+    }
+    
     // switch to the merchant list folder
     if ((_chdir(".\\Merchant_List") != 0))
     {
@@ -454,7 +504,6 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
 
         while ((en = readdir(subdir)) != NULL)
         {
-            
             if (strcmp(en->d_name, ".") == 0 || strcmp(en->d_name, "..") == 0)
             {
                 continue;
@@ -479,7 +528,7 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
                 strcpy(newNode->phone, phone);
                 fclose(file);
             }
-            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Order List") == 0)
+            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Order_List") == 0)
             {
                 if (!read_order_list(&(newNode->o_head), &(newNode->o_tail)))
                 {
@@ -487,7 +536,7 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
                     return 0;
                 }
             }
-            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Recipe classify List") == 0)
+            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Recipe_classify_List") == 0)
             {
                 if (!read_r_class_list(&(newNode->r_head), &(newNode->r_tail)))
                 {
@@ -521,12 +570,27 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
     closedir(dir);
 
     _chdir("..");
+
+    // switch back to the initial directory
+    if (_chdir(initial_dir) != 0)
+    {
+        perror("Failed to switch back to the initial directory.\n");
+        return 0;
+    }
+
     return 1;
 }
 
 // read all user lists form the file to the memory
 bool read_user_list(struct User** head, struct User** current)
 {
+    char initial_dir[_MAX_PATH];
+    if (_getcwd(initial_dir, sizeof(initial_dir)) == NULL)
+    {
+        perror("Failed to get the current directory.\n");
+        return 0;
+    }
+    
     // switch to the user list folder
     if (_chdir(".\\User_List") != 0)
     {
@@ -607,7 +671,7 @@ bool read_user_list(struct User** head, struct User** current)
                 newNode->c = (enum card)c;
                 fclose(file);
             }
-            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Order List") == 0)
+            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Order_List") == 0)
             {
                 if (!read_order_list(&(newNode->o_head), NULL))
                 {
@@ -640,12 +704,29 @@ bool read_user_list(struct User** head, struct User** current)
     closedir(dir);
 
     _chdir("..");
+
+
+    // switch back to the initial directory
+    if (_chdir(initial_dir) != 0)
+    {
+        perror("Failed to switch back to the initial directory.\n");
+        return 0;
+    }
+    
     return 1;
 }
 
 // read all deliveryman lists form the file to the memory
 bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerson** current)
 {
+    char initial_dir[_MAX_PATH];
+    if (_getcwd(initial_dir, sizeof(initial_dir)) == NULL)
+    {
+        perror("Failed to get the current directory.\n");
+        return 0;
+    }
+    
+    
     // switch to the deliveryman list folder
     if (_chdir(".\\Delivery_person_List") != 0)
     {
@@ -723,7 +804,7 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
                 newNode->s = (enum state_d)s;
                 fclose(file);
             }
-            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Order List") == 0)
+            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Order_List") == 0)
             {
                 if (!read_order_list(&(newNode->o_head), NULL))
                 {
@@ -757,6 +838,13 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
 
     _chdir("..");
     return 1;
+
+    // switch back to the initial directory
+    if (_chdir(initial_dir) != 0)
+    {
+        perror("Failed to switch back to the initial directory.\n");
+        return 0;
+    }
 }
 
 // read all r_classify lists form the file to the memory
@@ -797,13 +885,16 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
         }
 
         DIR* subdir;
+        print_current_directory();
+        fflush(stdout);
+
         subdir = opendir(filepath);
         if (subdir == NULL)
         {
             perror("Failed to open directory");
             return 0;
         }
-        
+
         FILE* file = NULL;
         char file_path[260];
         struct r_classify* newNode = (struct r_classify*)malloc(sizeof(struct r_classify));
@@ -836,7 +927,7 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
                 strcpy(newNode->name, name);
                 fclose(file);
             }
-            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Recipe List") == 0)
+            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Recipe_List") == 0)
             {
                 if (!read_recipe_list(&(newNode->r_head), &(newNode->r_tail)))
                 {
@@ -965,6 +1056,9 @@ bool read_order_list(struct order** head, struct order** current)
     }
     DIR* dir;
     struct dirent* entry;
+    print_current_directory();
+    fflush(stdout);
+
 
     // open current directory
     dir = opendir(".");
@@ -977,6 +1071,8 @@ bool read_order_list(struct order** head, struct order** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        print_current_directory();
+        fflush(stdout);
         if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
         {
             continue;
@@ -1025,6 +1121,8 @@ bool read_order_list(struct order** head, struct order** current)
 
         while ((en = readdir(subdir)) != NULL)
         {
+            print_current_directory();
+            fflush(stdout);
             if (en->d_type == DT_REG)
             {
                 if (strcmp(en->d_name, ".") == 0 || strcmp(en->d_name, "..") == 0)
@@ -1110,7 +1208,7 @@ bool read_order_list(struct order** head, struct order** current)
                 newNode->sum_price = sum_price;
                 fclose(file);
             }
-            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Recipe List") == 0)
+            else if (en->d_type == DT_DIR && strcmp(en->d_name, "Recipe_List") == 0)
             {
                 if (!read_recipe_list(&(newNode->r_head), &(newNode->r_tail)))
                 {
