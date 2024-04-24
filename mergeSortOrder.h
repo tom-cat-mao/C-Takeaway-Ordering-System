@@ -162,7 +162,7 @@ struct order* o_mergeUpper_t(struct order* first, struct  order* second, struct 
     }
 
     // Pick the smaller value
-    if (mktime(first->localTime) <= mktime(second->localTime))
+    if (first->settime <= second->settime)
     {
         first->next = o_mergeUpper_t(first->next, second, tail);
         if (first->next)
@@ -224,7 +224,7 @@ struct order* o_mergeLower_t(struct order* first, struct order* second, struct o
     }
 
     // Pick the larger value
-    if (mktime(first->localTime) >= mktime(second->localTime))
+    if (first->settime >= second->settime)
     {
         first->next = o_mergeLower_t(first->next, second, tail);
         if (first->next)
