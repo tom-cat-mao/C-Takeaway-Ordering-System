@@ -496,6 +496,12 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
         char file_path[260];
         struct Merchant* newNode = (struct Merchant*)malloc(sizeof(struct Merchant));
         newNode->next = NULL;
+        newNode->r_head = NULL;
+        newNode->r_tail = NULL;
+        newNode->o_head = NULL;
+        newNode->o_tail = NULL;
+        newNode->t_o_head = NULL;
+        newNode->t_r_head = NULL;
         char name[100];
         char address[100];
         char phone[20];
@@ -896,6 +902,8 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
         char file_path[260];
         struct r_classify* newNode = (struct r_classify*)malloc(sizeof(struct r_classify));
         newNode->next = NULL;
+        newNode->r_head = NULL;
+        newNode->r_tail = NULL;
         char name[100];
 
         struct dirent* en;
