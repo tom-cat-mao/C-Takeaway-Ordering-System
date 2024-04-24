@@ -626,7 +626,7 @@ bool read_user_list(struct User** head, struct User** current)
         }
 
         DIR* subdir;
-        subdir = opendir(filepath);
+        subdir = opendir(".");
         if (subdir == NULL)
         {
             perror("Failed to open directory");
@@ -762,7 +762,7 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
         }
 
         DIR* subdir;
-        subdir = opendir(filepath);
+        subdir = opendir(".");
         if (subdir == NULL)
         {
             perror("Failed to open directory");
@@ -877,6 +877,9 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
 
         char filepath[260];
         sprintf(filepath, "%s\\%s", ".", entry->d_name);
+        printf("%s\n", filepath);
+        print_current_directory();
+        fflush(stdout);
 
         if (_chdir(filepath) != 0)
         {
@@ -888,7 +891,9 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
         print_current_directory();
         fflush(stdout);
 
-        subdir = opendir(filepath);
+        subdir = opendir(".");
+        printf("%d\n", errno);
+        fflush(stdout);
         if (subdir == NULL)
         {
             perror("Failed to open directory");
@@ -1002,6 +1007,11 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
 
         // splice path
         sprintf(file_path, "%s\\%s", ".", entry->d_name);
+        printf("%s\n", file_path);
+        fflush(stdout);
+
+        print_current_directory();
+        fflush(stdout);
 
         // open file
         file = fopen(file_path, "r");
@@ -1088,7 +1098,7 @@ bool read_order_list(struct order** head, struct order** current)
         }
 
         DIR* subdir;
-        subdir = opendir(filepath);
+        subdir = opendir(".");
         if (subdir == NULL)
         {
             perror("Failed to open directory");
