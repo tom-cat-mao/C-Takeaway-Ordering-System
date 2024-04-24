@@ -1131,13 +1131,14 @@ bool read_order_list(struct order** head, struct order** current)
 
         while ((en = readdir(subdir)) != NULL)
         {
+            if (strcmp(en->d_name, ".") == 0 || strcmp(en->d_name, "..") == 0)
+            {
+                continue;
+            }
+
             if (en->d_type == DT_REG)
             {
-                if (strcmp(en->d_name, ".") == 0 || strcmp(en->d_name, "..") == 0)
-                {
-                    continue;
-                }
-                
+
                 // splice path
                 sprintf(file_path, "%s\\%s", ".", entry->d_name);
 
