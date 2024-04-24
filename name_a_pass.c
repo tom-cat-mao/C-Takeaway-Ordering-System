@@ -338,6 +338,7 @@ bool compare_m(struct Password_m* head, char* n, struct Password_m** p_current)
         for (i = 0; i < 5; i++)
         {
             printf("Please input your password:");
+            fflush(stdout);
             char p[100] = { '\0' };
             scanf("%s", p);
             if (strcmp(current->password, p) == 0)

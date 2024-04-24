@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="MyProject"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/Cproject/C-/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MyProject">
+				<Option output="D:/Cproject/C-/cmake-build-debug/MyProject.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Cproject/C-/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 MyProject"/>
+					<CompileFile command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MyProject/fast">
+				<Option output="D:/Cproject/C-/cmake-build-debug/MyProject.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Cproject/C-/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 MyProject/fast"/>
+					<CompileFile command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/Cproject/C-/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/Cproject/C-/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Clion/CLion-2023.2.2.win/bin/mingw/bin/mingw32-make.exe -f &quot;D:/Cproject/C-/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/Cproject/C-/Manager.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/SearchFuzzy&amp;SaleRecipe.h">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/Search_Classify_in_Merchant.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/Search_Recipe_in_Class.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/class.h">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/classTree.h">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/createList.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/createTree.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/deleteTree.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/delete_data.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/delete_node.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/dirent.h">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/discount_card_change.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/duplicate_name.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/find_account_in_the_list.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/find_free_deliver.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/folder_c_c_d.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/folder_create_change_delete.h">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/get_back_p.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/insertTree.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/interface.h">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/main.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/mergeSortOrder.h">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/mergeSortRecipe.h">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/name_a_pass.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/output_recipe_price_range.h">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/password_change.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/printList.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/sale_recipe.h">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/searchTree.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/setStar_recipe.h">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/set_order_state.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/sum_price.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/time_set.c">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/wordcolour.h">
+			<Option target="MyProject"/>
+		</Unit>
+		<Unit filename="D:/Cproject/C-/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -25,6 +25,8 @@ set(SOURCES
         find_free_deliver.c
         set_order_state.c
         find_account_in_the_list.c
+        duplicate_name.c
+        get_back_p.c
 )
 
 # Add your header files here

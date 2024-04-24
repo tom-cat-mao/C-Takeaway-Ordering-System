@@ -1,0 +1,24 @@
+# ninja log v5
+64	364	7356204336276767	CMakeFiles/MyProject.dir/printList.c.obj	13ac662ac2f9bccf
+352	451	7356204337242862	CMakeFiles/MyProject.dir/find_account_in_the_list.c.obj	eb990aa37028cdf2
+57	379	7356204336462380	CMakeFiles/MyProject.dir/name_a_pass.c.obj	e31615150c2e60b3
+2	326	7356204335642710	CMakeFiles/MyProject.dir/createTree.c.obj	1b4082e497d4bc55
+108	363	7356204336276767	CMakeFiles/MyProject.dir/password_change.c.obj	ac3d77c0f2dbd747
+18	351	7356204336045900	CMakeFiles/MyProject.dir/delete_data.c.obj	55d50f8631fdf5c4
+99	363	7356204336276767	CMakeFiles/MyProject.dir/Search_Classify_in_Merchant.c.obj	373a98ba13f5fda3
+43	360	7356204336120281	CMakeFiles/MyProject.dir/discount_card_change.c.obj	5eb6a6b8c5591f2e
+546	898	7356204341116892	MyProject.exe	3f4f878b5bcde342
+127	364	7356204336276767	CMakeFiles/MyProject.dir/delete_node.c.obj	40cb130ca03f4104
+11	361	7356204336120281	CMakeFiles/MyProject.dir/createList.c.obj	aaac29c70acfd34f
+2	16	0	clean	3c174d1ccbb5aeb4
+27	361	7356204336276767	CMakeFiles/MyProject.dir/deleteTree.c.obj	20148a884641b0fd
+115	546	7356204338044436	CMakeFiles/MyProject.dir/main.c.obj	1533632175104466
+121	365	7356204336276767	CMakeFiles/MyProject.dir/Manager.c.obj	848a11bcd5057514
+35	342	7356204336045900	CMakeFiles/MyProject.dir/insertTree.c.obj	e7b1dfec09a47616
+327	445	7356204337086574	CMakeFiles/MyProject.dir/find_free_deliver.c.obj	81f0e9b3e374dd3f
+71	360	7356204336120281	CMakeFiles/MyProject.dir/searchTree.c.obj	bab8a98b559334be
+85	362	7356204336276767	CMakeFiles/MyProject.dir/time_set.c.obj	21970bb4038df350
+134	362	7356204336276767	CMakeFiles/MyProject.dir/Search_Recipe_in_Class.c.obj	c692334382170ac4
+78	362	7356204336120281	CMakeFiles/MyProject.dir/sum_price.c.obj	7def2451e6b0e570
+343	457	7356204337242862	CMakeFiles/MyProject.dir/set_order_state.c.obj	d9cf15a8f9227037
+92	511	7356204337806032	CMakeFiles/MyProject.dir/folder_c_c_d.c.obj	67ada32cb61594c7

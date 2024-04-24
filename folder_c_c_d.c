@@ -1,7 +1,17 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "folder_create_change_delete.h"
 #include <errno.h>
+#include <direct.h> // for _getcwd
 
+
+void print_current_directory() {
+    char cwd[1024];
+    if (_getcwd(cwd, sizeof(cwd)) != NULL) {
+        printf("Current working directory: %s\n", cwd);
+    } else {
+        perror("_getcwd() error");
+    }
+}
 
 // write the merchant list to the merchant list folder
 bool write_t_merchant_list(struct Merchant* head)
@@ -410,17 +420,28 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
+        {
+            continue;
+        }
+        
         DIR* subdir;
         char filepath[260];
         sprintf(filepath, "%s\\%s", ".", entry->d_name);
 
-        subdir = opendir(filepath);
+        if ((_chdir(filepath) != 0))
+        {
+            perror("Failed to open directory");
+            return 0;
+        }
+
+        subdir = opendir(".");
         if (subdir == NULL)
         {
             perror("Failed to open directory");
             return 0;
         }
-        
+
         FILE* file = NULL;
         char file_path[260];
         struct Merchant* newNode = (struct Merchant*)malloc(sizeof(struct Merchant));
@@ -430,9 +451,15 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
         char phone[20];
 
         struct dirent* en;
-        
+
         while ((en = readdir(subdir)) != NULL)
         {
+            
+            if (strcmp(en->d_name, ".") == 0 || strcmp(en->d_name, "..") == 0)
+            {
+                continue;
+            }
+            
             if (en->d_type == DT_REG)
             {
                 // splice path
@@ -493,7 +520,6 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
     // close directory
     closedir(dir);
 
-
     _chdir("..");
     return 1;
 }
@@ -521,8 +547,19 @@ bool read_user_list(struct User** head, struct User** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
+        {
+            continue;
+        }   
+
         char filepath[260];
         sprintf(filepath, "%s\\%s", ".", entry->d_name);
+
+        if ((_chdir(filepath) != 0))
+        {
+            perror("Failed to open directory");
+            return 0;
+        }
 
         DIR* subdir;
         subdir = opendir(filepath);
@@ -545,6 +582,11 @@ bool read_user_list(struct User** head, struct User** current)
 
         while ((en = readdir(subdir)) != NULL)
         {
+            if (strcmp(en->d_name, ".") == 0 || strcmp(en->d_name, "..") == 0)
+            {
+                continue;
+            }
+            
             if (en->d_type == DT_REG)
             {
                 // splice path
@@ -624,8 +666,19 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
+        {
+            continue;
+        }
+
         char filepath[260];
         sprintf(filepath, "%s\\%s", ".", entry->d_name);
+
+        if (_chdir(filepath) != 0)
+        {
+            perror("Failed to open directory");
+            return 0;
+        }
 
         DIR* subdir;
         subdir = opendir(filepath);
@@ -646,6 +699,11 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
         
         while ((en = readdir(subdir)) != NULL)
         {
+            if (strcmp(en->d_name, ".") == 0 || strcmp(en->d_name, "..") == 0)
+            {
+                continue;
+            }
+            
             if (en->d_type == DT_REG)
             {
                 // splice path
@@ -724,8 +782,19 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
+        {
+            continue;
+        }
+
         char filepath[260];
         sprintf(filepath, "%s\\%s", ".", entry->d_name);
+
+        if (_chdir(filepath) != 0)
+        {
+            perror("Failed to open directory");
+            return 0;
+        }
 
         DIR* subdir;
         subdir = opendir(filepath);
@@ -745,6 +814,11 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
 
         while ((en = readdir(subdir)) != NULL)
         {
+            if (strcmp(en->d_name, ".") == 0 || strcmp(en->d_name, "..") == 0)
+            {
+                continue;
+            }
+            
             if (en->d_type == DT_REG)
             {
                 // splice path
@@ -821,6 +895,11 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
+        {
+            continue;
+        }
+        
         FILE* file = NULL;
         char file_path[260];
         struct recipe* newNode = (struct recipe*)malloc(sizeof(struct recipe));
@@ -898,8 +977,19 @@ bool read_order_list(struct order** head, struct order** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
+        {
+            continue;
+        }
+        
         char filepath[260];
         sprintf(filepath, "%s\\%s", ".", entry->d_name);
+
+        if (_chdir(filepath) != 0)
+        {
+            perror("Failed to open directory");
+            return 0;
+        }
 
         DIR* subdir;
         subdir = opendir(filepath);
@@ -937,6 +1027,11 @@ bool read_order_list(struct order** head, struct order** current)
         {
             if (en->d_type == DT_REG)
             {
+                if (strcmp(en->d_name, ".") == 0 || strcmp(en->d_name, "..") == 0)
+                {
+                    continue;
+                }
+                
                 // splice path
                 sprintf(file_path, "%s\\%s", ".", entry->d_name);
 
