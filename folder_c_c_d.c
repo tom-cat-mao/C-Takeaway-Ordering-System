@@ -626,7 +626,7 @@ bool read_user_list(struct User** head, struct User** current)
         }
 
         DIR* subdir;
-        subdir = opendir(filepath);
+        subdir = opendir(".");
         if (subdir == NULL)
         {
             perror("Failed to open directory");
@@ -762,7 +762,7 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
         }
 
         DIR* subdir;
-        subdir = opendir(filepath);
+        subdir = opendir(".");
         if (subdir == NULL)
         {
             perror("Failed to open directory");
@@ -885,10 +885,7 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
         }
 
         DIR* subdir;
-        print_current_directory();
-        fflush(stdout);
-
-        subdir = opendir(filepath);
+        subdir = opendir(".");
         if (subdir == NULL)
         {
             perror("Failed to open directory");
@@ -990,7 +987,16 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
         {
             continue;
         }
-        
+
+        char filepath[260];
+        sprintf(filepath, "%s\\%s", ".", entry->d_name);
+
+        if (_chdir(filepath) != 0)
+        {
+            perror("Failed to open directory");
+            return 0;
+        }
+
         FILE* file = NULL;
         char file_path[260];
         struct recipe* newNode = (struct recipe*)malloc(sizeof(struct recipe));
@@ -1036,6 +1042,7 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
 
         // close file
         fclose(file);
+        _chdir("..");
     }
 
     // close directory
@@ -1056,8 +1063,6 @@ bool read_order_list(struct order** head, struct order** current)
     }
     DIR* dir;
     struct dirent* entry;
-    print_current_directory();
-    fflush(stdout);
 
 
     // open current directory
@@ -1071,8 +1076,6 @@ bool read_order_list(struct order** head, struct order** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
-        print_current_directory();
-        fflush(stdout);
         if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
         {
             continue;
@@ -1088,7 +1091,7 @@ bool read_order_list(struct order** head, struct order** current)
         }
 
         DIR* subdir;
-        subdir = opendir(filepath);
+        subdir = opendir(".");
         if (subdir == NULL)
         {
             perror("Failed to open directory");
@@ -1121,15 +1124,14 @@ bool read_order_list(struct order** head, struct order** current)
 
         while ((en = readdir(subdir)) != NULL)
         {
-            print_current_directory();
-            fflush(stdout);
+            if (strcmp(en->d_name, ".") == 0 || strcmp(en->d_name, "..") == 0)
+            {
+                continue;
+            }
+
             if (en->d_type == DT_REG)
             {
-                if (strcmp(en->d_name, ".") == 0 || strcmp(en->d_name, "..") == 0)
-                {
-                    continue;
-                }
-                
+
                 // splice path
                 sprintf(file_path, "%s\\%s", ".", entry->d_name);
 
