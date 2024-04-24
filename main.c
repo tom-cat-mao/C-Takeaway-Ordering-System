@@ -218,7 +218,7 @@ int main()
 																		{
 																			temp_1->r_head = r_mergeSortUpper_p(temp_1->r_head, &(temp_1->r_tail));
 																			temp_1 = temp_1->next;
-																			
+
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
