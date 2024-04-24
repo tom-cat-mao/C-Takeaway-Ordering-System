@@ -877,9 +877,6 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
 
         char filepath[260];
         sprintf(filepath, "%s\\%s", ".", entry->d_name);
-        printf("%s\n", filepath);
-        print_current_directory();
-        fflush(stdout);
 
         if (_chdir(filepath) != 0)
         {
@@ -888,12 +885,7 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
         }
 
         DIR* subdir;
-        print_current_directory();
-        fflush(stdout);
-
         subdir = opendir(".");
-        printf("%d\n", errno);
-        fflush(stdout);
         if (subdir == NULL)
         {
             perror("Failed to open directory");
@@ -991,11 +983,27 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
+        print_current_directory();
+        fflush(stdout);
+
         if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
         {
             continue;
         }
-        
+
+        char filepath[260];
+        sprintf(filepath, "%s\\%s", ".", entry->d_name);
+        printf("%s\n", filepath);
+        fflush(stdout);
+
+        if (_chdir(filepath) != 0)
+        {
+            perror("Failed to open directory");
+            return 0;
+        }
+        print_current_directory();
+        fflush(stdout);
+
         FILE* file = NULL;
         char file_path[260];
         struct recipe* newNode = (struct recipe*)malloc(sizeof(struct recipe));
@@ -1007,11 +1015,6 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
 
         // splice path
         sprintf(file_path, "%s\\%s", ".", entry->d_name);
-        printf("%s\n", file_path);
-        fflush(stdout);
-
-        print_current_directory();
-        fflush(stdout);
 
         // open file
         file = fopen(file_path, "r");
@@ -1046,6 +1049,7 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
 
         // close file
         fclose(file);
+        _chdir("..");
     }
 
     // close directory
@@ -1081,8 +1085,6 @@ bool read_order_list(struct order** head, struct order** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
-        print_current_directory();
-        fflush(stdout);
         if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
         {
             continue;
@@ -1131,8 +1133,6 @@ bool read_order_list(struct order** head, struct order** current)
 
         while ((en = readdir(subdir)) != NULL)
         {
-            print_current_directory();
-            fflush(stdout);
             if (en->d_type == DT_REG)
             {
                 if (strcmp(en->d_name, ".") == 0 || strcmp(en->d_name, "..") == 0)
