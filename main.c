@@ -1095,25 +1095,43 @@ int main()
 					//sign up
 				case 2:
 					//create user's detail information
-					char name_1[100];
+					char name_1[100] = { '\0' };
 					char password[100] = { '\0' };
 					char address[100] = { '\0' };
 					char phone[100] = { '\0' };
 					printf("please enter your username:\n");
-                    fflush(stdout);
 					scanf("%s", name_1);
-					printf("please enter your password:\n");
-                    fflush(stdout);
-					scanf("%s", password);
-					printf("please enter your address:\n");
-                    fflush(stdout);
-					scanf("%s", address);
+					if (duplicate_name_u(p_head_u, name_1))//judge the username
+					{
+						printf("please enter your password:\n");
+						scanf("%s", password);
+						printf("please enter your address:\n");
+						scanf("%s", address);
+						printf("please enter your phone number:\n");
+						scanf("%s", phone);
+						u_createList_p(&p_head_u, &p_u_current, u_creatNode_p(name_1, password, phone));
+						u_current = creatList_user(name_1, password, address, phone);
+						insertEnd_u(&u_head, &u_tail, u_current);
+					}
+					else
+					{
+						printf("the username already exist!\n");
+					}
+					break;
+
+					//forget password
+				case 3:
+					char name_u[100] = { '\0' };
+					char phone_u[100] = { '\0' };
+					printf("please enter your username:\n");
+					scanf("%s", name_u);
 					printf("please enter your phone number:\n");
-                    fflush(stdout);
-					scanf("%s", phone);
-					u_createList_p(&p_head_u, &p_u_tail, u_creatNode_p(name_1, password, phone));
-					u_current = creatList_user(name_1, password, address, phone);
-					insertEnd_u(&u_head, &u_tail, u_current);
+					scanf("%s", phone_u);
+					if (!get_back_p_u(p_head_u, name_u, phone_u))
+					{
+						printf("there is something wrong with the details you entered!\n");
+					}
+
 					break;
 				default:
 					break;
@@ -1129,7 +1147,7 @@ int main()
 		case 2:
 			for (int flag_1 = 1; flag_1 != 0;)
 			{
-				printf("0.Return,1.Sign in,2.Sign up\n");
+				printf("0.Return,1.Sign in,2.Sign up,3.forgrt password\n");
 				int t_1 = 0;
                 fflush(stdout);
 				scanf("%d", &t_1);
@@ -2138,89 +2156,101 @@ int main()
 					char address[100] = { '\0' };
 					char phone[100] = { '\0' };
 					printf("please enter your username:\n");
-                    fflush(stdout);
 					scanf("%s", name_2);
-					printf("please enter your password:\n");
-                    fflush(stdout);
-					scanf("%s", password);
-					printf("please enter your address:\n");
-                    fflush(stdout);
-					scanf("%s", address);
-					printf("please enter your phone number:\n");
-                    fflush(stdout);
-					scanf("%s", phone);
-					m_createList_p(&p_head_m, &p_m_tail, m_creatNode_p(name_2, password, phone));
-					m_current = creatList_merchant(name_2, password, address, phone);
-					insertEnd_m(&m_head, &m_tail, m_current);
-					insertTree_Merchant_name(&t_m_head, m_current);
-					printf("continue to create recipe\n");
-                    fflush(stdout);
-
-					//create recipe class and recipe
-					for (int flag_2 = 1; flag_2 != 0;)
+					if (duplicate_name_m(p_head_m, name_2))//judge the username
 					{
-						printf("0.return,1.contiune\n");
-						int t_2 = 0;
-                        fflush(stdout);
-						scanf("%d", &t_2);
-						switch (t_2)
+						printf("please enter your password:\n");
+						scanf("%s", password);
+						printf("please enter your address:\n");
+						scanf("%s", address);
+						printf("please enter your phone number:\n");
+						scanf("%s", phone);
+						m_createList_p(&p_head_m, &p_m_current, m_creatNode_p(name_2, password, phone));
+						m_current = creatList_merchant(name_2, password, address, phone);
+						insertEnd_m(&m_head, &m_tail, m_current);
+						insertTree_Merchant_name(&t_m_head, m_current);
+						printf("continue to create recipe\n");
+
+						//create recipe class and recipe
+						for (int flag_2 = 1; flag_2 != 0;)
 						{
-							//return to the front page
-						case 0:
-							flag_2 = 0;
-							break;
-
-							//create recipe class and recipe
-						case 1:
-							printf("please enter your recipe class name:\n");
-							char rc_name[100] = { '\0' };
-                            fflush(stdout);
-							scanf("%s", rc_name);
-							rc_current = creatList_r_classify(rc_name);
-							insertEnd_rc(&(m_current->r_head), &(m_current->r_tail), rc_current);
-
-							//create recipe
-							for (int flag_3 = 1; flag_3 != 0;)
+							printf("0.return,1.contiune\n");
+							int t_2 = 0;
+							scanf("%d", &t_2);
+							switch (t_2)
 							{
-								printf("0.return,1.add recipe\n");
-								int t_3 = 0;
-                                fflush(stdout);
-								scanf("%d", &t_3);
-								switch (t_3)
-								{
-									// return to the front page
-								case 0:
-									flag_3 = 0;
-									break;
+								//return to the front page
+							case 0:
+								flag_2 = 0;
+								break;
 
-									//create recipe
-								case 1:
-									char r_name[100] = { '\0' };
-									float p = 0.0;
-									printf("please enter recipe name:\n");
-                                    fflush(stdout);
-									scanf("%s", r_name);
-									printf("please enter the price:\n");
-                                    fflush(stdout);
-									scanf("%f", &p);
-									r_current = creatList_recipe_2(r_name, p);
-									insertEnd_r(&(rc_current->r_head), &(rc_current->r_tail), r_current);
-									insertTree_recipe_name(&(m_current->t_r_head), r_current);
-									rc_current->total_number = flag_3;
-									break;
-								default:
-									break;
+								//create recipe class and recipe
+							case 1:
+								printf("please enter your recipe class name:\n");
+								char rc_name[100] = { '\0' };
+								scanf("%s", rc_name);
+								rc_current = creatList_r_classify(rc_name);
+								insertEnd_rc(&(m_current->r_head), &(m_current->r_tail), rc_current);
+
+								//create recipe
+								for (int flag_3 = 1; flag_3 != 0; flag_3++)
+								{
+									printf("0.return,1.add recipe\n");
+									int t_3 = 0;
+									scanf("%d", &t_3);
+									switch (t_3)
+									{
+										// return to the front page
+									case 0:
+										flag_3 = 0;
+										break;
+
+										//create recipe
+									case 1:
+										char r_name[100] = { '\0' };
+										float p = 0.0;
+										printf("please enter recipe name:\n");
+										scanf("%s", r_name);
+										printf("please enter the price:\n");
+										scanf("%f", &p);
+										r_current = creatList_recipe_2(r_name, p);
+										insertEnd_r(&(rc_current->r_head), &(rc_current->r_tail), r_current);
+										insertTree_recipe_name(&(m_current->t_r_head), r_current);
+										rc_current->total_number = flag_3;
+										break;
+									default:
+										break;
+									}
 								}
+								break;
+							default:
+								break;
 							}
-							break;
-						default:
-							break;
 						}
 					}
+					else
+					{
+						printf("the username already exist!\n");
+					}
+
+					break;
+
+					//forget password
+				case 3:
+					char name_m[100] = { '\0' };
+					char phone_m[100] = { '\0' };
+					printf("please enter your username:\n");
+					scanf("%s", name_m);
+					printf("please enter your phone number:\n");
+					scanf("%s", phone_m);
+					if (!get_back_p_m(p_head_m, name_m, phone_m))
+					{
+						printf("there is something wrong with the details you entered!\n");
+					}
+
 					break;
 				default:
 					printf("wrong choice!\n");
-                    fflush(stdout);
 					break;
 				}
 			}
@@ -2228,12 +2258,11 @@ int main()
 
 
 
-
 			// Deliveryperson
 		case 3:
 			for (int flag_1 = 1; flag_1 != 0;)
 			{
-				printf("0.Return,1.Sign in,2.Sign up\n");
+				printf("0.Return,1.Sign in,2.Sign up,3.forget password\n");
 				int t_1 = 0;
                 fflush(stdout);
 				scanf("%d", &t_1);
@@ -2330,27 +2359,45 @@ int main()
 					}
 					break;
 
-					// sign up
 				case 2:
 					char name_3[100] = { '\0' };
 					char password[100] = { '\0' };
 					char phone[100] = { '\0' };
 					printf("please enter your username:\n");
-                    fflush(stdout);
 					scanf("%s", name_3);
-					printf("please enter your password:\n");
-                    fflush(stdout);
-					scanf("%s", password);
+					if (duplicate_name_u(p_head_u, name_3))//judge the username
+					{
+						printf("please enter your password:\n");
+						scanf("%s", password);
+						printf("please enter your phone number:\n");
+						scanf("%s", phone);
+						d_createList_p(&p_head_d, &p_d_current, d_creatNode_p(name_3, password, phone));
+						d_current = creatList_deliveryperson(name_3, password, phone);
+						insertEnd_d(&d_head, &d_tail, d_current);
+					}
+					else
+					{
+						printf("the username already exist!\n");
+					}
+
+					break;
+
+					//forget password
+				case 3:
+					char name_d[100] = { '\0' };
+					char phone_d[100] = { '\0' };
+					printf("please enter your username:\n");
+					scanf("%s", name_d);
 					printf("please enter your phone number:\n");
-                    fflush(stdout);
-					scanf("%s", phone);
-					d_createList_p(&p_head_d, &p_d_tail, d_creatNode_p(name_3, password, phone));
-					d_current = creatList_deliveryperson(name_3, password, phone);
-					insertEnd_d(&d_head, &d_tail, d_current);
+					scanf("%s", phone_d);
+					if (!get_back_p_d(p_head_d, name_d, phone_d))
+					{
+						printf("there is something wrong with the details you entered!\n");
+					}
+
 					break;
 				default:
 					printf("wrong choice!\n");
-                    fflush(stdout);
 					break;
 				}
 			}
