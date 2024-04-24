@@ -983,9 +983,6 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
-        print_current_directory();
-        fflush(stdout);
-
         if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
         {
             continue;
@@ -993,16 +990,12 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
 
         char filepath[260];
         sprintf(filepath, "%s\\%s", ".", entry->d_name);
-        printf("%s\n", filepath);
-        fflush(stdout);
 
         if (_chdir(filepath) != 0)
         {
             perror("Failed to open directory");
             return 0;
         }
-        print_current_directory();
-        fflush(stdout);
 
         FILE* file = NULL;
         char file_path[260];
