@@ -2379,7 +2379,7 @@ int main()
 					char phone[100] = { '\0' };
 					printf("please enter your username:\n");
 					scanf("%s", name_3);
-					if (duplicate_name_u(p_head_u, name_3))//judge the username
+					if (duplicate_name_d(p_head_d, name_3))//judge the username
 					{
 						printf("please enter your password:\n");
 						scanf("%s", password);
