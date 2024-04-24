@@ -127,7 +127,7 @@ struct order* creatList_order(struct Merchant* m_current, struct  User* u_curren
     }
 
     set_time(newNode->localTime);
-    strftime(newNode->order_id, sizeof(newNode->order_id), "%Y%m%d %H%M%S", newNode->localTime);
+    strftime(newNode->order_id, sizeof(newNode->order_id), "%Y%m%d%H%M%S", newNode->localTime);
     for (int i = 7, j = strlen(newNode->order_id); i < 11; i++, j++)
     {
 

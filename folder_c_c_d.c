@@ -278,27 +278,6 @@ bool write_t_order_list(struct order* head)
 
         fprintf(file, "%s\n", current->order_id);
 
-        // write local time include year, month, day, hour, minute, second
-        fprintf(file, "%d\n", current->localTime->tm_mon);
-        fprintf(file, "%d\n", current->localTime->tm_mday);
-        fprintf(file, "%d\n", current->localTime->tm_hour);
-        fprintf(file, "%d\n", current->localTime->tm_min);
-        fprintf(file, "%d\n", current->localTime->tm_sec);
-
-        // write send time include year, month, day, hour, minute, second
-        fprintf(file, "%d\n", current->send_time->tm_mon);
-        fprintf(file, "%d\n", current->send_time->tm_mday);
-        fprintf(file, "%d\n", current->send_time->tm_hour);
-        fprintf(file, "%d\n", current->send_time->tm_min);
-        fprintf(file, "%d\n", current->send_time->tm_sec);
-
-        // write arrive time include year, month, day, hour, minute, second
-        fprintf(file, "%d\n", current->arrive_time->tm_mon);
-        fprintf(file, "%d\n", current->arrive_time->tm_mday);
-        fprintf(file, "%d\n", current->arrive_time->tm_hour);
-        fprintf(file, "%d\n", current->arrive_time->tm_min);
-        fprintf(file, "%d\n", current->arrive_time->tm_sec);
-
         // write merchant, delivery person, customer names, addresses, phone numbers
         fprintf(file, "%s\n", current->m_name);
         fprintf(file, "%s\n", current->m_address);
@@ -710,7 +689,6 @@ bool read_user_list(struct User** head, struct User** current)
 
         _chdir("..");
     }
-
     // close directory
     closedir(dir);
 
@@ -1126,9 +1104,6 @@ bool read_order_list(struct order** head, struct order** current, struct t_order
         char file_path[260];
         struct order* newNode = (struct order*)malloc(sizeof(struct order));
         newNode->next = NULL;
-        newNode->localTime = NULL;
-        newNode->arrive_time = NULL;
-        newNode->send_time = NULL;
         newNode->next = NULL;
         newNode->prev = NULL;
         newNode->r_head = NULL;
@@ -1145,12 +1120,6 @@ bool read_order_list(struct order** head, struct order** current, struct t_order
         char u_phone[20];
         int s;
         float sum_price;
-        struct tm* _localTime;
-        struct tm* arrive_time;
-        struct tm* send_time;
-        int l_mday, l_month, l_hour, l_min, l_sec;
-        int a_mday, a_month, a_hour, a_min, a_sec;
-        int s_mday, s_month, s_hour, s_min, s_sec;
 
         struct dirent* en;
 
@@ -1176,9 +1145,6 @@ bool read_order_list(struct order** head, struct order** current, struct t_order
                 }
 
                 fscanf(file, "%s\n", order_id);
-                fscanf(file, "%d\n%d\n%d\n%d\n%d\n", &l_month, &l_mday, &l_hour, &l_min, &l_sec);
-                fscanf(file, "%d\n%d\n%d\n%d\n%d\n", &s_month, &s_mday, &s_hour, &s_min, &s_sec);
-                fscanf(file, "%d\n%d\n%d\n%d\n%d\n", &a_month, &a_mday, &a_hour, &a_min, &a_sec);
                 fscanf(file, "%s\n%s\n%s\n", m_name, m_address, m_phone);
                 fscanf(file, "%s\n%s\n", d_name, d_phone);
                 fscanf(file, "%s\n%s\n%s\n", u_name, u_address, u_phone);
@@ -1198,45 +1164,6 @@ bool read_order_list(struct order** head, struct order** current, struct t_order
                 strcpy(newNode->m_phone, m_phone);
                 strcpy(newNode->d_phone, d_phone);
                 strcpy(newNode->u_phone, u_phone);
-
-                _localTime = (struct tm*)malloc(sizeof(struct tm));
-                _localTime->tm_mday = l_mday;
-                _localTime->tm_mon = l_month - 1;
-                _localTime->tm_hour = l_hour;
-                _localTime->tm_min = l_min;
-                _localTime->tm_sec = l_sec;
-
-                time_t t = mktime(_localTime);
-                free(_localTime);
-
-                _localTime = localtime(&t);
-
-
-                arrive_time = (struct tm*)malloc(sizeof(struct tm));
-                arrive_time->tm_mday = a_mday;
-                arrive_time->tm_mon = a_month - 1;
-                arrive_time->tm_hour = a_hour;
-                arrive_time->tm_min = a_min;
-                arrive_time->tm_sec = a_sec;
-
-                t = mktime(arrive_time);
-                free(arrive_time);
-
-                arrive_time = localtime(&t);
-
-
-                send_time = (struct tm*)malloc(sizeof(struct tm));
-
-                send_time->tm_mday = s_mday;
-                send_time->tm_mon = s_month - 1;
-                send_time->tm_hour = s_hour;
-                send_time->tm_min = s_min;
-                send_time->tm_sec = s_sec;
-
-                t = mktime(send_time);
-                free(send_time);
-                send_time = localtime(&t);
-
 
                 newNode->s = (enum state_o)s;
                 newNode->sum_price = sum_price;
