@@ -14,5 +14,5 @@ void generateRandomString(char* str)
         str[i] = '0' + rand() % 10;
     }
     
-    str[length] = '\0';
+    str[4] = '\0';
 }

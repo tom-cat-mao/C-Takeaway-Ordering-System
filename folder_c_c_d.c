@@ -21,7 +21,9 @@ bool write_t_merchant_list(struct Merchant* head)
         perror("Failed to get the current directory.\n");
         return 0;
     }
-    
+    printf("Current directory: %s\n", initial_dir);
+    fflush(stdout);
+
     // switch to the merchant list folder
     if (_chdir(".\\Merchant_List") != 0)
     {
@@ -32,12 +34,16 @@ bool write_t_merchant_list(struct Merchant* head)
         }
         _chdir(".\\Merchant_List");
     }
+    print_current_directory();
+    fflush(stdout);
 
     // write merchant data to different files
     for (struct Merchant* current = head; current != NULL; current = current->next)
     {
         char file_path[260];
         sprintf(file_path, "%s\\%s", ".", current->name);
+        printf("%s\n", file_path);
+        fflush(stdout);
 
         if (_chdir(file_path) != 0)
         {
@@ -50,6 +56,8 @@ bool write_t_merchant_list(struct Merchant* head)
             }
             _chdir(file_path);
         }
+        print_current_directory();
+        fflush(stdout);
 
         FILE* file = fopen(current->name, "w");
         if (file == NULL)
@@ -102,7 +110,7 @@ bool write_t_user_list(struct User* head)
         perror("Failed to get the current directory.\n");
         return 0;
     }
-    
+
     // switch to the user list folder
     if (_chdir(".\\User_List") != 0)
     {
@@ -175,7 +183,7 @@ bool write_t_deliveryperson_list(struct DeliveryPerson* head)
         perror("Failed to get the current directory.\n");
         return 0;
     }
-    
+
     // switch to the deliveryperson list folder
     if (_chdir(".\\Delivery_person_List") != 0)
     {
@@ -242,6 +250,17 @@ bool write_t_deliveryperson_list(struct DeliveryPerson* head)
 // write the order list to the order list folder
 bool write_t_order_list(struct order* head)
 {
+    char initial_dir[_MAX_PATH];
+    if (_getcwd(initial_dir, sizeof(initial_dir)) == NULL)
+    {
+        perror("Failed to get the current directory.\n");
+        return 0;
+    }
+    printf("Current directory: %s\n", initial_dir);
+    fflush(stdout);
+
+    print_current_directory();
+    fflush(stdout);
     // switch to the order list folder
     if (_chdir(".\\Order_List") != 0)
     {
@@ -253,11 +272,16 @@ bool write_t_order_list(struct order* head)
         _chdir(".\\Order_List");
     }
 
+    print_current_directory();
+    fflush(stdout);
+
     // write order data to different files
     for (struct order* current = head; current != NULL; current = current->next)
     {
         char file_path[260];
         sprintf(file_path, "%s\\%s", ".", current->order_id);
+        printf("%s\n", file_path);
+        fflush(stdout);
 
         if (_chdir(file_path) != 0)
         {
@@ -268,6 +292,8 @@ bool write_t_order_list(struct order* head)
             }
             _chdir(file_path);
         }
+        print_current_directory();
+        fflush(stdout);
 
         FILE* file = fopen(current->order_id, "w");
         if (file == NULL)
@@ -279,10 +305,13 @@ bool write_t_order_list(struct order* head)
         fprintf(file, "%s\n", current->order_id);
 
         // write merchant, delivery person, customer names, addresses, phone numbers
+        fprintf(file, "%d\n", current->send_time);
+        fprintf(file, "%d\n", current->arrive_time);
+        fprintf(file, "%d\n", current->total_time);
+
         fprintf(file, "%s\n", current->m_name);
         fprintf(file, "%s\n", current->m_address);
         fprintf(file, "%s\n", current->m_phone);
-
 
         fprintf(file, "%s\n", current->d_name);
         fprintf(file, "%s\n", current->d_phone);
@@ -297,7 +326,7 @@ bool write_t_order_list(struct order* head)
         fprintf(file, "%f\n", current->sum_price);
 
         // print recipe list
-        if (write_t_recipe_list(current->r_head))
+        if (!write_t_recipe_list(current->r_head))
         {
             perror("Failed to write the recipe list.\n");
             return 0;
@@ -309,12 +338,25 @@ bool write_t_order_list(struct order* head)
     }
 
     _chdir("..");
+
+    if (_chdir(initial_dir) != 0)
+    {
+        perror("Failed to switch back to the initial directory.\n");
+        return 0;
+    }
     return 1;
 }
 
 // write the recipe class list to the recipe class list folder
 bool write_t_r_class_list(struct r_classify* head)
 {
+    char initial_dir[_MAX_PATH];
+    if (_getcwd(initial_dir, sizeof(initial_dir)) == NULL)
+    {
+        perror("Failed to get the current directory.\n");
+        return 0;
+    }
+
     // switch to the recipe classify list folder
     if (_chdir(".\\Recipe_classify_List") != 0)
     {
@@ -364,12 +406,27 @@ bool write_t_r_class_list(struct r_classify* head)
     }
 
     _chdir("..");
+    if (_chdir(initial_dir) != 0)
+    {
+        perror("Failed to switch back to the initial directory.\n");
+        return 0;
+    }
+
     return 1;
 }
 
 // write the recipe list to the recipe list folder
 bool write_t_recipe_list(struct recipe* head)
 {
+    char initial_dir[_MAX_PATH];
+    if (_getcwd(initial_dir, sizeof(initial_dir)) == NULL)
+    {
+        perror("Failed to get the current directory.\n");
+        return 0;
+    }
+
+    print_current_directory();
+    fflush(stdout);
     // switch to the recipe  list folder
     if (_chdir(".\\Recipe_List") != 0)
     {
@@ -380,6 +437,8 @@ bool write_t_recipe_list(struct recipe* head)
         }
         _chdir(".\\Recipe_List");
     }
+    print_current_directory();
+    fflush(stdout);
 
     // write recipe data to different files
     for (struct recipe* current = head; current != NULL; current = current->next)
@@ -396,6 +455,8 @@ bool write_t_recipe_list(struct recipe* head)
             }
             _chdir(file_path);
         }
+        print_current_directory();
+        fflush(stdout);
 
         FILE* file = fopen(current->name, "w");
         if (file == NULL)
@@ -416,6 +477,12 @@ bool write_t_recipe_list(struct recipe* head)
     }
 
     _chdir("..");
+
+    if (_chdir(initial_dir) != 0)
+    {
+        perror("Failed to switch back to the initial directory.\n");
+        return 0;
+    }
     return 1;
 }
 
@@ -1118,6 +1185,9 @@ bool read_order_list(struct order** head, struct order** current, struct t_order
         char m_phone[20];
         char d_phone[20];
         char u_phone[20];
+        int send_time;
+        int arrive_time;
+        int total_time;
         int s;
         float sum_price;
 
@@ -1145,6 +1215,7 @@ bool read_order_list(struct order** head, struct order** current, struct t_order
                 }
 
                 fscanf(file, "%s\n", order_id);
+                fscanf(file, "%d\n%d\n%d\n", &send_time, &arrive_time, &total_time);
                 fscanf(file, "%s\n%s\n%s\n", m_name, m_address, m_phone);
                 fscanf(file, "%s\n%s\n", d_name, d_phone);
                 fscanf(file, "%s\n%s\n%s\n", u_name, u_address, u_phone);
@@ -1153,6 +1224,9 @@ bool read_order_list(struct order** head, struct order** current, struct t_order
                 // initialize the new node
                 strcpy(newNode->order_id, order_id);
 
+                newNode->send_time = send_time;
+                newNode->arrive_time = arrive_time;
+                newNode->total_time = total_time;
 
                 strcpy(newNode->m_name, m_name);
                 strcpy(newNode->d_name, d_name);
@@ -1191,9 +1265,6 @@ bool read_order_list(struct order** head, struct order** current, struct t_order
             newNode->prev = *current;
             *current = (*current)->next;
             (*current)->next = NULL;
-            (*current)->send_time = NULL;
-            (*current)->arrive_time = NULL;
-            (*current)->localTime = NULL;
             (*current)->r_head = NULL;
             (*current)->r_tail = NULL;
         }

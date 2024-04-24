@@ -39,6 +39,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MyProject.dir/printList.c.obj.d"
   "CMakeFiles/MyProject.dir/searchTree.c.obj"
   "CMakeFiles/MyProject.dir/searchTree.c.obj.d"
+  "CMakeFiles/MyProject.dir/set_order_id.c.obj"
+  "CMakeFiles/MyProject.dir/set_order_id.c.obj.d"
   "CMakeFiles/MyProject.dir/set_order_state.c.obj"
   "CMakeFiles/MyProject.dir/set_order_state.c.obj.d"
   "CMakeFiles/MyProject.dir/sum_price.c.obj"

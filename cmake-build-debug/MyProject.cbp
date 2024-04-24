@@ -175,6 +175,9 @@
 		<Unit filename="D:/Cproject/C-/setStar_recipe.h">
 			<Option target="MyProject"/>
 		</Unit>
+		<Unit filename="D:/Cproject/C-/set_order_id.c">
+			<Option target="MyProject"/>
+		</Unit>
 		<Unit filename="D:/Cproject/C-/set_order_state.c">
 			<Option target="MyProject"/>
 		</Unit>
