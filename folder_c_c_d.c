@@ -421,7 +421,7 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
             return 0;
         }
         
-        FILE* file;
+        FILE* file = NULL;
         char file_path[260];
         struct Merchant* newNode = (struct Merchant*)malloc(sizeof(struct Merchant));
         newNode->next = NULL;
@@ -450,6 +450,7 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
                 strcpy(newNode->name, name);
                 strcpy(newNode->address, address);
                 strcpy(newNode->phone, phone);
+                fclose(file);
             }
             else if (en->d_type == DT_DIR && strcmp(en->d_name, "Order List") == 0)
             {
@@ -484,7 +485,6 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
         }
 
         // close file
-        fclose(file);
         closedir(subdir);
 
         _chdir("..");
@@ -528,7 +528,7 @@ bool read_user_list(struct User** head, struct User** current)
             return 0;
         }
         
-        FILE* file;
+        FILE* file = NULL;
         char file_path[260];
         struct User* newNode = (struct User*)malloc(sizeof(struct User));
         char name[100];
@@ -559,6 +559,7 @@ bool read_user_list(struct User** head, struct User** current)
                 strcpy(newNode->address, address);
                 strcpy(newNode->phone, phone);
                 newNode->c = (enum card)c;
+                fclose(file);
             }
             else if (en->d_type == DT_DIR && strcmp(en->d_name, "Order List") == 0)
             {
@@ -584,7 +585,6 @@ bool read_user_list(struct User** head, struct User** current)
         }
 
         // close file
-        fclose(file);
         closedir(subdir);
 
         _chdir("..");
@@ -627,7 +627,7 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
             return 0;
         }
         
-        FILE* file;
+        FILE* file = NULL;
         char file_path[260];
         struct DeliveryPerson* newNode = (struct DeliveryPerson*)malloc(sizeof(struct DeliveryPerson));
         char name[100];
@@ -723,7 +723,7 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
             return 0;
         }
         
-        FILE* file;
+        FILE* file = NULL;
         char file_path[260];
         struct r_classify* newNode = (struct r_classify*)malloc(sizeof(struct r_classify));
         newNode->next = NULL;
@@ -805,7 +805,7 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
     // view all files in the directory
     while ((entry = readdir(dir)) != NULL)
     {
-        FILE* file;
+        FILE* file = NULL;
         char file_path[260];
         struct recipe* newNode = (struct recipe*)malloc(sizeof(struct recipe));
         char name[100];
