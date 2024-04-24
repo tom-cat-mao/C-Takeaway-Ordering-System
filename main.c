@@ -1743,10 +1743,10 @@ int main()
 																for (;;)
 																{
 																	printf("please enter the sale discount:\n");
-																	float sale = 0.0;
+																	float sale_ = 0;
                                                                     fflush(stdout);
-																	scanf("%f", sale);
-																	if (bool_set_sale_recipe(r_current, sale))
+																	scanf("%f", &sale_);
+																	if (bool_set_sale_recipe(r_current, sale_))
 																	{
 																		break;
 																	}
@@ -1865,9 +1865,9 @@ int main()
 														{
 															printf("please enter the sale discount:\n");
                                                             fflush(stdout);
-															float sale = 0;
-															scanf("%f", sale);
-															if (bool_set_sale_recipe(r_current, sale))
+															float sale_ = 0;
+															scanf("%f", &sale_);
+															if (bool_set_sale_recipe(r_current, sale_))
 															{
 																break;
 															}
@@ -1888,11 +1888,12 @@ int main()
 
 												//sort recipe
 											case 6:
-												for (int flag_5 = 0; flag_5 != 0;)
+												for (int flag_5 = 1; flag_5 != 0;)
 												{
 													printf("0.log out,1.sort,2.return\n");
                                                     fflush(stdout);
 													int t_5 = 0;
+                                                    scanf("%d",&t_5);
 													switch (t_5)
 													{
 														//log out
@@ -1906,7 +1907,7 @@ int main()
 
 														//sort
 													case 1:
-														for (int flag_6 = 0; flag_6 != 0;)
+														for (int flag_6 = 1; flag_6 != 0;)
 														{
 															printf("0.return,1.sort by price,2.sort by stars\n");
                                                             fflush(stdout);
@@ -1949,7 +1950,7 @@ int main()
 																		//lower
 																	case 2:
 																		struct r_classify* temp_2 = m_current->r_head;
-																		while (m_current->r_head != NULL)
+																		while (temp_2 != NULL)
 																		{
 																			temp_2->r_head = r_mergeSortLower_p(temp_2->r_head, &(temp_2->r_tail));
 																			temp_2 = temp_2->next;
@@ -1981,7 +1982,7 @@ int main()
 																		//upper
 																	case 1:
 																		struct r_classify* temp_1 = m_current->r_head;
-																		while (m_current->r_head != NULL)
+																		while (temp_1 != NULL)
 																		{
 																			temp_1->r_head = r_mergeSortUpper_s(temp_1->r_head, &(temp_1->r_tail));
 																			temp_1 = temp_1->next;
