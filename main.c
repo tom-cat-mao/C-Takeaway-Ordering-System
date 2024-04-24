@@ -213,10 +213,12 @@ int main()
 
 																		//upper
 																	case 1:
-																		while (m_current->r_head != NULL)
+																		struct r_classify* temp = m_current->r_head;
+																		while (temp != NULL)
 																		{
-																			m_current->r_head->r_head = r_mergeSortUpper_p(m_current->r_head->r_head, &(m_current->r_head->r_tail));
-																			m_current->r_head = m_current->r_head->next;
+																			temp->r_head = r_mergeSortUpper_p(temp->r_head, &(temp->r_tail));
+																			temp = temp->next;
+																			temp = temp->next;
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
