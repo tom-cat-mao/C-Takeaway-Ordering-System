@@ -213,12 +213,12 @@ int main()
 
 																		//upper
 																	case 1:
-																		struct r_classify* temp = m_current->r_head;
-																		while (temp != NULL)
+																		struct r_classify* temp_1 = m_current->r_head;
+																		while (temp_1 != NULL)
 																		{
-																			temp->r_head = r_mergeSortUpper_p(temp->r_head, &(temp->r_tail));
-																			temp = temp->next;
-																			temp = temp->next;
+																			temp_1->r_head = r_mergeSortUpper_p(temp_1->r_head, &(temp_1->r_tail));
+																			temp_1 = temp_1->next;
+																			temp_1 = temp_1->next;
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
@@ -226,11 +226,11 @@ int main()
 
 																		//lower
 																	case 2:
-																		struct r_classify* temp = m_current->r_head;
-																		while (temp != NULL)
+																		struct r_classify* temp_2 = m_current->r_head;
+																		while (temp_2 != NULL)
 																		{
-																			temp->r_head = r_mergeSortLower_p(temp->r_head, &(temp->r_tail));
-																			temp = temp->next;
+																			temp_2->r_head = r_mergeSortLower_p(temp_2->r_head, &(temp_2->r_tail));
+																			temp_2 = temp_2->next;
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
@@ -275,11 +275,11 @@ int main()
 
 																		//upper
 																	case 1:
-																		struct r_classify* temp = m_current->r_head;
-																		while (temp != NULL)
+																		struct r_classify* temp_1 = m_current->r_head;
+																		while (temp_1 != NULL)
 																		{
-																			temp->r_head = r_mergeSortUpper_s(temp->r_head, &(temp->r_tail));
-																			temp = temp->next;
+																			temp_1->r_head = r_mergeSortUpper_s(temp_1->r_head, &(temp_1->r_tail));
+																			temp_1 = temp_1->next;
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
@@ -287,11 +287,11 @@ int main()
 
 																		//lower
 																	case 2:
-																		struct r_classify* temp = m_current->r_head;
-																		while (temp != NULL)
+																		struct r_classify* temp_2 = m_current->r_head;
+																		while (temp_2 != NULL)
 																		{
-																			temp->r_head = r_mergeSortLower_s(temp->r_head, &(temp->r_tail));
-																			temp = temp->next;
+																			temp_2->r_head = r_mergeSortLower_s(temp_2->r_head, &(temp_2->r_tail));
+																			temp_2 = temp_2->next;
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
@@ -336,11 +336,11 @@ int main()
 
 																		//upper
 																	case 1:
-																		struct r_classify* temp = m_current->r_head;
-																		while (temp != NULL)
+																		struct r_classify* temp_1 = m_current->r_head;
+																		while (temp_1 != NULL)
 																		{
-																			temp->r_head = r_mergeSortUpper_c(temp->r_head, &(temp->r_tail));
-																			temp = temp->next;
+																			temp_1->r_head = r_mergeSortUpper_c(temp_1->r_head, &(temp_1->r_tail));
+																			temp_1 = temp_1->next;
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
@@ -348,11 +348,11 @@ int main()
 
 																		//lower
 																	case 2:
-																		struct r_classify* temp = m_current->r_head;
-																		while (temp != NULL)
+																		struct r_classify* temp_2 = m_current->r_head;
+																		while (temp_2 != NULL)
 																		{
-																			temp->r_head = r_mergeSortLower_c(temp->r_head, &(temp->r_tail));
-																			temp = temp->next;
+																			temp_2->r_head = r_mergeSortLower_c(temp_2->r_head, &(temp_2->r_tail));
+																			temp_2 = temp_2->next;
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
@@ -1936,11 +1936,11 @@ int main()
 
 																		//upper
 																	case 1:
-																		struct r_classify* temp = m_current->r_head;
-																		while (temp != NULL)
+																		struct r_classify* temp_1 = m_current->r_head;
+																		while (temp_1 != NULL)
 																		{
-																			temp->r_head = r_mergeSortUpper_p(temp->r_head, &(temp->r_tail));
-																			temp = temp->next;
+																			temp_1->r_head = r_mergeSortUpper_p(temp_1->r_head, &(temp_1->r_tail));
+																			temp_1 = temp_1->next;
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
@@ -1948,11 +1948,11 @@ int main()
 
 																		//lower
 																	case 2:
-																		struct r_classify* temp = m_current->r_head;
+																		struct r_classify* temp_2 = m_current->r_head;
 																		while (m_current->r_head != NULL)
 																		{
-																			temp->r_head = r_mergeSortLower_p(temp->r_head, &(temp->r_tail));
-																			temp = temp->next;
+																			temp_2->r_head = r_mergeSortLower_p(temp_2->r_head, &(temp_2->r_tail));
+																			temp_2 = temp_2->next;
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
@@ -1980,11 +1980,11 @@ int main()
 
 																		//upper
 																	case 1:
-																		struct r_classify* temp = m_current->r_head;
+																		struct r_classify* temp_1 = m_current->r_head;
 																		while (m_current->r_head != NULL)
 																		{
-																			temp->r_head = r_mergeSortUpper_s(temp->r_head, &(temp->r_tail));
-																			temp = temp->next;
+																			temp_1->r_head = r_mergeSortUpper_s(temp_1->r_head, &(temp_1->r_tail));
+																			temp_1 = temp_1->next;
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
@@ -1992,11 +1992,11 @@ int main()
 
 																		//lower
 																	case 2:
-																		struct r_classify* temp = m_current->r_head;
-																		while (temp != NULL)
+																		struct r_classify* temp_2 = m_current->r_head;
+																		while (temp_2 != NULL)
 																		{
-																			temp->r_head = r_mergeSortLower_s(temp->r_head, &(temp->r_tail));
-																			temp = temp->next;
+																			temp_2->r_head = r_mergeSortLower_s(temp_2->r_head, &(temp_2->r_tail));
+																			temp_2 = temp_2->next;
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
