@@ -557,7 +557,7 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current)
         {
             *head = newNode;
             *current = *head;
-            newNode->prev = NULL;
+            (*current)->next = NULL;
         }
         else
         {
@@ -648,6 +648,10 @@ bool read_user_list(struct User** head, struct User** current)
         int c;
         struct dirent* en;
         newNode->next = NULL;
+        newNode->o_head = NULL;
+        newNode->o_tail = NULL;
+        newNode->t_o_head = NULL;
+        newNode->prev = NULL;
         
 
         while ((en = readdir(subdir)) != NULL)
@@ -691,7 +695,6 @@ bool read_user_list(struct User** head, struct User** current)
         {
             *head = newNode;
             *current = *head;
-            newNode->prev = NULL;
         }
         else
         {
@@ -781,6 +784,10 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
         char name[100];
         char phone[20];
         int s;
+        newNode->prev = NULL;
+        newNode->next = NULL;
+        newNode->o_head = NULL;
+        newNode->o_tail = NULL;
 
         struct dirent* en;
         
@@ -902,6 +909,7 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
         char file_path[260];
         struct r_classify* newNode = (struct r_classify*)malloc(sizeof(struct r_classify));
         newNode->next = NULL;
+        newNode->prev = NULL;
         newNode->r_head = NULL;
         newNode->r_tail = NULL;
         char name[100];
@@ -946,13 +954,13 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
         {
             *head = newNode;
             *current = *head;
-            newNode->prev = NULL;
         }
         else
         {
             (*current)->next = newNode;
             newNode->prev = (*current);
             *current = (*current)->next;
+            (*current)->next = NULL;
         }
 
         // close file
@@ -1008,6 +1016,8 @@ bool read_recipe_list(struct recipe** head, struct recipe** current)
         FILE* file = NULL;
         char file_path[260];
         struct recipe* newNode = (struct recipe*)malloc(sizeof(struct recipe));
+        newNode->next = NULL;
+        newNode->prev = NULL;
         char name[100];
         float price;
         float sale_discount;
@@ -1110,6 +1120,13 @@ bool read_order_list(struct order** head, struct order** current)
         char file_path[260];
         struct order* newNode = (struct order*)malloc(sizeof(struct order));
         newNode->next = NULL;
+        newNode->localTime = NULL;
+        newNode->arrive_time = NULL;
+        newNode->send_time = NULL;
+        newNode->next = NULL;
+        newNode->prev = NULL;
+        newNode->r_head = NULL;
+        newNode->r_tail = NULL;
         char order_id[100];
         char m_name[100];
         char d_name[100];
@@ -1233,13 +1250,18 @@ bool read_order_list(struct order** head, struct order** current)
         {
             *head = newNode;
             *current = *head;
-            newNode->prev = NULL;
         }
         else
         {
             (*current)->next = newNode;
             newNode->prev = *current;
             *current = (*current)->next;
+            (*current)->next = NULL;
+            (*current)->send_time = NULL;
+            (*current)->arrive_time = NULL;
+            (*current)->localTime = NULL;
+            (*current)->r_head = NULL;
+            (*current)->r_tail = NULL;
         }
 
         // close file
