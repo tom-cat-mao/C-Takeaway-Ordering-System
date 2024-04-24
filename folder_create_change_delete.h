@@ -33,7 +33,7 @@ bool read_user_list(struct User** head, struct User** current);
 bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerson** current);
 
 // read all r_classify lists form the file to the memory
-bool read_r_class_list(struct r_classify** head, struct r_classify** current);
+bool read_r_class_list(struct r_classify** head, struct r_classify** current, struct t_recipe** t_head);
 
 // read all recipe lists form the file to the memory
 bool read_recipe_list(struct recipe** head, struct recipe** current, struct t_recipe** t_head);

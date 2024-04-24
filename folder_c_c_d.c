@@ -544,7 +544,7 @@ bool read_merchant_list(struct Merchant** head, struct Merchant** current, struc
             }
             else if (en->d_type == DT_DIR && strcmp(en->d_name, "Recipe_classify_List") == 0)
             {
-                if (!read_r_class_list(&(newNode->r_head), &(newNode->r_tail)))
+                if (!read_r_class_list(&(newNode->r_head), &(newNode->r_tail),&(newNode->t_r_head)))
                 {
                     perror("Failed to read the recipe classify list.\n");
                     return 0;
@@ -864,7 +864,7 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
 }
 
 // read all r_classify lists form the file to the memory
-bool read_r_class_list(struct r_classify** head, struct r_classify** current)
+bool read_r_class_list(struct r_classify** head, struct r_classify** current, struct t_recipe** t_head)
 {
     // switch to the r_classify list folder
     if (_chdir(".\\Recipe_classify_List") != 0 )
@@ -946,7 +946,7 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
             }
             else if (en->d_type == DT_DIR && strcmp(en->d_name, "Recipe_List") == 0)
             {
-                if (!read_recipe_list(&(newNode->r_head), &(newNode->r_tail),&(newNode->t_r_head)))
+                if (!read_recipe_list(&(newNode->r_head), &(newNode->r_tail),t_head))
                 {
                     perror("Failed to read the recipe list.\n");
                     return 0;
