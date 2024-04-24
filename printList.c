@@ -48,8 +48,7 @@ void print_order_list(struct order* tail)
     printf("Order List:\n");
     while (tail != NULL)
     {
-        printf("%d-%02d-%02d %02d:%02d:%02d\n", tail->localTime->tm_year + 1900, tail->localTime->tm_mon + 1, tail->localTime->tm_mday,
-            tail->localTime->tm_hour, tail->localTime->tm_min, tail->localTime->tm_sec);
+        printf("setting time:%d", tail->send_time);
         printf("Order ID: %s\n", tail->order_id);
         printf("Merchant: %s\tAddress: %s\tPhone: %s\n", tail->m_name, tail->m_address, tail->m_phone);
         printf("User: %s\tAddress: %s\tPhone: %s\n", tail->u_name, tail->u_address, tail->u_phone);
@@ -69,6 +68,7 @@ void print_order_list(struct order* tail)
             printf("Order State: Canceled\n");
             break;
         }
+        printf("sending time:%d,arriving time:%d\n", tail->send_time, tail->arrive_time);
         printList_recipe_2(tail->r_head); // Print the list of products in the order
         tail = tail->prev;
     }
@@ -95,8 +95,7 @@ void print_current_order(struct order* tail)
     }
     else
     {
-        printf("%d-%02d-%02d %02d:%02d:%02d\n", tail->localTime->tm_year + 1900, tail->localTime->tm_mon + 1, tail->localTime->tm_mday,
-            tail->localTime->tm_hour, tail->localTime->tm_min, tail->localTime->tm_sec);
+        printf("setting time:%d", tail->send_time);
         printf("Order ID: %s\n", tail->order_id);
         printf("Merchant: %s\tAddress: %s\tPhone: %s\n", tail->m_name, tail->m_address, tail->m_phone);
         printf("User: %s\tAddress: %s\tPhone: %s\n", tail->u_name, tail->u_address, tail->u_phone);
@@ -118,6 +117,7 @@ void print_current_order(struct order* tail)
             printf("Order State: Canceled\n");
             break;
         }
+        printf("sending time:%d,arriving time:%d\n", tail->send_time, tail->arrive_time);
     }
     
 }
