@@ -790,6 +790,7 @@ bool read_deliveryperson_list(struct DeliveryPerson** head, struct DeliveryPerso
         newNode->next = NULL;
         newNode->o_head = NULL;
         newNode->o_tail = NULL;
+        newNode->t_o_head = NULL;
 
         struct dirent* en;
         
@@ -914,6 +915,7 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current)
         newNode->prev = NULL;
         newNode->r_head = NULL;
         newNode->r_tail = NULL;
+        newNode->t_r_head = NULL;
         char name[100];
 
         struct dirent* en;
@@ -1131,6 +1133,7 @@ bool read_order_list(struct order** head, struct order** current, struct t_order
         newNode->prev = NULL;
         newNode->r_head = NULL;
         newNode->r_tail = NULL;
+        newNode->t_r_head = NULL;
         char order_id[100];
         char m_name[100];
         char d_name[100];
