@@ -76,6 +76,8 @@ struct order
     struct recipe* r_head;
     struct recipe* r_tail;
 
+    struct t_recipe* t_r_head;
+
     float sum_price;
 
     struct order* prev;

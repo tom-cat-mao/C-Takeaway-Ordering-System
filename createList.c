@@ -137,6 +137,7 @@ struct order* creatList_order(struct Merchant* m_current, struct  User* u_curren
     memset(newNode->send_time, 0, sizeof(struct tm));
     newNode->r_head = NULL;
     newNode->r_tail = NULL;
+    newNode->t_r_head = NULL;
     newNode->s = WAY;
     newNode->prev = NULL;
     newNode->next = NULL;
