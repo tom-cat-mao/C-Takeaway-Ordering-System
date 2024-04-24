@@ -258,6 +258,7 @@ struct DeliveryPerson* creatList_deliveryperson(char* n, char* p, char* pn)
     strcpy(newNode->name, n);
     strcpy(newNode->password, p);
     strcpy(newNode->phone, pn);
+    newNode->s = FREE;
     newNode->o_head = NULL;
     newNode->o_tail = NULL;
     newNode->prev = NULL;
