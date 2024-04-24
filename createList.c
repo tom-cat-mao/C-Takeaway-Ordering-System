@@ -126,8 +126,8 @@ struct order* creatList_order(struct Merchant* m_current, struct  User* u_curren
         strcpy(newNode->d_phone, d_current->phone);
     }
 
-    //newNode->settime
-    //order id
+    newNode->settime = getRandomNumber_1();
+    generateRandomString(newNode->order_id);
     newNode->arrive_time = 0;
     newNode->send_time = 0;
     newNode->r_head = NULL;

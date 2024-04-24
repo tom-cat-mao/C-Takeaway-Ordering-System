@@ -8,11 +8,11 @@ void set_state_o(struct order* tail, int s)
 	tail->s = s;
 	if (s == 1)
 	{
-		//tail->send_time
+		tail->send_time = getRandomNumber_2();
 	}
 	if (s == 2)
 	{
-		//tail->arrive_time
+		tail->arrive_time = getRandomNumber_3();
 		tail->total_time = tail->arrive_time - tail->send_time;
 	}
 }

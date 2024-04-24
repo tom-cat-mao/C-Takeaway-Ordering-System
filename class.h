@@ -227,7 +227,12 @@ bool delete_user(struct User* head, char* u_name); // Delete a user
 bool delete_delivery_person(struct DeliveryPerson* head, char* d_name); // Delete a delivery person
 
 // Set time
-void set_time(struct tm* localTime);
+//1-10
+int getRandomNumber_1();
+//10-50
+int getRandomNumber_2();
+//50-100
+int getRandomNumber_3();
 
 // Change merchant password
 void merchant_change_p(struct Merchant* current, struct Password_m* p_current);
@@ -306,5 +311,8 @@ bool get_back_p_m(struct Password_m* head, char* name, char* phone);
 bool duplicate_name_u(struct Password_u* head, char* name);
 bool duplicate_name_m(struct Password_m* head, char* name);
 bool duplicate_name_d(struct Password_d* head, char* name);
+
+//set order id
+void generateRandomString(char* str);
 
 #endif
