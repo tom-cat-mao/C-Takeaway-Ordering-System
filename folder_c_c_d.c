@@ -1241,7 +1241,7 @@ bool read_order_list(struct order** head, struct order** current, struct t_order
             }
             else if (en->d_type == DT_DIR && strcmp(en->d_name, "Recipe_List") == 0)
             {
-                if (!read_recipe_list(&(newNode->r_head), &(newNode->r_tail)))
+                if (!read_recipe_list(&(newNode->r_head), &(newNode->r_tail),&(newNode->t_r_head)))
                 {
                     perror("Failed to read the recipe list.\n");
                     return 0;
