@@ -1971,7 +1971,7 @@ int main()
                                                                 fflush(stdout);
 																scanf("%d%d", &max_price, &min_price);
 																delete_several_lines(2);
-																for (int flag_7 = 1; flag_7 = 0;)
+																for (int flag_7 = 1; flag_7 != 0;)
 																{
 																	lower_upper();
 																	int t_7 = 0;
