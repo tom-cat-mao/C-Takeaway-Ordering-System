@@ -353,6 +353,7 @@ void pause_cls()
 {
     printf("Press enter to continue.\n");
     getchar();
+    getchar();
     cls_title();
 }
 void sleep()   //delete_several_lines(5);illegal_number();
