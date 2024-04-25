@@ -1,6 +1,7 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
-#include"class.h"
-#include"interface.h"
+#include "class.h"
+#include "wordcolour.h"
+#include "interface.h"
 
 // Print all products in the menu
 void printList_recipe_1(struct recipe* head)
