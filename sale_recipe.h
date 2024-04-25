@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #ifndef _SALE_RECIPE
 #define _SALE_RECIPE
 #include "class.h"
@@ -15,7 +15,7 @@ bool bool_set_sale_recipe(struct recipe* object, float input)
 	}
 	else
 	{
-		printf("Illegal input,set a discount again:");
+		printf("Illegal input,set a discount again:\n");
 		return false;
 	}
 }

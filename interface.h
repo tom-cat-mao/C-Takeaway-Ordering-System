@@ -48,6 +48,8 @@ void return_continue();
 
 void y_n();
 
+void distribute_DP();
+
 // the following are the real print functions
 
 //choose identity/sign in&up  delete_several_lines(1);

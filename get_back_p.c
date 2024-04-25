@@ -1,5 +1,6 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include "class.h"
+#include "interface.h"
 
 //get back password
 bool get_back_p_u(struct Password_u* head, char* name, char* phone)
@@ -17,7 +18,8 @@ bool get_back_p_u(struct Password_u* head, char* name, char* phone)
 	}
 	if (flag == 1)
 	{
-		printf("your password:%s", current->password);
+		printf("Your password:%s\n", current->password);
+		sleep();
 		return true;
 	}
 	else
@@ -41,7 +43,8 @@ bool get_back_p_d(struct Password_d* head, char* name, char* phone)
 	}
 	if (flag == 1)
 	{
-		printf("your password:%s", current->password);
+		printf("Your password:%s\n", current->password);
+		sleep();
 		return true;
 	}
 	else
@@ -65,7 +68,8 @@ bool get_back_p_m(struct Password_m* head, char* name, char* phone)
 	}
 	if (flag == 1)
 	{
-		printf("your password:%s", current->password);
+		printf("Your password:%s\n", current->password);
+		sleep();
 		return true;
 	}
 	else

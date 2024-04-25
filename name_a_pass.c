@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include "class.h"
 
 //write the password into the file
@@ -328,6 +328,7 @@ bool compare_m(struct Password_m* head, char* n, struct Password_m** p_current)
     if (found == 0)
     {
         printf("You haven't create an account!\n");
+        
         return false;
     }
     else
@@ -337,7 +338,7 @@ bool compare_m(struct Password_m* head, char* n, struct Password_m** p_current)
         int i;
         for (i = 0; i < 5; i++)
         {
-            printf("Please input your password:");
+            printf("Please input your password:\n");
             fflush(stdout);
             char p[100] = { '\0' };
             scanf("%s", p);
@@ -382,7 +383,7 @@ bool compare_u(struct Password_u* head, char* n, struct Password_u** p_current)
         int i;
         for (i = 0; i < 5; i++)
         {
-            printf("Please input your password:");
+            printf("Please input your password:\n");
             char p[100] = { '\0' };
             scanf("%s", p);
             if (strcmp(current->password, p) == 0)
@@ -426,7 +427,7 @@ bool compare_d(struct Password_d* head, char* n, struct Password_d** p_current)
         int i;
         for (i = 0; i < 5; i++)
         {
-            printf("Please input your password:");
+            printf("Please input your password:\n");
             char p[100] = { '\0' };
             scanf("%s", p);
             if (strcmp(current->password, p) == 0)

@@ -86,7 +86,7 @@ void print_order_list(struct order* tail)
     while (tail != NULL)
     {
         printf("****************************************************\n");
-        printf("setting time:%d", tail->send_time);
+        printf("Setting time:%d\n", tail->send_time);
         printf("Order ID: %s\n", tail->order_id);
         printf("Merchant: %s\tAddress: %s\n", tail->m_name, tail->m_address);
         printf("Phone: %s\n", tail->m_phone);
@@ -94,6 +94,7 @@ void print_order_list(struct order* tail)
         printf("Phone: %s\n", tail->u_phone);
         printf("Delivery Person: %s\n", tail->d_name);
         printf("Phone: %s\n", tail->d_phone);
+        printf("Recipes Included:\n");
         printList_recipe_2(tail->r_head); // Print the list of products in the order
         printf("Total Price: %.2f\n", tail->sum_price);
         printf("Order State:");
@@ -119,6 +120,7 @@ void print_order_list(struct order* tail)
         printf("Sending time:%d\nArriving time:%d\n", tail->send_time, tail->arrive_time);
         tail = tail->prev;
     }
+    printf("****************************************************\n\n");
 }
 
 // Print merchant list
@@ -142,7 +144,7 @@ void print_current_order(struct order* tail)
     if (tail != NULL)
     {
         printf("****************************************************\n");
-        printf("setting time:%d", tail->send_time);
+        printf("Setting time:%d\n", tail->send_time);
         printf("Order ID: %s\n", tail->order_id);
         printf("Merchant: %s\tAddress: %s\n", tail->m_name, tail->m_address);
         printf("Phone: %s\n", tail->m_phone);
@@ -150,6 +152,7 @@ void print_current_order(struct order* tail)
         printf("Phone: %s\n", tail->u_phone);
         printf("Delivery Person: %s\n", tail->d_name);
         printf("Phone: %s\n", tail->d_phone);
+        printf("Recipes Included:\n");
         printList_recipe_2(tail->r_head); // Print the list of products in the order
         printf("Total Price: %.2f\n", tail->sum_price);
         printf("Order State:");
@@ -292,6 +295,7 @@ void illegal_number()//"wrong choice"  illegal_number();
     colour(7);
     printf("Press Enter to continue.\n");
     getchar();
+    getchar();
     delete_several_lines(3);
 }
 void upper_lower()
@@ -409,6 +413,12 @@ void y_n()
 {
     printf("Y(Yes) or N(No) for choose this recipe:\n");
 }
+void distribute_DP()
+{
+    colour(11);
+    printf("You can only operate the order which haven't been \ndistributed a delivery person\n");
+    colour(7);
+}
 
 
 // the following are the real print functions
@@ -445,10 +455,11 @@ void main_menu_User_1(char* name)
     printf("Which operation do you want to perform?\n");
     printf("|   1.Recipe                                       |\n");
     printf("|   2.Order                                        |\n");
-    printf("|   3.Password Change                              |\n");
-    printf("|   4.Deactivate                                   |\n");
+    printf("|   3.Change Card                                  |\n");
+    printf("|   4.Change Password                              |\n");
+    printf("|   5.Deactivate                                   |\n");
     print_Logout(0);
-    print_ChooseNumber(0, 4);
+    print_ChooseNumber(0, 5);
 }
 void main_menu_User_2()
 {
@@ -535,8 +546,9 @@ void main_menu_Merchant_2()
 {
     printf("Which operation do you want to perform?\n");
     printf("|   1.Recipe Class       |   2.Recipe              |\n");
+    printf("|   3.Return                                       |\n");
     print_Logout(0);
-    print_ChooseNumber(0, 2);
+    print_ChooseNumber(0, 3);
 }
 void main_menu_Merchant_3()
 {
@@ -616,7 +628,7 @@ void main_menu_DeliveryPerson_1(char* name)
     printf("|   1.Tasks              |   2.Change Password     |\n");
     printf("|   3.Deactivate                                   |\n");
     print_Logout(0);
-    print_ChooseNumber(0, 2);
+    print_ChooseNumber(0, 3);
 
 }
 void main_menu_DeliveryPerson_2()
