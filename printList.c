@@ -91,10 +91,9 @@ void print_order_list(struct order* tail)
         printf("Merchant: %s\tAddress: %s\n", tail->m_name, tail->m_address);
         printf("Phone: %s\n", tail->m_phone);
         printf("User: %s\tAddress: %s\n", tail->u_name, tail->u_address);
-        printf("Phone: %s\n", tail->m_phone);
+        printf("Phone: %s\n", tail->u_phone);
         printf("Delivery Person: %s\n", tail->d_name);
         printf("Phone: %s\n", tail->d_phone);
-        printf("sending time:%d,arriving time:%d\n", tail->send_time, tail->arrive_time);
         printList_recipe_2(tail->r_head); // Print the list of products in the order
         printf("Total Price: %.2f\n", tail->sum_price);
         printf("Order State:");
@@ -117,6 +116,7 @@ void print_order_list(struct order* tail)
             colour(7);
             break;
         }
+        printf("Sending time:%d\nArriving time:%d\n", tail->send_time, tail->arrive_time);
         tail = tail->prev;
     }
 }
@@ -147,10 +147,9 @@ void print_current_order(struct order* tail)
         printf("Merchant: %s\tAddress: %s\n", tail->m_name, tail->m_address);
         printf("Phone: %s\n", tail->m_phone);
         printf("User: %s\tAddress: %s\n", tail->u_name, tail->u_address);
-        printf("Phone: %s\n", tail->m_phone);
+        printf("Phone: %s\n", tail->u_phone);
         printf("Delivery Person: %s\n", tail->d_name);
         printf("Phone: %s\n", tail->d_phone);
-        printf("sending time:%d,arriving time:%d\n", tail->send_time, tail->arrive_time);
         printList_recipe_2(tail->r_head); // Print the list of products in the order
         printf("Total Price: %.2f\n", tail->sum_price);
         printf("Order State:");
@@ -173,6 +172,7 @@ void print_current_order(struct order* tail)
             colour(7);
             break;
         }
+        printf("Sending time:%d\nArriving time:%d\n", tail->send_time, tail->arrive_time);
         printf("****************************************************\n");
     }
     else
