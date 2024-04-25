@@ -3,7 +3,7 @@
 #include"interface.h"
 
 // Print all products in the menu
-void printList_recipe_1(recipe* head)
+void printList_recipe_1(struct recipe* head)
 {
     printf("        --------------------------------------------\n");
     while (head != NULL)
@@ -37,7 +37,7 @@ void printList_recipe_1(recipe* head)
 }
 
 // Print all products in the order
-void printList_recipe_2(recipe* head)
+void printList_recipe_2(struct recipe* head)
 {
     printf("        --------------------------------------------\n");
     while (head != NULL)
@@ -50,7 +50,7 @@ void printList_recipe_2(recipe* head)
 }
 
 // Print product categories
-void printList_r_classify(r_classify* head)
+void printList_r_classify(struct r_classify* head)
 {
     while (head != NULL)
     {
@@ -74,7 +74,7 @@ void printList_r_classify(r_classify* head)
 }
 
 // Print orders
-void print_order_list(order* tail)
+void print_order_list(struct order* tail)
 {
     printf("Order List:\n");
     if (tail == NULL)
@@ -86,8 +86,7 @@ void print_order_list(order* tail)
     while (tail != NULL)
     {
         printf("****************************************************\n");
-        printf("%d-%02d-%02d %02d:%02d:%02d\n", tail->localTime->tm_year + 1900, tail->localTime->tm_mon + 1, tail->localTime->tm_mday,
-            tail->localTime->tm_hour, tail->localTime->tm_min, tail->localTime->tm_sec);
+        printf("setting time:%d", tail->send_time);
         printf("Order ID: %s\n", tail->order_id);
         printf("Merchant: %s\tAddress: %s\n", tail->m_name, tail->m_address);
         printf("Phone: %s\n", tail->m_phone);
@@ -95,6 +94,7 @@ void print_order_list(order* tail)
         printf("Phone: %s\n", tail->m_phone);
         printf("Delivery Person: %s\n", tail->d_name);
         printf("Phone: %s\n", tail->d_phone);
+        printf("sending time:%d,arriving time:%d\n", tail->send_time, tail->arrive_time);
         printList_recipe_2(tail->r_head); // Print the list of products in the order
         printf("Total Price: %.2f\n", tail->sum_price);
         printf("Order State:");
@@ -122,7 +122,7 @@ void print_order_list(order* tail)
 }
 
 // Print merchant list
-void printList_merchant(Merchant* head)
+void printList_merchant(struct Merchant* head)
 {
     while (head != NULL)
     {
@@ -137,13 +137,12 @@ void printList_merchant(Merchant* head)
 }
 
 // Print current order
-void print_current_order(order* tail)
+void print_current_order(struct order* tail)
 {
     if (tail != NULL)
     {
         printf("****************************************************\n");
-        printf("%d-%02d-%02d %02d:%02d:%02d\n", tail->localTime->tm_year + 1900, tail->localTime->tm_mon + 1, tail->localTime->tm_mday,
-            tail->localTime->tm_hour, tail->localTime->tm_min, tail->localTime->tm_sec);
+        printf("setting time:%d", tail->send_time);
         printf("Order ID: %s\n", tail->order_id);
         printf("Merchant: %s\tAddress: %s\n", tail->m_name, tail->m_address);
         printf("Phone: %s\n", tail->m_phone);
@@ -151,6 +150,7 @@ void print_current_order(order* tail)
         printf("Phone: %s\n", tail->m_phone);
         printf("Delivery Person: %s\n", tail->d_name);
         printf("Phone: %s\n", tail->d_phone);
+        printf("sending time:%d,arriving time:%d\n", tail->send_time, tail->arrive_time);
         printList_recipe_2(tail->r_head); // Print the list of products in the order
         printf("Total Price: %.2f\n", tail->sum_price);
         printf("Order State:");
@@ -184,7 +184,7 @@ void print_current_order(order* tail)
 }
 
 // Print current recipe
-void print_current_recipe(recipe* tail)
+void print_current_recipe(struct recipe* tail)
 {
     printf("        --------------------------------------------\n");
     if (tail != NULL)

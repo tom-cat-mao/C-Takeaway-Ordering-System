@@ -1,13 +1,13 @@
-﻿﻿#pragma once
-#ifndef _SEARCHFUZZYSALERECIPE_H
+﻿#ifndef _SEARCHFUZZYSALERECIPE_H
 #define _SEARCHFUZZYSALERECIPE_H
 #define _CRT_SECURE_NO_WARNINGS
 #include"class.h"
 #include"classTree.h"
 #include "interface.h"
+#include"wordcolour.h"
 //Fuzzy Search(for user)(Use List to search)
 // Search recipes in a recipe list
-void FuzzySearchInRecipe(recipe* recipe_current, char* searchname)
+void FuzzySearchInRecipe(struct recipe* recipe_current, char* searchname)
 {
     if (recipe_current == NULL)
     {
@@ -41,7 +41,7 @@ void FuzzySearchInRecipe(recipe* recipe_current, char* searchname)
     FuzzySearchInRecipe(recipe_current->next, searchname);
 }
 // Search recipes in different recipe lists of different classifies
-void FuzzySearchInClassify(r_classify* classify_current, char* searchname)
+void FuzzySearchInClassify(struct r_classify* classify_current, char* searchname)
 {
     if (classify_current == NULL)
     {
@@ -58,7 +58,7 @@ void FuzzySearchInClassify(r_classify* classify_current, char* searchname)
 
 //Sale Recipe Search(for User&Merchant)
 //Search Sale recipe in one Merchant
-void SaleRecipeSearch(t_recipe* root)
+void SaleRecipeSearch(struct t_recipe* root)
 {
     if (root == NULL)
     {
