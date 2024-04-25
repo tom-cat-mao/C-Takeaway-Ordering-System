@@ -1387,6 +1387,7 @@ int main()
 														rc_current = creatList_r_classify(rc_name);
 														insertEnd_rc(&(m_current->r_head), &(m_current->r_tail), rc_current);
 														
+														int num_1 = 0;
 														//create recipe
 														for (int flag_6 = 1; flag_6 != 0; flag_6++)
 														{
@@ -1404,6 +1405,7 @@ int main()
 
 																//create recipe
 															case 1:
+																num_1++;
 																char r_name[100] = { '\0' };
 																float p = 0.0;
 																printf("Please enter recipe name:\n");
@@ -1416,7 +1418,7 @@ int main()
 																r_current = creatList_recipe_2(r_name, p);
 																insertEnd_r(&(rc_current->r_head), &(rc_current->r_tail), r_current);
 																insertTree_recipe_name(&(m_current->t_r_head), r_current);
-																rc_current->total_number = flag_6;
+																rc_current->total_number = num_1;
 																break;
 															default:
 																illegal_number();
