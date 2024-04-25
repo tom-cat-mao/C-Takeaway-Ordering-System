@@ -214,6 +214,8 @@ void print_order_list(struct order* tail);
 void printList_merchant(struct Merchant* head);
 // Print current order
 void print_current_order(struct order* tail);
+// Print recipe list
+void print_current_recipe(struct recipe* tail);
 
 // Calculate discounted price for a single order
 bool sumPrice(struct order* head, struct recipe* head_r, int c, double* d);
