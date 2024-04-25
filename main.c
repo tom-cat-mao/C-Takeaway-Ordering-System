@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 
 #include"class.h"
 #include"classTree.h"
@@ -65,10 +65,12 @@ int main()
 
 	for (int flag = 1; flag != 0;)
 	{
-		printf("please choose your identity:(0.Close,1.User,2.Merchant,3.Delivery Preson,4.administrator)\n");
-        fflush(stdout);
+		
+		choose_identity();
+		fflush(stdout);
 		int t = 0;
-		scanf("%d", &t);
+		scanf("%d", &t);//6
+		delete_several_lines(6);
 		switch (t)
 		{
 			//close
@@ -81,10 +83,11 @@ int main()
 		case 1:
 			for (int flag_1 = 1; flag_1 != 0;)
 			{
-				printf("0.return,1.sign in,2.sign up\n");
+				choose_sign();
                 fflush(stdout);
 				int t_1 = 0;
-				scanf("%d", &t_1);
+				scanf("%d", &t_1);//5
+				delete_several_lines(5);
 				switch (t_1)
 				{
 					//return
@@ -95,19 +98,21 @@ int main()
 					//sign in
 				case 1:
 					char name[100];
-					printf("please enter your username:\n");
+					printf("Please enter your username:\n");
                     fflush(stdout);
 					scanf("%s", name);
+					delete_several_lines(2);
 					if (compare_u(p_head_u, name, &p_u_current))//compare the user's name and password
 					{
 						u_current = find_u(u_head, name);//find user in the list
 
 						for (int flag_2 = 1; flag_2 != 0;)
 						{
-							printf("0.log out,1.make an order,2.view and cancel order,3.change card,4.password change,5.deactivate\n");
+							main_menu_User_1(name);
                             fflush(stdout);
 							int t_2 = 0;
-							scanf("%d", &t_2);
+							scanf("%d", &t_2);//10
+							delete_several_lines(10);
 							switch (t_2)
 							{
 								//log out
@@ -121,10 +126,12 @@ int main()
 								for (int flag_3 = 1; flag_3 != 0;)
 								{
 									printList_merchant(m_head);
-									printf("0.log out,1.choose a merchant,2.return\n");
+									main_menu_User_2();
+									
                                     fflush(stdout);
 									int t_3 = 0;
-									scanf("%d", &t_3);
+									scanf("%d", &t_3);//5
+									delete_several_lines(5);
 									switch (t_3)
 									{
 										//log out
@@ -137,21 +144,24 @@ int main()
 										//choose a merchant
 									case 1:
 										char m_name[100];
-										printf("please enter the merchant you choose:\n");
+										printf("Please enter the merchant you choose:\n");
                                         fflush(stdout);
-										scanf("%s", m_name);
+										scanf("%s", m_name);//2
+										delete_several_lines(2);
 										m_current = search_Merchant_name(t_m_head, m_name);
 
 										int judge = 0;
 
 										for (int flag_4 = 1; flag_4 != 0;)
 										{
+											cls_title();
 											printList_r_classify(m_current->r_head);
                                             fflush(stdout);
-											printf("0.log out,1.sort,2.search,3choose,4.return||finish\n");
+											main_menu_User_3();
                                             fflush(stdout);
 											int t_4 = 0;
-											scanf("%d", &t_4);
+											scanf("%d", &t_4);//6
+											delete_several_lines(6);
 											switch (t_4)
 											{
 												//log out
@@ -166,10 +176,11 @@ int main()
 											case 1:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													printf("0.log out,1.sort,2.return\n");
+													main_menu_User_5();
                                                     fflush(stdout);
 													int t_5 = 0;
-													scanf("%d", &t_5);
+													scanf("%d", &t_5);//5
+													delete_several_lines(5);
 													switch (t_5)
 													{
 														//log out
@@ -185,10 +196,13 @@ int main()
 													case 1:
 														for (int flag_6 = 1; flag_6 != 0;)
 														{
-															printf("0.return,1.sort by price,2.sort by stars,3.sort by comprehensive\n");
+															
+															sort_star_price_comprehensive();
                                                             fflush(stdout);
 															int t_6 = 0;
-															scanf("%d", &t_6);
+															scanf("%d", &t_6);//6
+															delete_several_lines(6);
+															cls_title();
 															switch (t_6)
 															{
 																//return
@@ -200,10 +214,11 @@ int main()
 															case 1:
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
-																	printf("0.return,1.upper,2.lower,3.choose\n");
+																	upper_lower_choose();
                                                                     fflush(stdout);
 																	int t_7 = 0;
-																	scanf("%d", &t_7);
+																	scanf("%d", &t_7);//5
+																	delete_several_lines(5);
 																	switch (t_7)
 																	{
 																		//return
@@ -221,7 +236,9 @@ int main()
 
 																		}
 																		printList_r_classify(m_current->r_head);
+
                                                                         fflush(stdout);
+																		pause_cls();
 																		break;
 
 																		//lower
@@ -234,6 +251,7 @@ int main()
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
+																		pause_cls();
 																		break;
 
 																		//choose
@@ -241,18 +259,20 @@ int main()
 																		judge = 1;
 
 																		char r_name[100] = { '\0' };
-																		printf("please enter the recipe name:\n");
+																		printf("Please enter the recipe name:\n");
                                                                         fflush(stdout);
 																		scanf("%s", r_name);
 																		r_current = search_recipe_name(m_current->t_r_head, r_name);
-																		printf("pleae enter the number you want:\n");
+																		printf("Pleae enter the number you want:\n");
                                                                         fflush(stdout);
 																		int n = 0;
 																		scanf("%d", &n);
+																		delete_several_lines(4);
 																		r_current = creatList_recipe_1(r_current->name, r_current->price, n);
 																		insertEnd_r(&r_head, &r_tail, r_current);
 																		break;
 																	default:
+																		illegal_number();
 																		break;
 																	}
 																}
@@ -262,10 +282,11 @@ int main()
 															case 2:
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
-																	printf("0.return,1.upper,2.lower\n");
+																	upper_lower();
                                                                     fflush(stdout);
 																	int t_7 = 0;
-																	scanf("%d", &t_7);
+																	scanf("%d", &t_7);//5
+																	delete_several_lines(5);
 																	switch (t_7)
 																	{
 																		//return
@@ -283,6 +304,7 @@ int main()
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
+																		pause_cls();
 																		break;
 
 																		//lower
@@ -295,6 +317,7 @@ int main()
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
+																		pause_cls();
 																		break;
 
 																		//choose
@@ -302,18 +325,20 @@ int main()
 																		judge = 1;
 
 																		char r_name[100] = { '\0' };
-																		printf("please enter the recipe name:\n");
+																		printf("Please enter the recipe name:\n");
                                                                         fflush(stdout);
 																		scanf("%s", r_name);
 																		r_current = search_recipe_name(m_current->t_r_head, r_name);
-																		printf("pleae enter the number you want:\n");
+																		printf("Pleae enter the number you want:\n");
                                                                         fflush(stdout);
 																		int n = 0;
 																		scanf("%d", &n);
+																		delete_several_lines(4);
 																		r_current = creatList_recipe_1(r_current->name, r_current->price, n);
 																		insertEnd_r(&r_head, &r_tail, r_current);
 																		break;
 																	default:
+																		illegal_number();
 																		break;
 																	}
 																}
@@ -323,10 +348,11 @@ int main()
 															case 3:
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
-																	printf("0.return,1.upper,2.lower\n");
+																	upper_lower();
                                                                     fflush(stdout);
 																	int t_7 = 0;
-																	scanf("%d", &t_7);
+																	scanf("%d", &t_7);//5
+																	delete_several_lines(5);
 																	switch (t_7)
 																	{
 																		//return
@@ -344,6 +370,7 @@ int main()
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
+																		pause_cls();
 																		break;
 
 																		//lower
@@ -356,6 +383,7 @@ int main()
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
+																		pause_cls();
 																		break;
 
 																		//choose
@@ -363,22 +391,25 @@ int main()
 																		judge = 1;
 
 																		char r_name[100] = { '\0' };
-																		printf("please enter the recipe name:\n");
+																		printf("Please enter the recipe name:\n");
 																		scanf("%s", r_name);
 																		r_current = search_recipe_name(m_current->t_r_head, r_name);
-																		printf("pleae enter the number you want:\n");
+																		printf("Pleae enter the number you want:\n");
                                                                         fflush(stdout);
 																		int n = 0;
 																		scanf("%d", &n);
+																		delete_several_lines(4);
 																		r_current = creatList_recipe_1(r_current->name, r_current->price, n);
 																		insertEnd_r(&r_head, &r_tail, r_current);
 																		break;
 																	default:
+																		illegal_number();
 																		break;
 																	}
 																}
 																break;
 															default:
+																illegal_number();
 																break;
 															}
 														}
@@ -389,6 +420,7 @@ int main()
 														flag_5 = 0;
 														break;
 													default:
+														illegal_number();
 														break;
 													}
 												}
@@ -399,9 +431,10 @@ int main()
 											case 2:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													printf("0.return,1.accurate search,2.fuzzy search,3.price range,4.sale recipe\n");
+													main_menu_User_9();
 													int t_5 = 0;
-													scanf("%d", &t_5);
+													scanf("%d", &t_5);//6
+													delete_several_lines(6);
 													switch (t_5)
 													{
 														//return
@@ -413,10 +446,11 @@ int main()
 													case 1:
 														for (int flag_6 = 1; flag_6 != 0;)
 														{
-															printf("0.return,1.single inquiry,2.combination inquiry\n");
+															main_menu_User_10();
                                                             fflush(stdout);
 															int t_6 = 0;
-															scanf("%d", &t_6);
+															scanf("%d", &t_6);//5
+															delete_several_lines(5);
 															switch (t_6)
 															{
 																//return
@@ -428,10 +462,11 @@ int main()
 															case 1:
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
-																	printf("0.return,1.continue\n");
+																	return_continue();
                                                                     fflush(stdout);
 																	int t_7 = 0;
-																	scanf("%d", &t_7);
+																	scanf("%d", &t_7);//4
+																	delete_several_lines(4);
 																	switch (t_7)
 																	{
 																		//return
@@ -442,35 +477,41 @@ int main()
 																		//continue
 																	case 1:
 																		char r_name[100] = { '\0' };
-																		printf("please enter the recipe name:\n");
+																		printf("Please enter the recipe name:\n");
                                                                         fflush(stdout);
 																		scanf("%s", r_name);
+																		delete_several_lines(2);
 																		r_current = search_recipe_name(m_current->t_r_head, r_name);
 																		if (r_current == NULL)
 																		{
-																			printf("we don't have the recipe you search\n");
+																			printf("We don't have the recipe you search\n");
+																			sleep();
+																			delete_several_lines(1);
                                                                             fflush(stdout);
 																		}
 																		else
 																		{
 																			//print
+																			print_current_recipe(r_current);
 																			char j;
-																			printf("Y\\N(Y for choose this recipe)\n");
+																			y_n();
                                                                             fflush(stdout);
-																			scanf("%c", &j);
+																			scanf("%c", &j);//2
 																			if (j == 'Y')
 																			{
 																				judge = 1;
-																				printf("pleae enter the number you want:\n");
+																				printf("Pleae enter the number you want:\n");
                                                                                 fflush(stdout);
 																				int n = 0;
 																				scanf("%d", &n);
+																				delete_several_lines(4);
 																				r_current = creatList_recipe_1(r_current->name, r_current->price, n);
 																				insertEnd_r(&r_head, &r_tail, r_current);
 																			}
 																		}
 																		break;
 																	default:
+																		illegal_number();
 																		break;
 																	}
 																}
@@ -482,10 +523,11 @@ int main()
 															case 2:
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
-																	printf("0.return,1.continue\n");
+																	return_continue();
                                                                     fflush(stdout);
 																	int t_7 = 0;
 																	scanf("%d", &t_7);
+																	delete_several_lines(4);
 																	switch (t_7)
 																	{
 																		//return
@@ -497,38 +539,46 @@ int main()
 																	case 1:
 																		char rc_name[100] = { '\0' };
 																		char r_name[100] = { '\0' };
-																		printf("please enter the r_class and the rcipe you want to search:\n");
+																		printf("Please enter the r_class and the rcipe you want to search:\n");
                                                                         fflush(stdout);
 																		scanf("%s", rc_name);
-																		scanf("%s", r_name);
+																		scanf("%s", r_name); 
+																		delete_several_lines(3);
+
 																		rc_current = find_r_classify(m_current, rc_name);
 																		if (rc_current == NULL)
 																		{
-																			printf("we don't have the class you want\n");
+																			printf("We don't have the class you want!\n");
                                                                             fflush(stdout);
+																			sleep();
+																			delete_several_lines(1);
 																		}
 																		else
 																		{
 																			r_current = find_recipe_by_list(rc_current, r_name);
 																			if (r_current == NULL)
 																			{
-																				printf("we don't have the recipe you search\n");
+																				printf("We don't have the recipe you search\n");
                                                                                 fflush(stdout);
+																				sleep();
+																				delete_several_lines(1);
 																			}
 																			else
 																			{
 																				//print
 																				char j;
-																				printf("Y\\N(Y for choose this recipe)\n");
+																				y_n();
                                                                                 fflush(stdout);
 																				scanf("%c", &j);
+																				delete_several_lines(2);
 																				if (j == 'Y')
 																				{
 																					judge = 1;
-																					printf("pleae enter the number you want:\n");
+																					printf("Pleae enter the number you want:\n");
                                                                                     fflush(stdout);
 																					int n = 0;
 																					scanf("%d", &n);
+																					delete_several_lines(2);
 																					r_current = creatList_recipe_1(r_current->name, r_current->price, n);
 																					insertEnd_r(&r_head, &r_tail, r_current);
 																				}
@@ -536,12 +586,14 @@ int main()
 																		}
 																		break;
 																	default:
+																		illegal_number();
 																		break;
 																	}
 																}
 
 																break;
 															default:
+																illegal_number();
 																break;
 															}
 														}
@@ -551,10 +603,10 @@ int main()
 													case 2:
 														for (int flag_6 = 1; flag_6 != 0;)
 														{
-															printf("0.return,1.continue\n");
-                                                            fflush(stdout);
+															return_continue();
 															int t_6 = 0;
 															scanf("%d", &t_6);
+															delete_several_lines(4);
 															switch (t_6)
 															{
 																//return
@@ -565,18 +617,20 @@ int main()
 																//continue
 															case 1:
 																char str[100] = { '\0' };
-																printf("please enter the string you want to search:\n");
+																printf("Please enter the string you want to search:\n");
                                                                 fflush(stdout);
 																scanf("%s", str);
+																delete_several_lines(2);
 																FuzzySearchInClassify(m_current->r_head, str);
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
-																	printf("whether you want to order any recipe\n");
+																	printf("Whether you want to order any recipe?\n");
                                                                     fflush(stdout);
-																	printf("0.return,1.continue\n");
+																	return_continue();
                                                                     fflush(stdout);
 																	int t_7 = 0;
 																	scanf("%d", &t_7);
+																	delete_several_lines(4);
 																	switch (t_7)
 																	{
 																		//return
@@ -589,23 +643,26 @@ int main()
 																		judge = 1;
 
 																		char r_name[100] = { '\0' };
-																		printf("please enter the recipe name:\n");
+																		printf("Please enter the recipe name:\n");
                                                                         fflush(stdout);
 																		scanf("%s", r_name);
 																		r_current = search_recipe_name(m_current->t_r_head, r_name);
-																		printf("pleae enter the number you want:\n");
+																		printf("Pleae enter the number you want:\n");
                                                                         fflush(stdout);
 																		int n = 0;
 																		scanf("%d", &n);
+																		delete_several_lines(4);
 																		r_current = creatList_recipe_1(r_current->name, r_current->price, n);
 																		insertEnd_r(&r_head, &r_tail, r_current);
 																		break;
 																	default:
+																		illegal_number();
 																		break;
 																	}
 																}
 																break;
 															default:
+																illegal_number();
 																break;
 															}
 														}
@@ -615,10 +672,11 @@ int main()
 													case 3:
 														for (int flag_6 = 1; flag_6 != 0;)
 														{
-															printf("0.return,1.continue\n");
+															return_continue();
 															int t_6 = 0;
 															scanf("%d", &t_6);
                                                             fflush(stdout);
+															delete_several_lines(4);
 															switch (t_6)
 															{
 																//return
@@ -630,15 +688,17 @@ int main()
 															case 1:
 																float max_price = 0.0;
 																float min_price = 0.0;
-																printf("please enter the max price and the min price:\n");
+																printf("Please enter the max price and the min price:\n");
                                                                 fflush(stdout);
 																scanf("%f%f", &max_price, &min_price);
+																delete_several_lines(2);
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
-																	printf("0.return,1.lower,2.upper\n");
+																	lower_upper();
                                                                     fflush(stdout);
 																	int t_7 = 0;
 																	scanf("%d", &t_7);
+																	delete_several_lines(5);
 																	switch (t_7)
 																	{
 																	case 0:
@@ -648,11 +708,12 @@ int main()
 																		output_recipe_high_to_low(m_current->r_head, min_price, max_price);
 																		for (int flag_8 = 1; flag_8 != 0;)
 																		{
-																			printf("whether you want to order any recipe\n");
-																			printf("0.return,1.continue\n");
+																			printf("Whether you want to order any recipe?\n");
+																			return_continue();
                                                                             fflush(stdout);
 																			int t_8 = 0;
 																			scanf("%d", &t_8);
+																			delete_several_lines(5);
 																			switch (t_8)
 																			{
 																				//return
@@ -665,19 +726,21 @@ int main()
 																				judge = 1;
 
 																				char r_name[100] = { '\0' };
-																				printf("please enter the recipe name:\n");
+																				printf("Please enter the recipe name:\n");
                                                                                 fflush(stdout);
 																				scanf("%s", r_name);
 																				r_current = search_recipe_name(m_current->t_r_head, r_name);
-																				printf("pleae enter the number you want:\n");
+																				printf("Pleae enter the number you want:\n");
                                                                                 fflush(stdout);
 																				int n = 0;
 																				scanf("%d", &n);
+																				delete_several_lines(4);
 																				r_current = creatList_recipe_1(r_current->name, r_current->price, n);
                                                                                 fflush(stdout);
 																				insertEnd_r(&r_head, &r_tail, r_current);
 																				break;
 																			default:
+																				illegal_number();
 																				break;
 																			}
 																		}
@@ -686,11 +749,12 @@ int main()
 																		output_recipe_low_to_high(m_current->r_head, min_price, max_price);
 																		for (int flag_8 = 1; flag_8 != 0;)
 																		{
-																			printf("whether you want to order any recipe\n");
-																			printf("0.return,1.continue\n");
+																			printf("Whether you want to order any recipe?\n");
+																			return_continue();
                                                                             fflush(stdout);
 																			int t_8 = 0;
 																			scanf("%d", &t_8);
+																			delete_several_lines(5);
 																			switch (t_8)
 																			{
 																				//return
@@ -703,27 +767,31 @@ int main()
 																				judge = 1;
 
 																				char r_name[100] = { '\0' };
-																				printf("please enter the recipe name:\n");
+																				printf("Please enter the recipe name:\n");
                                                                                 fflush(stdout);
 																				scanf("%s", r_name);
 																				r_current = search_recipe_name(m_current->t_r_head, r_name);
-																				printf("pleae enter the number you want:\n");
+																				printf("Pleae enter the number you want:\n");
 																				int n = 0;
 																				scanf("%d", &n);
+																				delete_several_lines(4);
 																				r_current = creatList_recipe_1(r_current->name, r_current->price, n);
 																				insertEnd_r(&r_head, &r_tail, r_current);
 																				break;
 																			default:
+																				illegal_number();
 																				break;
 																			}
 																		}
 																		break;
 																	default:
+																		illegal_number();
 																		break;
 																	}
 																}
 																break;
 															default:
+																illegal_number();
 																break;
 															}
 														}
@@ -734,10 +802,11 @@ int main()
 														SaleRecipeSearch(m_current->t_r_head);
 														for (int flag_6 = 1; flag_6 != 0;)
 														{
-															printf("0.return,1.continue\n");
+															return_continue();
                                                             fflush(stdout);
 															int t_6 = 0;
 															scanf("%d", &t_6);
+															delete_several_lines(4);
 															switch (t_6)
 															{
 																//return
@@ -750,25 +819,28 @@ int main()
 																judge = 1;
 
 																char r_name[100] = { '\0' };
-																printf("please enter the recipe name:\n");
+																printf("Please enter the recipe name:\n");
                                                                 fflush(stdout);
 																scanf("%s", r_name);
 																r_current = search_recipe_name(m_current->t_r_head, r_name);
-																printf("pleae enter the number you want:\n");
+																printf("Pleae enter the number you want:\n");
                                                                 fflush(stdout);
 																int n = 0;
 																scanf("%d", &n);
+																delete_several_lines(4);
 																r_current = creatList_recipe_1(r_current->name, r_current->price, n);
 																insertEnd_r(&r_head, &r_tail, r_current);
 																break;
 
 															default:
+																illegal_number();
 																break;
 															}
 														}
 
 														break;
 													default:
+														illegal_number();
 														break;
 													}
 												}
@@ -780,14 +852,15 @@ int main()
 												judge = 1;
 
 												char r_name[100] = { '\0' };
-												printf("please enter the recipe name:\n");
+												printf("Please enter the recipe name:\n");
                                                 fflush(stdout);
 												scanf("%s", r_name);
 												r_current = search_recipe_name(m_current->t_r_head, r_name);
-												printf("please enter the number you want:\n");
+												printf("Please enter the number you want:\n");
                                                 fflush(stdout);
 												int n = 0;
 												scanf("%d", &n);
+												delete_several_lines(4);
 												r_current = creatList_recipe_1(r_current->name, r_current->price, n);
 												insertEnd_r(&r_head, &r_tail, r_current);
 												break;
@@ -797,6 +870,7 @@ int main()
 												flag_4 = 0;
 												break;
 											default:
+												illegal_number();
 												break;
 											}
 										}
@@ -815,7 +889,7 @@ int main()
 											insertTree_order_id(&(u_current->t_o_head), o_current);
 											insertTree_order_id(&(m_current->t_o_head), o_current);
 										}
-
+										cls_title();
 										break;
 
 										//return
@@ -823,19 +897,22 @@ int main()
 										flag_3 = 0;
 										break;
 									default:
+										illegal_number();
 										break;
 									}
 								}
+								cls_title();
 								break;
 
 								//view and cancel order
 							case 2:
 								for (int flag_3 = 1; flag_3 != 0;)
 								{
-									printf("0.log out,1.show order,2.cancel order,3.return\n");
+									main_menu_User_6();
                                     fflush(stdout);
 									int t_3 = 0;
 									scanf("%d", &t_3);
+									delete_several_lines(6);
 									switch (t_3)
 									{
 										//log out
@@ -850,10 +927,11 @@ int main()
 										for (int flag_4 = 1; flag_4 != 0;)
 										{
 											print_order_list(u_current->o_tail);
-											printf("0.log out,1.sort in time,2.sort in price,3.search,4.return\n");
+											main_menu_User_7();
                                             fflush(stdout);
 											int t_4 = 0;
 											scanf("%d", &t_4);
+											cls_title();
 											switch (t_4)
 											{
 												//log out
@@ -868,10 +946,12 @@ int main()
 											case 1:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													printf("0.return,1.upper,2.lower\n");
+													
+													upper_lower();
                                                     fflush(stdout);
 													int  t_5 = 0;
 													scanf("%d", &t_5);
+													cls_title();
 													switch (t_5)
 													{
 														//return
@@ -884,6 +964,7 @@ int main()
 														u_current->o_head = o_mergeSortLower_t(u_current->o_head, &(u_current->o_tail));
 														print_order_list(u_current->o_tail);
                                                         fflush(stdout);
+														pause_cls();
 														break;
 
 														//lower
@@ -891,8 +972,10 @@ int main()
 														u_current->o_head = o_mergeSortUpper_t(u_current->o_head, &(u_current->o_tail));
 														print_order_list(u_current->o_tail);
                                                         fflush(stdout);
+														pause_cls();
 														break;
 													default:
+														illegal_number();
 														break;
 													}
 												}
@@ -902,10 +985,11 @@ int main()
 											case 2:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													printf("0.return,1.upper,2.lower\n");
+													upper_lower();
 													int  t_5 = 0;
                                                     fflush(stdout);
 													scanf("%d", &t_5);
+													cls_title();
 													switch (t_5)
 													{
 														//return
@@ -918,14 +1002,18 @@ int main()
 														u_current->o_head = o_mergeSortLower_p(u_current->o_head, &(u_current->o_tail));
 														print_order_list(u_current->o_tail);
                                                         fflush(stdout);
+														pause_cls();
 														break;
 
 														//lower
 													case 2:
 														u_current->o_head = o_mergeSortUpper_p(u_current->o_head, &(u_current->o_tail));
 														print_order_list(u_current->o_tail);
+														fflush(stdout);
+														pause_cls();
 														break;
 													default:
+														illegal_number();
 														break;
 													}
 												}
@@ -935,9 +1023,11 @@ int main()
 											case 3:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													printf("0.log out,1.contiune,2.return\n");
+													continue_return();
 													int t_5 = 0;
+													fflush(stdout);
 													scanf("%d", &t_5);
+													delete_several_lines(5);
 													switch (t_5)
 													{
 														//log out
@@ -952,10 +1042,14 @@ int main()
 														//continue
 													case 1:
 														char o_id[100] = { '\0' };
-														printf("please enter the order you want to search:\n");
+														printf("Please enter the order you want to search:\n");
 														fflush(stdout);
 														scanf("%s", o_id);
+														delete_several_lines(2);
 														o_current = search_order_id(u_current->t_o_head, o_id);
+														cls_title();
+														print_current_order(o_current);
+														pause_cls();
 														//print
 														break;
 
@@ -964,19 +1058,23 @@ int main()
 														flag_5 = 0;
 														break;
 													default:
+														illegal_number();
 														break;
 													}
 													
 												}
+												
 												break;
 												//return
 											case 4:
 												flag_4 = 0;
 												break;
 											default:
+												illegal_number();
 												break;
 											}
 										}
+										
 										break;
 
 										//cancel order
@@ -984,10 +1082,11 @@ int main()
 										for (int flag_4 = 1; flag_4 != 0;)
 										{
 											print_order_list(u_current->o_tail);
-											printf("0.log out,1.contiune,2.return\n");
+											continue_return();
                                             fflush(stdout);
 											int t_4 = 0;
 											scanf("%d", &t_4);
+											delete_several_lines(5);
 											switch (t_4)
 											{
 												//log out
@@ -1001,14 +1100,16 @@ int main()
 												//contiune
 											case 1:
 												char o_id[100] = { '\0' };
-												printf("please enter the order id you want to cancel\n");
+												printf("Please enter the order id you want to cancel\n");
                                                 fflush(stdout);
 												scanf("%s", o_id);
+												
 												o_current = search_order_id(u_current->t_o_head, o_id);
-												printf("Y\\N(Y for cancle)\n");
+												y_n();
 												char j;
                                                 fflush(stdout);
 												scanf("%c", &j);
+												delete_several_lines(4);
 												switch (j)
 												{
 												case 'Y':
@@ -1020,6 +1121,7 @@ int main()
 												case 'N':
 													break;
 												default:
+													illegal_number();
 													break;
 												}
 												break;
@@ -1029,10 +1131,12 @@ int main()
 												flag_4 = 0;
 												break;
 											default:
+												illegal_number();
 												break;
 											}
-
+											cls_title();
 										}
+										
 										break;
 
 										//return
@@ -1040,6 +1144,7 @@ int main()
 										flag_3 = 0;
 										break;
 									default:
+										illegal_number();
 										break;
 									}
 								}
@@ -1049,9 +1154,10 @@ int main()
 							case 3:
 								for (int flag_3 = 1; flag_3 != 0;)
 								{
-									printf("0.return,1.contiune\n");
+									return_continue();
 									int t_3 = 0;
 									scanf("%d", &t_3);
+									delete_several_lines(4);
 									switch (t_3)
 									{
 										//return
@@ -1061,9 +1167,11 @@ int main()
 
 										//continue
 									case 1:
-										printf("1.SILVER,2.GOLD,3.PLATINUM\n");
+										main_menu_User_8();
 										int t_3 = 0;
 										fflush(stdout);
+										scanf("%d", &t_3);
+										delete_several_lines(6);
 										switch (t_3)
 										{
 										case 1:
@@ -1076,10 +1184,12 @@ int main()
 											u_current->c = PLATINUM;
 											break;
 										default:
+											illegal_number();
 											break;
 										}
 										break;
 									default:
+										illegal_number();
 										break;
 									}
 									
@@ -1096,6 +1206,7 @@ int main()
 								delete_user(u_head, u_current->name);
 								break;
 							default:
+								illegal_number();
 								break;
 							}
 						}
@@ -1110,23 +1221,29 @@ int main()
 					char password[100] = { '\0' };
 					char address[100] = { '\0' };
 					char phone[100] = { '\0' };
-					printf("please enter your username:\n");
+					printf("Please enter your username:\n");
 					scanf("%s", name_1);
 					if (duplicate_name_u(p_head_u, name_1))//judge the username
 					{
-						printf("please enter your password:\n");
+						printf("Please enter your password:\n");
 						scanf("%s", password);
-						printf("please enter your address:\n");
+						printf("Please enter your address:\n");
 						scanf("%s", address);
-						printf("please enter your phone number:\n");
+						printf("Please enter your phone number:\n");
 						scanf("%s", phone);
+						delete_several_lines(8);
 						u_createList_p(&p_head_u, &p_u_tail, u_creatNode_p(name_1, password, phone));
 						u_current = creatList_user(name_1, password, address, phone);
 						insertEnd_u(&u_head, &u_tail, u_current);
 					}
 					else
 					{
-						printf("the username already exist!\n");
+						delete_several_lines(2);
+						colour(12);
+						printf("The username already exist!\n");
+						colour(7);
+						sleep();
+						delete_several_lines(1);
 					}
 					break;
 
@@ -1134,17 +1251,23 @@ int main()
 				case 3:
 					char name_u[100] = { '\0' };
 					char phone_u[100] = { '\0' };
-					printf("please enter your username:\n");
+					printf("Please enter your username:\n");
 					scanf("%s", name_u);
-					printf("please enter your phone number:\n");
+					printf("Please enter your phone number:\n");
 					scanf("%s", phone_u);
+					delete_several_lines(4);
 					if (!get_back_p_u(p_head_u, name_u, phone_u))
 					{
-						printf("there is something wrong with the details you entered!\n");
+						colour(12);
+						printf("There is something wrong with the details you entered!\n");
+						colour(7);
+						sleep();
+						delete_several_lines(1);
 					}
 
 					break;
 				default:
+					illegal_number();
 					break;
 				}
 			}
@@ -1158,10 +1281,11 @@ int main()
 		case 2:
 			for (int flag_1 = 1; flag_1 != 0;)
 			{
-				printf("0.Return,1.Sign in,2.Sign up,3.forgrt password\n");
+				choose_sign();
 				int t_1 = 0;
                 fflush(stdout);
 				scanf("%d", &t_1);
+				delete_several_lines(5);
 				switch (t_1)
 				{
 					//return to the front page
@@ -1172,19 +1296,21 @@ int main()
 					//sign in
 				case 1:
 					char name[100] = { '\0' };
-					printf("please enter your username:\n");
+					printf("Please enter your username:\n");
                     fflush(stdout);
 					scanf("%s", name);
+					delete_several_lines(2);
 					if (compare_m(p_head_m, name, &p_m_current))//compare the merchant's name and password
 					{
 						m_current = find_m(m_head, name);//find the merchant in the list
 
 						for (int flag_2 = 1; flag_2 != 0;)
 						{
-							printf("0.log out,1.recipe,2.order,3.password£¬4.deactivate\n");
+							main_menu_Merchant_1(name);
 							int t_2 = 0;
                             fflush(stdout);
 							scanf("%d", &t_2);
+							delete_several_lines(7);
 							switch (t_2)
 							{
 								//log out
@@ -1197,11 +1323,12 @@ int main()
 							case 1:
 								for (int flag_3 = 1; flag_3 != 0;)
 								{
-									printList_r_classify(m_current->r_head);
-									printf("0.log out,1.operate in recipe class,2.operate in recipe,3return\n");
+									printList_r_classify(m_current->r_head);//all recipes
+									main_menu_Merchant_2();
 									int t_3 = 0;
                                     fflush(stdout);
 									scanf("%d", &t_3);
+									cls_title();
 									switch (t_3)
 									{
 										//log out
@@ -1216,10 +1343,11 @@ int main()
 										for (int flag_4 = 1; flag_4 != 0;)
 										{
 
-											printf("0.log out,1.add recipe class,2.delete recipe class,3.change recipe class's name,4.inquiry recipe class,5.return\n");
+											main_menu_Merchant_3();
 											int t_4 = 0;
                                             fflush(stdout);
 											scanf("%d", &t_4);
+											delete_several_lines(8);
 											switch (t_4)
 											{
 												//log out
@@ -1234,10 +1362,11 @@ int main()
 											case 1:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													printf("0.log out,1,continue,2.return\n");
+													continue_return();
 													int t_5 = 0;
                                                     fflush(stdout);
 													scanf("%d", &t_5);
+													delete_several_lines(5);
 													switch (t_5)
 													{
 														//log out
@@ -1251,20 +1380,22 @@ int main()
 
 														//continue
 													case 1:
-														printf("please enter your recipe class name:\n");
+														printf("Please enter your recipe class name:\n");
 														char rc_name[100] = { '\0' };
                                                         fflush(stdout);
 														scanf("%s", rc_name);
+														delete_several_lines(2);
 														rc_current = creatList_r_classify(rc_name);
 														insertEnd_rc(&(m_current->r_head), &(m_current->r_tail), rc_current);
-
+														
 														//create recipe
 														for (int flag_6 = 1; flag_6 != 0; flag_6++)
 														{
-															printf("0.return,1.add recipe\n");
+															main_menu_Merchant_5();
 															int t_6 = 0;
                                                             fflush(stdout);
 															scanf("%d", &t_6);
+															delete_several_lines(4);
 															switch (t_6)
 															{
 																// return to the front page
@@ -1276,18 +1407,20 @@ int main()
 															case 1:
 																char r_name[100] = { '\0' };
 																float p = 0.0;
-																printf("please enter recipe name:\n");
+																printf("Please enter recipe name:\n");
                                                                 fflush(stdout);
 																scanf("%s", r_name);
-																printf("please enter the price:\n");
+																printf("Please enter the price:\n");
                                                                 fflush(stdout);
 																scanf("%f", &p);
+																delete_several_lines(4);
 																r_current = creatList_recipe_2(r_name, p);
 																insertEnd_r(&(rc_current->r_head), &(rc_current->r_tail), r_current);
 																insertTree_recipe_name(&(m_current->t_r_head), r_current);
 																rc_current->total_number = flag_6;
 																break;
 															default:
+																illegal_number();
 																break;
 															}
 														}
@@ -1298,6 +1431,7 @@ int main()
 														flag_5 = 0;
 														break;
 													default:
+														illegal_number();
 														break;
 													}
 												}
@@ -1308,10 +1442,11 @@ int main()
 											case 2:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													printf("0.log out,1,continue,2.return\n");
+													continue_return();
 													int t_5 = 0;
                                                     fflush(stdout);
 													scanf("%d", &t_5);
+													delete_several_lines(5);
 													switch (t_5)
 													{
 													case 0:
@@ -1323,16 +1458,19 @@ int main()
 														break;
 													case 1:
 														char rc_name[100] = { '\0' };
-														printf("please enter the recipe class you want to operate:\n");
+														printf("Please enter the recipe class you want to operate:\n");
                                                         fflush(stdout);
 														scanf("%s", rc_name);
+														delete_several_lines(2);
 														rc_current = find_r_classify(m_current, rc_name);
 														delete_specific_r_class(&rc_current, &(m_current->r_head), &(m_current->r_tail));
+														success_class();
 														break;
 													case 2:
 														flag_5 = 0;
 														break;
 													default:
+														illegal_number();
 														break;
 													}
 												}
@@ -1343,10 +1481,11 @@ int main()
 											case 3:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													printf("0.log out,1,continue,2.return\n");
+													continue_return();
 													int t_5 = 0;
                                                     fflush(stdout);
 													scanf("%d", &t_5);
+													delete_several_lines(5);
 													switch (t_5)
 													{
 													case 0:
@@ -1358,20 +1497,22 @@ int main()
 														break;
 													case 1:
 														char rc_name[100] = { '\0' };
-														printf("please enter the recipe class you want to operate:\n");
+														printf("Please enter the recipe class you want to operate:\n");
                                                         fflush(stdout);
 														scanf("%s", rc_name);
 														rc_current = find_r_classify(m_current, rc_name);
 														char new_rc_name[100] = { '\0' };
-														printf("please enter the new name:\n");
+														printf("Please enter the new name:\n");
                                                         fflush(stdout);
 														scanf("%s", new_rc_name);
+														delete_several_lines(4);
 														strcpy(rc_current->name, new_rc_name);
 														break;
 													case 2:
 														flag_5 = 0;
 														break;
 													default:
+														illegal_number();
 														break;
 													}
 												}
@@ -1382,10 +1523,11 @@ int main()
 											case 4:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													printf("0.log out,1,continue,2.return\n");
+													continue_return();
 													int t_5 = 0;
                                                     fflush(stdout);
 													scanf("%d", &t_5);
+													delete_several_lines(5);
 													switch (t_5)
 													{
 													case 0:
@@ -1397,16 +1539,19 @@ int main()
 														break;
 													case 1:
 														char rc_name[100] = { '\0' };
-														printf("please enter the recipe class you want to see:\n");
+														printf("Please enter the recipe class you want to see:\n");
                                                         fflush(stdout);
 														scanf("%s", rc_name);
+														delete_several_lines(2);
 														rc_current = find_r_classify(m_current, rc_name);
 														printList_recipe_1(rc_current->r_head);
+														pause_cls();
 														break;
 													case 2:
 														flag_5 = 0;
 														break;
 													default:
+														illegal_number();
 														break;
 													}
 												}
@@ -1418,6 +1563,7 @@ int main()
 												flag_4 = 0;
 												break;
 											default:
+												illegal_number();
 												break;
 											}
 										}
@@ -1427,10 +1573,11 @@ int main()
 									case 2:
 										for (int flag_4 = 1; flag_4 != 0;)
 										{
-											printf("0.log out,1.add recipe,2.delete recipe,3.move recipe,4.inquiry recipe,5.set slae recipe,6.sort recipe,7.return\n");
+											main_menu_Merchant_6();
 											int t_4 = 0;
                                             fflush(stdout);
 											scanf("%d", &t_4);
+											delete_several_lines(8);
 											switch (t_4)
 											{
 												//log out
@@ -1445,10 +1592,11 @@ int main()
 											case 1:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													printf("0.log out,1,continue,2.return\n");
+													continue_return();
 													int t_5 = 0;
                                                     fflush(stdout);
 													scanf("%d", &t_5);
+													delete_several_lines(5);
 													switch (t_5)
 													{
 														//log out
@@ -1462,19 +1610,21 @@ int main()
 
 														//continue
 													case 1:
-														printf("please enter your recipe class name you want to operate:\n");
+														printf("Please enter your recipe class name you want to operate:\n");
 														char rc_name[100] = { '\0' };
                                                         fflush(stdout);
 														scanf("%s", rc_name);
+														delete_several_lines(2);
 														rc_current = find_r_classify(m_current, rc_name);
 
 														//create recipe
 														for (int flag_6 = 1; flag_6 != 0; )
 														{
-															printf("0.return,1.add recipe\n");
+															main_menu_Merchant_5();
 															int t_6 = 0;
                                                             fflush(stdout);
 															scanf("%d", &t_6);
+															delete_several_lines(4);
 															switch (t_6)
 															{
 																// return to the front page
@@ -1486,18 +1636,20 @@ int main()
 															case 1:
 																char r_name[100] = { '\0' };
 																float p = 0.0;
-																printf("please enter recipe name:\n");
+																printf("Please enter recipe name:\n");
                                                                 fflush(stdout);
 																scanf("%s", r_name);
-																printf("please enter the price:\n");
+																printf("Please enter the price:\n");
                                                                 fflush(stdout);
 																scanf("%f", &p);
+																delete_several_lines(4);
 																r_current = creatList_recipe_2(r_name, p);
 																insertEnd_r(&(rc_current->r_head), &(rc_current->r_tail), r_current);
 																insertTree_recipe_name(&(m_current->t_r_head), r_current);
 																rc_current->total_number = rc_current->total_number + 1;
 																break;
 															default:
+																illegal_number();
 																break;
 															}
 														}
@@ -1508,6 +1660,7 @@ int main()
 														flag_5 = 0;
 														break;
 													default:
+														illegal_number();
 														break;
 													}
 												}
@@ -1517,10 +1670,11 @@ int main()
 											case 2:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													printf("0.log out,1,continue,2.return\n");
+													continue_return();
 													int t_5 = 0;
                                                     fflush(stdout);
 													scanf("%d", &t_5);
+													delete_several_lines(5);
 													switch (t_5)
 													{
 														//log out
@@ -1534,19 +1688,21 @@ int main()
 
 														//continue
 													case 1:
-														printf("please enter your recipe class name you want to operate:\n");
+														printf("Please enter your recipe class name you want to operate:\n");
 														char rc_name[100] = { '\0' };
                                                         fflush(stdout);
 														scanf("%s", rc_name);
+														delete_several_lines(2);
 														rc_current = find_r_classify(m_current, rc_name);
 
 														//delete recipe
 														for (int flag_6 = 1; flag_6 != 0; )
 														{
-															printf("0.return,1.delete recipe\n");
+															main_menu_Merchant_delete_recipe();
 															int t_6 = 0;
                                                             fflush(stdout);
 															scanf("%d", &t_6);
+															delete_several_lines(4);
 															switch (t_6)
 															{
 																// return to the front page
@@ -1557,13 +1713,15 @@ int main()
 																//delete recipe
 															case 1:
 																char r_name[100] = { '\0' };
-																printf("please enter recipe name you want to delete:\n");
+																printf("Please enter recipe name you want to delete:\n");
                                                                 fflush(stdout);
 																scanf("%s", r_name);
+																delete_several_lines(2);
 																delete_recipe_name(&(m_current->t_r_head), r_name, &(rc_current->r_head), &(rc_current->r_tail));
 																rc_current->total_number = rc_current->total_number - 1;
 																break;
 															default:
+																illegal_number();
 																break;
 															}
 														}
@@ -1574,6 +1732,7 @@ int main()
 														flag_5 = 0;
 														break;
 													default:
+														illegal_number();
 														break;
 													}
 												}
@@ -1583,10 +1742,11 @@ int main()
 											case 3:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													printf("0.log out,1,continue,2.return\n");
+													continue_return();
 													int t_5 = 0;
                                                     fflush(stdout);
 													scanf("%d", &t_5);
+													delete_several_lines(5);
 													switch (t_5)
 													{
 														//log out
@@ -1600,19 +1760,21 @@ int main()
 
 														//continue
 													case 1:
-														printf("please enter the recipe class name you want to move from:\n");
+														printf("Please enter the recipe class name you want to move from:\n");
 														char rc_name[100] = { '\0' };
                                                         fflush(stdout);
 														scanf("%s", rc_name);
+														delete_several_lines(2);
 														rc_current = find_r_classify(m_current, rc_name);
 
 														//move recipe
 														for (int flag_6 = 1; flag_6 != 0; )
 														{
-															printf("0.return,1.move recipe\n");
+															main_menu_Merchant_move_recipe();
 															int t_6 = 0;
                                                             fflush(stdout);
 															scanf("%d", &t_6);
+															delete_several_lines(4);
 															switch (t_6)
 															{
 																// return to the front page
@@ -1623,23 +1785,25 @@ int main()
 																//move recipe
 															case 1:
 																char r_name[100] = { '\0' };
-																printf("please enter recipe name:\n");
+																printf("Please enter recipe name:\n");
                                                                 fflush(stdout);
 																scanf("%s", r_name);
 																r_current = search_recipe_name(m_current->t_r_head, r_name);
 																r_current = creatList_recipe_2(r_current->name, r_current->price);
 																rc_current->total_number = rc_current->total_number - 1;
 																delete_recipe_name(&(m_current->t_r_head), r_name, &(rc_current->r_head), &(rc_current->r_tail));
-																printf("please enter the recipe class name you want to move in:\n");
+																printf("Please enter the recipe class name you want to move in:\n");
 																char rc_name[100] = { '\0' };
                                                                 fflush(stdout);
 																scanf("%s", rc_name);
+																delete_several_lines(4);
 																rc_current = find_r_classify(m_current, rc_name);
 																insertEnd_r(&(rc_current->r_head), &(rc_current->r_tail), r_current);
 																insertTree_recipe_name(&(m_current->t_r_head), r_current);
 																rc_current->total_number = rc_current->total_number + 1;
 																break;
 															default:
+																illegal_number();
 																break;
 															}
 														}
@@ -1650,6 +1814,7 @@ int main()
 														flag_5 = 0;
 														break;
 													default:
+														illegal_number();
 														break;
 													}
 												}
@@ -1660,10 +1825,11 @@ int main()
 											case 4:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													printf("0.log out,1.fuzzy search,2.sale recipe search,3.search price range,4.return\n");
+													main_menu_Merchant_8();
 													int t_5 = 0;
                                                     fflush(stdout);
 													scanf("%d", &t_5);
+													delete_several_lines(6);
 													switch (t_5)
 													{
 														//log out
@@ -1679,9 +1845,10 @@ int main()
 													case 1:
 														for (int flag_6 = 1; flag_6 != 0;)
 														{
-															printf("0.log out,1.continue,2.return\n");
+															continue_return();
 															int t_6 = 0;
 															scanf("%d", &t_6);
+															delete_several_lines(5);
 															switch (t_6)
 															{
 																//log out
@@ -1697,10 +1864,12 @@ int main()
 																// continue
 															case 1:
 																char str[100] = { '\0' };
-																printf("please enter the name you want to search:");
+																printf("Please enter the name you want to search:");
 																scanf("%s", str);
+																delete_several_lines(2);
                                                                 fflush(stdout);
 																FuzzySearchInClassify(m_current->r_head, str);
+																pause_cls();
 																break;
 
 																//return
@@ -1708,6 +1877,7 @@ int main()
 																flag_6 = 0;
 																break;
 															default:
+																illegal_number();
 																break;
 															}
 														}
@@ -1718,10 +1888,11 @@ int main()
 														SaleRecipeSearch(m_current->t_r_head);
 														for (int flag_6 = 1; flag_6 != 0;)
 														{
-															printf("0.log out,1.continue,2.return\n");
+															continue_return();
 															int t_6 = 0;
                                                             fflush(stdout);
 															scanf("%d", &t_6);
+															delete_several_lines(5);
 															switch (t_6)
 															{
 																//log out
@@ -1737,18 +1908,21 @@ int main()
 																//continue
 															case 1:
 																char r_name[100] = { '\0' };
-																printf("please enter the recipe you want to operate:\n");
+																printf("Please enter the recipe you want to operate:\n");
                                                                 fflush(stdout);
 																scanf("%s", r_name);
+																delete_several_lines(2);
 																r_current = search_recipe_name(m_current->t_r_head, r_name);
 																for (;;)
 																{
-																	printf("please enter the sale discount:\n");
+																	printf("Please enter the sale discount:\n");
 																	float sale_ = 0;
                                                                     fflush(stdout);
 																	scanf("%f", &sale_);
+																	delete_several_lines(2);
 																	if (bool_set_sale_recipe(r_current, sale_))
 																	{
+																		delete_several_lines(1);
 																		break;
 																	}
 																}
@@ -1759,10 +1933,11 @@ int main()
 																flag_6 = 0;
 																break;
 															default:
+																illegal_number();
 																break;
 															}
 														}
-
+														cls_title();
 
 														break;
 
@@ -1770,10 +1945,11 @@ int main()
 													case 3:
 														for (int flag_6 = 1; flag_6 != 0;)
 														{
-															printf("0.log out,1.continue,2.return\n");
+															continue_return();
 															int t_6 = 0;
                                                             fflush(stdout);
 															scanf("%d", &t_6);
+															delete_several_lines(5);
 															switch (t_6)
 															{
 																//log out
@@ -1790,15 +1966,17 @@ int main()
 															case 1:
 																float max_price = 0.0;
 																float min_price = 0.0;
-																printf("please enter the max price and the min price:\n");
+																printf("Please enter the max price and the min price:\n");
                                                                 fflush(stdout);
 																scanf("%d%d", &max_price, &min_price);
+																delete_several_lines(2);
 																for (int flag_7 = 1; flag_7 = 0;)
 																{
-																	printf("0.return,1.lower,2.upper\n");
+																	lower_upper();
 																	int t_7 = 0;
                                                                     fflush(stdout);
 																	scanf("%d", &t_7);
+																	delete_several_lines(5);
 																	switch (t_7)
 																	{
 																	case 0:
@@ -1806,11 +1984,15 @@ int main()
 																		break;
 																	case 1:
 																		output_recipe_high_to_low(m_current->r_head, min_price, max_price);
+																		pause_cls();
+
 																		break;
 																	case 2:
 																		output_recipe_low_to_high(m_current->r_head, min_price, max_price);
+																		pause_cls();
 																		break;
 																	default:
+																		illegal_number();
 																		break;
 																	}
 																}
@@ -1821,6 +2003,7 @@ int main()
 																flag_6 = 0;
 																break;
 															default:
+																illegal_number();
 																break;
 															}
 														}
@@ -1831,6 +2014,7 @@ int main()
 														flag_5 = 0;
 														break;
 													default:
+														illegal_number();
 														break;
 													}
 												}
@@ -1840,10 +2024,11 @@ int main()
 											case 5:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													printf("0.log out,1.set sale recipe,2.return\n");
+													main_menu_Merchant_9();
 													int t_5 = 0;
                                                     fflush(stdout);
 													scanf("%d", &t_5);
+													delete_several_lines(5);
 													switch (t_5)
 													{
 														//log out
@@ -1858,18 +2043,22 @@ int main()
 														//set sale recip
 													case 1:
 														char r_name[100] = { '\0' };
-														printf("please enter the recipe you want to operate:\n");
+														printf("Please enter the recipe you want to operate:\n");
                                                         fflush(stdout);
 														scanf("%s", r_name);
+														delete_several_lines(2);
 														r_current = search_recipe_name(m_current->t_r_head, r_name);
 														for (;;)
 														{
-															printf("please enter the sale discount:\n");
+															printf("Please enter the sale discount:\n");
                                                             fflush(stdout);
 															float sale_ = 0;
 															scanf("%f", &sale_);
+															delete_several_lines(2);
 															if (bool_set_sale_recipe(r_current, sale_))
 															{
+																sleep();
+																delete_several_lines(1);
 																break;
 															}
 														}
@@ -1880,6 +2069,7 @@ int main()
 														flag_5 = 0;
 														break;
 													default:
+														illegal_number();
 														break;
 													}
 												}
@@ -1891,10 +2081,11 @@ int main()
 											case 6:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													printf("0.log out,1.sort,2.return\n");
+													main_menu_Merchant_10();
                                                     fflush(stdout);
 													int t_5 = 0;
                                                     scanf("%d",&t_5);
+													delete_several_lines(5);
 													switch (t_5)
 													{
 														//log out
@@ -1910,10 +2101,11 @@ int main()
 													case 1:
 														for (int flag_6 = 1; flag_6 != 0;)
 														{
-															printf("0.return,1.sort by price,2.sort by stars\n");
+															sort_star_price();
                                                             fflush(stdout);
 															int t_6 = 0;
 															scanf("%d", &t_6);
+															delete_several_lines(5);
 															switch (t_6)
 															{
 																//return
@@ -1925,10 +2117,11 @@ int main()
 															case 1:
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
-																	printf("0.return,1.upper,2.lower\n");
+																	upper_lower();
                                                                     fflush(stdout);
 																	int t_7 = 0;
 																	scanf("%d", &t_7);
+																	delete_several_lines(5);
 																	switch (t_7)
 																	{
 																		//return
@@ -1946,6 +2139,7 @@ int main()
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
+																		pause_cls();
 																		break;
 
 																		//lower
@@ -1958,8 +2152,10 @@ int main()
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
+																		pause_cls();
 																		break;
 																	default:
+																		illegal_number();
 																		break;
 																	}
 																}
@@ -1969,10 +2165,11 @@ int main()
 															case 2:
 																for (int flag_7 = 1; flag_7 != 0;)
 																{
-																	printf("0.return,1.upper,2.lower\n");
+																	upper_lower();
                                                                     fflush(stdout);
 																	int t_7 = 0;
 																	scanf("%d", &t_7);
+																	delete_several_lines(5);
 																	switch (t_7)
 																	{
 																		//return
@@ -1990,6 +2187,7 @@ int main()
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
+																		pause_cls();
 																		break;
 
 																		//lower
@@ -2002,6 +2200,7 @@ int main()
 																		}
 																		printList_r_classify(m_current->r_head);
                                                                         fflush(stdout);
+																		pause_cls();
 																		break;
 																	default:
 																		break;
@@ -2009,6 +2208,7 @@ int main()
 																}
 																break;
 															default:
+																illegal_number();
 																break;
 															}
 														}
@@ -2019,6 +2219,7 @@ int main()
 														flag_5 = 0;
 														break;
 													default:
+														illegal_number();
 														break;
 													}
 												}
@@ -2030,12 +2231,14 @@ int main()
 												flag_4 = 0;
 												break;
 											default:
+												illegal_number();
 												break;
 											}
 
 										}
 										break;
 									default:
+										illegal_number();
 										break;
 									}
 								}
@@ -2046,10 +2249,11 @@ int main()
 								for (int flag_3 = 1; flag_3 != 0;)
 								{
 									print_order_list(m_current->o_tail);
-									printf("0.log out,1.distribute delivery person2.sort order,3,return");
+									main_menu_Merchant_11();
                                     fflush(stdout);
 									int t_3 = 0;
 									scanf("%d", &t_3);
+									delete_several_lines(6);
 									switch (t_3)
 									{
 										//log out
@@ -2064,10 +2268,11 @@ int main()
 										for (int flag_4 = 1; flag_4 != 0;)
 										{
 											print_order_list(m_current->o_tail);
-											printf("0.return,1.continue\n");
+											return_continue();
                                             fflush(stdout);
 											int t_4 = 0;
 											scanf("%d", &t_4);
+											delete_several_lines(2);
 											switch (t_4)
 											{
 												//return
@@ -2077,11 +2282,12 @@ int main()
 
 												//continue
 											case 1:
-												printf("you can only operate the order which haven't distributed a delivery person\n");
+												printf("You can only operate the order which haven't distributed a delivery person\n");
 												char o_id[100] = { '\0' };
-												printf("please enter the order you want to operate:\n");
+												printf("Please enter the order you want to operate:\n");
                                                 fflush(stdout);
 												scanf("%s", o_id);
+												delete_several_lines(3);
 												o_current = search_order_id(m_current->t_o_head, o_id);
 												//
 												d_current = find_free_d(d_head);
@@ -2091,6 +2297,7 @@ int main()
 												Synchronization_o_d_for_m(o_current, d_head, u_head);
 												break;
 											default:
+												illegal_number();
 												break;
 											}
 
@@ -2102,10 +2309,11 @@ int main()
 										for (int flag_4 = 1; flag_4 != 0;)
 										{
 											print_order_list(m_current->o_tail);
-											printf("0.log out,1.upper,2.lower,3.return\n");
+											upper_lower_return();
                                             fflush(stdout);
 											int t_4 = 0;
 											scanf("%d", &t_4);
+											cls_title();
 											switch (t_4)
 											{
 												//log out
@@ -2121,6 +2329,7 @@ int main()
 												m_current->o_tail = o_mergeSortLower_t(m_current->o_head, &(m_current->o_tail));
 												print_order_list(m_current->o_tail);
                                                 fflush(stdout);
+												pause_cls();
 												break;
 
 												//lower
@@ -2128,6 +2337,7 @@ int main()
 												m_current->o_tail = o_mergeSortUpper_t(m_current->o_head, &(m_current->o_tail));
 												print_order_list(m_current->o_tail);
                                                 fflush(stdout);
+												pause_cls();
 												break;
 
 												//return
@@ -2135,6 +2345,7 @@ int main()
 												flag_4 = 0;
 												break;
 											default:
+												illegal_number();
 												break;
 											}
 										}
@@ -2145,6 +2356,7 @@ int main()
 										flag_3 = 0;
 										break;
 									default:
+										illegal_number();
 										break;
 									}
 								}
@@ -2160,6 +2372,7 @@ int main()
 								delete_merchant(m_head, m_current->name);
 								break;
 							default:
+								illegal_number();
 								break;
 							}
 						}
@@ -2173,28 +2386,31 @@ int main()
 					char password[100] = { '\0' };
 					char address[100] = { '\0' };
 					char phone[100] = { '\0' };
-					printf("please enter your username:\n");
+					printf("Please enter your username:\n");
 					scanf("%s", name_2);
+					
 					if (duplicate_name_m(p_head_m, name_2))//judge the username
 					{
-						printf("please enter your password:\n");
+						printf("Please enter your password:\n");
 						scanf("%s", password);
-						printf("please enter your address:\n");
+						printf("Please enter your address:\n");
 						scanf("%s", address);
-						printf("please enter your phone number:\n");
+						printf("Please enter your phone number:\n");
 						scanf("%s", phone);
+						delete_several_lines(8);
 						m_createList_p(&p_head_m, &p_m_tail, m_creatNode_p(name_2, password, phone));
 						m_current = creatList_merchant(name_2, password, address, phone);
 						insertEnd_m(&m_head, &m_tail, m_current);
 						insertTree_Merchant_name(&t_m_head, m_current);
-						printf("continue to create recipe\n");
+						printf("Continue to create recipe\n");
 
 						//create recipe class and recipe
 						for (int flag_2 = 1; flag_2 != 0;)
 						{
-							printf("0.return,1.contiune\n");
+							return_continue();
 							int t_2 = 0;
 							scanf("%d", &t_2);
+							delete_several_lines(5);
 							switch (t_2)
 							{
 								//return to the front page
@@ -2204,9 +2420,10 @@ int main()
 
 								//create recipe class and recipe
 							case 1:
-								printf("please enter your recipe class name:\n");
+								printf("Please enter your recipe class name:\n");
 								char rc_name[100] = { '\0' };
 								scanf("%s", rc_name);
+								delete_several_lines(2);
 								rc_current = creatList_r_classify(rc_name);
 								insertEnd_rc(&(m_current->r_head), &(m_current->r_tail), rc_current);
 
@@ -2214,9 +2431,10 @@ int main()
 								//create recipe
 								for (int flag_3 = 1; flag_3 != 0; )
 								{
-									printf("0.return,1.add recipe\n");
+									main_menu_Merchant_5();
 									int t_3 = 0;
 									scanf("%d", &t_3);
+									delete_several_lines(4);
 									switch (t_3)
 									{
 										// return to the front page
@@ -2229,28 +2447,35 @@ int main()
 										num++;
 										char r_name[100] = { '\0' };
 										float p = 0.0;
-										printf("please enter recipe name:\n");
+										printf("Please enter recipe name:\n");
 										scanf("%s", r_name);
-										printf("please enter the price:\n");
+										printf("Please enter the price:\n");
 										scanf("%f", &p);
+										delete_several_lines(4);
 										r_current = creatList_recipe_2(r_name, p);
 										insertEnd_r(&(rc_current->r_head), &(rc_current->r_tail), r_current);
 										insertTree_recipe_name(&(m_current->t_r_head), r_current);
 										rc_current->total_number = num;
 										break;
 									default:
+										illegal_number();
 										break;
 									}
 								}
 								break;
 							default:
+								illegal_number();
 								break;
 							}
 						}
 					}
 					else
 					{
-						printf("the username already exist!\n");
+						colour(12);
+						printf("The username already exist!\n");
+						colour(7);
+						sleep();
+						delete_several_lines(1);
 					}
 
 					break;
@@ -2259,18 +2484,23 @@ int main()
 				case 3:
 					char name_m[100] = { '\0' };
 					char phone_m[100] = { '\0' };
-					printf("please enter your username:\n");
+					printf("Please enter your username:\n");
 					scanf("%s", name_m);
-					printf("please enter your phone number:\n");
+					printf("Please enter your phone number:\n");
 					scanf("%s", phone_m);
+					delete_several_lines(4);
 					if (!get_back_p_m(p_head_m, name_m, phone_m))
 					{
-						printf("there is something wrong with the details you entered!\n");
+						colour(12);
+						printf("There is something wrong with the details you entered!\n");
+						colour(7);
+						sleep();
+						delete_several_lines(1);
 					}
 
 					break;
 				default:
-					printf("wrong choice!\n");
+					illegal_number();
 					break;
 				}
 			}
@@ -2282,10 +2512,11 @@ int main()
 		case 3:
 			for (int flag_1 = 1; flag_1 != 0;)
 			{
-				printf("0.Return,1.Sign in,2.Sign up,3.forget password\n");
+				choose_sign();
 				int t_1 = 0;
                 fflush(stdout);
 				scanf("%d", &t_1);
+				delete_several_lines(5);
 				switch (t_1)
 				{
 					// return
@@ -2296,19 +2527,21 @@ int main()
 					// sign in
 				case 1:
 					char name[100] = { '\0' };
-					printf("please enter your username:\n");
+					printf("Please enter your username:\n");
                     fflush(stdout);
 					scanf("%s", name);
+					delete_several_lines(2);
 					if (compare_d(p_head_d, name, &p_d_current))//compare name and password to log in
 					{
 						d_current = find_d(d_head, name);//find the delivery person in the list
 
 						for (int flag_2 = 1; flag_2 != 0;)
 						{
-							printf("0.log out,1.order,2.change password,3.deactivate\n");
+							main_menu_DeliveryPerson_1(name);
 							int t_2 = 0;
                             fflush(stdout);
 							scanf("%d", &t_2);
+							delete_several_lines(7);
 							switch (t_2)
 							{
 								//log out
@@ -2323,10 +2556,11 @@ int main()
 
 								for (int flag_3 = 1; flag_3 != 0;)
 								{
-									printf("0.log out,1.set the order,2.return\n");
+									main_menu_DeliveryPerson_2();
 									int t_3 = 0;
                                     fflush(stdout);
 									scanf("%d", &t_3);
+									cls_title();
 									switch (t_3)
 									{
 										//log out
@@ -2339,10 +2573,11 @@ int main()
 										//set the order statement
 									case 1:
 										print_current_order(d_current->o_tail);
-										printf("please enter the statement of the order:(1.delivering,2.Finish)\n");
+										main_menu_DeliveryPerson_3();
 										int s = 0;
                                         fflush(stdout);
 										scanf("%d", &s);
+										delete_several_lines(5);
 										if (s == 1)
 										{
 											d_current->s = BUSY;
@@ -2360,12 +2595,12 @@ int main()
 										flag_3 = 0;
 										break;
 									default:
-										printf("wrong choice!\n");
+										illegal_number();
                                         fflush(stdout);
 										break;
 									}
-									print_current_order(d_current->o_tail);
                                     fflush(stdout);
+									cls_title();
 								}
 
 								break;
@@ -2380,9 +2615,10 @@ int main()
 								delete_delivery_person(d_head, d_current->name);
 								break;
 							default:
-								printf("wrong choice!\n");
+								illegal_number();
 								break;
 							}
+							cls_title();
 						}
 					}
 					break;
@@ -2391,21 +2627,27 @@ int main()
 					char name_3[100] = { '\0' };
 					char password[100] = { '\0' };
 					char phone[100] = { '\0' };
-					printf("please enter your username:\n");
+					printf("Please enter your username:\n");
 					scanf("%s", name_3);
+					delete_several_lines(2);
 					if (duplicate_name_d(p_head_d, name_3))//judge the username
 					{
-						printf("please enter your password:\n");
+						printf("Please enter your password:\n");
 						scanf("%s", password);
-						printf("please enter your phone number:\n");
+						printf("Please enter your phone number:\n");
 						scanf("%s", phone);
+						delete_several_lines(4);
 						d_createList_p(&p_head_d, &p_d_tail, d_creatNode_p(name_3, password, phone));
 						d_current = creatList_deliveryperson(name_3, password, phone);
 						insertEnd_d(&d_head, &d_tail, d_current);
 					}
 					else
 					{
-						printf("the username already exist!\n");
+						colour(12);
+						printf("The username already exist!\n");
+						colour(7);
+						sleep();
+						delete_several_lines(1);
 					}
 
 					break;
@@ -2414,18 +2656,23 @@ int main()
 				case 3:
 					char name_d[100] = { '\0' };
 					char phone_d[100] = { '\0' };
-					printf("please enter your username:\n");
+					printf("Please enter your username:\n");
 					scanf("%s", name_d);
-					printf("please enter your phone number:\n");
+					printf("Please enter your phone number:\n");
 					scanf("%s", phone_d);
+					delete_several_lines(4);
 					if (!get_back_p_d(p_head_d, name_d, phone_d))
 					{
-						printf("there is something wrong with the details you entered!\n");
+						colour(12);
+						printf("There is something wrong with the details you entered!\n");
+						colour(7);
+						sleep();
+						delete_several_lines(1);
 					}
 
 					break;
 				default:
-					printf("wrong choice!\n");
+					illegal_number();
 					break;
 				}
 			}
@@ -2435,10 +2682,11 @@ int main()
 		case 4:
 			for (int flag_1 = 1; flag_1 != 0;)
 			{
-				printf("0.return,1.sign in\n");
+				only_sign();
 				int t_1 = 0;
                 fflush(stdout);
 				scanf("%d", &t_1);
+				delete_several_lines(4);
 				switch (t_1)
 				{
 					//return
@@ -2450,20 +2698,24 @@ int main()
 				case 1:
 					char name[100] = { '\0' };
 					char password[100] = { '\0' };
-					printf("please enter your username:\n");
+					printf("Please enter your username:\n");
                     fflush(stdout);
 					scanf("%s", name);
                     fflush(stdout);
-					printf("please enter your password:\n");
+					printf("Please enter your password:\n");
 					scanf("%s", password);
+					delete_several_lines(4);
 					if (strcmp(name, "adm") == 0)
 					{
 						if (strcmp(password, "1234") == 0)
 						{
 							for (int flag_2 = 1; flag_2 != 0;)
 							{
-								printf("0.log out,1.merchant,2.user,3.deliver person,4.change discount\n");
+								main_menu_Administrator();
 								int t_2 = 0;
+								fflush(stdout);
+								scanf("%d", &t_2);
+								delete_several_lines(7);
 								switch (t_2)
 								{
 									//log out
@@ -2478,17 +2730,20 @@ int main()
 									int count = 0;
 									while (m_current != NULL)
 									{
-										printf("%s\n", m_current->name);
+										printf("        --------------------------------------------\n");
+										printf("\t%s\n", m_current->name);
 										count++;
 										m_current = m_current->next;
 									}
-									printf("total number:%d", count);
+									printf("        --------------------------------------------\n");
+									printf("Total number:%d\n\n", count);
 									for (int flag_3 = 1; flag_3 != 0;)
 									{
-										printf("0.return,1.delete merchant\n");
+										main_menu_Administrator_2();
 										int t_3 = 0;
                                         fflush(stdout);
 										scanf("%d", &t_3);
+										delete_several_lines(4);
 										switch (t_3)
 										{
 											//return
@@ -2498,13 +2753,18 @@ int main()
 
 											//delete
 										case 1:
-											printf("please enter the name:\n");
+											printf("Please enter the name:\n");
 											char name[100];
                                             fflush(stdout);
 											scanf("%s", name);
 											delete_merchant(m_head, name);
+											delete_several_lines(2);
+											printf("The Merchant has been successfully deleted.\n");
+											sleep();
+											delete_several_lines(1);
 											break;
 										default:
+											illegal_number();
 											break;
 										}
 									}
@@ -2516,17 +2776,20 @@ int main()
 									int count_1 = 0;
 									while (u_current != NULL)
 									{
-										printf("%s\n", u_current->name);
+										printf("        --------------------------------------------\n");
+										printf("\t%s\n", u_current->name);
 										count_1++;
 										u_current = u_current->next;
 									}
-									printf("total number:%d", count_1);
+									printf("        --------------------------------------------\n");
+									printf("Total number:%d\n\n", count_1);
 									for (int flag_3 = 1; flag_3 != 0;)
 									{
-										printf("0.return,1.delete user\n");
+										main_menu_Administrator_3();
 										int t_3 = 0;
                                         fflush(stdout);
 										scanf("%d", &t_3);
+										delete_several_lines(4);
 										switch (t_3)
 										{
 											//return
@@ -2536,13 +2799,18 @@ int main()
 
 											//delete
 										case 1:
-											printf("please enter the name:\n");
+											printf("Please enter the name:\n");
 											char name[100] = { '\0' };
                                             fflush(stdout);
 											scanf("%s", name);
 											delete_user(u_head, name);
+											delete_several_lines(2);
+											printf("The User has been successfully deleted.\n");
+											sleep();
+											delete_several_lines(1);
 											break;
 										default:
+											illegal_number();
 											break;
 										}
 									}
@@ -2554,17 +2822,20 @@ int main()
 									int count_2 = 0;
 									while (d_current != NULL)
 									{
-										printf("%s\n", d_current->name);
+										printf("        --------------------------------------------\n");
+										printf("\t%s\n", d_current->name);
 										count_2++;
 										d_current = d_current->next;
 									}
-									printf("total number:%d", count_2);
+									printf("        --------------------------------------------\n");
+									printf("Total number:%d", count_2);
 									for (int flag_3 = 1; flag_3 != 0;)
 									{
-										printf("0.return,1.delete delivery person\n");
+										main_menu_Administrator_4();
 										int t_3 = 0;
                                         fflush(stdout);
 										scanf("%d", &t_3);
+										delete_several_lines(4);
 										switch (t_3)
 										{
 											//return
@@ -2574,13 +2845,18 @@ int main()
 
 											//delete
 										case 1:
-											printf("please enter the name:\n");
+											printf("Please enter the name:\n");
 											char name[100] = { '\0' };
                                             fflush(stdout);
 											scanf("%s", name);
 											delete_delivery_person(d_head, name);
+											delete_several_lines(2);
+											printf("The Deliver Person has been successfully deleted.\n");
+											sleep();
+											delete_several_lines(1);
 											break;
 										default:
+											illegal_number();
 											break;
 										}
 									}
@@ -2590,10 +2866,11 @@ int main()
 								case 4:
 									for (int flag_3 = 1; flag_3 != 0;)
 									{
-										printf("0.return,1.change discount\n");
+										main_menu_Administrator_5();
 										int t_3 = 0;
                                         fflush(stdout);
 										scanf("%d", &t_3);
+										delete_several_lines(4);
 										switch (t_3)
 										{
 											//return
@@ -2603,44 +2880,49 @@ int main()
 
 											//delete
 										case 1:
-											printf("please enter the card class:\n");
+											printf("Please enter the card class:\n");
 											char name[100] = { '\0' };
                                             fflush(stdout);
 											scanf("%s", name);
-											printf("please enter the new discount:\n");
+											printf("Please enter the new discount:\n");
 											float d = 0.0;
                                             fflush(stdout);
 											scanf("%f", &d);
+											delete_several_lines(4);
 											if (d > 0 && d <= 1)
 											{
 												change_discount_manager(name, d);
 											}
 											else
 											{
-												printf("illegal input\n");
+												illegal_number();
 											}
 											break;
 										default:
+											illegal_number();
 											break;
 										}
 									}
 									break;
 								default:
+									illegal_number();
 									break;
 								}
+								cls_title();
 							}
 
 						}
 					}
 					break;
 				default:
+					illegal_number();
 					break;
 				}
 
 			}
 			break;
 		default:
-			printf("wrong choice!\n");
+			illegal_number();
             fflush(stdout);
 			break;
 		}
