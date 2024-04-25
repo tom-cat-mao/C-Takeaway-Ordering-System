@@ -98,6 +98,14 @@ void lower_upper_choose()
 	printf("|   2.Upper              |   4.Choose              |\n");
 	print_ChooseNumber(0, 4);
 }
+void upper_lower_choose()
+{
+
+	printf("Which operation do you want to perform?\n");
+	printf("|   0.Return             |   1.Upper               |\n");
+	printf("|   2.Lower              |   4.Choose              |\n");
+	print_ChooseNumber(0, 4);
+}
 void sort_star_price()
 {
 	printf("Which operation do you want to perform?\n");
