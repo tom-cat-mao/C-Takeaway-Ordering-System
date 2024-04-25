@@ -19,7 +19,7 @@ void output_recipe_high_to_low(struct r_classify* r_classify_head, float min_pri
     {
         printf("Recipes in price range %.2f - %.2f:\n", max_price, min_price);
         colour(6);
-        printf("Class: %d", current_classify->name);
+        printf("Class: %s", current_classify->name);
         colour(7);
 
         //Create a new list to store the recipes within the price range
@@ -102,7 +102,7 @@ void output_recipe_low_to_high(struct r_classify* r_classify_head, float min_pri
     {
         printf("Recipes in price range %.2f - %.2f:\n", min_price, max_price);
         colour(6);
-        printf("Class: %d", current_classify->name);
+        printf("Class: %s", current_classify->name);
         colour(7);
 
         //Create a new list to store the recipes within the price range

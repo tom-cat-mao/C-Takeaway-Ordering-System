@@ -215,6 +215,13 @@ build CMakeFiles\MyProject.dir\get_back_p.c.obj: C_COMPILER__MyProject_Debug ..\
   TARGET_COMPILE_PDB = CMakeFiles\MyProject.dir\
   TARGET_PDB = MyProject.pdb
 
+build CMakeFiles\MyProject.dir\set_order_id.c.obj: C_COMPILER__MyProject_Debug ..\..\..\set_order_id.c || cmake_object_order_depends_target_MyProject
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  OBJECT_DIR = CMakeFiles\MyProject.dir
+  OBJECT_FILE_DIR = CMakeFiles\MyProject.dir
+  TARGET_COMPILE_PDB = CMakeFiles\MyProject.dir\
+  TARGET_PDB = MyProject.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target MyProject
@@ -223,7 +230,7 @@ build CMakeFiles\MyProject.dir\get_back_p.c.obj: C_COMPILER__MyProject_Debug ..\
 #############################################
 # Link the executable MyProject.exe
 
-build MyProject.exe: C_EXECUTABLE_LINKER__MyProject_Debug CMakeFiles\MyProject.dir\createTree.c.obj CMakeFiles\MyProject.dir\createList.c.obj CMakeFiles\MyProject.dir\delete_data.c.obj CMakeFiles\MyProject.dir\deleteTree.c.obj CMakeFiles\MyProject.dir\insertTree.c.obj CMakeFiles\MyProject.dir\discount_card_change.c.obj CMakeFiles\MyProject.dir\name_a_pass.c.obj CMakeFiles\MyProject.dir\printList.c.obj CMakeFiles\MyProject.dir\searchTree.c.obj CMakeFiles\MyProject.dir\sum_price.c.obj CMakeFiles\MyProject.dir\time_set.c.obj CMakeFiles\MyProject.dir\folder_c_c_d.c.obj CMakeFiles\MyProject.dir\Search_Classify_in_Merchant.c.obj CMakeFiles\MyProject.dir\password_change.c.obj CMakeFiles\MyProject.dir\main.c.obj CMakeFiles\MyProject.dir\Manager.c.obj CMakeFiles\MyProject.dir\delete_node.c.obj CMakeFiles\MyProject.dir\Search_Recipe_in_Class.c.obj CMakeFiles\MyProject.dir\find_free_deliver.c.obj CMakeFiles\MyProject.dir\set_order_state.c.obj CMakeFiles\MyProject.dir\find_account_in_the_list.c.obj CMakeFiles\MyProject.dir\duplicate_name.c.obj CMakeFiles\MyProject.dir\get_back_p.c.obj
+build MyProject.exe: C_EXECUTABLE_LINKER__MyProject_Debug CMakeFiles\MyProject.dir\createTree.c.obj CMakeFiles\MyProject.dir\createList.c.obj CMakeFiles\MyProject.dir\delete_data.c.obj CMakeFiles\MyProject.dir\deleteTree.c.obj CMakeFiles\MyProject.dir\insertTree.c.obj CMakeFiles\MyProject.dir\discount_card_change.c.obj CMakeFiles\MyProject.dir\name_a_pass.c.obj CMakeFiles\MyProject.dir\printList.c.obj CMakeFiles\MyProject.dir\searchTree.c.obj CMakeFiles\MyProject.dir\sum_price.c.obj CMakeFiles\MyProject.dir\time_set.c.obj CMakeFiles\MyProject.dir\folder_c_c_d.c.obj CMakeFiles\MyProject.dir\Search_Classify_in_Merchant.c.obj CMakeFiles\MyProject.dir\password_change.c.obj CMakeFiles\MyProject.dir\main.c.obj CMakeFiles\MyProject.dir\Manager.c.obj CMakeFiles\MyProject.dir\delete_node.c.obj CMakeFiles\MyProject.dir\Search_Recipe_in_Class.c.obj CMakeFiles\MyProject.dir\find_free_deliver.c.obj CMakeFiles\MyProject.dir\set_order_state.c.obj CMakeFiles\MyProject.dir\find_account_in_the_list.c.obj CMakeFiles\MyProject.dir\duplicate_name.c.obj CMakeFiles\MyProject.dir\get_back_p.c.obj CMakeFiles\MyProject.dir\set_order_id.c.obj
   FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
