@@ -1,37 +1,38 @@
 ====================[ Build | MyProject | Debug ]===============================
-D:\Clion\CLion-2023.2.2.win\bin\cmake\win\x64\bin\cmake.exe --build D:\Cproject\C-\cmake-build-debug --target MyProject -- -j 14
+D:\clion\CLion-2023.2.2.win\bin\cmake\win\x64\bin\cmake.exe --build D:\Cproject\C-\cmake-build-debug --target MyProject -- -j 14
 [  4%] Building C object CMakeFiles/MyProject.dir/createTree.c.obj
-[  9%] Building C object CMakeFiles/MyProject.dir/createList.c.obj
-[ 13%] Building C object CMakeFiles/MyProject.dir/delete_data.c.obj
-[ 18%] Building C object CMakeFiles/MyProject.dir/deleteTree.c.obj
-[ 22%] Building C object CMakeFiles/MyProject.dir/insertTree.c.obj
-[ 27%] Building C object CMakeFiles/MyProject.dir/discount_card_change.c.obj
-[ 31%] Building C object CMakeFiles/MyProject.dir/name_a_pass.c.obj
-[ 36%] Building C object CMakeFiles/MyProject.dir/printList.c.obj
-[ 40%] Building C object CMakeFiles/MyProject.dir/searchTree.c.obj
-[ 45%] Building C object CMakeFiles/MyProject.dir/sum_price.c.obj
-[ 50%] Building C object CMakeFiles/MyProject.dir/time_set.c.obj
-[ 54%] Building C object CMakeFiles/MyProject.dir/folder_c_c_d.c.obj
-[ 59%] Building C object CMakeFiles/MyProject.dir/Search_Classify_in_Merchant.c.obj
-[ 63%] Building C object CMakeFiles/MyProject.dir/password_change.c.obj
-[ 68%] Building C object CMakeFiles/MyProject.dir/main.c.obj
-[ 72%] Building C object CMakeFiles/MyProject.dir/Manager.c.obj
-[ 77%] Building C object CMakeFiles/MyProject.dir/delete_node.c.obj
-[ 81%] Building C object CMakeFiles/MyProject.dir/Search_Recipe_in_Class.c.obj
-[ 86%] Building C object CMakeFiles/MyProject.dir/find_free_deliver.c.obj
-[ 90%] Building C object CMakeFiles/MyProject.dir/set_order_state.c.obj
-[ 95%] Building C object CMakeFiles/MyProject.dir/find_account_in_the_list.c.obj
+[  8%] Building C object CMakeFiles/MyProject.dir/createList.c.obj
+[ 12%] Building C object CMakeFiles/MyProject.dir/delete_data.c.obj
+[ 16%] Building C object CMakeFiles/MyProject.dir/deleteTree.c.obj
+[ 20%] Building C object CMakeFiles/MyProject.dir/insertTree.c.obj
+[ 24%] Building C object CMakeFiles/MyProject.dir/discount_card_change.c.obj
+[ 28%] Building C object CMakeFiles/MyProject.dir/name_a_pass.c.obj
+[ 32%] Building C object CMakeFiles/MyProject.dir/printList.c.obj
+[ 36%] Building C object CMakeFiles/MyProject.dir/searchTree.c.obj
+[ 40%] Building C object CMakeFiles/MyProject.dir/time_set.c.obj
+[ 44%] Building C object CMakeFiles/MyProject.dir/sum_price.c.obj
+[ 52%] Building C object CMakeFiles/MyProject.dir/folder_c_c_d.c.obj
+[ 52%] Building C object CMakeFiles/MyProject.dir/Search_Classify_in_Merchant.c.obj
+[ 56%] Building C object CMakeFiles/MyProject.dir/password_change.c.obj
+[ 60%] Building C object CMakeFiles/MyProject.dir/main.c.obj
+[ 64%] Building C object CMakeFiles/MyProject.dir/Manager.c.obj
+[ 68%] Building C object CMakeFiles/MyProject.dir/delete_node.c.obj
+[ 72%] Building C object CMakeFiles/MyProject.dir/Search_Recipe_in_Class.c.obj
+[ 76%] Building C object CMakeFiles/MyProject.dir/find_free_deliver.c.obj
+[ 80%] Building C object CMakeFiles/MyProject.dir/set_order_state.c.obj
+[ 84%] Building C object CMakeFiles/MyProject.dir/find_account_in_the_list.c.obj
+[ 88%] Building C object CMakeFiles/MyProject.dir/duplicate_name.c.obj
+[ 92%] Building C object CMakeFiles/MyProject.dir/get_back_p.c.obj
+[ 96%] Building C object CMakeFiles/MyProject.dir/set_order_id.c.obj
+In file included from D:\Cproject\C-\main.c:6:
+D:\Cproject\C-\SearchFuzzy&SaleRecipe.h:9:26: error: unknown type name 'recipe'
+    9 | void FuzzySearchInRecipe(recipe* recipe_current, char* searchname)
+      |                          ^~~~~~
+D:\Cproject\C-\SearchFuzzy&SaleRecipe.h:43:28: error: unknown type name 'r_classify'
+   43 | void FuzzySearchInClassify(r_classify* classify_current, char* searchname)
+      |                            ^~~~~~~~~~
+D:\Cproject\C-\SearchFuzzy&SaleRecipe.h:60:23: error: unknown type name 't_recipe'
+   60 | void SaleRecipeSearch(t_recipe* root)
+      |                       ^~~~~~~~
 D:\Cproject\C-\main.c: In function 'main':
-D:\Cproject\C-\main.c:1847:99: warning: passing argument 1 of 'print_order_list' from incompatible pointer type [-Wincompatible-pointer-types]
- 1847 |                                                                         print_order_list(m_current->r_tail);
-      |                                                                                          ~~~~~~~~~^~~~~~~~
-      |                                                                                                   |
-      |                                                                                                   struct r_classify *
-In file included from D:\Cproject\C-\main.c:3:
-D:\Cproject\C-\class.h:207:37: note: expected 'struct order *' but argument is of type 'struct r_classify *'
-  207 | void print_order_list(struct order* tail);
-      |                       ~~~~~~~~~~~~~~^~~~
-[100%] Linking C executable MyProject.exe
-[100%] Built target MyProject
-
-Build finished
+D:\Cproject\C-\main.c:217:137: warning: implicit declaration of function 'upper_lower_choose'; did you mean 'lower_upper_choose'? [-Wimplicit-function-declarat

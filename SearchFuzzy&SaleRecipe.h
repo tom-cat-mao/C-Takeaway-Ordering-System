@@ -1,5 +1,4 @@
-﻿﻿#pragma once
-#ifndef _SEARCHFUZZYSALERECIPE_H
+﻿#ifndef _SEARCHFUZZYSALERECIPE_H
 #define _SEARCHFUZZYSALERECIPE_H
 #define _CRT_SECURE_NO_WARNINGS
 #include"class.h"
