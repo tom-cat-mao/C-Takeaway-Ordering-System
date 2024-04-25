@@ -3,7 +3,7 @@
 #include"interface.h"
 
 // Print all products in the menu
-void printList_recipe_1(recipe* head)
+void printList_recipe_1(struct recipe* head)
 {
     printf("        --------------------------------------------\n");
     while (head != NULL)
@@ -37,7 +37,7 @@ void printList_recipe_1(recipe* head)
 }
 
 // Print all products in the order
-void printList_recipe_2(recipe* head)
+void printList_recipe_2(struct recipe* head)
 {
     printf("        --------------------------------------------\n");
     while (head != NULL)
@@ -50,7 +50,7 @@ void printList_recipe_2(recipe* head)
 }
 
 // Print product categories
-void printList_r_classify(r_classify* head)
+void printList_r_classify(struct r_classify* head)
 {
     while (head != NULL)
     {
@@ -74,7 +74,7 @@ void printList_r_classify(r_classify* head)
 }
 
 // Print orders
-void print_order_list(order* tail)
+void print_order_list(struct order* tail)
 {
     printf("Order List:\n");
     if (tail == NULL)
@@ -122,7 +122,7 @@ void print_order_list(order* tail)
 }
 
 // Print merchant list
-void printList_merchant(Merchant* head)
+void printList_merchant(struct Merchant* head)
 {
     while (head != NULL)
     {
@@ -137,7 +137,7 @@ void printList_merchant(Merchant* head)
 }
 
 // Print current order
-void print_current_order(order* tail)
+void print_current_order(struct order* tail)
 {
     if (tail != NULL)
     {
@@ -184,7 +184,7 @@ void print_current_order(order* tail)
 }
 
 // Print current recipe
-void print_current_recipe(recipe* tail)
+void print_current_recipe(struct recipe* tail)
 {
     printf("        --------------------------------------------\n");
     if (tail != NULL)
