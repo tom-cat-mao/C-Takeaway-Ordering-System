@@ -9,7 +9,6 @@
 #include"mergeSortRecipe.h"
 #include"output_recipe_price_range.h"
 #include"sale_recipe.h"
-#include"wordcolour.h"
 
 int main()
 {
