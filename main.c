@@ -1389,7 +1389,7 @@ int main()
 														
 														int num_1 = 0;
 														//create recipe
-														for (int flag_6 = 1; flag_6 != 0; flag_6++)
+														for (int flag_6 = 1; flag_6 != 0; )
 														{
 															main_menu_Merchant_5();
 															int t_6 = 0;
