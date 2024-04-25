@@ -1064,6 +1064,7 @@ int main()
 										printf("1.SILVER,2.GOLD,3.PLATINUM\n");
 										int t_3 = 0;
 										fflush(stdout);
+										scanf("%d", &t_3);
 										switch (t_3)
 										{
 										case 1:
@@ -1258,8 +1259,9 @@ int main()
 														rc_current = creatList_r_classify(rc_name);
 														insertEnd_rc(&(m_current->r_head), &(m_current->r_tail), rc_current);
 
+														int num_1 = 0;
 														//create recipe
-														for (int flag_6 = 1; flag_6 != 0; flag_6++)
+														for (int flag_6 = 1; flag_6 != 0; )
 														{
 															printf("0.return,1.add recipe\n");
 															int t_6 = 0;
@@ -1285,7 +1287,7 @@ int main()
 																r_current = creatList_recipe_2(r_name, p);
 																insertEnd_r(&(rc_current->r_head), &(rc_current->r_tail), r_current);
 																insertTree_recipe_name(&(m_current->t_r_head), r_current);
-																rc_current->total_number = flag_6;
+																rc_current->total_number = num_1;
 																break;
 															default:
 																break;
