@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #ifndef _WORDCOLOUR_H
 #define _WORDCOLOUR_H
 #include <stdio.h>
@@ -7,7 +7,7 @@
 the corresponding colour of word_colour
 0 = black
 1 = blue
-3 = light green
+3 = light blue
 4 = red
 5 = purple
 6 = yellow
