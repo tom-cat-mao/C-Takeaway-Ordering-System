@@ -1,123 +1,219 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include"class.h"
+#include"interface.h"
 
 // Print all products in the menu
-void printList_recipe_1(struct recipe* head)
+void printList_recipe_1(recipe* head)
 {
-    printf("Recipe List:\n");
+    printf("        --------------------------------------------\n");
     while (head != NULL)
     {
-        printf("Name: %s\tPrice: %.2f\tStars:%d\n", head->name, head->price, head->star);
+        if (head->sale_discount!=1.0)
+        {
+            printf("\tName: ");
+            colour(3);
+            printf("%s\n", head->name);
+            colour(7);
+        }
+        else
+        {
+            printf("\tName: %s\n", head->name);
+        }
+        printf("\tStars: ");
+        for (int i = 0; i < head->star; i++)
+        {
+            colour(6);
+            printf("*");
+            colour(7);
+        }
+        printf("\tPrice: %.2f\n", head->price);
+        
         head = head->next;
+        if (head != NULL)
+        {
+            printf("        --------------------------------------------\n");
+        }
     }
 }
 
 // Print all products in the order
-void printList_recipe_2(struct recipe* head)
+void printList_recipe_2(recipe* head)
 {
-    printf("Recipe List:\n");
+    printf("        --------------------------------------------\n");
     while (head != NULL)
     {
-        printf("Name: %s\tPrice: %.2f\tQuantity: %d\n", head->name, head->price, head->num);
+        printf("\tName: %s\n", head->name);
+        printf("\tPrice: %.2f\tQuantity: %d\n", head->price, head->num);
         head = head->next;
     }
+    printf("        --------------------------------------------\n");
 }
 
 // Print product categories
-void printList_r_classify(struct r_classify* head)
+void printList_r_classify(r_classify* head)
 {
-    printf("Class List:\n");
     while (head != NULL)
     {
-        printf("Recipe class:%s\n", head->name);
+        colour(6);
+        printf("Class:%s\n", head->name);
+        colour(7);
         if (head->r_head == NULL)
         {
+            printf("        --------------------------------------------\n");
+            colour(12);
             printf("This product category has not added any products yet\n");
+            colour(7);
         }
         else
         {
             printList_recipe_1(head->r_head);
         }
         head = head->next;
+        printf("----------------------------------------------------\n");
     }
 }
 
 // Print orders
-void print_order_list(struct order* tail)
+void print_order_list(order* tail)
 {
     printf("Order List:\n");
+    if (tail == NULL)
+    {
+        colour(12);
+        printf("There are no order yet!\n");
+        colour(7);
+    }
     while (tail != NULL)
     {
-        printf("setting time:%d", tail->send_time);
+        printf("****************************************************\n");
+        printf("%d-%02d-%02d %02d:%02d:%02d\n", tail->localTime->tm_year + 1900, tail->localTime->tm_mon + 1, tail->localTime->tm_mday,
+            tail->localTime->tm_hour, tail->localTime->tm_min, tail->localTime->tm_sec);
         printf("Order ID: %s\n", tail->order_id);
-        printf("Merchant: %s\tAddress: %s\tPhone: %s\n", tail->m_name, tail->m_address, tail->m_phone);
-        printf("User: %s\tAddress: %s\tPhone: %s\n", tail->u_name, tail->u_address, tail->u_phone);
-        printf("Delivery Person: %s\tPhone: %s\n", tail->d_name, tail->d_phone);
-        printf("Total Price: %.2f\t", tail->sum_price);
-        switch (tail->s) {
+        printf("Merchant: %s\tAddress: %s\n", tail->m_name, tail->m_address);
+        printf("Phone: %s\n", tail->m_phone);
+        printf("User: %s\tAddress: %s\n", tail->u_name, tail->u_address);
+        printf("Phone: %s\n", tail->m_phone);
+        printf("Delivery Person: %s\n", tail->d_name);
+        printf("Phone: %s\n", tail->d_phone);
+        printList_recipe_2(tail->r_head); // Print the list of products in the order
+        printf("Total Price: %.2f\n", tail->sum_price);
+        printf("Order State:");
+        switch (tail->s)
+        {
         case WAY:
-            printf("Order State: Waiting\n");
+            printf("Waiting\n");
             break;
         case DILLVERING:
-            printf("Order State: Delivering\n");
+            printf("Delivering\n");
             break;
         case FINISH:
-            printf("Order State: Finished\n");
+            colour(10);
+            printf("Finished\n");
+            colour(7);
             break;
         default:
-            printf("Order State: Canceled\n");
+            colour(12);
+            printf("Unknown\n");
+            colour(7);
             break;
         }
-        printf("sending time:%d,arriving time:%d\n", tail->send_time, tail->arrive_time);
-        printList_recipe_2(tail->r_head); // Print the list of products in the order
         tail = tail->prev;
     }
 }
 
 // Print merchant list
-void printList_merchant(struct Merchant* head)
+void printList_merchant(Merchant* head)
 {
-    printf("Class List:\n");
     while (head != NULL)
     {
+        printf("----------------------------------------------------\n");
         printf("Name: %s\tAddress: %s\n", head->name, head->address);
         head = head->next;
+        if (head == NULL)
+        {
+            printf("----------------------------------------------------\n");
+        }
     }
 }
 
 // Print current order
-void print_current_order(struct order* tail)
+void print_current_order(order* tail)
 {
-    printf("Order List:\n");
-    if (tail == NULL)
+    if (tail != NULL)
     {
-        printf("you don't have any order\n");
-    }
-    else
-    {
-        printf("setting time:%d", tail->send_time);
+        printf("****************************************************\n");
+        printf("%d-%02d-%02d %02d:%02d:%02d\n", tail->localTime->tm_year + 1900, tail->localTime->tm_mon + 1, tail->localTime->tm_mday,
+            tail->localTime->tm_hour, tail->localTime->tm_min, tail->localTime->tm_sec);
         printf("Order ID: %s\n", tail->order_id);
-        printf("Merchant: %s\tAddress: %s\tPhone: %s\n", tail->m_name, tail->m_address, tail->m_phone);
-        printf("User: %s\tAddress: %s\tPhone: %s\n", tail->u_name, tail->u_address, tail->u_phone);
-        printf("Delivery Person: %s\tPhone: %s\n", tail->d_name, tail->d_phone);
+        printf("Merchant: %s\tAddress: %s\n", tail->m_name, tail->m_address);
+        printf("Phone: %s\n", tail->m_phone);
+        printf("User: %s\tAddress: %s\n", tail->u_name, tail->u_address);
+        printf("Phone: %s\n", tail->m_phone);
+        printf("Delivery Person: %s\n", tail->d_name);
+        printf("Phone: %s\n", tail->d_phone);
         printList_recipe_2(tail->r_head); // Print the list of products in the order
-        printf("Total Price: %.2f\t", tail->sum_price);
+        printf("Total Price: %.2f\n", tail->sum_price);
+        printf("Order State:");
         switch (tail->s)
         {
         case WAY:
-            printf("Order State: Waiting\n");
+            printf("Waiting\n");
             break;
         case DILLVERING:
-            printf("Order State: Delivering\n");
+            printf("Delivering\n");
             break;
         case FINISH:
-            printf("Order State: Finished\n");
+            colour(10);
+            printf("Finished\n");
+            colour(7);
             break;
         default:
-            printf("Order State: Canceled\n");
+            colour(12);
+            printf("Unknown\n");
+            colour(7);
             break;
         }
-        printf("sending time:%d,arriving time:%d\n", tail->send_time, tail->arrive_time);
+        printf("****************************************************\n");
     }
-    
+    else
+    {
+        colour(12);
+        printf("The current order is empty!\n");
+        colour(7);
+    }
+}
+
+// Print current recipe
+void print_current_recipe(recipe* tail)
+{
+    printf("        --------------------------------------------\n");
+    if (tail != NULL)
+    {
+        if (tail->sale_discount != 1.0)
+        {
+            printf("\tName: ");
+            colour(3);
+            printf("%s\n", tail->name);
+            colour(7);
+        }
+        else
+        {
+            printf("\tName: %s\n", tail->name);
+        }
+        printf("\tStars: ");
+        for (int i = 0; i < tail->star; i++)
+        {
+            colour(6);
+            printf("*");
+            colour(7);
+        }
+        printf("\tPrice: %.2f\n", tail->price);
+    }
+    else
+    {
+        colour(12);
+        printf("The current recipe is empty!\n");
+        colour(7);
+    }
+    printf("        --------------------------------------------\n");
 }
