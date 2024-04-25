@@ -105,7 +105,7 @@ struct recipe* r_mergeLower_p(struct recipe* first, struct recipe* second, struc
     }
 
     // Pick the smaller value
-    if (first->price >= second->price)
+    if (first->price <= second->price)
     {
         second->next = r_mergeLower_p(first, second->next, tail);
         if (second->next)
@@ -228,7 +228,7 @@ struct recipe* r_mergeLower_s(struct recipe* first, struct recipe* second, struc
     }
 
     // Pick the smaller value
-    if (first->star >= second->star)
+    if (first->star <= second->star)
     {
         second->next = r_mergeLower_s(first, second->next, tail);
         if (second->next)
@@ -350,7 +350,7 @@ struct recipe* r_mergeLower_c(struct recipe* first, struct recipe* second, struc
     }
 
     // Pick the smaller value
-    if ((first->price) * 0.5 + (first->star) * 0.5 >= (second->price) * 0.5 + (first->star) * 0.5)
+    if ((first->price) * 0.5 + (first->star) * 0.5 <= (second->price) * 0.5 + (first->star) * 0.5)
     {
         second->next = r_mergeLower_c(first, second->next, tail);
         if (second->next)
