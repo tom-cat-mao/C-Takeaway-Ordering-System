@@ -21,8 +21,6 @@ bool write_t_merchant_list(struct Merchant* head)
         perror("Failed to get the current directory.\n");
         return 0;
     }
-    printf("Current directory: %s\n", initial_dir);
-    fflush(stdout);
 
     // switch to the merchant list folder
     if (_chdir(".\\Merchant_List") != 0)
@@ -34,30 +32,22 @@ bool write_t_merchant_list(struct Merchant* head)
         }
         _chdir(".\\Merchant_List");
     }
-    print_current_directory();
-    fflush(stdout);
 
     // write merchant data to different files
     for (struct Merchant* current = head; current != NULL; current = current->next)
     {
         char file_path[260];
         sprintf(file_path, "%s\\%s", ".", current->name);
-        printf("%s\n", file_path);
-        fflush(stdout);
 
         if (_chdir(file_path) != 0)
         {
             if (_mkdir(file_path) != 0)
             {
-                printf("%d\n", errno);
-                fflush(stdout);
                 perror("Failed to create the folder.\n");
                 return 0;
             }
             _chdir(file_path);
         }
-        print_current_directory();
-        fflush(stdout);
 
         FILE* file = fopen(current->name, "w");
         if (file == NULL)
@@ -256,11 +246,7 @@ bool write_t_order_list(struct order* head)
         perror("Failed to get the current directory.\n");
         return 0;
     }
-    printf("Current directory: %s\n", initial_dir);
-    fflush(stdout);
 
-    print_current_directory();
-    fflush(stdout);
     // switch to the order list folder
     if (_chdir(".\\Order_List") != 0)
     {
@@ -272,16 +258,12 @@ bool write_t_order_list(struct order* head)
         _chdir(".\\Order_List");
     }
 
-    print_current_directory();
-    fflush(stdout);
 
     // write order data to different files
     for (struct order* current = head; current != NULL; current = current->next)
     {
         char file_path[260];
         sprintf(file_path, "%s\\%s", ".", current->order_id);
-        printf("%s\n", file_path);
-        fflush(stdout);
 
         if (_chdir(file_path) != 0)
         {
@@ -292,8 +274,6 @@ bool write_t_order_list(struct order* head)
             }
             _chdir(file_path);
         }
-        print_current_directory();
-        fflush(stdout);
 
         FILE* file = fopen(current->order_id, "w");
         if (file == NULL)
@@ -425,8 +405,6 @@ bool write_t_recipe_list(struct recipe* head)
         return 0;
     }
 
-    print_current_directory();
-    fflush(stdout);
     // switch to the recipe  list folder
     if (_chdir(".\\Recipe_List") != 0)
     {
@@ -437,8 +415,6 @@ bool write_t_recipe_list(struct recipe* head)
         }
         _chdir(".\\Recipe_List");
     }
-    print_current_directory();
-    fflush(stdout);
 
     // write recipe data to different files
     for (struct recipe* current = head; current != NULL; current = current->next)
@@ -455,8 +431,6 @@ bool write_t_recipe_list(struct recipe* head)
             }
             _chdir(file_path);
         }
-        print_current_directory();
-        fflush(stdout);
 
         FILE* file = fopen(current->name, "w");
         if (file == NULL)
