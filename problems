@@ -8,6 +8,10 @@ D:\Clion\CLion-2023.2.2.win\bin\cmake\win\x64\bin\cmake.exe --build D:\Cproject\
 [ 24%] Building C object CMakeFiles/MyProject.dir/discount_card_change.c.obj
 [ 28%] Building C object CMakeFiles/MyProject.dir/name_a_pass.c.obj
 [ 32%] Building C object CMakeFiles/MyProject.dir/printList.c.obj
+D:\Cproject\C-\printList.c: In function 'printList_recipe_1':
+D:\Cproject\C-\printList.c:14:13: warning: implicit declaration of function 'colour' [-Wimplicit-function-declaration]
+   14 |             colour(3);
+      |             ^~~~~~
 [ 36%] Building C object CMakeFiles/MyProject.dir/searchTree.c.obj
 [ 40%] Building C object CMakeFiles/MyProject.dir/sum_price.c.obj
 [ 44%] Building C object CMakeFiles/MyProject.dir/time_set.c.obj
@@ -30,120 +34,6 @@ D:\Cproject\C-\main.c:495:153: warning: implicit declaration of function 'print_
       |                                                                                                                                                         print_current_order
 [ 96%] Building C object CMakeFiles/MyProject.dir/set_order_id.c.obj
 [100%] Linking C executable MyProject.exe
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `colour':
-D:/Cproject/C-/wordcolour.h:25: multiple definition of `colour'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/wordcolour.h:25: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `print_Title':
-D:/Cproject/C-/interface.h:7: multiple definition of `print_Title'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:7: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `print_Exit':
-D:/Cproject/C-/interface.h:16: multiple definition of `print_Exit'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:16: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `print_Logout':
-D:/Cproject/C-/interface.h:24: multiple definition of `print_Logout'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:24: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `print_ChooseNumber':
-D:/Cproject/C-/interface.h:32: multiple definition of `print_ChooseNumber'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:32: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `cls_title':
-D:/Cproject/C-/interface.h:45: multiple definition of `cls_title'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:45: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `delete_several_lines':
-D:/Cproject/C-/interface.h:50: multiple definition of `delete_several_lines'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:50: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `illegal_number':
-D:/Cproject/C-/interface.h:61: multiple definition of `illegal_number'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:61: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `upper_lower':
-D:/Cproject/C-/interface.h:70: multiple definition of `upper_lower'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:70: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `lower_upper':
-D:/Cproject/C-/interface.h:78: multiple definition of `lower_upper'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:78: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `upper_lower_return':
-D:/Cproject/C-/interface.h:86: multiple definition of `upper_lower_return'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:86: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `lower_upper_choose':
-D:/Cproject/C-/interface.h:94: multiple definition of `lower_upper_choose'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:94: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `upper_lower_choose':
-D:/Cproject/C-/interface.h:102: multiple definition of `upper_lower_choose'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:102: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `sort_star_price':
-D:/Cproject/C-/interface.h:110: multiple definition of `sort_star_price'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:110: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `sort_star_price_comprehensive':
-D:/Cproject/C-/interface.h:117: multiple definition of `sort_star_price_comprehensive'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:117: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `pause_cls':
-D:/Cproject/C-/interface.h:125: multiple definition of `pause_cls'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:125: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `sleep':
-D:/Cproject/C-/interface.h:131: multiple definition of `sleep'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:131: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `success_delete_recipe':
-D:/Cproject/C-/interface.h:143: multiple definition of `success_delete_recipe'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:143: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `success_delete_class':
-D:/Cproject/C-/interface.h:149: multiple definition of `success_delete_class'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:149: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `success_delete_merchant':
-D:/Cproject/C-/interface.h:155: multiple definition of `success_delete_merchant'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:155: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `success_add_class':
-D:/Cproject/C-/interface.h:161: multiple definition of `success_add_class'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:161: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `continue_return':
-D:/Cproject/C-/interface.h:167: multiple definition of `continue_return'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:167: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `return_continue':
-D:/Cproject/C-/interface.h:174: multiple definition of `return_continue'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:174: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `y_n':
-D:/Cproject/C-/interface.h:180: multiple definition of `y_n'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:180: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `choose_identity':
-D:/Cproject/C-/interface.h:189: multiple definition of `choose_identity'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:189: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `choose_sign':
-D:/Cproject/C-/interface.h:199: multiple definition of `choose_sign'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:199: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `only_sign':
-D:/Cproject/C-/interface.h:206: multiple definition of `only_sign'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:206: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_User_1':
-D:/Cproject/C-/interface.h:214: multiple definition of `main_menu_User_1'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:214: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_User_2':
-D:/Cproject/C-/interface.h:225: multiple definition of `main_menu_User_2'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:225: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_User_3':
-D:/Cproject/C-/interface.h:232: multiple definition of `main_menu_User_3'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:232: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_User_4':
-D:/Cproject/C-/interface.h:240: multiple definition of `main_menu_User_4'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:240: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_User_5':
-D:/Cproject/C-/interface.h:248: multiple definition of `main_menu_User_5'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:248: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_User_6':
-D:/Cproject/C-/interface.h:255: multiple definition of `main_menu_User_6'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:255: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_User_7':
-D:/Cproject/C-/interface.h:263: multiple definition of `main_menu_User_7'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:263: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_User_8':
-D:/Cproject/C-/interface.h:271: multiple definition of `main_menu_User_8'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:271: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_User_9':
-D:/Cproject/C-/interface.h:279: multiple definition of `main_menu_User_9'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:279: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_User_10':
-D:/Cproject/C-/interface.h:287: multiple definition of `main_menu_User_10'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:287: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_Merchant_1':
-D:/Cproject/C-/interface.h:296: multiple definition of `main_menu_Merchant_1'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:296: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_Merchant_2':
-D:/Cproject/C-/interface.h:306: multiple definition of `main_menu_Merchant_2'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:306: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_Merchant_3':
-D:/Cproject/C-/interface.h:313: multiple definition of `main_menu_Merchant_3'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:313: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_Merchant_5':
-D:/Cproject/C-/interface.h:323: multiple definition of `main_menu_Merchant_5'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:323: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_Merchant_6':
-D:/Cproject/C-/interface.h:329: multiple definition of `main_menu_Merchant_6'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:329: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_Merchant_8':
-D:/Cproject/C-/interface.h:339: multiple definition of `main_menu_Merchant_8'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:339: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_Merchant_9':
-D:/Cproject/C-/interface.h:347: multiple definition of `main_menu_Merchant_9'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:347: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_Merchant_10':
-D:/Cproject/C-/interface.h:354: multiple definition of `main_menu_Merchant_10'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:354: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_Merchant_11':
-D:/Cproject/C-/interface.h:361: multiple definition of `main_menu_Merchant_11'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:361: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_Merchant_delete_recipe':
-D:/Cproject/C-/interface.h:369: multiple definition of `main_menu_Merchant_delete_recipe'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:369: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_Merchant_move_recipe':
-D:/Cproject/C-/interface.h:375: multiple definition of `main_menu_Merchant_move_recipe'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:375: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_DeliveryPerson_1':
-D:/Cproject/C-/interface.h:383: multiple definition of `main_menu_DeliveryPerson_1'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:383: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_DeliveryPerson_2':
-D:/Cproject/C-/interface.h:394: multiple definition of `main_menu_DeliveryPerson_2'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:394: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_DeliveryPerson_3':
-D:/Cproject/C-/interface.h:403: multiple definition of `main_menu_DeliveryPerson_3'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:403: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_Administrator':
-D:/Cproject/C-/interface.h:414: multiple definition of `main_menu_Administrator'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:414: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_Administrator_2':
-D:/Cproject/C-/interface.h:423: multiple definition of `main_menu_Administrator_2'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:423: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_Administrator_3':
-D:/Cproject/C-/interface.h:429: multiple definition of `main_menu_Administrator_3'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:429: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_Administrator_4':
-D:/Cproject/C-/interface.h:435: multiple definition of `main_menu_Administrator_4'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:435: first defined here
-D:\Clion\CLion-2023.2.2.win\bin\mingw\bin/ld.exe: CMakeFiles\MyProject.dir/objects.a(main.c.obj): in function `main_menu_Administrator_5':
-D:/Cproject/C-/interface.h:441: multiple definition of `main_menu_Administrator_5'; CMakeFiles\MyProject.dir/objects.a(printList.c.obj):D:/Cproject/C-/interface.h:441: first defined here
-collect2.exe: error: ld returned 1 exit status
-mingw32-make[3]: *** [CMakeFiles\MyProject.dir\build.make:466: MyProject.exe] Error 1
-mingw32-make[2]: *** [CMakeFiles\Makefile2:82: CMakeFiles/MyProject.dir/all] Error 2
-mingw32-make[1]: *** [CMakeFiles\Makefile2:89: CMakeFiles/MyProject.dir/rule] Error 2
-mingw32-make: *** [Makefile:123: MyProject] Error 2
+[100%] Built target MyProject
+
+Build finished
