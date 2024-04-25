@@ -1795,7 +1795,7 @@ int main()
 																printf("please enter the max price and the min price:\n");
                                                                 fflush(stdout);
 																scanf("%d%d", &max_price, &min_price);
-																for (int flag_7 = 1; flag_7 = 0;)
+																for (int flag_7 = 1; flag_7!= 0;)
 																{
 																	printf("0.return,1.lower,2.upper\n");
 																	int t_7 = 0;
