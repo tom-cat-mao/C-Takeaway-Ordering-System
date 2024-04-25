@@ -1681,6 +1681,7 @@ int main()
 														{
 															printf("0.log out,1.continue,2.return\n");
 															int t_6 = 0;
+															scanf("%d", &t_6);
 															switch (t_6)
 															{
 																//log out
