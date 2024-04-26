@@ -745,7 +745,7 @@ int main()
 																	printf("Please enter the max price and the min price:\n");
 																	fflush(stdout);
 																	scanf("%f%f", &max_price, &min_price);
-																	delete_several_lines(2);
+																	cls_title();
 																	for (int flag_7 = 1; flag_7 != 0;)
 																	{
 																		lower_upper();
@@ -809,6 +809,7 @@ int main()
 																					break;
 																				}
 																			}
+																			cls_title();
 																			break;
 																		case 2:
 																			output_recipe_low_to_high(m_current->r_head, min_price, max_price);
@@ -819,7 +820,7 @@ int main()
 																				fflush(stdout);
 																				int t_8 = 0;
 																				scanf("%d", &t_8);
-																				delete_several_lines(5);
+																				delete_several_lines(4);
 																				switch (t_8)
 																				{
 																					//return
@@ -860,6 +861,7 @@ int main()
 																					break;
 																				}
 																			}
+																			cls_title();
 																			break;
 																		default:
 																			illegal_number();
