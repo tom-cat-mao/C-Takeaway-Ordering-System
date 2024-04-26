@@ -46,7 +46,9 @@ void continue_return();//delete_several_lines(5);
 
 void return_continue();
 
-void y_n();
+void y_n_recipe();
+
+void y_n_order();
 
 void distribute_DP();
 
