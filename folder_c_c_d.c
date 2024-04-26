@@ -1064,7 +1064,7 @@ bool read_recipe_list(struct recipe** head, struct recipe** current, struct t_re
         strcpy(newNode->name, name);
         newNode->price = price;
         newNode->num = num;
-        sale_discount = newNode->sale_discount;
+        newNode->sale_discount = sale_discount;
         newNode->star = star;
         newNode->next = NULL;
 
