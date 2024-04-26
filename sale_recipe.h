@@ -6,7 +6,7 @@
 bool bool_set_sale_recipe(struct recipe* object, float input)
 {
 	//judge if the value of input is legal
-	if (input < 1.0 && input>0.0)
+	if (input <= 1.0 && input>0.0)
 	{
 		//change the value of sale_discount 
 		object->sale_discount = input;
