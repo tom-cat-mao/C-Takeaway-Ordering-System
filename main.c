@@ -9,6 +9,7 @@
 #include"mergeSortRecipe.h"
 #include"output_recipe_price_range.h"
 #include"sale_recipe.h"
+#include "delete_folder.h"
 
 int main()
 {
@@ -58,6 +59,11 @@ int main()
 	read_merchant_list(&m_head, &m_tail,&t_m_head);
 	read_user_list(&u_head, &u_tail);
 	read_deliveryperson_list(&d_head, &d_tail);
+    if (delete_m_u_d_folder())
+    {
+        perror("Unable to delete folder");
+        return 0;
+    }
 
 	//enter the program
 	print_Title();

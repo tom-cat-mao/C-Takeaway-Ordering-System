@@ -5,70 +5,56 @@
 
 bool delete_m_u_d_folder ()
 {
-    if (!delete_folder("Merchant_List"))
+    if (!RemoveDir("Merchant_List"))
     {
         perror("Unable to delete Merchant_List folder");
         return false;
     }
-    if (!delete_folder("User_List"))
+    if (!RemoveDir("User_List"))
     {
         perror("Unable to delete User_List folder");
         return false;
     }
-    if (!delete_folder("Deliveryperson_List"))
+    if (!RemoveDir("Delivery_person_List"))
     {
         perror("Unable to delete Deliveryperson_List folder");
         return false;
     }
 }
 
-bool delete_folder(const char *folderPath)
+bool RemoveDir(const char* path)
 {
-//    make sure the folderPath is not NULL
-    char path[MAX_PATH];
-    snprintf(path, sizeof(path), "%s\\*", folderPath);
+    WIN32_FIND_DATA ffd;
+    char tmpPath[MAX_PATH];
 
-    WIN32_FIND_DATA findFileData;
-    HANDLE hFind = FindFirstFile(path, &findFileData);
+//    make a copy of the path
+    sprintf(tmpPath, "%s\\*", path);
 
-    if (hFind != INVALID_HANDLE_VALUE)
+    HANDLE hFind = FindFirstFile(tmpPath, &ffd);
+    if (hFind == INVALID_HANDLE_VALUE) {
+        printf("Failed to find files in %s\n", path);
+        return 0;
+    }
+
+    do
     {
-        do
-        {
-            //ignore the "." and ".." folder
-            if (strcmp(findFileData.cFileName, ".") != 0 && strcmp(findFileData.cFileName, "..") != 0) {
-                snprintf(path, sizeof(path), "%s\\%s", folderPath, findFileData.cFileName);
-                if (findFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) {
-                    //reserve to delete the sub folder
-                    delete_folder(path);
-                }
-                else
-                {
-                    //delete the file
-                    if (!DeleteFile(path))
-                    {
-                        printf("Unable to delete file: %s\n", path);
-                        fflush(stdout);
-                    }
-                    else
-                    {
-                        printf("Deleted file: %s\n", path);
-                    }
-                }
+        if (strcmp(ffd.cFileName, ".") != 0 && strcmp(ffd.cFileName, "..") != 0) {
+            sprintf(tmpPath, "%s\\%s", path, ffd.cFileName);
+
+//            if the file is a directory, call RemoveDir recursively
+            if (ffd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
+            {
+                RemoveDir(tmpPath);
+                RemoveDirectory(tmpPath);
             }
-        } while (FindNextFile(hFind, &findFileData) != 0);
+            else
+            {
+//                else delete the file
+                DeleteFile(tmpPath);
+            }
+        }
+    } while (FindNextFile(hFind, &ffd) != 0);
 
-//        close the handle
-        FindClose(hFind);
-    }
-
-    //delete the folder
-    if (!RemoveDirectory(folderPath))
-    {
-        printf("Unable to delete directory: %s\n", folderPath);
-    }
-    else
-    {
-        printf("Deleted directory: %s\n", folderPath);
-    }
+    FindClose(hFind);
+    return 1;
 }

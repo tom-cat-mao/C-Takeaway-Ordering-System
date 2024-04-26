@@ -4,6 +4,6 @@
 
 bool delete_m_u_d_folder ();
 
-bool  delete_folder(const char *folderPath);
+bool RemoveDir(const char* path);
 
 #endif //MYPROJECT_DELETE_FOLDER_H
