@@ -372,6 +372,7 @@ bool write_t_r_class_list(struct r_classify* head)
             return 0;
         }
 
+        fprintf(file, "%d\n", current->total_number);
         fprintf(file, "%s\n", current->name);
 
         // print recipe list
@@ -937,6 +938,7 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current, st
         newNode->r_tail = NULL;
         newNode->t_r_head = NULL;
         char name[100];
+        int total_number;
 
         struct dirent* en;
 
@@ -959,9 +961,11 @@ bool read_r_class_list(struct r_classify** head, struct r_classify** current, st
                     return 0;
                 }
 
-                fscanf(file, "%s", name);
+                fscanf(file, "%d\n", &total_number);
+                fscanf(file, "%s\n", name);
 
                 strcpy(newNode->name, name);
+                newNode->total_number = total_number;
                 fclose(file);
             }
             else if (en->d_type == DT_DIR && strcmp(en->d_name, "Recipe_List") == 0)
