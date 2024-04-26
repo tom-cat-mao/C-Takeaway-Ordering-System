@@ -882,7 +882,7 @@ int main()
 											o_current = creatList_order(m_current, u_current, d_current);
 											o_current->r_head = r_head;
 											o_current->r_tail = r_tail;
-											o_current->sum_price = sumPrice(o_current, o_current->r_head, u_current->c, discount);
+											sumPrice(o_current, o_current->r_head, u_current->c, discount);
 											insertEnd_o(&(u_current->o_head), &(u_current->o_tail), o_current);
 											insertEnd_o(&(m_current->o_head), &(m_current->o_tail), o_current);
 											insertEnd_o(&(d_current->o_head), &(d_current->o_tail), o_current);
@@ -1396,8 +1396,10 @@ int main()
 														rc_current = creatList_r_classify(rc_name);
 														insertEnd_rc(&(m_current->r_head), &(m_current->r_tail), rc_current);
 														
+														int num_1 = 0;
+
 														//create recipe
-														for (int flag_6 = 1; flag_6 != 0; flag_6++)
+														for (int flag_6 = 1; flag_6 != 0; )
 														{
 															main_menu_Merchant_5();
 															int t_6 = 0;
@@ -1413,6 +1415,7 @@ int main()
 
 																//create recipe
 															case 1:
+																num_1++;
 																char r_name[100] = { '\0' };
 																float p = 0.0;
 																printf("Please enter recipe name:\n");
@@ -1425,7 +1428,7 @@ int main()
 																r_current = creatList_recipe_2(r_name, p);
 																insertEnd_r(&(rc_current->r_head), &(rc_current->r_tail), r_current);
 																insertTree_recipe_name(&(m_current->t_r_head), r_current);
-																rc_current->total_number = flag_6;
+																rc_current->total_number = num_1;
 																break;
 															default:
 																illegal_number();
