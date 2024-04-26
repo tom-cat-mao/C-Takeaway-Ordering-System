@@ -324,7 +324,8 @@ int main()
 																		//choose
 																	case 3:
 																		judge = 1;
-
+																		cls_title();
+																		printList_r_classify(m_current->r_head);
 																		char r_name[100] = { '\0' };
 																		printf("Please enter the recipe name:\n");
                                                                         fflush(stdout);
@@ -390,7 +391,8 @@ int main()
 																		//choose
 																	case 3:
 																		judge = 1;
-
+																		cls_title();
+																		printList_r_classify(m_current->r_head);
 																		char r_name[100] = { '\0' };
 																		printf("Please enter the recipe name:\n");
 																		scanf("%s", r_name);
@@ -2414,7 +2416,7 @@ int main()
 										illegal_number();
 										break;
 									}
-								}d
+								}
 								break;
 
 								//password change
