@@ -2381,7 +2381,8 @@ int main()
 
 												//upper
 											case 1:
-												m_current->o_tail = o_mergeSortLower_t(m_current->o_head, &(m_current->o_tail));
+											
+												m_current->o_head = o_mergeSortLower_t(m_current->o_head, &(m_current->o_tail));
 												print_order_list(m_current->o_tail);
                                                 fflush(stdout);
 												pause_cls();
@@ -2389,7 +2390,7 @@ int main()
 
 												//lower
 											case 2:
-												m_current->o_tail = o_mergeSortUpper_t(m_current->o_head, &(m_current->o_tail));
+												m_current->o_head = o_mergeSortUpper_t(m_current->o_head, &(m_current->o_tail));
 												print_order_list(m_current->o_tail);
                                                 fflush(stdout);
 												pause_cls();
