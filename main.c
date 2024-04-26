@@ -1328,7 +1328,6 @@ int main()
 								for (int flag_3 = 1; flag_3 != 0;)
 								{
 									printList_r_classify(m_current->r_head);//all recipes
-									struct r_classify* store_node_settingrecipe = m_current->r_head;
 									main_menu_Merchant_2();
 									int t_3 = 0;
                                     fflush(stdout);
@@ -1347,7 +1346,7 @@ int main()
 									case 1:
 										for (int flag_4 = 1; flag_4 != 0;)
 										{
-											printList_r_classify(store_node_settingrecipe);
+											printList_r_classify(m_current->r_head);
 											main_menu_Merchant_3();
 											int t_4 = 0;
                                             fflush(stdout);
@@ -1369,7 +1368,7 @@ int main()
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
 													cls_title();
-													printList_r_classify(store_node_settingrecipe);
+													printList_r_classify(m_current->r_head);
 													continue_return();
 													int t_5 = 0;
                                                     fflush(stdout);
@@ -1454,7 +1453,7 @@ int main()
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
 													cls_title();
-													printList_r_classify(store_node_settingrecipe);
+													printList_r_classify(m_current->r_head);
 													continue_return();
 													int t_5 = 0;
                                                     fflush(stdout);
@@ -1495,7 +1494,7 @@ int main()
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
 													cls_title();
-													printList_r_classify(store_node_settingrecipe);
+													printList_r_classify(m_current->r_head);
 													continue_return();
 													int t_5 = 0;
                                                     fflush(stdout);
@@ -1539,7 +1538,7 @@ int main()
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
 													cls_title();
-													printList_r_classify(store_node_settingrecipe);
+													printList_r_classify(m_current->r_head);
 													continue_return();
 													int t_5 = 0;
                                                     fflush(stdout);
@@ -1592,7 +1591,7 @@ int main()
 									case 2:
 										for (int flag_4 = 1; flag_4 != 0;)
 										{
-											printList_r_classify(store_node_settingrecipe);
+											printList_r_classify(m_current->r_head);
 											main_menu_Merchant_6();
 											int t_4 = 0;
                                             fflush(stdout);
@@ -1613,7 +1612,7 @@ int main()
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
 													cls_title();
-													printList_r_classify(store_node_settingrecipe);
+													printList_r_classify(m_current->r_head);
 													continue_return();
 													int t_5 = 0;
                                                     fflush(stdout);
@@ -1643,7 +1642,7 @@ int main()
 														for (int flag_6 = 1; flag_6 != 0; )
 														{
 															cls_title();
-															printList_r_classify(store_node_settingrecipe);
+															printList_r_classify(m_current->r_head);
 															main_menu_Merchant_5();
 															int t_6 = 0;
                                                             fflush(stdout);
@@ -1696,7 +1695,7 @@ int main()
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
 													cls_title();
-													printList_r_classify(store_node_settingrecipe);
+													printList_r_classify(m_current->r_head);
 													continue_return();
 													int t_5 = 0;
                                                     fflush(stdout);
@@ -1715,7 +1714,7 @@ int main()
 
 														//continue
 													case 1:
-														printList_r_classify(store_node_settingrecipe);
+														printList_r_classify(m_current->r_head);
 														printf("Please enter your recipe class name you want to operate:\n");
 														char rc_name[100] = { '\0' };
                                                         fflush(stdout);
@@ -1726,7 +1725,7 @@ int main()
 														//delete recipe
 														for (int flag_6 = 1; flag_6 != 0; )
 														{
-															printList_r_classify(store_node_settingrecipe);
+															printList_r_classify(m_current->r_head);
 															main_menu_Merchant_delete_recipe();
 															int t_6 = 0;
                                                             fflush(stdout);
@@ -1772,7 +1771,7 @@ int main()
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
 													cls_title();
-													printList_r_classify(store_node_settingrecipe);
+													printList_r_classify(m_current->r_head);
 													continue_return();
 													int t_5 = 0;
                                                     fflush(stdout);
@@ -1792,7 +1791,7 @@ int main()
 														//continue
 													case 1:
 														cls_title();
-														printList_r_classify(store_node_settingrecipe);
+														printList_r_classify(m_current->r_head);
 														printf("Please enter the recipe class name you want to move from:\n");
 														char rc_name[100] = { '\0' };
                                                         fflush(stdout);
@@ -1818,7 +1817,7 @@ int main()
 																//move recipe
 															case 1:
 																char r_name[100] = { '\0' };
-																printList_r_classify(store_node_settingrecipe);
+																printList_r_classify(m_current->r_head);
 																printf("Please enter recipe name:\n");
                                                                 fflush(stdout);
 																scanf("%s", r_name);
@@ -1860,7 +1859,7 @@ int main()
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
 													cls_title();
-													printList_r_classify(store_node_settingrecipe);
+													printList_r_classify(m_current->r_head);
 													main_menu_Merchant_8();
 													int t_5 = 0;
                                                     fflush(stdout);
@@ -2064,7 +2063,7 @@ int main()
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
 													cls_title();
-													printList_r_classify(store_node_settingrecipe);
+													printList_r_classify(m_current->r_head);
 													main_menu_Merchant_9();
 													int t_5 = 0;
                                                     fflush(stdout);
@@ -2123,7 +2122,7 @@ int main()
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
 													cls_title();
-													printList_r_classify(store_node_settingrecipe);
+													printList_r_classify(m_current->r_head);
 													main_menu_Merchant_10();
                                                     fflush(stdout);
 													int t_5 = 0;
