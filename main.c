@@ -147,7 +147,7 @@ int main()
 										printf("Please enter the merchant you choose:\n");
                                         fflush(stdout);
 										scanf("%s", m_name);//2
-										delete_several_lines(2);
+										cls_title();
 										m_current = search_Merchant_name(t_m_head, m_name);
 
 										int judge = 0;
@@ -1921,10 +1921,10 @@ int main()
 														//sale recipe search
 													case 2:
 														
-														SaleRecipeSearch(m_current->t_r_head);
-														struct recipe* store_node_salerecipe = m_current->t_r_head;
+														
 														for (int flag_6 = 1; flag_6 != 0;)
 														{
+															SaleRecipeSearch(m_current->t_r_head);
 															continue_return();
 															int t_6 = 0;
                                                             fflush(stdout);
@@ -1960,7 +1960,7 @@ int main()
 																	if (bool_set_sale_recipe(r_current, sale_))
 																	{
 																		cls_title();
-																		SaleRecipeSearch(store_node_salerecipe);
+																		
 																		break;
 																	}
 																}
@@ -2609,12 +2609,12 @@ int main()
 
 								//show order
 							case 1:
-								print_order_list(d_current->o_tail);
-								struct order* store_node_DP_1 = d_current->o_tail;
+								
+								
 								for (int flag_3 = 1; flag_3 != 0;)
 								{
-									cls_title();
-									print_order_list(store_node_DP_1);
+									print_order_list(d_current->o_tail);
+									
 									main_menu_DeliveryPerson_2();
 									int t_3 = 0;
                                     fflush(stdout);
@@ -2631,6 +2631,7 @@ int main()
 
 										//set the order statement
 									case 1:
+
 										print_current_order(d_current->o_tail);
 										main_menu_DeliveryPerson_3();
 										int s = 0;
