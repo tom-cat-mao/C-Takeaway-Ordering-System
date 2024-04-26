@@ -29,6 +29,7 @@ set(SOURCES
         get_back_p.c
         set_order_id.c
         delete_folder.c
+        isInteger.c
 )
 
 # Add your header files here

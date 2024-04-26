@@ -24,6 +24,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/Cproject/C-/folder_c_c_d.c" "CMakeFiles/MyProject.dir/folder_c_c_d.c.obj" "gcc" "CMakeFiles/MyProject.dir/folder_c_c_d.c.obj.d"
   "D:/Cproject/C-/get_back_p.c" "CMakeFiles/MyProject.dir/get_back_p.c.obj" "gcc" "CMakeFiles/MyProject.dir/get_back_p.c.obj.d"
   "D:/Cproject/C-/insertTree.c" "CMakeFiles/MyProject.dir/insertTree.c.obj" "gcc" "CMakeFiles/MyProject.dir/insertTree.c.obj.d"
+  "D:/Cproject/C-/isInteger.c" "CMakeFiles/MyProject.dir/isInteger.c.obj" "gcc" "CMakeFiles/MyProject.dir/isInteger.c.obj.d"
   "D:/Cproject/C-/main.c" "CMakeFiles/MyProject.dir/main.c.obj" "gcc" "CMakeFiles/MyProject.dir/main.c.obj.d"
   "D:/Cproject/C-/name_a_pass.c" "CMakeFiles/MyProject.dir/name_a_pass.c.obj" "gcc" "CMakeFiles/MyProject.dir/name_a_pass.c.obj.d"
   "D:/Cproject/C-/password_change.c" "CMakeFiles/MyProject.dir/password_change.c.obj" "gcc" "CMakeFiles/MyProject.dir/password_change.c.obj.d"

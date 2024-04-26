@@ -151,6 +151,9 @@
 		<Unit filename="D:/Cproject/C-/interface.h">
 			<Option target="MyProject"/>
 		</Unit>
+		<Unit filename="D:/Cproject/C-/isInteger.c">
+			<Option target="MyProject"/>
+		</Unit>
 		<Unit filename="D:/Cproject/C-/main.c">
 			<Option target="MyProject"/>
 		</Unit>
