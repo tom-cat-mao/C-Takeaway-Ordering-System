@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MyProject.dir/deleteTree.c.obj.d"
   "CMakeFiles/MyProject.dir/delete_data.c.obj"
   "CMakeFiles/MyProject.dir/delete_data.c.obj.d"
+  "CMakeFiles/MyProject.dir/delete_folder.c.obj"
+  "CMakeFiles/MyProject.dir/delete_folder.c.obj.d"
   "CMakeFiles/MyProject.dir/delete_node.c.obj"
   "CMakeFiles/MyProject.dir/delete_node.c.obj.d"
   "CMakeFiles/MyProject.dir/discount_card_change.c.obj"

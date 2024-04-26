@@ -3,7 +3,8 @@
 #include <errno.h>
 #include <direct.h> // for _getcwd
 
-void print_current_directory() {
+void print_current_directory()
+{
     char path[_MAX_PATH];
     if (_getcwd(path, sizeof(path)) != NULL) {
         printf("Current directory: %s\n", path);

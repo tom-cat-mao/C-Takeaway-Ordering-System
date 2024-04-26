@@ -47,10 +47,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = D:\clion\CLion-2023.2.2.win\bin\cmake\win\x64\bin\cmake.exe
+CMAKE_COMMAND = D:\Clion\CLion-2023.2.2.win\bin\cmake\win\x64\bin\cmake.exe
 
 # The command to remove a file.
-RM = D:\clion\CLion-2023.2.2.win\bin\cmake\win\x64\bin\cmake.exe -E rm -f
+RM = D:\Clion\CLion-2023.2.2.win\bin\cmake\win\x64\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = D:\Cproject\C-\cmake-build-debug
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	D:\clion\CLion-2023.2.2.win\bin\cmake\win\x64\bin\cmake.exe -E echo "No interactive CMake dialog available."
+	D:\Clion\CLion-2023.2.2.win\bin\cmake\win\x64\bin\cmake.exe -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	D:\clion\CLion-2023.2.2.win\bin\cmake\win\x64\bin\cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	D:\Clion\CLion-2023.2.2.win\bin\cmake\win\x64\bin\cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -295,6 +295,30 @@ delete_data.s: delete_data.c.s
 delete_data.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/delete_data.c.s
 .PHONY : delete_data.c.s
+
+delete_folder.obj: delete_folder.c.obj
+.PHONY : delete_folder.obj
+
+# target to build an object file
+delete_folder.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/delete_folder.c.obj
+.PHONY : delete_folder.c.obj
+
+delete_folder.i: delete_folder.c.i
+.PHONY : delete_folder.i
+
+# target to preprocess a source file
+delete_folder.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/delete_folder.c.i
+.PHONY : delete_folder.c.i
+
+delete_folder.s: delete_folder.c.s
+.PHONY : delete_folder.s
+
+# target to generate assembly for a file
+delete_folder.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/delete_folder.c.s
+.PHONY : delete_folder.c.s
 
 delete_node.obj: delete_node.c.obj
 .PHONY : delete_node.obj
@@ -734,6 +758,9 @@ help:
 	@echo ... delete_data.obj
 	@echo ... delete_data.i
 	@echo ... delete_data.s
+	@echo ... delete_folder.obj
+	@echo ... delete_folder.i
+	@echo ... delete_folder.s
 	@echo ... delete_node.obj
 	@echo ... delete_node.i
 	@echo ... delete_node.s

@@ -9,6 +9,7 @@
 #include"mergeSortRecipe.h"
 #include"output_recipe_price_range.h"
 #include"sale_recipe.h"
+#include "delete_folder.h"
 
 int main()
 {
@@ -64,7 +65,7 @@ int main()
 
 	for (int flag = 1; flag != 0;)
 	{
-		
+
 		choose_identity();
 		fflush(stdout);
 		char input[100] = { '\0' };
@@ -3611,6 +3612,14 @@ int main()
 		}
 		
 	}
+
+
+//    delete the files in the m,u,d folders
+    if (delete_m_u_d_folder())
+    {
+        perror("Unable to delete folder");
+        return 0;
+    }
 
 	//write in file
 	d_writeIntoFile_p(p_head_d);

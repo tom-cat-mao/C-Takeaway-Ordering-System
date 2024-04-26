@@ -28,6 +28,7 @@ set(SOURCES
         duplicate_name.c
         get_back_p.c
         set_order_id.c
+        delete_folder.c
 )
 
 # Add your header files here
@@ -44,6 +45,7 @@ set(HEADERS
     SearchFuzzy&SaleRecipe.h
     setStar_recipe.h
     dirent.h
+        delete_folder.h
 )
 
 # Add executable target

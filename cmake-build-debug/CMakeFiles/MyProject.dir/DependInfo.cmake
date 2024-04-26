@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/Cproject/C-/createTree.c" "CMakeFiles/MyProject.dir/createTree.c.obj" "gcc" "CMakeFiles/MyProject.dir/createTree.c.obj.d"
   "D:/Cproject/C-/deleteTree.c" "CMakeFiles/MyProject.dir/deleteTree.c.obj" "gcc" "CMakeFiles/MyProject.dir/deleteTree.c.obj.d"
   "D:/Cproject/C-/delete_data.c" "CMakeFiles/MyProject.dir/delete_data.c.obj" "gcc" "CMakeFiles/MyProject.dir/delete_data.c.obj.d"
+  "D:/Cproject/C-/delete_folder.c" "CMakeFiles/MyProject.dir/delete_folder.c.obj" "gcc" "CMakeFiles/MyProject.dir/delete_folder.c.obj.d"
   "D:/Cproject/C-/delete_node.c" "CMakeFiles/MyProject.dir/delete_node.c.obj" "gcc" "CMakeFiles/MyProject.dir/delete_node.c.obj.d"
   "D:/Cproject/C-/discount_card_change.c" "CMakeFiles/MyProject.dir/discount_card_change.c.obj" "gcc" "CMakeFiles/MyProject.dir/discount_card_change.c.obj.d"
   "D:/Cproject/C-/duplicate_name.c" "CMakeFiles/MyProject.dir/duplicate_name.c.obj" "gcc" "CMakeFiles/MyProject.dir/duplicate_name.c.obj.d"
