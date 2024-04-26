@@ -135,7 +135,7 @@ void print_order_list(struct order* tail)
             break;
         default:
             colour(6);
-            printf("Cancle\n");
+            printf("Unkonw\n");
             colour(7);
             break;
         }
@@ -193,12 +193,12 @@ void print_current_order(struct order* tail)
             break;
         case CANCEL:
             colour(12);
-            printf("Cancle\n");
+            printf("Cancel\n");
             colour(7);
             break;
         default:
             colour(6);
-            printf("Cancle\n");
+            printf("Unkonw\n");
             colour(7);
             break;
         }
