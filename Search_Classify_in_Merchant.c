@@ -1,9 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include"class.h"
 //to find a special r_classify in onre Merchant
-r_classify* find_r_classify(Merchant* merchant, const char* classify_name) 
+struct r_classify* find_r_classify(struct Merchant* merchant, const char* classify_name)
 {
-    r_classify* current_r_classify = merchant->r_head;
+    struct r_classify* current_r_classify = merchant->r_head;
 
     while (current_r_classify != NULL)
     {

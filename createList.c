@@ -1,11 +1,12 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "class.h"
+#include"classTree.h"
 #include"setStar_recipe.h"
 
 // Create a list of recipes for the order
-recipe* creatList_recipe_1(char* n, float p, int num)
+struct recipe* creatList_recipe_1(char* n, float p, int num)
 {
-    recipe* newNode = (recipe*)malloc(sizeof(recipe)); 
+    struct recipe* newNode = (struct recipe*)malloc(sizeof(struct recipe));
 
     // Check whether the node is created successfully
     if (!newNode)
@@ -23,9 +24,9 @@ recipe* creatList_recipe_1(char* n, float p, int num)
 }
 
 // Create a list of recipes for the class
-recipe* creatList_recipe_2(char* n, float p)
+struct recipe* creatList_recipe_2(char* n, float p)
 {
-    recipe* newNode = (recipe*)malloc(sizeof(recipe));   
+    struct recipe* newNode = (struct recipe*)malloc(sizeof(struct recipe));
 
     // Check whether the node is created successfully
     if (!newNode)
@@ -44,7 +45,7 @@ recipe* creatList_recipe_2(char* n, float p)
 }
 
 // Insert the new node into the end of the list
-void insertEnd_r(recipe** head, recipe** tail, recipe* newNode)
+void insertEnd_r(struct recipe** head, struct  recipe** tail, struct  recipe* newNode)
 {
     if (*head == NULL)
     {
@@ -60,9 +61,9 @@ void insertEnd_r(recipe** head, recipe** tail, recipe* newNode)
 }
 
 // Create a list of recipes
-r_classify* creatList_r_classify(char* n)
+struct r_classify* creatList_r_classify(char* n)
 {
-    r_classify* newNode = (r_classify*)malloc(sizeof(r_classify));
+    struct r_classify* newNode = (struct r_classify*)malloc(sizeof(struct r_classify));
 
     // Check whether the node is created successfully
     if (!newNode)
@@ -71,47 +72,9 @@ r_classify* creatList_r_classify(char* n)
     }
 
     strcpy(newNode->name, n);
+    newNode->t_r_head = NULL;
     newNode->r_head = NULL;
-
-    // Ask whether to add recipe
-    printf("Add recipes or not (Y/N):\t");
-    char flag = getchar(); // Set a flag to determine whether to add recipe
-    getchar();
-
-    flag = toupper(flag); // Set a flag to determine whether to add recipe
-    // Add product
-    if (flag == 'Y')
-    {
-        int i;
-        for (i = 1;; i++)
-        {
-            char name[100] = {'\0'};
-            float price = 0.0;
-            printf("\nPlease enter the name of the recipe(q to quit):\t");
-            scanf("%s", name);
-            if (name[0] == 'q')
-            {
-                break;
-            }
-
-            // Enter the price of the recipe
-            printf("\nPlease enter the price of the recipe:\t");
-            scanf("%f", &price);
-            printf("\n");
-
-            recipe* current = creatList_recipe_2(name, price);
-            insertEnd_r(&(newNode->r_head), &(newNode->r_tail), current);
-        }
-        newNode->total_number = i;
-    }
-    else
-    {
-        newNode->total_number = 0;
-        free(newNode);
-        newNode = NULL;
-        return NULL;
-    }
-
+    newNode->r_tail = NULL;
     newNode->prev = NULL;
     newNode->next = NULL;
 
@@ -119,7 +82,7 @@ r_classify* creatList_r_classify(char* n)
 }
 
 // Insert the new node into the end of the list
-void insertEnd_rc(r_classify** head, r_classify** tail, r_classify* newNode)
+void insertEnd_rc(struct r_classify** head, struct r_classify** tail, struct r_classify* newNode)
 {
     if (*head == NULL)
     {
@@ -135,10 +98,9 @@ void insertEnd_rc(r_classify** head, r_classify** tail, r_classify* newNode)
 }
 
 // Create a list of orders
-order* creatList_order(char* merchant_name, char* merchant_address, char* merchant_phone,
-    char* deliver_name, char* deliver_phone, char* user_name, char* user_adderss, char* user_phone)
+struct order* creatList_order(struct Merchant* m_current, struct  User* u_current, struct DeliveryPerson* d_current)
 {
-    order* newNode = (order*)malloc(sizeof(order));
+    struct order* newNode = (struct order*)malloc(sizeof(struct order));
 
     // Check whether the node is created successfully
     if (!newNode)
@@ -147,29 +109,39 @@ order* creatList_order(char* merchant_name, char* merchant_address, char* mercha
     }
 
     // Initialize order information
-    strcpy(newNode->m_name, merchant_name);
-    strcpy(newNode->m_address, merchant_address);
-    strcpy(newNode->m_phone, merchant_phone);
-    strcpy(newNode->u_name, user_name);
-    strcpy(newNode->u_address, user_adderss);
-    strcpy(newNode->u_phone, user_phone);
-    strcpy(newNode->d_name, deliver_name);
-    strcpy(newNode->d_phone, deliver_phone);
-    set_time(newNode->localTime);
-    strftime(newNode->order_id, sizeof(newNode->order_id), "%Y%m%d %H%M%S", newNode->localTime);
-    for (int i = 7, j = strlen(newNode->order_id); i < 11; i++,j++)
+    strcpy(newNode->m_name, m_current->name);
+    strcpy(newNode->m_address, m_current->address);
+    strcpy(newNode->m_phone, m_current->phone);
+    strcpy(newNode->u_name, u_current->name);
+    strcpy(newNode->u_address, u_current->address);
+    strcpy(newNode->u_phone, u_current->phone);
+    if (d_current == NULL)
     {
-        
-        newNode->order_id[j] = newNode->u_phone[i];
-        
+        strcpy(newNode->d_name, "need to be operate");
+        strcpy(newNode->d_phone, "need to be operate");
     }
+    else
+    {
+        strcpy(newNode->d_name, d_current->name);
+        strcpy(newNode->d_phone, d_current->phone);
+    }
+
+    newNode->settime = getRandomNumber_1();
+    generateRandomString(newNode->order_id);
+    newNode->arrive_time = 0;
+    newNode->send_time = 0;
+    newNode->r_head = NULL;
+    newNode->r_tail = NULL;
+    newNode->t_r_head = NULL;
+    newNode->s = WAY;
+    newNode->prev = NULL;
     newNode->next = NULL;
 
     return newNode;
 }
 
 // Insert the new node into the end of the list
-void insertEnd_o(order** head, order** tail, order* newNode)
+void insertEnd_o(struct order** head, struct order** tail, struct order* newNode)
 {
     if (*head == NULL)
     {
@@ -185,9 +157,9 @@ void insertEnd_o(order** head, order** tail, order* newNode)
 }
 
 // Create a list of merchants
-Merchant* creatList_merchant(char* n, char* p, char* a, char* pn)
+struct Merchant* creatList_merchant(char* n, char* p, char* a, char* pn)
 {
-    Merchant* newNode = (Merchant*)malloc(sizeof(Merchant));
+    struct Merchant* newNode = (struct Merchant*)malloc(sizeof(struct Merchant));
 
     // Check whether the node is created successfully
     if (!newNode)
@@ -199,13 +171,20 @@ Merchant* creatList_merchant(char* n, char* p, char* a, char* pn)
     strcpy(newNode->password, p);
     strcpy(newNode->address, a);
     strcpy(newNode->phone, pn);
+    newNode->o_head = NULL;
+    newNode->o_tail = NULL;
+    newNode->r_head = NULL;
+    newNode->r_tail = NULL;
+    newNode->t_o_head = NULL;
+    newNode->t_r_head = NULL;
+    newNode->prev = NULL;
     newNode->next = NULL;
 
     return newNode;
 }
 
 // Insert the new node into the end of the list
-void insertEnd_m(Merchant** head, Merchant** tail, Merchant* newNode)
+void insertEnd_m(struct Merchant** head, struct Merchant** tail, struct  Merchant* newNode)
 {
     if (*head == NULL)
     {
@@ -221,9 +200,9 @@ void insertEnd_m(Merchant** head, Merchant** tail, Merchant* newNode)
 }
 
 // Create a list of users
-User* creatList_user(char* n, char* p, char* a, char* pn)
+struct User* creatList_user(char* n, char* p, char* a, char* pn)
 {
-    User* newNode = (User*)malloc(sizeof(User));
+    struct User* newNode = (struct User*)malloc(sizeof(struct User));
 
     // Check whether the node is created successfully
     if (!newNode)
@@ -236,13 +215,17 @@ User* creatList_user(char* n, char* p, char* a, char* pn)
     strcpy(newNode->address, a);
     strcpy(newNode->phone, pn);
     newNode->c = SILVER;
+    newNode->o_head = NULL;
+    newNode->o_tail = NULL;
+    newNode->t_o_head = NULL;
+    newNode->prev = NULL;
     newNode->next = NULL;
 
     return newNode;
 }
 
 // Insert the new node into the end of the list
-void insertEnd_u(User** head, User** tail, User* newNode)
+void insertEnd_u(struct User** head, struct User** tail, struct User* newNode)
 {
     if (*head == NULL)
     {
@@ -258,9 +241,9 @@ void insertEnd_u(User** head, User** tail, User* newNode)
 }
 
 // Create a list of delivery persons
-DeliveryPerson* creatList_deliveryperson(char* n, char* p, char* pn)
+struct DeliveryPerson* creatList_deliveryperson(char* n, char* p, char* pn)
 {
-    DeliveryPerson* newNode = (DeliveryPerson*)malloc(sizeof(DeliveryPerson));
+    struct DeliveryPerson* newNode = (struct DeliveryPerson*)malloc(sizeof(struct DeliveryPerson));
 
     // Check whether the node is created successfully
     if (!newNode)
@@ -271,13 +254,18 @@ DeliveryPerson* creatList_deliveryperson(char* n, char* p, char* pn)
     strcpy(newNode->name, n);
     strcpy(newNode->password, p);
     strcpy(newNode->phone, pn);
+    newNode->s = FREE;
+    newNode->t_o_head = NULL;
+    newNode->o_head = NULL;
+    newNode->o_tail = NULL;
+    newNode->prev = NULL;
     newNode->next = NULL;
 
     return newNode;
 }
 
 // Insert the new node into the end of the list
-void insertEnd_d(DeliveryPerson** head, DeliveryPerson** tail, DeliveryPerson* newNode)
+void insertEnd_d(struct DeliveryPerson** head, struct DeliveryPerson** tail, struct DeliveryPerson* newNode)
 {
     if (*head == NULL)
     {

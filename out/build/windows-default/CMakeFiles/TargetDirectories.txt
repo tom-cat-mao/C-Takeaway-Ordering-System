@@ -1,0 +1,3 @@
+C:/Users/sunqf/Desktop/C课程设计/C-/out/build/windows-default/CMakeFiles/edit_cache.dir
+C:/Users/sunqf/Desktop/C课程设计/C-/out/build/windows-default/CMakeFiles/MyProject.dir
+C:/Users/sunqf/Desktop/C课程设计/C-/out/build/windows-default/CMakeFiles/rebuild_cache.dir

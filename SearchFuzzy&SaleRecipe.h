@@ -1,60 +1,100 @@
-﻿#pragma once
-#ifndef _SEARCHFUZZYSALERECIPE_H
+﻿#ifndef _SEARCHFUZZYSALERECIPE_H
 #define _SEARCHFUZZYSALERECIPE_H
 #define _CRT_SECURE_NO_WARNINGS
 #include"class.h"
 #include"classTree.h"
+#include "interface.h"
+#include"wordcolour.h"
 //Fuzzy Search(for user)(Use List to search)
 // Search recipes in a recipe list
-void FuzzySearchInRecipe(recipe* recipe_current, char* searchstr) 
+void FuzzySearchInRecipe(struct recipe* recipe_current, char* searchname)
 {
     if (recipe_current == NULL)
     {
         return;
     }
-    if (strstr(recipe_current->name, searchstr) != NULL)
+    if (strstr(recipe_current->name, searchname) != NULL)
     {
-        printf("Found: %s\n", recipe_current->name);
+        if (recipe_current->sale_discount != 1.0)
+        {
+            printf("\tName: ");
+            colour(3);
+            printf("%s\n", recipe_current->name);
+            colour(7);
+        }
+        else
+        {
+            printf("\tName: %s\n", recipe_current->name);
+        }
+        printf("\tStars: ");
+        for (int i = 0; i < recipe_current->star; i++)
+        {
+            colour(6);
+            printf("*");
+            colour(7);
+        }
+        if (recipe_current->sale_discount != 1.0)
+        {
+            printf("\tPrice: %.2f\tDiscount:%.2f\n", recipe_current->price, recipe_current->sale_discount);
+        }
+        else
+        {
+            printf("\tPrice: %.2f\n", recipe_current->price);
+        }
+        
+        printf("        --------------------------------------------\n");
+        
     }
 
-    FuzzySearchInRecipe(recipe_current->next, searchstr);
+    FuzzySearchInRecipe(recipe_current->next, searchname);
 }
 // Search recipes in different recipe lists of different classifies
-void FuzzySearchInClassify(r_classify* classify_current, char* searchstr) 
+void FuzzySearchInClassify(struct r_classify* classify_current, char* searchname)
 {
     if (classify_current == NULL)
     {
         return;
     }
-    printf("Classify: %s\n", classify_current->name);
+    printf("Class: %s\n", classify_current->name);
+    printf("        --------------------------------------------\n");
     // Search recipes in current classify
-    FuzzySearchInRecipe(classify_current->r_head, searchstr);
+    FuzzySearchInRecipe(classify_current->r_head, searchname);
 
     //go to the next classify to search recipe
-    FuzzySearchInClassify(classify_current->next, searchstr);
+    FuzzySearchInClassify(classify_current->next, searchname);
 }
 
-//Sale Recipe Search(for User&Merchant)(Use Tree to search)
+//Sale Recipe Search(for User&Merchant)
 //Search Sale recipe in one Merchant
-//To use this function,you should first create a recipe* discounted_recipes[100] and int num_SaleRecipe=0
-void SaleRecipeSearch(t_recipe* root, recipe** SaleRecipeArray, int* num_SaleRecipe)
+void SaleRecipeSearch(struct t_recipe* root)
 {
-    if (root == NULL) 
+    if (root == NULL)
     {
         return;
     }
     //Recurve the left child Tree
-    SaleRecipeSearch(root->left, SaleRecipeArray, num_SaleRecipe);
+    SaleRecipeSearch(root->left);
 
-    //if searched one, put it into the recipe** SaleRecipeArray
-    if (root->r_node != NULL && root->r_node->sale_discount != 1.0) 
+
+    if (root->r_node != NULL && root->r_node->sale_discount != 1.0)
     {
-        SaleRecipeArray[*num_SaleRecipe] = root->r_node;
-        (*num_SaleRecipe)++;
+        printf("\tName: ");
+        colour(3);
+        printf("%s\n", root->r_node->name);
+        colour(7);
+        printf("\tStars: ");
+        for (int i = 0; i < root->r_node->star; i++)
+        {
+            colour(6);
+            printf("*");
+            colour(7);
+        }
+        printf("\tPrice: %.2f\tDiscount:%.2f\n", root->r_node->price, root->r_node->sale_discount);
+        printf("        --------------------------------------------\n");
     }
 
     //Recurve the right child Tree
-    SaleRecipeSearch(root->right, SaleRecipeArray, num_SaleRecipe);
+    SaleRecipeSearch(root->right);
 }
 
 #endif

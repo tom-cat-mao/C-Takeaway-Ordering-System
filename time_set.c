@@ -1,14 +1,23 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include"class.h"
 
-void set_time(struct tm* localTime)
+//1-10
+int getRandomNumber_1() 
 {
-    // Get the current system time
-    time_t currentTime;
+    srand(time(NULL));
+    return rand() % 10 + 1;
+}
 
-    // Get the timestamp of the current time
-    currentTime = time(NULL);
+//10-50
+int getRandomNumber_2()
+{
+    srand(time(NULL));
+    return rand() % 41 + 10;
+}
 
-    // Convert to local time
-    localTime = localtime(&currentTime);
+//50-100
+int getRandomNumber_3()
+{
+    srand(time(NULL));
+    return rand() % 51 + 50;
 }

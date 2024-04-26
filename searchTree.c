@@ -3,7 +3,7 @@
 #include "classTree.h"
 
 // Search for a node from the menu tree (recipe) with the product name as the judgment standard, and return the node containing the product name
-recipe* search_recipe_name(t_recipe* root, const char* recipe_name)
+struct recipe* search_recipe_name(struct t_recipe* root, const char* recipe_name)
 {
     // If the root node is null or the product name is null, return a null pointer
     if (root == NULL || recipe_name == NULL) 
@@ -32,7 +32,7 @@ recipe* search_recipe_name(t_recipe* root, const char* recipe_name)
 }
 
 // Search for a node from the order tree with the order number as the judgment standard, and return the node containing the order number
-order* search_order_id(t_order* root, const char* order_id) 
+struct order* search_order_id(struct t_order* root, const char* order_id)
 {
     // If the root node is null or the order number is null, return a null pointer
     if (root == NULL || order_id == NULL)
@@ -61,7 +61,7 @@ order* search_order_id(t_order* root, const char* order_id)
 }
 
 // Search for a node from the merchant tree with the merchant name as the judgment standard, and return the node containing the merchant name
-Merchant* search_Merchant_name(t_Merchant* root, const char* Merchant_name)
+struct Merchant* search_Merchant_name(struct t_Merchant* root, const char* Merchant_name)
 {
     // If the root node is null or the merchant name is null, return a null pointer
     if (root == NULL || Merchant_name == NULL) 

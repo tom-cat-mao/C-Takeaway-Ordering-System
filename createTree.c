@@ -7,9 +7,9 @@
 #include <stdbool.h>
 
 // create a new recipe node for the tree
-t_recipe* creatTree_recipe(recipe* example)
+struct t_recipe* creatTree_recipe(struct recipe* example)
 {
-    t_recipe* newNode = (t_recipe*)malloc(sizeof(t_recipe));
+    struct t_recipe* newNode = (struct t_recipe*)malloc(sizeof(struct t_recipe));
     if (newNode == NULL) 
     {
         printf("Recipe Tree error");
@@ -22,9 +22,9 @@ t_recipe* creatTree_recipe(recipe* example)
 }
 
 // create a new order node for the tree
-t_order* creatTree_order(order* example)
+struct t_order* creatTree_order(struct order* example)
 {
-    t_order* newNode = (t_order*)malloc(sizeof(t_order));
+    struct t_order* newNode = (struct t_order*)malloc(sizeof(struct t_order));
     if (newNode == NULL) 
     {
         printf("Order Tree error");
@@ -37,9 +37,9 @@ t_order* creatTree_order(order* example)
 }
 
 // create a new merchant node for the tree
-t_Merchant* creatTree_Merchant(Merchant* example)
+struct t_Merchant* creatTree_Merchant(struct Merchant* example)
 {
-    t_Merchant* newNode = (t_Merchant*)malloc(sizeof(t_Merchant));
+    struct t_Merchant* newNode = (struct t_Merchant*)malloc(sizeof(struct t_Merchant));
     if (newNode == NULL) 
     {
         printf("Merchant Tree error");

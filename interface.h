@@ -1,80 +1,129 @@
-#pragma once
-#ifndef _INTERFACE_H
+﻿#ifndef _INTERFACE_H
 #define _INTERFACE_H
+//some little fuctions
 #include "wordcolour.h"
+void print_Title();
 
+void print_Exit(int i);
 
-void print_Title()
-{
-	//with the width of 50
-	colour(6);//set the colour to yellow
-	printf("|--------------------------------------------------|\n");
-	printf("|\t\t  HAVE YOU EATEN?\t\t   |\n");
-	printf("|--------------------------------------------------|\n\n\n");
-	colour(7);//set the colour to default;
-}
-void print_Exit()
-{
-	printf("|   ");
-	colour(12);
-	printf("0.Exit");
-	colour(7);
-	printf("                                         |\n");
-}
-void before_sign()
-{
-	system("cls");//clear the screen
-	//enter 1 to sign in, enter 2 to sign up
-	print_Title();
-	printf("Please choose a number:\n");
-	printf("1:Sign in\n");
-	printf("2:Sign up\n");
-}
-void main_menu_Merchant(char *name)
-{
-	system("cls");
-	print_Title();
-	printf("Hi,%s.Welcome to HAVE YOU EATEN.\n",name);
-	printf("Which operation do you want to perform?\n");
-	printf("|   1.Your Recipes       |   2.Password            |\n");
-	print_Exit();
-	printf("|-- Please select the corresponding numbers 0-6 ---|\n");
-}
-void main_menu_User(char* name)
-{
-	system("cls"); 
-	print_Title();
-	printf("Hi,%s.Welcome to HAVE YOU EATEN.\n", name);
-	printf("Which operation do you want to perform?\n");
-	printf("|   1.Make Order         |   2.History Order       |\n");
-	printf("|   3.Password           |                         |\n");
-	print_Exit();
-	printf("|-- Please select the corresponding numbers 0-3 ---|\n");
+void print_Logout(int i);
 
-}
-void main_menu_DeliveryPerson(char* name)
-{
-	system("cls"); 
-	print_Title();
-	printf("Hi,%s.Welcome to HAVE YOU EATEN.\n", name);
-	printf("Which operation do you want to perform?\n");
-	printf("|   1.Tasks              |   2.Password            |\n");
-	print_Exit();
-	printf("|-- Please select the corresponding numbers 0-2 ---|\n");
+void print_ChooseNumber(int first, int last);
 
-}
-void main_menu_Manager(char* name)
-{
-	system("cls");
-	print_Title();
-	printf("Hi,%s.Welcome to HAVE YOU EATEN.\n", name);
-	printf("Which operation do you want to perform?\n");
-	printf("|   1.Change the discount of cards                 |\n");
-	print_Exit();
-	printf("|-- Please select the corresponding numbers 0-1 ---|\n");
-}
+void cls_title();
 
+void delete_several_lines(int numlines);
 
+void illegal_number();//"wrong choice"  illegal_number();
+
+void upper_lower();
+
+void lower_upper();
+
+void upper_lower_return();
+
+void lower_upper_choose();
+
+void upper_lower_choose();
+
+void sort_star_price();
+
+void sort_star_price_comprehensive();
+
+void pause_cls();
+
+void sleep();   //delete_several_lines(5);illegal_number();
+
+void success_delete_recipe();
+
+void success_delete_class();
+
+void success_delete_merchant();
+
+void success_add_class();
+
+void continue_return();//delete_several_lines(5);
+
+void return_continue();
+
+void y_n_recipe();
+
+void y_n_order();
+
+void distribute_DP();
+
+// the following are the real print functions
+
+//choose identity/sign in&up  delete_several_lines(1);
+void choose_identity();
+
+void choose_sign();
+
+void only_sign();
+
+//User illegal_number();
+void main_menu_User_1(char* name);
+
+void main_menu_User_2();
+
+void main_menu_User_3();
+
+void main_menu_User_4();
+
+void main_menu_User_5();
+
+void main_menu_User_6();
+
+void main_menu_User_7();//delete_several_lines(1);
+
+void main_menu_User_8();
+
+void main_menu_User_9();
+
+void main_menu_User_10();
+
+//Merchant  illegal_number();
+void main_menu_Merchant_1(char *name);
+
+void main_menu_Merchant_2();
+
+void main_menu_Merchant_3();
+
+void main_menu_Merchant_5();
+
+void main_menu_Merchant_6();//illegal_number();delete_several_lines(5);
+
+void main_menu_Merchant_8();
+
+void main_menu_Merchant_9();
+
+void main_menu_Merchant_10();
+
+void main_menu_Merchant_11();
+
+void main_menu_Merchant_delete_recipe();//delete_several_lines(5);
+
+void main_menu_Merchant_move_recipe();
+
+//DeliveryPerson   
+void main_menu_DeliveryPerson_1(char* name);
+
+void main_menu_DeliveryPerson_2();
+
+void main_menu_DeliveryPerson_3();
+
+//Administrator 
+void main_menu_Administrator();
+
+void main_menu_Administrator_2();
+
+void main_menu_Administrator_3();
+
+void main_menu_Administrator_4();
+
+void main_menu_Administrator_5();
+
+//print recipe list
 
 
 #endif

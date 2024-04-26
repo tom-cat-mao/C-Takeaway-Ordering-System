@@ -1,42 +1,23 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "class.h"
 
-// Change discount
-bool discount_change(double* d, int c)
-{
-	double n = 0;
-	if(!scanf("%lf", &n))
-		return false;
-	d[c] = n;
-	return true;
-}
-
 // Change membership card
-bool card_class_change(User* head, int c)
+bool card_class_change(struct User* current, int c)
 {
-	User* current = head;
-	char n[100] = { "\n" };
-	if(!scanf("%s", n))
-		return false;
-	while (current != NULL)
+	switch (c)
 	{
-		if (strcmp(current->name, n) == 0)
-		{
-			break;
-		}
-		else
-		{
-			current = current->next;
-		}
-	}
-	if (current == NULL)
-	{
-		printf("Congratulations, you have become our silver card user.\n");
+	case 1:
 		current->c = SILVER;
-	}
-	else
-	{
-		current->c = c;
+		break;
+	case 2:
+		current->c = GOLD;
+		break;
+	case 3:
+		current->c = PLATINUM;
+		break;
+	default:
+		return false;
+		break;
 	}
 	return true;
 }

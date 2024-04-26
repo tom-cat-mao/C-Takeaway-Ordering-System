@@ -7,7 +7,7 @@
 #include <stdbool.h>
 
 // insert a recipe name node into the tree
-bool insertTree_recipe_name(t_recipe** root, recipe* insert) 
+bool insertTree_recipe_name(struct t_recipe** root, struct  recipe* insert)
 {
     if (*root == NULL) 
     {
@@ -16,8 +16,9 @@ bool insertTree_recipe_name(t_recipe** root, recipe* insert)
     }
 
     // create a new node for the tree
-    t_recipe* current = *root;
-    while (1) {
+    struct t_recipe* current = *root;
+    while (1) 
+    {
         if (strcmp((insert)->name, current->r_node->name) < 0) 
         {
             if (current->left == NULL) 
@@ -49,7 +50,7 @@ bool insertTree_recipe_name(t_recipe** root, recipe* insert)
 }
 
 // use the custom order id as the standard to insert nodes into the tree
-bool insertTree_order_id(t_order** root, order* insert) 
+bool insertTree_order_id(struct t_order** root, struct order* insert)
 {
     if (*root == NULL) 
     {
@@ -57,7 +58,7 @@ bool insertTree_order_id(t_order** root, order* insert)
         return true;
     }
     // recursively find the insertion location
-    t_order* current = *root;
+    struct t_order* current = *root;
     while (1)
     {
         if (strcmp((insert)->order_id, current->o_node->order_id) < 0)
@@ -92,14 +93,15 @@ bool insertTree_order_id(t_order** root, order* insert)
 }
 
 // use the merchant name as the standard to insert nodes into the tree
-bool insertTree_Merchant_name(t_Merchant** root, Merchant* insert) {
+bool insertTree_Merchant_name(struct t_Merchant** root, struct Merchant* insert)
+{
     if (*root == NULL) 
     {
         *root = creatTree_Merchant(insert);
         return true;
     }
     // recursively find the insertion location
-    t_Merchant* current = *root;
+    struct t_Merchant* current = *root;
     while (1)
     {
         if (strcmp((insert)->name, current->M_node->name) < 0)

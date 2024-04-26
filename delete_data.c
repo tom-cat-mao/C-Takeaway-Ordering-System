@@ -5,16 +5,16 @@
 #include "class.h"
 
 // delete orders
-bool delete_order (order* head, char* order_id)
+bool delete_order (struct order* head, char* order_id)
 {
-    order* current = head;
+    struct order* current = head;
 
     while (current != NULL)
     {
         if (strcmp(current->order_id, order_id) == 0)
         {
-            recipe* temp_slow_r = current->r_head;
-            recipe* temp_fast_r = NULL;
+            struct recipe* temp_slow_r = current->r_head;
+            struct recipe* temp_fast_r = NULL;
             while (temp_slow_r != NULL)
             {
                 temp_fast_r = temp_slow_r->next;
@@ -36,9 +36,9 @@ bool delete_order (order* head, char* order_id)
     return false;
 }
 
-bool delete_recipe (recipe* head, char* name)
+bool delete_recipe (struct recipe* head, char* name)
 {
-    recipe* current = head;
+    struct recipe* current = head;
 
     while (current != NULL)
     {
@@ -56,16 +56,16 @@ bool delete_recipe (recipe* head, char* name)
     return false;
 }
 
-bool delete_r_class (r_classify* head, char* r_name)
+bool delete_r_class (struct r_classify* head, char* r_name)
 {
-    r_classify* current = head;
+    struct r_classify* current = head;
 
     while (current != NULL)
     {
         if (strcmp(current->name, r_name) == 0)
         {
-            recipe* temp_slow = current->r_head;
-            recipe* temp_fast = NULL;
+            struct recipe* temp_slow = current->r_head;
+            struct recipe* temp_fast = NULL;
             while (temp_slow != NULL)
             {
                 temp_fast = temp_slow->next;
@@ -86,16 +86,16 @@ bool delete_r_class (r_classify* head, char* r_name)
     return false;
 }
 
-bool delete_merchant (Merchant* head, char* m_name)
+bool delete_merchant (struct Merchant* head, char* m_name)
 {
-    Merchant* current = head;
+    struct Merchant* current = head;
 
     while (current != NULL)
     {
         if (strcmp(current->name, m_name) == 0)
         {
-            r_classify* temp_slow_rc = current->r_head;
-            r_classify* temp_fast_rc = NULL;
+            struct r_classify* temp_slow_rc = current->r_head;
+            struct r_classify* temp_fast_rc = NULL;
             while (temp_slow_rc != NULL)
             {
                 temp_fast_rc = temp_slow_rc->next;
@@ -106,8 +106,8 @@ bool delete_merchant (Merchant* head, char* m_name)
                 temp_slow_rc = temp_fast_rc;
             }
 
-            order* temp_slow_o = current->o_head;
-            order* temp_fast_o = NULL;
+            struct order* temp_slow_o = current->o_head;
+            struct order* temp_fast_o = NULL;
             while (temp_slow_o != NULL)
             {
                 temp_fast_o = temp_slow_o->next;
@@ -129,16 +129,16 @@ bool delete_merchant (Merchant* head, char* m_name)
     return false;
 }
 
-bool delete_user (User* head, char* u_name)
+bool delete_user (struct User* head, char* u_name)
 {
-    User* current = head;
+    struct User* current = head;
 
     while (current != NULL)
     {
         if (strcmp(current->name, u_name) == 0)
         {
-            order* temp_slow_o = current->head;
-            order* temp_fast_o = NULL;
+            struct order* temp_slow_o = current->o_head;
+            struct order* temp_fast_o = NULL;
             while (temp_slow_o != NULL)
             {
                 temp_fast_o = temp_slow_o->next;
@@ -160,16 +160,16 @@ bool delete_user (User* head, char* u_name)
     return false;
 }
 
-bool delete_delivery_person (DeliveryPerson* head, char* d_name)
+bool delete_delivery_person (struct DeliveryPerson* head, char* d_name)
 {
-    DeliveryPerson* current = head;
+    struct DeliveryPerson* current = head;
 
     while (current != NULL)
     {
         if (strcmp(current->name, d_name) == 0)
         {
-            order* temp_slow_o = current->o_head;
-            order* temp_fast_o = NULL;
+            struct order* temp_slow_o = current->o_head;
+            struct order* temp_fast_o = NULL;
             while (temp_slow_o != NULL)
             {
                 temp_fast_o = temp_slow_o->next;
