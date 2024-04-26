@@ -1,24 +1,42 @@
 ====================[ Build | MyProject | Debug ]===============================
 D:\clion\CLion-2023.2.2.win\bin\cmake\win\x64\bin\cmake.exe --build D:\Cproject\C-\cmake-build-debug --target MyProject -- -j 14
-[  4%] Building C object CMakeFiles/MyProject.dir/name_a_pass.c.obj
-[  8%] Building C object CMakeFiles/MyProject.dir/printList.c.obj
-[ 12%] Building C object CMakeFiles/MyProject.dir/password_change.c.obj
-[ 16%] Building C object CMakeFiles/MyProject.dir/main.c.obj
-[ 20%] Building C object CMakeFiles/MyProject.dir/get_back_p.c.obj
+[  4%] Building C object CMakeFiles/MyProject.dir/createTree.c.obj
+[  8%] Building C object CMakeFiles/MyProject.dir/createList.c.obj
+[ 12%] Building C object CMakeFiles/MyProject.dir/delete_data.c.obj
+[ 16%] Building C object CMakeFiles/MyProject.dir/deleteTree.c.obj
+[ 20%] Building C object CMakeFiles/MyProject.dir/insertTree.c.obj
+[ 24%] Building C object CMakeFiles/MyProject.dir/discount_card_change.c.obj
+[ 28%] Building C object CMakeFiles/MyProject.dir/name_a_pass.c.obj
+[ 32%] Building C object CMakeFiles/MyProject.dir/printList.c.obj
+[ 36%] Building C object CMakeFiles/MyProject.dir/searchTree.c.obj
+[ 40%] Building C object CMakeFiles/MyProject.dir/sum_price.c.obj
+[ 44%] Building C object CMakeFiles/MyProject.dir/time_set.c.obj
+[ 48%] Building C object CMakeFiles/MyProject.dir/folder_c_c_d.c.obj
+[ 52%] Building C object CMakeFiles/MyProject.dir/Search_Classify_in_Merchant.c.obj
+[ 56%] Building C object CMakeFiles/MyProject.dir/password_change.c.obj
+[ 60%] Building C object CMakeFiles/MyProject.dir/main.c.obj
+[ 64%] Building C object CMakeFiles/MyProject.dir/Manager.c.obj
+[ 68%] Building C object CMakeFiles/MyProject.dir/delete_node.c.obj
+[ 72%] Building C object CMakeFiles/MyProject.dir/Search_Recipe_in_Class.c.obj
+[ 76%] Building C object CMakeFiles/MyProject.dir/find_free_deliver.c.obj
+[ 80%] Building C object CMakeFiles/MyProject.dir/set_order_state.c.obj
+[ 84%] Building C object CMakeFiles/MyProject.dir/find_account_in_the_list.c.obj
+[ 88%] Building C object CMakeFiles/MyProject.dir/duplicate_name.c.obj
+[ 92%] Building C object CMakeFiles/MyProject.dir/get_back_p.c.obj
+[ 96%] Building C object CMakeFiles/MyProject.dir/set_order_id.c.obj
 D:\Cproject\C-\main.c: In function 'main':
-D:\Cproject\C-\main.c:1926:152: warning: initialization of 'struct recipe *' from incompatible pointer type 'struct t_recipe *' [-Wincompatible-pointer-types]
- 1926 |                                                                                                                 struct recipe* store_node_salerecipe = m_current->t_r_head;
-      |                                                                                                                                                        ^~~~~~~~~
-D:\Cproject\C-\main.c:1964:162: warning: passing argument 1 of 'SaleRecipeSearch' from incompatible pointer type [-Wincompatible-pointer-types]
- 1964 |                                                                                                                                                 SaleRecipeSearch(store_node_salerecipe);
-      |                                                                                                                                                                  ^~~~~~~~~~~~~~~~~~~~~
-      |                                                                                                                                                                  |
-      |                                                                                                                                                                  struct recipe *
-In file included from D:\Cproject\C-\main.c:6:
-D:\Cproject\C-\SearchFuzzy&SaleRecipe.h:61:40: note: expected 'struct t_recipe *' but argument is of type 'struct recipe *'
-   61 | void SaleRecipeSearch(struct t_recipe* root)
-      |                       ~~~~~~~~~~~~~~~~~^~~~
-[ 24%] Linking C executable MyProject.exe
-[100%] Built target MyProject
-
-Build finished
+D:\Cproject\C-\main.c:2417:66: error: 'd' undeclared (first use in this function)
+ 2417 |                                                                 }d
+      |                                                                  ^
+D:\Cproject\C-\main.c:2417:66: note: each undeclared identifier is reported only once for each function it appears in
+D:\Cproject\C-\main.c:2417:67: error: expected ';' before 'break'
+ 2417 |                                                                 }d
+      |                                                                   ^
+      |                                                                   ;
+ 2418 |                                                                 break;
+      |                                                                 ~~~~~
+mingw32-make[3]: *** [CMakeFiles\MyProject.dir\build.make:271: CMakeFiles/MyProject.dir/main.c.obj] Error 1
+mingw32-make[3]: *** Waiting for unfinished jobs....
+mingw32-make[2]: *** [CMakeFiles\Makefile2:82: CMakeFiles/MyProject.dir/all] Error 2
+mingw32-make[1]: *** [CMakeFiles\Makefile2:89: CMakeFiles/MyProject.dir/rule] Error 2
+mingw32-make: *** [Makefile:123: MyProject] Error 2
