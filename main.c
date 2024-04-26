@@ -59,18 +59,13 @@ int main()
 	read_merchant_list(&m_head, &m_tail,&t_m_head);
 	read_user_list(&u_head, &u_tail);
 	read_deliveryperson_list(&d_head, &d_tail);
-    if (delete_m_u_d_folder())
-    {
-        perror("Unable to delete folder");
-        return 0;
-    }
 
 	//enter the program
 	print_Title();
 
 	for (int flag = 1; flag != 0;)
 	{
-		
+
 		choose_identity();
 		fflush(stdout);
 		int t = 0;
@@ -133,7 +128,7 @@ int main()
 								{
 									printList_merchant(m_head);
 									main_menu_User_2();
-									
+
                                     fflush(stdout);
 									int t_3 = 0;
 									scanf("%d", &t_3);//5
@@ -290,7 +285,7 @@ int main()
 																				delete_several_lines(1);
 																				fflush(stdout);
 																			}
-																			
+
 																			break;
 																		default:
 																			illegal_number();
@@ -369,7 +364,7 @@ int main()
 																				delete_several_lines(1);
 																				fflush(stdout);
 																			}
-																			
+
 																			break;
 																		default:
 																			illegal_number();
@@ -446,7 +441,7 @@ int main()
 																				sleep();
 																				delete_several_lines(1);
 																				fflush(stdout);
-																				
+
 																			}
 																			break;
 																		default:
@@ -713,7 +708,7 @@ int main()
 																				delete_several_lines(1);
 																				fflush(stdout);
 																			}
-																			
+
 																			break;
 																		default:
 																			illegal_number();
@@ -768,7 +763,7 @@ int main()
 																			output_recipe_high_to_low(m_current->r_head, min_price, max_price);
 																			for (int flag_8 = 1; flag_8 != 0;)
 																			{
-																				
+
 																				printf("Whether you want to order any recipe?\n");
 																				return_continue();
 																				fflush(stdout);
@@ -809,7 +804,7 @@ int main()
 																						delete_several_lines(3);
 																						fflush(stdout);
 																					}
-																					
+
 																					break;
 																				default:
 																					illegal_number();
@@ -822,7 +817,7 @@ int main()
 																			output_recipe_low_to_high(m_current->r_head, min_price, max_price);
 																			for (int flag_8 = 1; flag_8 != 0;)
 																			{
-																				
+
 																				printf("Whether you want to order any recipe?\n");
 																				return_continue();
 																				fflush(stdout);
@@ -1064,7 +1059,7 @@ int main()
 											case 1:
 												for (int flag_5 = 1; flag_5 != 0;)
 												{
-													
+
 													upper_lower();
                                                     fflush(stdout);
 													int  t_5 = 0;
@@ -1178,8 +1173,8 @@ int main()
 															delete_several_lines(1);
 															fflush(stdout);
 														}
-														
-														
+
+
 														break;
 
 														//return
@@ -1190,9 +1185,9 @@ int main()
 														illegal_number();
 														break;
 													}
-													
+
 												}
-												
+
 												break;
 												//return
 											case 4:
@@ -1203,7 +1198,7 @@ int main()
 												break;
 											}
 										}
-										
+
 										break;
 
 										//cancel order
@@ -1232,7 +1227,7 @@ int main()
 												printf("Please enter the order id you want to cancel\n");
                                                 fflush(stdout);
 												scanf("%s", o_id);
-												
+
 												o_current = search_order_id(u_current->t_o_head, o_id);
 												if (o_current != NULL)
 												{
@@ -1266,7 +1261,7 @@ int main()
 														delete_several_lines(1);
 														fflush(stdout);
 													}
-													
+
 												}
 												else
 												{
@@ -1275,7 +1270,7 @@ int main()
 													delete_several_lines(1);
 													fflush(stdout);
 												}
-												
+
 												break;
 
 												//return
@@ -1288,7 +1283,7 @@ int main()
 											}
 											cls_title();
 										}
-										
+
 										break;
 
 										//return
@@ -1344,7 +1339,7 @@ int main()
 										illegal_number();
 										break;
 									}
-									
+
 								}
 								break;
 
@@ -1475,7 +1470,7 @@ int main()
 								flag_1 = 0;
 								break;
 
-								//setting in recipe 
+								//setting in recipe
 							case 1:
 								for (int flag_3 = 1; flag_3 != 0;)
 								{
@@ -1504,7 +1499,7 @@ int main()
                                             fflush(stdout);
 											scanf("%d", &t_4);
 											delete_several_lines(8);
-											
+
 											switch (t_4)
 											{
 												//log out
@@ -1546,7 +1541,7 @@ int main()
 														delete_several_lines(2);
 														rc_current = creatList_r_classify(rc_name);
 														insertEnd_rc(&(m_current->r_head), &(m_current->r_tail), rc_current);
-														
+
 														int num_1 = 0;
 
 														//create recipe
@@ -1638,7 +1633,7 @@ int main()
 															delete_several_lines(1);
 															fflush(stdout);
 														}
-														
+
 														break;
 													case 2:
 														flag_5 = 0;
@@ -1693,7 +1688,7 @@ int main()
 															delete_several_lines(1);
 															fflush(stdout);
 														}
-														
+
 														break;
 													case 2:
 														flag_5 = 0;
@@ -1745,7 +1740,7 @@ int main()
 															delete_several_lines(1);
 															fflush(stdout);
 														}
-														
+
 														break;
 													case 2:
 														flag_5 = 0;
@@ -1870,7 +1865,7 @@ int main()
 															delete_several_lines(1);
 															fflush(stdout);
 														}
-														
+
 														break;
 
 														//return
@@ -1958,7 +1953,7 @@ int main()
 															delete_several_lines(1);
 															fflush(stdout);
 														}
-														
+
 														break;
 
 														//return
@@ -2054,7 +2049,7 @@ int main()
 																			delete_several_lines(1);
 																			fflush(stdout);
 																		}
-																		
+
 																	}
 																	else
 																	{
@@ -2063,7 +2058,7 @@ int main()
 																		delete_several_lines(1);
 																		fflush(stdout);
 																	}
-																	
+
 																	break;
 																default:
 																	illegal_number();
@@ -2078,7 +2073,7 @@ int main()
 															delete_several_lines(1);
 															fflush(stdout);
 														}
-														
+
 														break;
 
 														//return
@@ -2159,8 +2154,8 @@ int main()
 
 														//sale recipe search
 													case 2:
-														
-														
+
+
 														for (int flag_6 = 1; flag_6 != 0;)
 														{
 															SaleRecipeSearch(m_current->t_r_head);
@@ -2213,7 +2208,7 @@ int main()
 																	delete_several_lines(1);
 																	fflush(stdout);
 																}
-																
+
 																break;
 
 																//return
@@ -2631,7 +2626,7 @@ int main()
 
 												//upper
 											case 1:
-											
+
 												m_current->o_head = o_mergeSortLower_t(m_current->o_head, &(m_current->o_tail));
 												print_order_list(m_current->o_tail);
                                                 fflush(stdout);
@@ -2698,7 +2693,7 @@ int main()
 					char phone[100] = { '\0' };
 					printf("Please enter your username:\n");
 					scanf("%s", name_2);
-					
+
 					if (duplicate_name_m(p_head_m, name_2))//judge the username
 					{
 						printf("Please enter your password:\n");
@@ -2863,12 +2858,12 @@ int main()
 
 								//show order
 							case 1:
-								
-								
+
+
 								for (int flag_3 = 1; flag_3 != 0;)
 								{
 									print_order_list(d_current->o_tail);
-									
+
 									main_menu_DeliveryPerson_2();
 									int t_3 = 0;
                                     fflush(stdout);
@@ -2914,7 +2909,7 @@ int main()
 										break;
 									}
                                     fflush(stdout);
-									
+
 								}
 								cls_title();
 								break;
@@ -3040,7 +3035,7 @@ int main()
 
 									//merchant
 								case 1:
-									
+
 									for (int flag_3 = 1; flag_3 != 0;)
 									{
 										m_current = m_head;
@@ -3055,8 +3050,8 @@ int main()
 										}
 										printf("        --------------------------------------------\n");
 										printf("Total number:%d\n\n", count);
-										
-										
+
+
 										main_menu_Administrator_2();
 										int t_3 = 0;
                                         fflush(stdout);
@@ -3101,8 +3096,8 @@ int main()
 												sleep();
 												cls_title();
 											}
-											
-											
+
+
 											break;
 										default:
 											illegal_number();
@@ -3114,7 +3109,7 @@ int main()
 
 									//user
 								case 2:
-									
+
 									for (int flag_3 = 1; flag_3 != 0;)
 									{
 										u_current = u_head;
@@ -3130,8 +3125,8 @@ int main()
 
 										printf("        --------------------------------------------\n");
 										printf("Total number:%d\n\n", count_1);
-										
-										
+
+
 										main_menu_Administrator_3();
 										int t_3 = 0;
                                         fflush(stdout);
@@ -3177,7 +3172,7 @@ int main()
 												sleep();
 												cls_title();
 											}
-											
+
 											break;
 										default:
 											illegal_number();
@@ -3189,8 +3184,8 @@ int main()
 
 									//deliver person
 								case 3:
-									
-									
+
+
 									for (int flag_3 = 1; flag_3 != 0;)
 									{
 										d_current = d_head;
@@ -3206,8 +3201,8 @@ int main()
 
 										printf("        --------------------------------------------\n");
 										printf("Total number:%d", count_2);
-										
-										
+
+
 										main_menu_Administrator_4();
 										int t_3 = 0;
                                         fflush(stdout);
@@ -3252,7 +3247,7 @@ int main()
 												sleep();
 												cls_title();
 											}
-											
+
 											break;
 										default:
 											illegal_number();
@@ -3327,6 +3322,14 @@ int main()
 			break;
 		}
 	}
+
+
+//    delete the files in the m,u,d folders
+    if (delete_m_u_d_folder())
+    {
+        perror("Unable to delete folder");
+        return 0;
+    }
 
 	//write in file
 	d_writeIntoFile_p(p_head_d);
