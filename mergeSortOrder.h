@@ -224,7 +224,7 @@ struct order* o_mergeLower_t(struct order* first, struct order* second, struct o
     }
 
     // Pick the larger value
-    if (first->total_time <= second->total_time)
+    if (first->total_time >= second->total_time)
     {
         first->next = o_mergeLower_t(first->next, second, tail);
         if (first->next)
