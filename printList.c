@@ -26,8 +26,17 @@ void printList_recipe_1(struct recipe* head)
             printf("*");
             colour(7);
         }
-        printf("\tPrice: %.2f\n", head->price);
         
+        if (head->sale_discount != 1.0)
+        {
+            printf("\tPrice: %.2f\tDiscount:%.2f\n", head->price,head->sale_discount);
+        }
+        else
+        {
+            printf("\tPrice: %.2f\n", head->price);
+        }
+
+
         head = head->next;
         if (head != NULL)
         {
@@ -43,7 +52,15 @@ void printList_recipe_2(struct recipe* head)
     while (head != NULL)
     {
         printf("\tName: %s\n", head->name);
-        printf("\tPrice: %.2f\tQuantity: %d\n", head->price, head->num);
+        if (head->sale_discount != 1.0)
+        {
+            printf("\tPrice: %.2f\tDiscount:%.2f\n", head->price, head->sale_discount);
+        }
+        else
+        {
+            printf("\tPrice: %.2f\n", head->price);
+        }
+        printf("\tQuantity: %d\n", head->num);
         head = head->next;
     }
     printf("        --------------------------------------------\n");

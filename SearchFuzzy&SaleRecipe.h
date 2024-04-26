@@ -33,7 +33,15 @@ void FuzzySearchInRecipe(struct recipe* recipe_current, char* searchname)
             printf("*");
             colour(7);
         }
-        printf("\tPrice: %.2f\n", recipe_current->price);
+        if (recipe_current->sale_discount != 1.0)
+        {
+            printf("\tPrice: %.2f\tDiscount:%.2f\n", recipe_current->price, recipe_current->sale_discount);
+        }
+        else
+        {
+            printf("\tPrice: %.2f\n", recipe_current->price);
+        }
+        
         printf("        --------------------------------------------\n");
         
     }
@@ -81,7 +89,7 @@ void SaleRecipeSearch(struct t_recipe* root)
             printf("*");
             colour(7);
         }
-        printf("\tPrice: %.2f\n", root->r_node->price);
+        printf("\tPrice: %.2f\tDiscount:%.2f\n", root->r_node->price, root->r_node->sale_discount);
         printf("        --------------------------------------------\n");
     }
 
