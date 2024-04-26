@@ -3040,20 +3040,23 @@ int main()
 
 									//merchant
 								case 1:
-									m_current = m_head;
-									int count = 0;
-									printf("Merchant:\n");
-									while (m_current != NULL)
-									{
-										printf("        --------------------------------------------\n");
-										printf("\t%s\n", m_current->name);
-										count++;
-										m_current = m_current->next;
-									}
-									printf("        --------------------------------------------\n");
-									printf("Total number:%d\n\n", count);
+									
 									for (int flag_3 = 1; flag_3 != 0;)
 									{
+										m_current = m_head;
+										int count = 0;
+										printf("Merchant:\n");
+										while (m_current != NULL)
+										{
+											printf("        --------------------------------------------\n");
+											printf("\t%s\n", m_current->name);
+											count++;
+											m_current = m_current->next;
+										}
+										printf("        --------------------------------------------\n");
+										printf("Total number:%d\n\n", count);
+										
+										
 										main_menu_Administrator_2();
 										int t_3 = 0;
                                         fflush(stdout);
@@ -3073,21 +3076,32 @@ int main()
                                             fflush(stdout);
 											scanf("%s", name);
 											m_current = find_m(m_head, name);
-											if (delete_specific_merchant(&(m_current), &(m_head), &(m_tail)))
+											if (m_current != NULL)
 											{
-												count--;
-												delete_several_lines(2);
-												printf("The Merchant has been successfully deleted.\n");
-												sleep();
-												delete_several_lines(1);
+												if (delete_specific_merchant(&(m_current), &(m_head), &(m_tail)))
+												{
+													count--;
+													delete_several_lines(2);
+													printf("The Merchant has been successfully deleted.\n");
+													sleep();
+													cls_title();
+												}
+												else
+												{
+													delete_several_lines(2);
+													printf("The Merchant deleted error!\n");
+													sleep();
+													cls_title();
+												}
 											}
 											else
 											{
 												delete_several_lines(2);
-												printf("The Merchant deleted error!\n");
+												printf("The Merchant isn't in the list!\n");
 												sleep();
-												delete_several_lines(1);
+												cls_title();
 											}
+											
 											
 											break;
 										default:
@@ -3100,21 +3114,24 @@ int main()
 
 									//user
 								case 2:
-									u_current = u_head;
-									int count_1 = 0;
-									printf("User:\n");
-									while (u_current != NULL)
-									{
-										printf("        --------------------------------------------\n");
-										printf("\t%s\n", u_current->name);
-										count_1++;
-										u_current = u_current->next;
-									}
 									
-									printf("        --------------------------------------------\n");
-									printf("Total number:%d\n\n", count_1);
 									for (int flag_3 = 1; flag_3 != 0;)
 									{
+										u_current = u_head;
+										int count_1 = 0;
+										printf("User:\n");
+										while (u_current != NULL)
+										{
+											printf("        --------------------------------------------\n");
+											printf("\t%s\n", u_current->name);
+											count_1++;
+											u_current = u_current->next;
+										}
+
+										printf("        --------------------------------------------\n");
+										printf("Total number:%d\n\n", count_1);
+										
+										
 										main_menu_Administrator_3();
 										int t_3 = 0;
                                         fflush(stdout);
@@ -3134,21 +3151,33 @@ int main()
                                             fflush(stdout);
 											scanf("%s", name);
 											u_current = find_u(u_head, name);
-											if (delete_specific_user(&(u_current), &(u_head), &(u_tail)))
+
+											if (u_current != NULL)
 											{
-												count_1--;
-												delete_several_lines(2);
-												printf("The User has been successfully deleted.\n");
-												sleep();
-												delete_several_lines(1);
+												if (delete_specific_user(&(u_current), &(u_head), &(u_tail)))
+												{
+													count_1--;
+													delete_several_lines(2);
+													printf("The User has been successfully deleted.\n");
+													sleep();
+													cls_title();
+												}
+												else
+												{
+													delete_several_lines(2);
+													printf("The User deleted error!\n");
+													sleep();
+													cls_title();
+												}
 											}
 											else
 											{
 												delete_several_lines(2);
-												printf("The User deleted error!\n");
+												printf("The User isn't in the list!\n");
 												sleep();
-												delete_several_lines(1);
+												cls_title();
 											}
+											
 											break;
 										default:
 											illegal_number();
@@ -3161,21 +3190,24 @@ int main()
 									//deliver person
 								case 3:
 									
-									d_current = d_head;
-									int count_2 = 0;
-									printf("Deliver Person:\n");
-									while (d_current != NULL)
-									{
-										printf("        --------------------------------------------\n");
-										printf("\t%s\n", d_current->name);
-										count_2++;
-										d_current = d_current->next;
-									}
 									
-									printf("        --------------------------------------------\n");
-									printf("Total number:%d", count_2);
 									for (int flag_3 = 1; flag_3 != 0;)
 									{
+										d_current = d_head;
+										int count_2 = 0;
+										printf("Deliver Person:\n");
+										while (d_current != NULL)
+										{
+											printf("        --------------------------------------------\n");
+											printf("\t%s\n", d_current->name);
+											count_2++;
+											d_current = d_current->next;
+										}
+
+										printf("        --------------------------------------------\n");
+										printf("Total number:%d", count_2);
+										
+										
 										main_menu_Administrator_4();
 										int t_3 = 0;
                                         fflush(stdout);
@@ -3195,21 +3227,32 @@ int main()
                                             fflush(stdout);
 											scanf("%s", name);
 											d_current = find_d(d_head, name);
-											if (delete_specific_deliverperson(&(d_current), &(d_head), &(d_tail)))
+											if (d_current != NULL)
 											{
-												count_2--;
-												delete_several_lines(2);
-												printf("The Deliverperson has been successfully deleted.\n");
-												sleep();
-												delete_several_lines(1);
+												if (delete_specific_deliverperson(&(d_current), &(d_head), &(d_tail)))
+												{
+													count_2--;
+													delete_several_lines(2);
+													printf("The Deliverperson has been successfully deleted.\n");
+													sleep();
+													cls_title();
+												}
+												else
+												{
+													delete_several_lines(2);
+													printf("The Deliverperson deleted error!\n");
+													sleep();
+													cls_title();
+												}
 											}
 											else
 											{
 												delete_several_lines(2);
-												printf("The Deliverperson deleted error!\n");
+												printf("The Deliverperson isn't in the list!\n");
 												sleep();
-												delete_several_lines(1);
+												cls_title();
 											}
+											
 											break;
 										default:
 											illegal_number();
