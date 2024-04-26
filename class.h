@@ -290,6 +290,8 @@ bool delete_specific_r_class(struct r_classify** current, struct r_classify** he
 bool delete_specific_recipe(struct recipe** current, struct recipe** head, struct recipe** tail);
 bool delete_specific_order(struct order** current, struct order** head, struct order** tail);
 bool delete_specific_merchant(struct Merchant** current, struct Merchant** head, struct Merchant** tail);
+bool delete_specific_user(struct User** current, struct  User** head, struct  User** tail);
+bool delete_specific_deliverperson(struct DeliveryPerson** current, struct  DeliveryPerson** head, struct  DeliveryPerson** tail);
 
 //delete node by tree
 bool delete_recipe_name(struct t_recipe** root, char* name, struct recipe** head, struct recipe** tail);

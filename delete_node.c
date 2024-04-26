@@ -138,3 +138,71 @@ bool delete_specific_merchant(struct Merchant** current, struct  Merchant** head
     return true;
 }
 
+bool delete_specific_user(struct User** current, struct  User** head, struct  User** tail)
+{
+    if ((*current)->prev == NULL && (*current)->next != NULL)
+    {
+        *head = (*current)->next;
+        (*current)->next->prev = NULL;
+        (*current)->next = NULL;
+        (*current)->prev = NULL;
+    }
+    else if ((*current)->next == NULL && (*current)->prev != NULL)
+    {
+        (*current)->prev->next = NULL;
+        *tail = (*current)->prev;
+        (*current)->prev = NULL;
+        (*current)->next = NULL;
+    }
+    else if ((*current)->prev == NULL && (*current)->next == NULL)
+    {
+        *head = NULL;
+        *tail = NULL;
+        (*current)->prev = NULL;
+        (*current)->next = NULL;
+    }
+    else
+    {
+        (*current)->prev->next = (*current)->next;
+        (*current)->next->prev = (*current)->prev;
+        (*current)->prev = NULL;
+        (*current)->next = NULL;
+    }
+    free(*current);
+    return true;
+}
+
+bool delete_specific_deliverperson(struct DeliveryPerson** current, struct  DeliveryPerson** head, struct  DeliveryPerson** tail)
+{
+    if ((*current)->prev == NULL && (*current)->next != NULL)
+    {
+        *head = (*current)->next;
+        (*current)->next->prev = NULL;
+        (*current)->next = NULL;
+        (*current)->prev = NULL;
+    }
+    else if ((*current)->next == NULL && (*current)->prev != NULL)
+    {
+        (*current)->prev->next = NULL;
+        *tail = (*current)->prev;
+        (*current)->prev = NULL;
+        (*current)->next = NULL;
+    }
+    else if ((*current)->prev == NULL && (*current)->next == NULL)
+    {
+        *head = NULL;
+        *tail = NULL;
+        (*current)->prev = NULL;
+        (*current)->next = NULL;
+    }
+    else
+    {
+        (*current)->prev->next = (*current)->next;
+        (*current)->next->prev = (*current)->prev;
+        (*current)->prev = NULL;
+        (*current)->next = NULL;
+    }
+    free(*current);
+    return true;
+}
+

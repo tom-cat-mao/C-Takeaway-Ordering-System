@@ -3066,12 +3066,23 @@ int main()
 											char name[100];
                                             fflush(stdout);
 											scanf("%s", name);
-											delete_merchant(m_head, name);
-											count--;
-											delete_several_lines(2);
-											printf("The Merchant has been successfully deleted.\n");
-											sleep();
-											delete_several_lines(1);
+											m_current = find_m(m_head, name);
+											if (delete_specific_merchant(&(m_current), &(m_head), &(m_tail)))
+											{
+												count--;
+												delete_several_lines(2);
+												printf("The Merchant has been successfully deleted.\n");
+												sleep();
+												delete_several_lines(1);
+											}
+											else
+											{
+												delete_several_lines(2);
+												printf("The Merchant deleted error!\n");
+												sleep();
+												delete_several_lines(1);
+											}
+											
 											break;
 										default:
 											illegal_number();
@@ -3116,12 +3127,22 @@ int main()
 											char name[100] = { '\0' };
                                             fflush(stdout);
 											scanf("%s", name);
-											delete_user(u_head, name);
-											count--;
-											delete_several_lines(2);
-											printf("The User has been successfully deleted.\n");
-											sleep();
-											delete_several_lines(1);
+											u_current = find_u(u_head, name);
+											if (delete_specific_user(&(u_current), &(u_head), &(u_tail)))
+											{
+												count_1--;
+												delete_several_lines(2);
+												printf("The User has been successfully deleted.\n");
+												sleep();
+												delete_several_lines(1);
+											}
+											else
+											{
+												delete_several_lines(2);
+												printf("The User deleted error!\n");
+												sleep();
+												delete_several_lines(1);
+											}
 											break;
 										default:
 											illegal_number();
@@ -3167,12 +3188,22 @@ int main()
 											char name[100] = { '\0' };
                                             fflush(stdout);
 											scanf("%s", name);
-											delete_delivery_person(d_head, name);
-											count--;
-											delete_several_lines(2);
-											printf("The Deliver Person has been successfully deleted.\n");
-											sleep();
-											delete_several_lines(1);
+											d_current = find_d(d_head, name);
+											if (delete_specific_deliverperson(&(d_current), &(d_head), &(d_tail)))
+											{
+												count_2--;
+												delete_several_lines(2);
+												printf("The Deliverperson has been successfully deleted.\n");
+												sleep();
+												delete_several_lines(1);
+											}
+											else
+											{
+												delete_several_lines(2);
+												printf("The Deliverperson deleted error!\n");
+												sleep();
+												delete_several_lines(1);
+											}
 											break;
 										default:
 											illegal_number();
