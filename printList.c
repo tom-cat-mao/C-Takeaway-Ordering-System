@@ -436,9 +436,13 @@ void return_continue()
     printf("|   0.Return             |   1.Continue            |\n");
     print_ChooseNumber(0, 1);
 }
-void y_n()
+void y_n_recipe()
 {
     printf("Y(Yes) or N(No) for choose this recipe:\n");
+}
+void y_n_order()
+{
+    printf("Y(Yes) or N(No) for choose this order:\n");
 }
 void distribute_DP()
 {

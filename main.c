@@ -535,7 +535,7 @@ int main()
 																				//print
 																				print_current_recipe(r_current);
 																				char j;
-																				y_n();
+																				y_n_recipe();
 																				getchar();
 																				fflush(stdout);
 																				scanf("%c", &j);//2
@@ -609,7 +609,7 @@ int main()
 																				{
 																					//print
 																					char j;
-																					y_n();
+																					y_n_recipe();
 																					getchar();
 																					fflush(stdout);
 																					scanf("%c", &j);
@@ -1232,7 +1232,7 @@ int main()
 												{
 													if (o_current->s != WAY)
 													{
-														y_n();
+														y_n_order();
 														getchar();
 														char j;
 														fflush(stdout);
