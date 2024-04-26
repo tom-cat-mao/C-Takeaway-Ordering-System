@@ -2414,7 +2414,7 @@ int main()
 										illegal_number();
 										break;
 									}
-								}d
+								}
 								break;
 
 								//password change
