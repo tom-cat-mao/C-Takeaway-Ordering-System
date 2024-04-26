@@ -762,6 +762,7 @@ int main()
 																			output_recipe_high_to_low(m_current->r_head, min_price, max_price);
 																			for (int flag_8 = 1; flag_8 != 0;)
 																			{
+																				
 																				printf("Whether you want to order any recipe?\n");
 																				return_continue();
 																				fflush(stdout);
@@ -799,7 +800,7 @@ int main()
 																					{
 																						printf("We don't have the recipe you want\n");
 																						sleep();
-																						delete_several_lines(1);
+																						delete_several_lines(3);
 																						fflush(stdout);
 																					}
 																					
@@ -815,6 +816,7 @@ int main()
 																			output_recipe_low_to_high(m_current->r_head, min_price, max_price);
 																			for (int flag_8 = 1; flag_8 != 0;)
 																			{
+																				
 																				printf("Whether you want to order any recipe?\n");
 																				return_continue();
 																				fflush(stdout);
@@ -852,7 +854,7 @@ int main()
 																					{
 																						printf("We don't have the recipe you want\n");
 																						sleep();
-																						delete_several_lines(1);
+																						delete_several_lines(3);
 																						fflush(stdout);
 																					}
 																					break;
