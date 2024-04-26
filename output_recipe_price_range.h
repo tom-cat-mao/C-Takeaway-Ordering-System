@@ -77,7 +77,7 @@ void output_recipe_high_to_low(struct r_classify* r_classify_head, float min_pri
 
             struct recipe* temp = current_recipe;
             current_recipe = current_recipe->next;
-            free(temp);
+            //free(temp);
             if (current_recipe != NULL)
             {
                 printf("        --------------------------------------------\n");
@@ -160,7 +160,7 @@ void output_recipe_low_to_high(struct r_classify* r_classify_head, float min_pri
 
             struct recipe* temp = current_recipe;
             current_recipe = current_recipe->next;
-            free(temp);
+            //free(temp);
             if (current_recipe != NULL)
             {
                 printf("        --------------------------------------------\n");
