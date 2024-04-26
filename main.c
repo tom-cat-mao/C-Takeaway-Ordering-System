@@ -3067,21 +3067,32 @@ int main()
                                             fflush(stdout);
 											scanf("%s", name);
 											m_current = find_m(m_head, name);
-											if (delete_specific_merchant(&(m_current), &(m_head), &(m_tail)))
+											if (m_current != NULL)
 											{
-												count--;
-												delete_several_lines(2);
-												printf("The Merchant has been successfully deleted.\n");
-												sleep();
-												delete_several_lines(1);
+												if (delete_specific_merchant(&(m_current), &(m_head), &(m_tail)))
+												{
+													count--;
+													delete_several_lines(2);
+													printf("The Merchant has been successfully deleted.\n");
+													sleep();
+													delete_several_lines(1);
+												}
+												else
+												{
+													delete_several_lines(2);
+													printf("The Merchant deleted error!\n");
+													sleep();
+													delete_several_lines(1);
+												}
 											}
 											else
 											{
 												delete_several_lines(2);
-												printf("The Merchant deleted error!\n");
+												printf("The Merchant isn't in the list!\n");
 												sleep();
 												delete_several_lines(1);
 											}
+											
 											
 											break;
 										default:
@@ -3128,21 +3139,33 @@ int main()
                                             fflush(stdout);
 											scanf("%s", name);
 											u_current = find_u(u_head, name);
-											if (delete_specific_user(&(u_current), &(u_head), &(u_tail)))
+
+											if (u_current != NULL)
 											{
-												count_1--;
-												delete_several_lines(2);
-												printf("The User has been successfully deleted.\n");
-												sleep();
-												delete_several_lines(1);
+												if (delete_specific_user(&(u_current), &(u_head), &(u_tail)))
+												{
+													count_1--;
+													delete_several_lines(2);
+													printf("The User has been successfully deleted.\n");
+													sleep();
+													delete_several_lines(1);
+												}
+												else
+												{
+													delete_several_lines(2);
+													printf("The User deleted error!\n");
+													sleep();
+													delete_several_lines(1);
+												}
 											}
 											else
 											{
 												delete_several_lines(2);
-												printf("The User deleted error!\n");
+												printf("The User isn't in the list!\n");
 												sleep();
 												delete_several_lines(1);
 											}
+											
 											break;
 										default:
 											illegal_number();
@@ -3189,21 +3212,32 @@ int main()
                                             fflush(stdout);
 											scanf("%s", name);
 											d_current = find_d(d_head, name);
-											if (delete_specific_deliverperson(&(d_current), &(d_head), &(d_tail)))
+											if (d_current != NULL)
 											{
-												count_2--;
-												delete_several_lines(2);
-												printf("The Deliverperson has been successfully deleted.\n");
-												sleep();
-												delete_several_lines(1);
+												if (delete_specific_deliverperson(&(d_current), &(d_head), &(d_tail)))
+												{
+													count_2--;
+													delete_several_lines(2);
+													printf("The Deliverperson has been successfully deleted.\n");
+													sleep();
+													delete_several_lines(1);
+												}
+												else
+												{
+													delete_several_lines(2);
+													printf("The Deliverperson deleted error!\n");
+													sleep();
+													delete_several_lines(1);
+												}
 											}
 											else
 											{
 												delete_several_lines(2);
-												printf("The Deliverperson deleted error!\n");
+												printf("The Deliverperson isn't in the list!\n");
 												sleep();
 												delete_several_lines(1);
 											}
+											
 											break;
 										default:
 											illegal_number();
