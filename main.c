@@ -536,6 +536,7 @@ int main()
 																				print_current_recipe(r_current);
 																				char j;
 																				y_n();
+																				getchar();
 																				fflush(stdout);
 																				scanf("%c", &j);//2
 																				if (j == 'Y')
