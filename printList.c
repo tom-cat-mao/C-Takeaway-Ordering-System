@@ -72,7 +72,7 @@ void printList_r_classify(struct r_classify* head)
     while (head != NULL)
     {
         colour(6);
-        printf("Class:%s\n", head->name);
+        printf("Class:%s\tDishes Number:%d\n", head->name,head->total_number);
         colour(7);
         if (head->r_head == NULL)
         {
