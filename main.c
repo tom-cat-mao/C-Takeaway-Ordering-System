@@ -1230,26 +1230,37 @@ int main()
 												o_current = search_order_id(u_current->t_o_head, o_id);
 												if (o_current != NULL)
 												{
-													y_n();
-													getchar();
-													char j;
-													fflush(stdout);
-													scanf("%c", &j);
-													delete_several_lines(4);
-													switch (j)
+													if (o_current->s != WAY)
 													{
-													case 'Y':
-														o_current->s = CANCEL;
-														Synchronization_o_s_for_u(o_current, m_head, d_head);
-														d_current = find_d(d_head, o_current->d_name);
-														d_current->s = FREE;
-														break;
-													case 'N':
-														break;
-													default:
-														illegal_number();
-														break;
+														y_n();
+														getchar();
+														char j;
+														fflush(stdout);
+														scanf("%c", &j);
+														delete_several_lines(4);
+														switch (j)
+														{
+														case 'Y':
+															o_current->s = CANCEL;
+															Synchronization_o_s_for_u(o_current, m_head, d_head);
+															d_current = find_d(d_head, o_current->d_name);
+															d_current->s = FREE;
+															break;
+														case 'N':
+															break;
+														default:
+															illegal_number();
+															break;
+														}
 													}
+													else
+													{
+														printf("You can't cancel the order,your order is on the way!\n");
+														sleep();
+														delete_several_lines(1);
+														fflush(stdout);
+													}
+													
 												}
 												else
 												{
