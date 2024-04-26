@@ -319,4 +319,7 @@ bool duplicate_name_d(struct Password_d* head, char* name);
 //set order id
 void generateRandomString(char* str);
 
+//check whether the input is an intger
+bool isInteger(char* str);
+
 #endif

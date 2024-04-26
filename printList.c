@@ -318,7 +318,7 @@ void delete_several_lines(int numlines)
 void illegal_number()//"wrong choice"  illegal_number();
 {
     colour(12);
-    printf("The number you enter is illegal!\n");
+    printf("Your input is illegal!\n");
     colour(7);
     printf("Press Enter to continue.\n");
     getchar();
