@@ -6,6 +6,7 @@
 			[
 				{
 					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.12"
@@ -48,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/sunqf/Desktop/C课程设计/C-/out/build/x64-Debug",
-		"source" : "C:/Users/sunqf/Desktop/C课程设计/C-"
+		"build" : "D:/C-/out/build/x64-Debug",
+		"source" : "D:/C-"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 2
+		"minor" : 6
 	}
 }
