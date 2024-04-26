@@ -1238,9 +1238,6 @@ bool read_order_list(struct order** head, struct order** current, struct t_order
             (*current)->next = newNode;
             newNode->prev = *current;
             *current = (*current)->next;
-            (*current)->next = NULL;
-            (*current)->r_head = NULL;
-            (*current)->r_tail = NULL;
         }
 
         // close file
