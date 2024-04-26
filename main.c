@@ -651,86 +651,102 @@ int main()
 
 																								//combination inquiry
 																							case 2:
-																								for (int flag_7 = 1; flag_7 != 0;)
-																								{
-																									return_continue();
-																									fflush(stdout);
-																									char input_7[100] = { '0' };
-																									scanf("%s", input_7);
-																									if (isInteger(input_7))
-																									{
-																										int t_7 = atoi(input_7);
+																								for (int flag_7 = 1; flag_7 != 0;) {
+                                                                                                    return_continue();
+                                                                                                    fflush(stdout);
+                                                                                                    char input_7[100] = {
+                                                                                                            '0'};
+                                                                                                    scanf("%s",
+                                                                                                          input_7);
+                                                                                                    if (isInteger(
+                                                                                                            input_7)) {
+                                                                                                        int t_7 = atoi(
+                                                                                                                input_7);
 
-																										delete_several_lines(4);
-																										switch (t_7)
-																										{
-																											//return
-																										case 0:
-																											flag_7 = 0;
-																											break;
+                                                                                                        delete_several_lines(
+                                                                                                                4);
+                                                                                                        switch (t_7) {
+                                                                                                            //return
+                                                                                                            case 0:
+                                                                                                                flag_7 = 0;
+                                                                                                                break;
 
-																											//continue
-																										case 1:
-																											char rc_name[100] = { '\0' };
-																											char r_name[100] = { '\0' };
-																											printf("Please enter the r_class and the rcipe you want to search:\n");
-																											fflush(stdout);
-																											scanf("%s", rc_name);
-																											scanf("%s", r_name);
-																											delete_several_lines(3);
+                                                                                                                //continue
+                                                                                                            case 1:
+                                                                                                                char rc_name[100] = {
+                                                                                                                        '\0'};
+                                                                                                                char r_name[100] = {
+                                                                                                                        '\0'};
+                                                                                                                printf("Please enter the r_class and the rcipe you want to search:\n");
+                                                                                                                fflush(stdout);
+                                                                                                                scanf("%s",
+                                                                                                                      rc_name);
+                                                                                                                scanf("%s",
+                                                                                                                      r_name);
+                                                                                                                delete_several_lines(
+                                                                                                                        3);
 
-																											rc_current = find_r_classify(m_current, rc_name);
-																											if (rc_current == NULL)
-																											{
-																												printf("We don't have the class you want!\n");
-																												fflush(stdout);
-																												sleep();
-																												delete_several_lines(1);
-																											}
-																											else
-																											{
-																												r_current = find_recipe_by_list(rc_current, r_name);
-																												if (r_current == NULL)
-																												{
-																													printf("We don't have the recipe you search\n");
-																													fflush(stdout);
-																													sleep();
-																													delete_several_lines(1);
-																												}
-																												else
-																												{
-																													//print
-																													char j;
-																													y_n_recipe();
-																													getchar();
-																													fflush(stdout);
-																													scanf("%c", &j);
-																													delete_several_lines(2);
-																													if (j == 'Y')
-																													{
-																														judge = 1;
-																														printf("Pleae enter the number you want:\n");
-																														fflush(stdout);
-																														int n = 0;
-																														scanf("%d", &n);
-																														delete_several_lines(2);
-																														r_current = creatList_recipe_1(r_current->name, r_current->price, n);
-																														insertEnd_r(&r_head, &r_tail, r_current);
-																													}
-																												}
-																											}
-																											break;
-																										default:
-																											illegal_number();
-																											break;
-																										}
-																									}
-																									}
-																									else
-																									{
-																										illegal_number();
-																									}
-																									
+                                                                                                                rc_current = find_r_classify(
+                                                                                                                        m_current,
+                                                                                                                        rc_name);
+                                                                                                                if (rc_current ==
+                                                                                                                    NULL) {
+                                                                                                                    printf("We don't have the class you want!\n");
+                                                                                                                    fflush(stdout);
+                                                                                                                    sleep();
+                                                                                                                    delete_several_lines(
+                                                                                                                            1);
+                                                                                                                } else {
+                                                                                                                    r_current = find_recipe_by_list(
+                                                                                                                            rc_current,
+                                                                                                                            r_name);
+                                                                                                                    if (r_current ==
+                                                                                                                        NULL) {
+                                                                                                                        printf("We don't have the recipe you search\n");
+                                                                                                                        fflush(stdout);
+                                                                                                                        sleep();
+                                                                                                                        delete_several_lines(
+                                                                                                                                1);
+                                                                                                                    } else {
+                                                                                                                        //print
+                                                                                                                        char j;
+                                                                                                                        y_n_recipe();
+                                                                                                                        getchar();
+                                                                                                                        fflush(stdout);
+                                                                                                                        scanf("%c",
+                                                                                                                              &j);
+                                                                                                                        delete_several_lines(
+                                                                                                                                2);
+                                                                                                                        if (j ==
+                                                                                                                            'Y') {
+                                                                                                                            judge = 1;
+                                                                                                                            printf("Pleae enter the number you want:\n");
+                                                                                                                            fflush(stdout);
+                                                                                                                            int n = 0;
+                                                                                                                            scanf("%d",
+                                                                                                                                  &n);
+                                                                                                                            delete_several_lines(
+                                                                                                                                    2);
+                                                                                                                            r_current = creatList_recipe_1(
+                                                                                                                                    r_current->name,
+                                                                                                                                    r_current->price,
+                                                                                                                                    n);
+                                                                                                                            insertEnd_r(
+                                                                                                                                    &r_head,
+                                                                                                                                    &r_tail,
+                                                                                                                                    r_current);
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }
+                                                                                                                break;
+                                                                                                            default:
+                                                                                                                illegal_number();
+                                                                                                                break;
+                                                                                                        }
+                                                                                                    } else {
+                                                                                                        illegal_number();
+                                                                                                    }
+                                                                                                }
 
 																								break;
 																							default:
@@ -966,7 +982,7 @@ int main()
 																												scanf("%s", input_8);
 																												if (isInteger(input_8))
 																												{
-																													int t_8 = atoi(t_8);
+																													int t_8 = atoi(input_8);
 
 																													delete_several_lines(4);
 																													switch (t_8)
@@ -1699,7 +1715,7 @@ int main()
 							break;
 						}
 					}
-					}
+
 					else
 					{
 						illegal_number();

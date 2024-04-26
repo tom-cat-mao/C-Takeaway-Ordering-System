@@ -31,6 +31,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MyProject.dir/get_back_p.c.obj.d"
   "CMakeFiles/MyProject.dir/insertTree.c.obj"
   "CMakeFiles/MyProject.dir/insertTree.c.obj.d"
+  "CMakeFiles/MyProject.dir/isInteger.c.obj"
+  "CMakeFiles/MyProject.dir/isInteger.c.obj.d"
   "CMakeFiles/MyProject.dir/main.c.obj"
   "CMakeFiles/MyProject.dir/main.c.obj.d"
   "CMakeFiles/MyProject.dir/name_a_pass.c.obj"

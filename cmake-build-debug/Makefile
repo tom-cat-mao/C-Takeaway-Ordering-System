@@ -512,6 +512,30 @@ insertTree.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/insertTree.c.s
 .PHONY : insertTree.c.s
 
+isInteger.obj: isInteger.c.obj
+.PHONY : isInteger.obj
+
+# target to build an object file
+isInteger.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/isInteger.c.obj
+.PHONY : isInteger.c.obj
+
+isInteger.i: isInteger.c.i
+.PHONY : isInteger.i
+
+# target to preprocess a source file
+isInteger.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/isInteger.c.i
+.PHONY : isInteger.c.i
+
+isInteger.s: isInteger.c.s
+.PHONY : isInteger.s
+
+# target to generate assembly for a file
+isInteger.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MyProject.dir\build.make CMakeFiles/MyProject.dir/isInteger.c.s
+.PHONY : isInteger.c.s
+
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -785,6 +809,9 @@ help:
 	@echo ... insertTree.obj
 	@echo ... insertTree.i
 	@echo ... insertTree.s
+	@echo ... isInteger.obj
+	@echo ... isInteger.i
+	@echo ... isInteger.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
