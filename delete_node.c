@@ -20,6 +20,8 @@ bool delete_specific_r_class(struct r_classify** current, struct  r_classify** h
     }
     else if ((*current)->prev == NULL && (*current)->next == NULL)
     {
+        *head = NULL;
+        *tail = NULL;
         (*current)->prev = NULL;
         (*current)->next = NULL;
     }
@@ -52,6 +54,8 @@ bool delete_specific_recipe(struct recipe** current, struct recipe** head, struc
     }
     else if ((*current)->prev == NULL && (*current)->next == NULL)
     {
+        *head = NULL;
+        *tail = NULL;
         (*current)->prev = NULL;
         (*current)->next = NULL;
     }
@@ -84,6 +88,8 @@ bool delete_specific_order(struct order** current, struct  order** head, struct 
     }
     else if ((*current)->prev == NULL && (*current)->next == NULL)
     {
+        *head = NULL;
+        *tail = NULL;
         (*current)->prev = NULL;
         (*current)->next = NULL;
     }
@@ -116,6 +122,8 @@ bool delete_specific_merchant(struct Merchant** current, struct  Merchant** head
     }
     else if ((*current)->prev == NULL && (*current)->next == NULL)
     {
+        *head = NULL;
+        *tail = NULL;
         (*current)->prev = NULL;
         (*current)->next = NULL;
     }
