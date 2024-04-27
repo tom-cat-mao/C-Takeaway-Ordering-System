@@ -30,4 +30,8 @@ CMakeFiles/MyProject.dir/name_a_pass.c.obj: D:\Cproject\C-\name_a_pass.c \
  D:/Clion/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/_timeval.h \
  D:/Clion/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/pthread_time.h \
  D:/Clion/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/ctype.h \
- D:\Cproject\C-\classTree.h
+ D:\Cproject\C-\classTree.h \
+ D:/Clion/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/conio.h \
+ D:/Clion/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h \
+ D:/Clion/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
+ D:/Clion/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/sec_api/conio_s.h
