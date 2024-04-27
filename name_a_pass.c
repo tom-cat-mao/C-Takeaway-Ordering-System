@@ -1,5 +1,6 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include "class.h"
+#include <conio.h>
 
 //write the password into the file
 
@@ -341,11 +342,35 @@ bool compare_m(struct Password_m* head, char* n, struct Password_m** p_current)
             printf("Please input your password:\n");
             fflush(stdout);
             char p[100] = { '\0' };
-            scanf("%s", p);
+            char ch;
+            int j;
+            j = 0;
+            while (1)
+            {
+                ch = getch();
+
+                if (ch == '\r')
+                {
+                    p[j] = '\0';
+                    break;
+                }
+                else if (ch == '\b' && j > 0)
+                {
+                    printf("\b \b");
+                    j--;
+                }
+                else
+                {
+                    printf("*");
+                    p[j] = ch;
+                    j++;
+                }
+            }
             if (strcmp(current->password, p) == 0)
             {
                 return true;
             }
+            printf("\n");
         }
         if (i == 5)
         {
@@ -384,12 +409,36 @@ bool compare_u(struct Password_u* head, char* n, struct Password_u** p_current)
         for (i = 0; i < 5; i++)
         {
             printf("Please input your password:\n");
-            char p[100] = { '\0' };
-            scanf("%s", p);
+            char p[100] = {'\0'};
+            char ch;
+            int j;
+            j = 0;
+            while (1)
+            {
+                ch = getch();
+
+                if (ch == '\r')
+                {
+                    p[j] = '\0';
+                    break;
+                }
+                else if (ch == '\b' && j > 0)
+                {
+                    printf("\b \b");
+                    j--;
+                }
+                else
+                {
+                    printf("*");
+                    p[j] = ch;
+                    j++;
+                }
+            }
             if (strcmp(current->password, p) == 0)
             {
                 return true;
             }
+            printf("\n");
         }
         if (i == 5)
         {
@@ -429,11 +478,35 @@ bool compare_d(struct Password_d* head, char* n, struct Password_d** p_current)
         {
             printf("Please input your password:\n");
             char p[100] = { '\0' };
-            scanf("%s", p);
+            char ch;
+            int j;
+            j = 0;
+            while (1)
+            {
+                ch = getch();
+
+                if (ch == '\r')
+                {
+                    p[j] = '\0';
+                    break;
+                }
+                else if (ch == '\b' && j > 0)
+                {
+                    printf("\b \b");
+                    j--;
+                }
+                else
+                {
+                    printf("*");
+                    p[j] = ch;
+                    j++;
+                }
+            }
             if (strcmp(current->password, p) == 0)
             {
                 return true;
             }
+            printf("\n");
         }
         if (i == 5)
         {

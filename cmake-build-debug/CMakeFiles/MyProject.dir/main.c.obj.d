@@ -224,4 +224,6 @@ CMakeFiles/MyProject.dir/main.c.obj: D:\Cproject\C-\main.c \
  D:\Cproject\C-\wordcolour.h D:\Cproject\C-\mergeSortOrder.h \
  D:\Cproject\C-\mergeSortRecipe.h \
  D:\Cproject\C-\output_recipe_price_range.h D:\Cproject\C-\sale_recipe.h \
- D:\Cproject\C-\delete_folder.h
+ D:\Cproject\C-\delete_folder.h \
+ D:/Clion/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/conio.h \
+ D:/Clion/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/sec_api/conio_s.h
