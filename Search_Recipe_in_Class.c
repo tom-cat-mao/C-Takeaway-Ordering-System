@@ -4,7 +4,7 @@
 //find recipe by list
 struct recipe* find_recipe_by_list(struct r_classify* head, char* name)
 {
-	int flag = 0;
+	int flag = 1;
 
 	struct recipe* current = head->r_head;
 	while (current != NULL)
