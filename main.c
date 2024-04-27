@@ -1183,14 +1183,22 @@ int main()
 															if (judge == 1)
 															{
 																d_current = find_free_d(d_head);
-																d_current->s = BUSY;
+                                                                if(d_current!=NULL)
+                                                                {
+                                                                    d_current->s=BUSY;
+                                                                }
+
 																o_current = creatList_order(m_current, u_current, d_current);
 																o_current->r_head = r_head;
 																o_current->r_tail = r_tail;
 																sumPrice(o_current, o_current->r_head, u_current->c, discount);
 																insertEnd_o(&(u_current->o_head), &(u_current->o_tail), o_current);
 																insertEnd_o(&(m_current->o_head), &(m_current->o_tail), o_current);
-																insertEnd_o(&(d_current->o_head), &(d_current->o_tail), o_current);
+                                                                if(d_current!=NULL)
+                                                                {
+                                                                    insertEnd_o(&(d_current->o_head), &(d_current->o_tail), o_current);
+                                                                }
+
 																insertTree_order_id(&(u_current->t_o_head), o_current);
 																insertTree_order_id(&(m_current->t_o_head), o_current);
 															}
@@ -2894,6 +2902,7 @@ int main()
 													strcpy(o_current->d_name, d_current->name);
 													strcpy(o_current->d_phone, d_current->phone);
 													Synchronization_o_d_for_m(o_current, d_head, u_head);
+                                                    insertEnd_o(&(d_current->o_head),&(d_current->o_tail),o_current);
 													break;
 												default:
 													illegal_number();
