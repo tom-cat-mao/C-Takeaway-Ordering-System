@@ -4,14 +4,14 @@
 //find recipe by list
 struct recipe* find_recipe_by_list(struct r_classify* head, char* name)
 {
-	int flag = 1;
+	int flag = 0;
 
 	struct recipe* current = head->r_head;
 	while (current != NULL)
 	{
 		if (strcmp(current->name, name) == 0)
 		{
-			flag = 0;
+			flag = 1;
 			break;
 		}
 		current = current->next;
